@@ -1,12 +1,10 @@
 <?php
 
-$allowedMimeTypesBySuffix = array(
+$allowedMimeTypesBySuffix = [
     'svg' => 'image/svg+xml;charset=UTF-8',
     'png' => 'image/png',
     'jpeg' => 'image/jpeg',
     'bmp' => 'image/bmp',
     'webp' => 'image/webp',
-	'pdf' => 'application/pdf'
-);
-
-?>
+    'pdf' => 'application/pdf'
+];

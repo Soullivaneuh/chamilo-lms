@@ -7214,4 +7214,3 @@ $DataTableSearch = "Bilatu";
 $HideColumn = "Ezkutatu zutabea";
 $DisplayColumn = "Erakutsi zutabea";
 $LegalAgreementAccepted = "Lege hitzarmena onartu da";
-?>

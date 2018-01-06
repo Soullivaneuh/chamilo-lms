@@ -1,10 +1,10 @@
 <?php
 // $Id: x14.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array(NULL, 'e', 'aai', 'i', 'ii', 'o', 'oo', 'oo', 'ee', 'i', 'a', 'aa', 'we', 'we', 'wi', 'wi',
+return [
+  'en' => [null, 'e', 'aai', 'i', 'ii', 'o', 'oo', 'oo', 'ee', 'i', 'a', 'aa', 'we', 'we', 'wi', 'wi',
     'wii', 'wii', 'wo', 'wo', 'woo', 'woo', 'woo', 'wa', 'wa', 'waa', 'waa', 'waa', 'ai', 'w', '\'', 't',
-    'k', 'sh', 's', 'n', 'w', 'n', NULL, 'w', 'c', '?', 'l', 'en', 'in', 'on', 'an', 'pe',
+    'k', 'sh', 's', 'n', 'w', 'n', null, 'w', 'c', '?', 'l', 'en', 'in', 'on', 'an', 'pe',
     'paai', 'pi', 'pii', 'po', 'poo', 'poo', 'hee', 'hi', 'pa', 'paa', 'pwe', 'pwe', 'pwi', 'pwi', 'pwii', 'pwii',
     'pwo', 'pwo', 'pwoo', 'pwoo', 'pwa', 'pwa', 'pwaa', 'pwaa', 'pwaa', 'p', 'p', 'h', 'te', 'taai', 'ti', 'tii',
     'to', 'too', 'too', 'dee', 'di', 'ta', 'taa', 'twe', 'twe', 'twi', 'twi', 'twii', 'twii', 'two', 'two', 'twoo',
@@ -17,5 +17,5 @@ return array(
     'ne', 'naai', 'ni', 'nii', 'no', 'noo', 'noo', 'na', 'naa', 'nwe', 'nwe', 'nwa', 'nwa', 'nwaa', 'nwaa', 'nwaa',
     'n', 'ng', 'nh', 'le', 'laai', 'li', 'lii', 'lo', 'loo', 'loo', 'la', 'laa', 'lwe', 'lwe', 'lwi', 'lwi',
     'lwii', 'lwii', 'lwo', 'lwo', 'lwoo', 'lwoo', 'lwa', 'lwa', 'lwaa', 'lwaa', 'l', 'l', 'l', 'se', 'saai', 'si',
-    'sii', 'so', 'soo', 'soo', 'sa', 'saa', 'swe', 'swe', 'swi', 'swi', 'swii', 'swii', 'swo', 'swo', 'swoo', 'swoo'),
-);
+    'sii', 'so', 'soo', 'soo', 'sa', 'saa', 'swe', 'swe', 'swi', 'swi', 'swii', 'swii', 'swo', 'swo', 'swoo', 'swoo'],
+];

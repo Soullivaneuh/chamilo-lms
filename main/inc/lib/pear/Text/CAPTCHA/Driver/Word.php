@@ -62,7 +62,7 @@ class Text_CAPTCHA_Driver_Word extends Text_CAPTCHA_Driver_Base
      *
      * @return void
      */
-    public function initDriver($options = array())
+    public function initDriver($options = [])
     {
         if (isset($options['length']) && is_int($options['length'])) {
             $this->_length = $options['length'];
@@ -97,7 +97,9 @@ class Text_CAPTCHA_Driver_Word extends Text_CAPTCHA_Driver_Base
         $phrase = new Text_Password();
         $this->setPhrase(
             $phrase->create(
-                $this->_length, 'unpronounceable', 'numeric'
+                $this->_length,
+                'unpronounceable',
+                'numeric'
             )
         );
     }

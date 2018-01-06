@@ -1,8 +1,8 @@
 <?php
 // $Id: x7d.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Ji ', 'Cha ', 'Zhou ', 'Xun ', 'Yue ', 'Hong ', 'Yu ', 'He ', 'Wan ', 'Ren ', 'Wen ', 'Wen ', 'Qiu ', 'Na ', 'Zi ', 'Tou ',
+return [
+  'en' => ['Ji ', 'Cha ', 'Zhou ', 'Xun ', 'Yue ', 'Hong ', 'Yu ', 'He ', 'Wan ', 'Ren ', 'Wen ', 'Wen ', 'Qiu ', 'Na ', 'Zi ', 'Tou ',
     'Niu ', 'Fou ', 'Jie ', 'Shu ', 'Chun ', 'Pi ', 'Yin ', 'Sha ', 'Hong ', 'Zhi ', 'Ji ', 'Fen ', 'Yun ', 'Ren ', 'Dan ', 'Jin ',
     'Su ', 'Fang ', 'Suo ', 'Cui ', 'Jiu ', 'Zha ', 'Kinu ', 'Jin ', 'Fu ', 'Zhi ', 'Ci ', 'Zi ', 'Chou ', 'Hong ', 'Zha ', 'Lei ',
     'Xi ', 'Fu ', 'Xie ', 'Shen ', 'Bei ', 'Zhu ', 'Qu ', 'Ling ', 'Zhu ', 'Shao ', 'Gan ', 'Yang ', 'Fu ', 'Tuo ', 'Zhen ', 'Dai ',
@@ -17,5 +17,5 @@ return array(
     'Qi ', 'Qie ', 'Tan ', 'Zong ', 'Gun ', 'Zou ', 'Yi ', 'Zi ', 'Xing ', 'Liang ', 'Jin ', 'Fei ', 'Rui ', 'Min ', 'Yu ', 'Zong ',
     'Fan ', 'Lu ', 'Xu ', 'Yingl ', 'Zhang ', 'Kasuri ', 'Xu ', 'Xiang ', 'Jian ', 'Ke ', 'Xian ', 'Ruan ', 'Mian ', 'Qi ', 'Duan ', 'Zhong ',
     'Di ', 'Min ', 'Miao ', 'Yuan ', 'Xie ', 'Bao ', 'Si ', 'Qiu ', 'Bian ', 'Huan ', 'Geng ', 'Cong ', 'Mian ', 'Wei ', 'Fu ', 'Wei ',
-    'Yu ', 'Gou ', 'Miao ', 'Xie ', 'Lian ', 'Zong ', 'Bian ', 'Yun ', 'Yin ', 'Ti ', 'Gua ', 'Zhi ', 'Yun ', 'Cheng ', 'Chan ', 'Dai '),
-);
+    'Yu ', 'Gou ', 'Miao ', 'Xie ', 'Lian ', 'Zong ', 'Bian ', 'Yun ', 'Yin ', 'Ti ', 'Gua ', 'Zhi ', 'Yun ', 'Cheng ', 'Chan ', 'Dai '],
+];

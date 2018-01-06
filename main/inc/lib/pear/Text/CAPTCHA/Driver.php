@@ -26,7 +26,7 @@ interface Text_CAPTCHA_Driver
      *
      * @return void
      */
-    function resetDriver();
+    public function resetDriver();
 
     /**
      * Initialize the driver with the given options.
@@ -36,7 +36,7 @@ interface Text_CAPTCHA_Driver
      * @return void
      * @throws Text_CAPTCHA_Exception something went wrong during init
      */
-    function initDriver($options);
+    public function initDriver($options);
 
     /**
      * Generate the CAPTCHA.
@@ -44,7 +44,7 @@ interface Text_CAPTCHA_Driver
      * @return void
      * @throws Text_CAPTCHA_Exception something went wrong during creation of CAPTCHA
      */
-    function createCAPTCHA();
+    public function createCAPTCHA();
 
     /**
      * Generate the phrase for the CAPTCHA.
@@ -52,5 +52,5 @@ interface Text_CAPTCHA_Driver
      * @return void
      * @throws Text_CAPTCHA_Exception something went wrong during creation of phrase
      */
-    function createPhrase();
+    public function createPhrase();
 }

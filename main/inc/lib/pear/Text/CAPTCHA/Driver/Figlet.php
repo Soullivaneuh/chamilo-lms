@@ -58,7 +58,7 @@ class Text_CAPTCHA_Driver_Figlet extends Text_CAPTCHA_Driver_Base
      *
      * @var array
      */
-    private $_style = array();
+    private $_style = [];
 
     /**
      * Output Format
@@ -77,7 +77,7 @@ class Text_CAPTCHA_Driver_Figlet extends Text_CAPTCHA_Driver_Base
      * @return void
      * @throws Text_CAPTCHA_Exception when no options are given
      */
-    public function initDriver($options = array())
+    public function initDriver($options = [])
     {
         if (!empty($options['output'])) {
             $this->_output = (string)$options['output'];
@@ -100,7 +100,7 @@ class Text_CAPTCHA_Driver_Figlet extends Text_CAPTCHA_Driver_Base
         if (!isset($options['phrase']) || empty($options['phrase'])) {
             $phraseOptions = (isset($options['phraseOptions'])
                 && is_array($options['phraseOptions']))
-                ? $options['phraseOptions'] : array();
+                ? $options['phraseOptions'] : [];
             $this->_textPasswordOptions = $phraseOptions;
         } else {
             $this->setPhrase($options['phrase']);

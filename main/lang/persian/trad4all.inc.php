@@ -4189,4 +4189,3 @@ $DataTableInfoFiltered = "فیلتر شده";
 $DataTableSearch = "جستجو";
 $HideColumn = "پنهان کردن ستون";
 $DisplayColumn = "نمایش ستون";
-?>

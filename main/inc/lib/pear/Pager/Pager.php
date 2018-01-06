@@ -138,9 +138,8 @@ class Pager
      *
      * @access public
      */
-    public function __construct($options = array())
+    public function __construct($options = [])
     {
-
     }
 
     // }}}
@@ -155,7 +154,7 @@ class Pager
      * @static
      * @access public
      */
-    static function &factory($options = array())
+    public static function &factory($options = [])
     {
         $mode = (isset($options['mode']) ? ucfirst($options['mode']) : 'Jumping');
         $classname = 'Pager_' . $mode;
@@ -180,4 +179,3 @@ class Pager
 
     // }}}
 }
-?>

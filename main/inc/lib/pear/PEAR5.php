@@ -17,11 +17,11 @@ class PEAR5
     * @return mixed   A reference to the variable. If not set it will be
     *                 auto initialised to NULL.
     */
-    static function &getStaticProperty($class, $var)
+    public static function &getStaticProperty($class, $var)
     {
         static $properties;
         if (!isset($properties[$class])) {
-            $properties[$class] = array();
+            $properties[$class] = [];
         }
 
         if (!array_key_exists($var, $properties[$class])) {

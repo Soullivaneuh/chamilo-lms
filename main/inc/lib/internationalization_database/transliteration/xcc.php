@@ -1,8 +1,8 @@
 <?php
 // $Id: xcc.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('jjyim', 'jjyib', 'jjyibs', 'jjyis', 'jjyiss', 'jjying', 'jjyij', 'jjyic', 'jjyik', 'jjyit', 'jjyip', 'jjyih', 'jji', 'jjig', 'jjigg', 'jjigs',
+return [
+  'en' => ['jjyim', 'jjyib', 'jjyibs', 'jjyis', 'jjyiss', 'jjying', 'jjyij', 'jjyic', 'jjyik', 'jjyit', 'jjyip', 'jjyih', 'jji', 'jjig', 'jjigg', 'jjigs',
     'jjin', 'jjinj', 'jjinh', 'jjid', 'jjil', 'jjilg', 'jjilm', 'jjilb', 'jjils', 'jjilt', 'jjilp', 'jjilh', 'jjim', 'jjib', 'jjibs', 'jjis',
     'jjiss', 'jjing', 'jjij', 'jjic', 'jjik', 'jjit', 'jjip', 'jjih', 'ca', 'cag', 'cagg', 'cags', 'can', 'canj', 'canh', 'cad',
     'cal', 'calg', 'calm', 'calb', 'cals', 'calt', 'calp', 'calh', 'cam', 'cab', 'cabs', 'cas', 'cass', 'cang', 'caj', 'cac',
@@ -17,5 +17,5 @@ return array(
     'cels', 'celt', 'celp', 'celh', 'cem', 'ceb', 'cebs', 'ces', 'cess', 'ceng', 'cej', 'cec', 'cek', 'cet', 'cep', 'ceh',
     'cyeo', 'cyeog', 'cyeogg', 'cyeogs', 'cyeon', 'cyeonj', 'cyeonh', 'cyeod', 'cyeol', 'cyeolg', 'cyeolm', 'cyeolb', 'cyeols', 'cyeolt', 'cyeolp', 'cyeolh',
     'cyeom', 'cyeob', 'cyeobs', 'cyeos', 'cyeoss', 'cyeong', 'cyeoj', 'cyeoc', 'cyeok', 'cyeot', 'cyeop', 'cyeoh', 'cye', 'cyeg', 'cyegg', 'cyegs',
-    'cyen', 'cyenj', 'cyenh', 'cyed', 'cyel', 'cyelg', 'cyelm', 'cyelb', 'cyels', 'cyelt', 'cyelp', 'cyelh', 'cyem', 'cyeb', 'cyebs', 'cyes'),
-);
+    'cyen', 'cyenj', 'cyenh', 'cyed', 'cyel', 'cyelg', 'cyelm', 'cyelb', 'cyels', 'cyelt', 'cyelp', 'cyelh', 'cyem', 'cyeb', 'cyebs', 'cyes'],
+];

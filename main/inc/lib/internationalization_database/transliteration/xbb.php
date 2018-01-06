@@ -1,8 +1,8 @@
 <?php
 // $Id: xbb.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('moen', 'moenj', 'moenh', 'moed', 'moel', 'moelg', 'moelm', 'moelb', 'moels', 'moelt', 'moelp', 'moelh', 'moem', 'moeb', 'moebs', 'moes',
+return [
+  'en' => ['moen', 'moenj', 'moenh', 'moed', 'moel', 'moelg', 'moelm', 'moelb', 'moels', 'moelt', 'moelp', 'moelh', 'moem', 'moeb', 'moebs', 'moes',
     'moess', 'moeng', 'moej', 'moec', 'moek', 'moet', 'moep', 'moeh', 'myo', 'myog', 'myogg', 'myogs', 'myon', 'myonj', 'myonh', 'myod',
     'myol', 'myolg', 'myolm', 'myolb', 'myols', 'myolt', 'myolp', 'myolh', 'myom', 'myob', 'myobs', 'myos', 'myoss', 'myong', 'myoj', 'myoc',
     'myok', 'myot', 'myop', 'myoh', 'mu', 'mug', 'mugg', 'mugs', 'mun', 'munj', 'munh', 'mud', 'mul', 'mulg', 'mulm', 'mulb',
@@ -17,5 +17,5 @@ return array(
     'meu', 'meug', 'meugg', 'meugs', 'meun', 'meunj', 'meunh', 'meud', 'meul', 'meulg', 'meulm', 'meulb', 'meuls', 'meult', 'meulp', 'meulh',
     'meum', 'meub', 'meubs', 'meus', 'meuss', 'meung', 'meuj', 'meuc', 'meuk', 'meut', 'meup', 'meuh', 'myi', 'myig', 'myigg', 'myigs',
     'myin', 'myinj', 'myinh', 'myid', 'myil', 'myilg', 'myilm', 'myilb', 'myils', 'myilt', 'myilp', 'myilh', 'myim', 'myib', 'myibs', 'myis',
-    'myiss', 'mying', 'myij', 'myic', 'myik', 'myit', 'myip', 'myih', 'mi', 'mig', 'migg', 'migs', 'min', 'minj', 'minh', 'mid'),
-);
+    'myiss', 'mying', 'myij', 'myic', 'myik', 'myit', 'myip', 'myih', 'mi', 'mig', 'migg', 'migs', 'min', 'minj', 'minh', 'mid'],
+];

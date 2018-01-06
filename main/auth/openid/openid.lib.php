@@ -29,13 +29,14 @@ define('OPENID_NS_1_0', 'http://openid.net/signon/1.0');
  * Performs an HTTP 302 redirect (for the 1.x protocol).
  * This function should be deprecated for 1.8.6.2 needs documentation
  */
-function openid_redirect_http($url, $message) {
-    $query = array();
+function openid_redirect_http($url, $message)
+{
+    $query = [];
     foreach ($message as $key => $val) {
         $query[] = $key . '=' . urlencode($val);
     }
-    $sep = (strpos($url, '?') === FALSE) ? '?' : '&';
-    header('Location: ' . $url . $sep . implode('&', $query), TRUE, 302);
+    $sep = (strpos($url, '?') === false) ? '?' : '&';
+    header('Location: ' . $url . $sep . implode('&', $query), true, 302);
     //exit;
 }
 
@@ -43,7 +44,8 @@ function openid_redirect_http($url, $message) {
  * Creates a js auto-submit redirect for (for the 2.x protocol)
  * This function should be deprecated for 1.8.6.2 needs documentation
  */
-function openid_redirect($url, $message) {
+function openid_redirect($url, $message)
+{
     $output = '<html><head><title>' . get_lang('OpenIDRedirect') . "</title></head>\n<body>";
     $output .= '<form method="post" action="' . $url . '" id="openid-redirect-form">';
     foreach ($message as $key => $value) {
@@ -59,22 +61,25 @@ function openid_redirect($url, $message) {
 /**
  * Determine if the given identifier is an XRI ID.
  */
-function _openid_is_xri($identifier) {
+function _openid_is_xri($identifier)
+{
     $firstchar = substr($identifier, 0, 1);
-    if ($firstchar == "@" || $firstchar == "=")
-        return TRUE;
-
-    if (stristr($identifier, 'xri://') !== FALSE) {
-        return TRUE;
+    if ($firstchar == "@" || $firstchar == "=") {
+        return true;
     }
 
-    return FALSE;
+    if (stristr($identifier, 'xri://') !== false) {
+        return true;
+    }
+
+    return false;
 }
 
 /**
  * Normalize the given identifier as per spec.
  */
-function _openid_normalize($identifier) {
+function _openid_normalize($identifier)
+{
     if (_openid_is_xri($identifier)) {
         return _openid_normalize_xri($identifier);
     } else {
@@ -82,18 +87,20 @@ function _openid_normalize($identifier) {
     }
 }
 
-function _openid_normalize_xri($xri) {
+function _openid_normalize_xri($xri)
+{
     $normalized_xri = $xri;
-    if (stristr($xri, 'xri://') !== FALSE) {
+    if (stristr($xri, 'xri://') !== false) {
         $normalized_xri = substr($xri, 6);
     }
     return $normalized_xri;
 }
 
-function _openid_normalize_url($url) {
+function _openid_normalize_url($url)
+{
     $normalized_url = $url;
 
-    if (stristr($url, '://') === FALSE) {
+    if (stristr($url, '://') === false) {
         $normalized_url = 'http://' . $url;
     }
 
@@ -107,11 +114,12 @@ function _openid_normalize_url($url) {
 /**
  * Create a serialized message packet as per spec: $key:$value\n .
  */
-function _openid_create_message($data) {
+function _openid_create_message($data)
+{
     $serialized = '';
 
     foreach ($data as $key => $value) {
-        if ((strpos($key, ':') !== FALSE) || (strpos($key, "\n") !== FALSE) || (strpos($value, "\n") !== FALSE)) {
+        if ((strpos($key, ':') !== false) || (strpos($key, "\n") !== false) || (strpos($value, "\n") !== false)) {
             return null;
         }
         $serialized .= "$key:$value\n";
@@ -123,7 +131,8 @@ function _openid_create_message($data) {
  * Encode a message from _openid_create_message for HTTP Post
  * @param null|string $message
  */
-function _openid_encode_message($message) {
+function _openid_encode_message($message)
+{
     $encoded_message = '';
 
     $items = explode("\n", $message);
@@ -145,8 +154,9 @@ function _openid_encode_message($message) {
  * Convert a direct communication message
  * into an associative array.
  */
-function _openid_parse_message($message) {
-    $parsed_message = array();
+function _openid_parse_message($message)
+{
+    $parsed_message = [];
 
     $items = explode("\n", $message);
     foreach ($items as $item) {
@@ -163,7 +173,8 @@ function _openid_parse_message($message) {
 /**
  * Return a nonce value - formatted per OpenID spec.
  */
-function _openid_nonce() {
+function _openid_nonce()
+{
     // YYYY-MM-DDThh:mm:ssTZD UTC, plus some optional extra unique chars
     return gmstrftime('%Y-%m-%dT%H:%M:%S%Z') .
             chr(mt_rand(0, 25) + 65) .
@@ -176,27 +187,29 @@ function _openid_nonce() {
  * Pull the href attribute out of an html link element.
  * @param string $rel
  */
-function _openid_link_href($rel, $html) {
+function _openid_link_href($rel, $html)
+{
     $rel = preg_quote($rel);
     preg_match('|<link\s+rel=["\'](.*)' . $rel . '(.*)["\'](.*)/?>|iU', $html, $matches);
     if (isset($matches[3])) {
         preg_match('|href=["\']([^"]+)["\']|iU', $matches[0], $href);
         return trim($href[1]);
     }
-    return FALSE;
+    return false;
 }
 
 /**
  * Pull the http-equiv attribute out of an html meta element
  * @param string $equiv
  */
-function _openid_meta_httpequiv($equiv, $html) {
+function _openid_meta_httpequiv($equiv, $html)
+{
     preg_match('|<meta\s+http-equiv=["\']' . $equiv . '["\'](.*)/?>|iU', $html, $matches);
     if (isset($matches[1])) {
         preg_match('|content=["\']([^"]+)["\']|iU', $matches[1], $content);
         return $content[1];
     }
-    return FALSE;
+    return false;
 }
 
 /**
@@ -207,9 +220,10 @@ function _openid_meta_httpequiv($equiv, $html) {
  * @param $keys_to_sign - keys in the message to include in signature (without
  *  'openid.' appended)
  */
-function _openid_signature($association, $message_array, $keys_to_sign) {
+function _openid_signature($association, $message_array, $keys_to_sign)
+{
     $signature = '';
-    $sign_data = array();
+    $sign_data = [];
 
     foreach ($keys_to_sign as $key) {
         if (isset($message_array['openid.' . $key])) {
@@ -228,7 +242,8 @@ function _openid_signature($association, $message_array, $keys_to_sign) {
  * @param string $key
  * @param null|string $text
  */
-function _openid_hmac($key, $text) {
+function _openid_hmac($key, $text)
+{
     if (strlen($key) > OPENID_SHA1_BLOCKSIZE) {
         $key = _openid_sha1($key, true);
     }
@@ -242,7 +257,8 @@ function _openid_hmac($key, $text) {
     return $hmac;
 }
 
-function _openid_sha1($text) {
+function _openid_sha1($text)
+{
     $hex = sha1($text);
     $raw = '';
     for ($i = 0; $i < 40; $i += 2) {
@@ -253,20 +269,23 @@ function _openid_sha1($text) {
     return $raw;
 }
 
-function _openid_dh_base64_to_long($str) {
+function _openid_dh_base64_to_long($str)
+{
     $b64 = base64_decode($str);
 
     return _openid_dh_binary_to_long($b64);
 }
 
-function _openid_dh_long_to_base64($str) {
+function _openid_dh_long_to_base64($str)
+{
     return base64_encode(_openid_dh_long_to_binary($str));
 }
 
 /**
  * @param string $str
  */
-function _openid_dh_binary_to_long($str) {
+function _openid_dh_binary_to_long($str)
+{
     $bytes = array_merge(unpack('C*', $str));
 
     $n = 0;
@@ -278,17 +297,18 @@ function _openid_dh_binary_to_long($str) {
     return $n;
 }
 
-function _openid_dh_long_to_binary($long) {
+function _openid_dh_long_to_binary($long)
+{
     $cmp = bccomp($long, 0);
     if ($cmp < 0) {
-        return FALSE;
+        return false;
     }
 
     if ($cmp == 0) {
         return "\x00";
     }
 
-    $bytes = array();
+    $bytes = [];
 
     while (bccomp($long, 0) > 0) {
         array_unshift($bytes, bcmod($long, 256));
@@ -310,7 +330,8 @@ function _openid_dh_long_to_binary($long) {
 /**
  * @param string $secret
  */
-function _openid_dh_xorsecret($shared, $secret) {
+function _openid_dh_xorsecret($shared, $secret)
+{
     $dh_shared_str = _openid_dh_long_to_binary($shared);
     $sha1_dh_shared = _openid_sha1($dh_shared_str);
     $xsecret = "";
@@ -324,8 +345,9 @@ function _openid_dh_xorsecret($shared, $secret) {
 /**
  * @param string $stop
  */
-function _openid_dh_rand($stop) {
-    static $duplicate_cache = array();
+function _openid_dh_rand($stop)
+{
+    static $duplicate_cache = [];
 
     // Used as the key for the duplicate cache
     $rbytes = _openid_dh_long_to_binary($stop);
@@ -346,10 +368,10 @@ function _openid_dh_rand($stop) {
         $duplicate = bcmod($mxrand, $stop);
 
         if (count($duplicate_cache) > 10) {
-            $duplicate_cache = array();
+            $duplicate_cache = [];
         }
 
-        $duplicate_cache[$rbytes] = array($duplicate, $nbytes);
+        $duplicate_cache[$rbytes] = [$duplicate, $nbytes];
     }
 
     do {
@@ -361,7 +383,8 @@ function _openid_dh_rand($stop) {
     return bcmod($n, $stop);
 }
 
-function _openid_get_bytes($num_bytes) {
+function _openid_get_bytes($num_bytes)
+{
     static $f = null;
     $bytes = '';
     if (!isset($f)) {
@@ -383,7 +406,8 @@ function _openid_get_bytes($num_bytes) {
 /**
  * Fix PHP's habit of replacing '.' by '_' in posted data.
  */
-function _openid_fix_post(&$post) {
+function _openid_fix_post(&$post)
+{
     //$extensions = module_invoke_all('openid', 'extension');
     foreach ($post as $key => $value) {
         if (strpos($key, 'openid_') === 0) {
@@ -403,8 +427,8 @@ function _openid_fix_post(&$post) {
  * Provide bcpowmod support for PHP4.
  */
 if (!function_exists('bcpowmod')) {
-
-    function bcpowmod($base, $exp, $mod) {
+    function bcpowmod($base, $exp, $mod)
+    {
         $square = bcmod($base, $mod);
         $result = 1;
         while (bccomp($exp, 0) > 0) {
@@ -416,5 +440,4 @@ if (!function_exists('bcpowmod')) {
         }
         return $result;
     }
-
 }

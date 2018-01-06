@@ -1,8 +1,8 @@
 <?php
 // $Id: xa3.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('nzup', 'nzurx', 'nzur', 'nzyt', 'nzyx', 'nzy', 'nzyp', 'nzyrx', 'nzyr', 'sit', 'six', 'si', 'sip', 'siex', 'sie', 'siep',
+return [
+  'en' => ['nzup', 'nzurx', 'nzur', 'nzyt', 'nzyx', 'nzy', 'nzyp', 'nzyrx', 'nzyr', 'sit', 'six', 'si', 'sip', 'siex', 'sie', 'siep',
     'sat', 'sax', 'sa', 'sap', 'suox', 'suo', 'suop', 'sot', 'sox', 'so', 'sop', 'sex', 'se', 'sep', 'sut', 'sux',
     'su', 'sup', 'surx', 'sur', 'syt', 'syx', 'sy', 'syp', 'syrx', 'syr', 'ssit', 'ssix', 'ssi', 'ssip', 'ssiex', 'ssie',
     'ssiep', 'ssat', 'ssax', 'ssa', 'ssap', 'ssot', 'ssox', 'sso', 'ssop', 'ssex', 'sse', 'ssep', 'ssut', 'ssux', 'ssu', 'ssup',
@@ -17,5 +17,5 @@ return array(
     'shyt', 'shyx', 'shy', 'shyp', 'shyrx', 'shyr', 'rat', 'rax', 'ra', 'rap', 'ruox', 'ruo', 'ruop', 'rot', 'rox', 'ro',
     'rop', 'rex', 're', 'rep', 'rut', 'rux', 'ru', 'rup', 'rurx', 'rur', 'ryt', 'ryx', 'ry', 'ryp', 'ryrx', 'ryr',
     'jit', 'jix', 'ji', 'jip', 'jiet', 'jiex', 'jie', 'jiep', 'juot', 'juox', 'juo', 'juop', 'jot', 'jox', 'jo', 'jop',
-    'jut', 'jux', 'ju', 'jup', 'jurx', 'jur', 'jyt', 'jyx', 'jy', 'jyp', 'jyrx', 'jyr', 'qit', 'qix', 'qi', 'qip'),
-);
+    'jut', 'jux', 'ju', 'jup', 'jurx', 'jur', 'jyt', 'jyx', 'jy', 'jyp', 'jyrx', 'jyr', 'qit', 'qix', 'qi', 'qip'],
+];

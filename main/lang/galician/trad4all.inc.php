@@ -7306,4 +7306,3 @@ $GradebookCronTaskGenerationComment = "Cando esta opción se atopa habilitada, e
 $OpenBadgesBackpackUrlTitle = "OpenBadges: URL de backpack";
 $OpenBadgesBackpackUrlComment = "A URL de servidor de mochilas de OpenBadges que será usada para todos os usuarios que desexen exportar os seus distintivos. Por defecto, úsase o repositorio aberto da Fundación Mozilla: https://backpack.openbadges.org/";
 $CookieWarningTitle = "Cookies: Notificación de privacidade";
-?>

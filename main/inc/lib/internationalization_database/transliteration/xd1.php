@@ -1,8 +1,8 @@
 <?php
 // $Id: xd1.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('tyal', 'tyalg', 'tyalm', 'tyalb', 'tyals', 'tyalt', 'tyalp', 'tyalh', 'tyam', 'tyab', 'tyabs', 'tyas', 'tyass', 'tyang', 'tyaj', 'tyac',
+return [
+  'en' => ['tyal', 'tyalg', 'tyalm', 'tyalb', 'tyals', 'tyalt', 'tyalp', 'tyalh', 'tyam', 'tyab', 'tyabs', 'tyas', 'tyass', 'tyang', 'tyaj', 'tyac',
     'tyak', 'tyat', 'tyap', 'tyah', 'tyae', 'tyaeg', 'tyaegg', 'tyaegs', 'tyaen', 'tyaenj', 'tyaenh', 'tyaed', 'tyael', 'tyaelg', 'tyaelm', 'tyaelb',
     'tyaels', 'tyaelt', 'tyaelp', 'tyaelh', 'tyaem', 'tyaeb', 'tyaebs', 'tyaes', 'tyaess', 'tyaeng', 'tyaej', 'tyaec', 'tyaek', 'tyaet', 'tyaep', 'tyaeh',
     'teo', 'teog', 'teogg', 'teogs', 'teon', 'teonj', 'teonh', 'teod', 'teol', 'teolg', 'teolm', 'teolb', 'teols', 'teolt', 'teolp', 'teolh',
@@ -17,5 +17,5 @@ return array(
     'twan', 'twanj', 'twanh', 'twad', 'twal', 'twalg', 'twalm', 'twalb', 'twals', 'twalt', 'twalp', 'twalh', 'twam', 'twab', 'twabs', 'twas',
     'twass', 'twang', 'twaj', 'twac', 'twak', 'twat', 'twap', 'twah', 'twae', 'twaeg', 'twaegg', 'twaegs', 'twaen', 'twaenj', 'twaenh', 'twaed',
     'twael', 'twaelg', 'twaelm', 'twaelb', 'twaels', 'twaelt', 'twaelp', 'twaelh', 'twaem', 'twaeb', 'twaebs', 'twaes', 'twaess', 'twaeng', 'twaej', 'twaec',
-    'twaek', 'twaet', 'twaep', 'twaeh', 'toe', 'toeg', 'toegg', 'toegs', 'toen', 'toenj', 'toenh', 'toed', 'toel', 'toelg', 'toelm', 'toelb'),
-);
+    'twaek', 'twaet', 'twaep', 'twaeh', 'toe', 'toeg', 'toegg', 'toegs', 'toen', 'toenj', 'toenh', 'toed', 'toel', 'toelg', 'toelm', 'toelb'],
+];

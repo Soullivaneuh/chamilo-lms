@@ -1,8 +1,8 @@
 <?php
 // $Id: xa1.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('dit', 'dix', 'di', 'dip', 'diex', 'die', 'diep', 'dat', 'dax', 'da', 'dap', 'duox', 'duo', 'dot', 'dox', 'do',
+return [
+  'en' => ['dit', 'dix', 'di', 'dip', 'diex', 'die', 'diep', 'dat', 'dax', 'da', 'dap', 'duox', 'duo', 'dot', 'dox', 'do',
     'dop', 'dex', 'de', 'dep', 'dut', 'dux', 'du', 'dup', 'durx', 'dur', 'tit', 'tix', 'ti', 'tip', 'tiex', 'tie',
     'tiep', 'tat', 'tax', 'ta', 'tap', 'tuot', 'tuox', 'tuo', 'tuop', 'tot', 'tox', 'to', 'top', 'tex', 'te', 'tep',
     'tut', 'tux', 'tu', 'tup', 'turx', 'tur', 'ddit', 'ddix', 'ddi', 'ddip', 'ddiex', 'ddie', 'ddiep', 'ddat', 'ddax', 'dda',
@@ -17,5 +17,5 @@ return array(
     'lax', 'la', 'lap', 'luot', 'luox', 'luo', 'luop', 'lot', 'lox', 'lo', 'lop', 'lex', 'le', 'lep', 'lut', 'lux',
     'lu', 'lup', 'lurx', 'lur', 'lyt', 'lyx', 'ly', 'lyp', 'lyrx', 'lyr', 'git', 'gix', 'gi', 'gip', 'giet', 'giex',
     'gie', 'giep', 'gat', 'gax', 'ga', 'gap', 'guot', 'guox', 'guo', 'guop', 'got', 'gox', 'go', 'gop', 'get', 'gex',
-    'ge', 'gep', 'gut', 'gux', 'gu', 'gup', 'gurx', 'gur', 'kit', 'kix', 'ki', 'kip', 'kiex', 'kie', 'kiep', 'kat'),
-);
+    'ge', 'gep', 'gut', 'gux', 'gu', 'gup', 'gurx', 'gur', 'kit', 'kix', 'ki', 'kip', 'kiex', 'kie', 'kiep', 'kat'],
+];

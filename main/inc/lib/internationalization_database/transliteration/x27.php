@@ -1,21 +1,21 @@
 <?php
 // $Id: x27.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array(NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+return [
+  'en' => [null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL,
-    NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null,
+    null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-    NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-);
+    null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+];

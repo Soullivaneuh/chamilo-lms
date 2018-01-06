@@ -1730,4 +1730,3 @@ $UserDB = "사용자 DB";
 $ReadThoroughly = "철저히 읽기";
 $WarningExistingLMSInstallationDetected = "Warning !<br>인스톨러가 이 시스템에 이미 설치되어 있는 chamilo를 탐지하였습니다.";
 $NewInstallation = "새로 설치";
-?>

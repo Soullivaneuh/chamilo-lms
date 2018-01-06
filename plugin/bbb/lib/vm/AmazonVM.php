@@ -21,7 +21,6 @@ class AmazonVM extends AbstractVM implements VirtualMachineInterface
      */
     public function runCron()
     {
-
     }
 
     /**
@@ -29,7 +28,6 @@ class AmazonVM extends AbstractVM implements VirtualMachineInterface
      */
     public function resizeToMaxLimit()
     {
-
     }
 
     /**
@@ -37,8 +35,5 @@ class AmazonVM extends AbstractVM implements VirtualMachineInterface
      */
     public function resizeToMinLimit()
     {
-
     }
-
-
 }

@@ -1,8 +1,8 @@
 <?php
 // $Id: xc0.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('bbweok', 'bbweot', 'bbweop', 'bbweoh', 'bbwe', 'bbweg', 'bbwegg', 'bbwegs', 'bbwen', 'bbwenj', 'bbwenh', 'bbwed', 'bbwel', 'bbwelg', 'bbwelm', 'bbwelb',
+return [
+  'en' => ['bbweok', 'bbweot', 'bbweop', 'bbweoh', 'bbwe', 'bbweg', 'bbwegg', 'bbwegs', 'bbwen', 'bbwenj', 'bbwenh', 'bbwed', 'bbwel', 'bbwelg', 'bbwelm', 'bbwelb',
     'bbwels', 'bbwelt', 'bbwelp', 'bbwelh', 'bbwem', 'bbweb', 'bbwebs', 'bbwes', 'bbwess', 'bbweng', 'bbwej', 'bbwec', 'bbwek', 'bbwet', 'bbwep', 'bbweh',
     'bbwi', 'bbwig', 'bbwigg', 'bbwigs', 'bbwin', 'bbwinj', 'bbwinh', 'bbwid', 'bbwil', 'bbwilg', 'bbwilm', 'bbwilb', 'bbwils', 'bbwilt', 'bbwilp', 'bbwilh',
     'bbwim', 'bbwib', 'bbwibs', 'bbwis', 'bbwiss', 'bbwing', 'bbwij', 'bbwic', 'bbwik', 'bbwit', 'bbwip', 'bbwih', 'bbyu', 'bbyug', 'bbyugg', 'bbyugs',
@@ -17,5 +17,5 @@ return array(
     'sass', 'sang', 'saj', 'sac', 'sak', 'sat', 'sap', 'sah', 'sae', 'saeg', 'saegg', 'saegs', 'saen', 'saenj', 'saenh', 'saed',
     'sael', 'saelg', 'saelm', 'saelb', 'saels', 'saelt', 'saelp', 'saelh', 'saem', 'saeb', 'saebs', 'saes', 'saess', 'saeng', 'saej', 'saec',
     'saek', 'saet', 'saep', 'saeh', 'sya', 'syag', 'syagg', 'syags', 'syan', 'syanj', 'syanh', 'syad', 'syal', 'syalg', 'syalm', 'syalb',
-    'syals', 'syalt', 'syalp', 'syalh', 'syam', 'syab', 'syabs', 'syas', 'syass', 'syang', 'syaj', 'syac', 'syak', 'syat', 'syap', 'syah'),
-);
+    'syals', 'syalt', 'syalp', 'syalh', 'syam', 'syab', 'syabs', 'syas', 'syass', 'syang', 'syaj', 'syac', 'syak', 'syat', 'syap', 'syah'],
+];

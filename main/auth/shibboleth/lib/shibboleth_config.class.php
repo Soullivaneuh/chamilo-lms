@@ -10,7 +10,7 @@ namespace Shibboleth;
  * @author Laurent Opprecht <laurent@opprecht.info>, Nicolas Rod for the University of Geneva
  */
 class ShibbolethConfig
-{    
+{
     public $unique_id = '';
     public $firstname = '';
     public $lastname = '';
@@ -30,19 +30,19 @@ class ShibbolethConfig
      * Mapping of affiliation => right
      * @var array
      */
-    public $affiliation_status = array();
+    public $affiliation_status = [];
     
     /**
      * Mapping of affiliation => bool. Display the request status form.
      * @var array
      */
-    public $affiliation_status_request = array();
+    public $affiliation_status_request = [];
     
     /**
      * List of fields to update when the user already exists field_name => boolean.
      * @var array
      */
-    public $update_fields = array();
+    public $update_fields = [];
     
     /*
      * True if email is mandatory. False otherwise.
@@ -51,11 +51,8 @@ class ShibbolethConfig
     
     /**
      * The email of the shibboleth administrator.
-     * 
+     *
      * @var string
      */
     public $admnistrator_email = '';
-    
-    
-    
 }

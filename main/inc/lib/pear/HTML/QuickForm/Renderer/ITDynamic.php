@@ -40,59 +40,59 @@
  */
 class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
 {
-   /**#@+
-    * @access private
-    */
-   /**
-    * A template class (HTML_Template_ITX or HTML_Template_Sigma) instance
-    * @var HTML_Template_ITX|HTML_Template_Sigma
-    */
-    var $_tpl = null;
+    /**#@+
+     * @access private
+     */
+    /**
+     * A template class (HTML_Template_ITX or HTML_Template_Sigma) instance
+     * @var HTML_Template_ITX|HTML_Template_Sigma
+     */
+    public $_tpl = null;
 
-   /**
-    * The errors that were not shown near concrete fields go here
-    * @var array
-    */
-    var $_errors = array();
+    /**
+     * The errors that were not shown near concrete fields go here
+     * @var array
+     */
+    public $_errors = [];
 
-   /**
-    * Show the block with required note?
-    * @var bool
-    */
-    var $_showRequired = false;
+    /**
+     * Show the block with required note?
+     * @var bool
+     */
+    public $_showRequired = false;
 
-   /**
-    * A separator for group elements
-    * @var mixed
-    */
-    var $_groupSeparator = null;
+    /**
+     * A separator for group elements
+     * @var mixed
+     */
+    public $_groupSeparator = null;
 
-   /**
-    * The current element index inside a group
-    * @var integer
-    */
-    var $_groupElementIdx = 0;
+    /**
+     * The current element index inside a group
+     * @var integer
+     */
+    public $_groupElementIdx = 0;
 
-   /**
-    * Blocks to use for different elements
-    * @var array
-    */
-    var $_elementBlocks = array();
+    /**
+     * Blocks to use for different elements
+     * @var array
+     */
+    public $_elementBlocks = [];
 
-   /**
-    * Block to use for headers
-    * @var string
-    */
-    var $_headerBlock = null;
-   /**#@-*/
+    /**
+     * Block to use for headers
+     * @var string
+     */
+    public $_headerBlock = null;
+    /**#@-*/
 
 
-   /**
-    * Constructor
-    *
-    * @param HTML_Template_ITX|HTML_Template_Sigma     Template object to use
-    */
-    function HTML_QuickForm_Renderer_ITDynamic(&$tpl)
+    /**
+     * Constructor
+     *
+     * @param HTML_Template_ITX|HTML_Template_Sigma     Template object to use
+     */
+    public function HTML_QuickForm_Renderer_ITDynamic(&$tpl)
     {
         $this->HTML_QuickForm_Renderer();
         $this->_tpl =& $tpl;
@@ -100,7 +100,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-    function finishForm(&$form)
+    public function finishForm(&$form)
     {
         // display errors above form
         if (!empty($this->_errors) && $this->_tpl->blockExists('qf_error_loop')) {
@@ -120,7 +120,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-    function renderHeader(&$header)
+    public function renderHeader(&$header)
     {
         $blockName = $this->_matchBlock($header);
         if ('qf_header' == $blockName && isset($this->_headerBlock)) {
@@ -132,7 +132,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-    function renderElement(&$element, $required, $error)
+    public function renderElement(&$element, $required, $error)
     {
         $blockName = $this->_matchBlock($element);
         // are we inside a group?
@@ -145,8 +145,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
                 }
             }
             $this->_groupElementIdx++;
-
-        } elseif(!empty($error)) {
+        } elseif (!empty($error)) {
             // show the error message or keep it for later use
             if ($this->_tpl->blockExists($blockName . '_error')) {
                 $this->_tpl->setVariable('qf_error', $error);
@@ -175,7 +174,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
         }
         // render extra labels, if any
         if (is_array($labels)) {
-            foreach($labels as $key => $label) {
+            foreach ($labels as $key => $label) {
                 $key = is_int($key)? $key + 2: $key;
                 if ($this->_tpl->blockExists($blockName . '_label_' . $key)) {
                     $this->_tpl->setVariable('qf_label_' . $key, $label);
@@ -187,14 +186,14 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-    function renderHidden(&$element)
+    public function renderHidden(&$element)
     {
         $this->_tpl->setVariable('qf_hidden', $element->toHtml());
         $this->_tpl->parse('qf_hidden_loop');
     }
 
 
-    function startGroup(&$group, $required, $error)
+    public function startGroup(&$group, $required, $error)
     {
         $blockName = $this->_matchBlock($group);
         $this->_tpl->setCurrentBlock($blockName . '_loop');
@@ -219,7 +218,7 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-    function finishGroup(&$group)
+    public function finishGroup(&$group)
     {
         $this->_tpl->parse($this->_matchBlock($group));
         $this->_tpl->setCurrentBlock('qf_main_loop');
@@ -227,18 +226,18 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-   /**
-    * Returns the name of a block to use for element rendering
-    *
-    * If a name was not explicitly set via setElementBlock(), it tries
-    * the names '{prefix}_{element type}' and '{prefix}_{element}', where
-    * prefix is either 'qf' or the name of the current group's block
-    *
-    * @param HTML_QuickForm_element     form element being rendered
-    * @access private
-    * @return string    block name
-    */
-    function _matchBlock(&$element)
+    /**
+     * Returns the name of a block to use for element rendering
+     *
+     * If a name was not explicitly set via setElementBlock(), it tries
+     * the names '{prefix}_{element type}' and '{prefix}_{element}', where
+     * prefix is either 'qf' or the name of the current group's block
+     *
+     * @param HTML_QuickForm_element     form element being rendered
+     * @access private
+     * @return string    block name
+     */
+    public function _matchBlock(&$element)
     {
         $name = $element->getName();
         $type = $element->getType();
@@ -262,15 +261,15 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-   /**
-    * Sets the block to use for element rendering
-    *
-    * @param mixed      element name or array ('element name' => 'block name')
-    * @param string     block name if $elementName is not an array
-    * @access public
-    * @return void
-    */
-    function setElementBlock($elementName, $blockName = null)
+    /**
+     * Sets the block to use for element rendering
+     *
+     * @param mixed      element name or array ('element name' => 'block name')
+     * @param string     block name if $elementName is not an array
+     * @access public
+     * @return void
+     */
+    public function setElementBlock($elementName, $blockName = null)
     {
         if (is_array($elementName)) {
             $this->_elementBlocks = array_merge($this->_elementBlocks, $elementName);
@@ -280,16 +279,15 @@ class HTML_QuickForm_Renderer_ITDynamic extends HTML_QuickForm_Renderer
     }
 
 
-   /**
-    * Sets the name of a block to use for header rendering
-    *
-    * @param string     block name
-    * @access public
-    * @return void
-    */
-    function setHeaderBlock($blockName)
+    /**
+     * Sets the name of a block to use for header rendering
+     *
+     * @param string     block name
+     * @access public
+     * @return void
+     */
+    public function setHeaderBlock($blockName)
     {
         $this->_headerBlock = $blockName;
     }
 }
-?>

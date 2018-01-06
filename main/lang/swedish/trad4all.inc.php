@@ -3160,4 +3160,3 @@ $ReturnToCourseHomepage = "Tillbaka till hemsidan";
 $Timeline = "Tidslinije";
 $CourseCatalog = "Kurskatalog";
 $UnknownAction = "Okänd åtgärd";
-?>

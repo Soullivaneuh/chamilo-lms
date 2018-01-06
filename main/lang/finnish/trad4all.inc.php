@@ -3685,4 +3685,3 @@ $YouCantNotEditThisQuestionBecauseAlreadyExistAnswers = "Et voi muokata tätä k
 $AddHrmToUser = "Lisää henkilöstöjohtaja käyttäjälle";
 $GoToSurvey = "Mene kyselyyn";
 $MyCoursePageCategoryIntroduction = "Alla näet listan kurssikategorioista. Klikkaa nimeä nähdäksesi listan kursseista";
-?>

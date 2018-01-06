@@ -1646,4 +1646,3 @@ $Last = "Huli";
 $Sent = "Ipinadala";
 $HideColumn = "Itago ang hanay";
 $DisplayColumn = "Ipakita ang hanay";
-?>

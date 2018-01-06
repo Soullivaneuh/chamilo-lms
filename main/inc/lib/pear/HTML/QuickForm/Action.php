@@ -36,20 +36,18 @@
  */
 class HTML_QuickForm_Action
 {
-   /**
-    * Processes the request. This method should be overriden by child classes to
-    * provide the necessary logic.
-    *
-    * @access   public
-    * @param    HTML_QuickForm_Page    The current form-page
-    * @param    string                 Current action name, as one Action object
-    *                                  can serve multiple actions
-    * @throws   PEAR_Error
-    * @abstract
-    */
-    function perform(&$page, $actionName)
+    /**
+     * Processes the request. This method should be overriden by child classes to
+     * provide the necessary logic.
+     *
+     * @access   public
+     * @param    HTML_QuickForm_Page    The current form-page
+     * @param    string                 Current action name, as one Action object
+     *                                  can serve multiple actions
+     * @throws   PEAR_Error
+     * @abstract
+     */
+    public function perform(&$page, $actionName)
     {
     }
 }
-
-?>

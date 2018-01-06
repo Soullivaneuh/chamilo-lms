@@ -1,8 +1,8 @@
 <?php
 // $Id: x7b.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Mang ', 'Zhu ', 'Utsubo ', 'Du ', 'Ji ', 'Xiao ', 'Ba ', 'Suan ', 'Ji ', 'Zhen ', 'Zhao ', 'Sun ', 'Ya ', 'Zhui ', 'Yuan ', 'Hu ',
+return [
+  'en' => ['Mang ', 'Zhu ', 'Utsubo ', 'Du ', 'Ji ', 'Xiao ', 'Ba ', 'Suan ', 'Ji ', 'Zhen ', 'Zhao ', 'Sun ', 'Ya ', 'Zhui ', 'Yuan ', 'Hu ',
     'Gang ', 'Xiao ', 'Cen ', 'Pi ', 'Bi ', 'Jian ', 'Yi ', 'Dong ', 'Shan ', 'Sheng ', 'Xia ', 'Di ', 'Zhu ', 'Na ', 'Chi ', 'Gu ',
     'Li ', 'Qie ', 'Min ', 'Bao ', 'Tiao ', 'Si ', 'Fu ', 'Ce ', 'Ben ', 'Pei ', 'Da ', 'Zi ', 'Di ', 'Ling ', 'Ze ', 'Nu ',
     'Fu ', 'Gou ', 'Fan ', 'Jia ', 'Ge ', 'Fan ', 'Shi ', 'Mao ', 'Po ', 'Sey ', 'Jian ', 'Qiong ', 'Long ', 'Souke ', 'Bian ', 'Luo ',
@@ -15,7 +15,7 @@ return array(
     'Chui ', 'Guan ', 'Yuan ', 'Ce ', 'Ju ', 'Bo ', 'Ze ', 'Qie ', 'Tuo ', 'Luo ', 'Dan ', 'Xiao ', 'Ruo ', 'Jian ', 'Xuan ', 'Bian ',
     'Sun ', 'Xiang ', 'Xian ', 'Ping ', 'Zhen ', 'Sheng ', 'Hu ', 'Shi ', 'Zhu ', 'Yue ', 'Chun ', 'Lu ', 'Wu ', 'Dong ', 'Xiao ', 'Ji ',
     'Jie ', 'Huang ', 'Xing ', 'Mei ', 'Fan ', 'Chui ', 'Zhuan ', 'Pian ', 'Feng ', 'Zhu ', 'Hong ', 'Qie ', 'Hou ', 'Qiu ', 'Miao ', 'Qian ',
-    NULL, 'Kui ', 'Sik ', 'Lou ', 'Yun ', 'He ', 'Tang ', 'Yue ', 'Chou ', 'Gao ', 'Fei ', 'Ruo ', 'Zheng ', 'Gou ', 'Nie ', 'Qian ',
+    null, 'Kui ', 'Sik ', 'Lou ', 'Yun ', 'He ', 'Tang ', 'Yue ', 'Chou ', 'Gao ', 'Fei ', 'Ruo ', 'Zheng ', 'Gou ', 'Nie ', 'Qian ',
     'Xiao ', 'Cuan ', 'Gong ', 'Pang ', 'Du ', 'Li ', 'Bi ', 'Zhuo ', 'Chu ', 'Shai ', 'Chi ', 'Zhu ', 'Qiang ', 'Long ', 'Lan ', 'Jian ',
-    'Bu ', 'Li ', 'Hui ', 'Bi ', 'Di ', 'Cong ', 'Yan ', 'Peng ', 'Sen ', 'Zhuan ', 'Pai ', 'Piao ', 'Dou ', 'Yu ', 'Mie ', 'Zhuan '),
-);
+    'Bu ', 'Li ', 'Hui ', 'Bi ', 'Di ', 'Cong ', 'Yan ', 'Peng ', 'Sen ', 'Zhuan ', 'Pai ', 'Piao ', 'Dou ', 'Yu ', 'Mie ', 'Zhuan '],
+];

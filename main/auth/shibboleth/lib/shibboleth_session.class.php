@@ -27,19 +27,19 @@ class ShibbolethSession
         return $result;
     }
 
-    function is_logged_in()
+    public function is_logged_in()
     {
         return isset($_SESSION['_user']['user_id']);
     }
 
-    function user()
+    public function user()
     {
         return $_SESSION['_user'];
     }
 
-    function logout()
+    public function logout()
     {
-        $_SESSION['_user'] = array();
+        $_SESSION['_user'] = [];
         online_logout(null, false);
         global $logoutInfo;
         Event::courseLogout($logoutInfo);
@@ -51,7 +51,7 @@ class ShibbolethSession
      * @param  string $uid The user ID
      * @return array $_user The user infos array created when the user logs in
      */
-    function login($uid)
+    public function login($uid)
     {
         /* This must be set for local.inc.php to register correctly the global variables in session
          * This is BAD. Logic should be migrated into a function and stop relying on global variables.
@@ -96,5 +96,4 @@ class ShibbolethSession
 
         return $_user;
     }
-
 }

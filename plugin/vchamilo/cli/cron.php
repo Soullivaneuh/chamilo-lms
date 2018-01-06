@@ -30,14 +30,14 @@ require_once($_configuration['root_sys'].'plugin/vchamilo/cli/clilib.php'); // c
 
 // now get cli options
 list($options, $unrecognized) = cli_get_params(
-    array(
+    [
         'help'              => false,
         'host'              => false,
-    ),
-    array(
+    ],
+    [
         'h' => 'help',
         'H' => 'host'
-    )
+    ]
 );
 
 if ($unrecognized) {
@@ -70,7 +70,7 @@ echo('Config check : playing for '.$_configuration['root_web']."\n");
 
 error_log('[chamilo][cronjob] Starting cron jobs as process '.getmypid());
 echo '<pre>';
-echo ('[chamilo][cronjob] Starting cron jobs as process '.getmypid()."\n");
+echo('[chamilo][cronjob] Starting cron jobs as process '.getmypid()."\n");
 require_once $_configuration['root_sys'].'main/cron/notification.php';
 error_log('[chamilo][cronjob] Ending cron jobs of process '.getmypid());
 echo('[chamilo][cronjob] Ending cron jobs of process '.getmypid()."\n");

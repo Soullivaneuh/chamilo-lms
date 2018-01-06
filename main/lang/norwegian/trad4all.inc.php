@@ -1076,4 +1076,3 @@ $SilverLine = "Sølvaktig";
 $SoberBrown = "Sober brun";
 $SteelGrey = "Stål grå";
 $TastyOlive = "Tasty olive";
-?>

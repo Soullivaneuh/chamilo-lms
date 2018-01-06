@@ -7584,4 +7584,3 @@ $VideoConference = "Videokonferencia";
 $TranslateThisTerm = "Preložiť tento pojem";
 $Template = "Šablóna";
 $CMS = "CMS";
-?>

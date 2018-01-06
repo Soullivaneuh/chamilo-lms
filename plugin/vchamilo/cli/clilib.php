@@ -7,10 +7,11 @@ exit;
  * @param string $plugin
  * @return mixed
  */
-function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
+function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null)
+{
     global $_configuration;
 
-    $vnodes = array();
+    $vnodes = [];
 
     if (empty($nodelistlocation)) {
         $nodelistlocation = $_configuration['root_sys'].'/plugin/vchamilo/nodelist.csv';
@@ -21,7 +22,7 @@ function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
     $csv_delimiter2 = ";";
 
     // make arrays of valid fields for error checking
-    $required = array(
+    $required = [
         'root_web' => 1,
         'sitename' => 1,
         'institution' => 1,
@@ -31,18 +32,18 @@ function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
         'db_user' => 1,
         'db_password' => 1,
         'course_folder' => 1,
-    );
+    ];
 
-    $optional = array(
+    $optional = [
         'db_host' => 1,
         'template' => 1,
         'table_prefix' => 1,
         'single_database' => 1,
         'tracking_enabled' => 1,
         'visible' => 1,
-    );
+    ];
 
-    $optionalDefaults = array(
+    $optionalDefaults = [
         'db_host' => $_configuration['db_host'],
         'db_prefix' => 'chm_',
         'table_prefix' => '',
@@ -50,15 +51,15 @@ function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
         'single_database' => 1,
         'template' => '',
         'visible' => 1
-    );
+    ];
 
-    $patterns = array();
+    $patterns = [];
 
     // Metas are accepted patterns (optional)
-    $metas = array(
+    $metas = [
         'plugin_.*',
         'config_.*'
-    );
+    ];
 
     // Get header (field names)
 
@@ -136,7 +137,9 @@ function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
             $key = $headers[$f];
             if (preg_match('/\|/', $key)) {
                 list($plugin, $variable) = explode('|', str_replace('plugin_', '', $key));
-                if (empty($variable)) die("Key error in CSV : $key ");
+                if (empty($variable)) {
+                    die("Key error in CSV : $key ");
+                }
                 if (!isset($vnode->$plugin)) {
                     $vnode->$plugin = new StdClass();
                 }
@@ -169,15 +172,20 @@ function vchamilo_parse_csv_nodelist($nodelistlocation = '', $plugin = null) {
  * @param bool $resetfirst
  * @return bool
  */
-function vchamilo_is_empty_line_or_format(&$text, $resetfirst = false) {
+function vchamilo_is_empty_line_or_format(&$text, $resetfirst = false)
+{
     global $CFG;
 
     static $textlib;
     static $first = true;
 
     // We may have a risk the BOM is present on first line
-    if ($resetfirst) $first = true;
-    if (!isset($textlib)) $textlib = new textlib(); // Singleton
+    if ($resetfirst) {
+        $first = true;
+    }
+    if (!isset($textlib)) {
+        $textlib = new textlib();
+    } // Singleton
     $text = $textlib->trim_utf8_bom($text);
     $first = false;
 
@@ -200,7 +208,8 @@ function vchamilo_is_empty_line_or_format(&$text, $resetfirst = false) {
  * @param bool $casesensitiveoptions true if options are case sensitive
  * @return string entered text
  */
-function cli_input($prompt, $default = '', array $options = null, $casesensitiveoptions = false) {
+function cli_input($prompt, $default = '', array $options = null, $casesensitiveoptions = false)
+{
     echo $prompt;
     echo "\n: ";
     $input = fread(STDIN, 2048);
@@ -226,14 +235,15 @@ function cli_input($prompt, $default = '', array $options = null, $casesensitive
  * @param array $shortmapping array describing mapping of short to long style options ex:('h'=>'help', 'v'=>'verbose')
  * @return array array of arrays, options, unrecognised as optionlongname=>value
  */
-function cli_get_params(array $longoptions, array $shortmapping = null) {
+function cli_get_params(array $longoptions, array $shortmapping = null)
+{
     $shortmapping = (array) $shortmapping;
-    $options      = array();
-    $unrecognized = array();
+    $options      = [];
+    $unrecognized = [];
 
     if (empty($_SERVER['argv'])) {
         // Bad luck, we can continue in interactive mode ;-)
-        return array($options, $unrecognized);
+        return [$options, $unrecognized];
     }
     $rawoptions = $_SERVER['argv'];
 
@@ -260,8 +270,7 @@ function cli_get_params(array $longoptions, array $shortmapping = null) {
             } else {
                 $unrecognized[] = $raw;
             }
-
-        } else if (substr($raw, 0, 1) === '-') {
+        } elseif (substr($raw, 0, 1) === '-') {
             $value = substr($raw, 1);
             $parts = explode('=', $value);
             if (count($parts) == 1) {
@@ -288,7 +297,7 @@ function cli_get_params(array $longoptions, array $shortmapping = null) {
         }
     }
     // Finished.
-    return array($options, $unrecognized);
+    return [$options, $unrecognized];
 }
 
 /**
@@ -296,7 +305,8 @@ function cli_get_params(array $longoptions, array $shortmapping = null) {
  * @param bool $return false means print, true return as string
  * @return mixed void or string
  */
-function cli_separator($return = false) {
+function cli_separator($return = false)
+{
     $separator = str_repeat('-', 79)."\n";
     if ($return) {
         return $separator;
@@ -311,7 +321,8 @@ function cli_separator($return = false) {
  * @param bool $return false means print, true return as string
  * @return mixed void or string
  */
-function cli_heading($string, $return = false) {
+function cli_heading($string, $return = false)
+{
     $string = "== $string ==\n";
     if ($return) {
         return $string;
@@ -325,7 +336,8 @@ function cli_heading($string, $return = false) {
  * @param $text
  * @return void
  */
-function cli_problem($text) {
+function cli_problem($text)
+{
     fwrite(STDERR, $text."\n");
 }
 
@@ -336,7 +348,8 @@ function cli_problem($text) {
  * @param int $errorCode
  * @return void (does not return)
  */
-function cli_error($text, $errorCode = 1) {
+function cli_error($text, $errorCode = 1)
+{
     fwrite(STDERR, $text);
     fwrite(STDERR, "\n");
     die($errorCode);

@@ -1,8 +1,8 @@
 <?php
 // $Id: xac.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ga', 'gag', 'gagg', 'gags', 'gan', 'ganj', 'ganh', 'gad', 'gal', 'galg', 'galm', 'galb', 'gals', 'galt', 'galp', 'galh',
+return [
+  'en' => ['ga', 'gag', 'gagg', 'gags', 'gan', 'ganj', 'ganh', 'gad', 'gal', 'galg', 'galm', 'galb', 'gals', 'galt', 'galp', 'galh',
     'gam', 'gab', 'gabs', 'gas', 'gass', 'gang', 'gaj', 'gac', 'gak', 'gat', 'gap', 'gah', 'gae', 'gaeg', 'gaegg', 'gaegs',
     'gaen', 'gaenj', 'gaenh', 'gaed', 'gael', 'gaelg', 'gaelm', 'gaelb', 'gaels', 'gaelt', 'gaelp', 'gaelh', 'gaem', 'gaeb', 'gaebs', 'gaes',
     'gaess', 'gaeng', 'gaej', 'gaec', 'gaek', 'gaet', 'gaep', 'gaeh', 'gya', 'gyag', 'gyagg', 'gyags', 'gyan', 'gyanj', 'gyanh', 'gyad',
@@ -17,5 +17,5 @@ return array(
     'gyeok', 'gyeot', 'gyeop', 'gyeoh', 'gye', 'gyeg', 'gyegg', 'gyegs', 'gyen', 'gyenj', 'gyenh', 'gyed', 'gyel', 'gyelg', 'gyelm', 'gyelb',
     'gyels', 'gyelt', 'gyelp', 'gyelh', 'gyem', 'gyeb', 'gyebs', 'gyes', 'gyess', 'gyeng', 'gyej', 'gyec', 'gyek', 'gyet', 'gyep', 'gyeh',
     'go', 'gog', 'gogg', 'gogs', 'gon', 'gonj', 'gonh', 'god', 'gol', 'golg', 'golm', 'golb', 'gols', 'golt', 'golp', 'golh',
-    'gom', 'gob', 'gobs', 'gos', 'goss', 'gong', 'goj', 'goc', 'gok', 'got', 'gop', 'goh', 'gwa', 'gwag', 'gwagg', 'gwags'),
-);
+    'gom', 'gob', 'gobs', 'gos', 'goss', 'gong', 'goj', 'goc', 'gok', 'got', 'gop', 'goh', 'gwa', 'gwag', 'gwagg', 'gwags'],
+];

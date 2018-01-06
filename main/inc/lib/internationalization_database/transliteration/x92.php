@@ -1,10 +1,10 @@
 <?php
 // $Id: x92.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Ba ', 'Fang ', 'Chen ', 'Xing ', 'Tou ', 'Yue ', 'Yan ', 'Fu ', 'Pi ', 'Na ', 'Xin ', 'E ', 'Jue ', 'Dun ', 'Gou ', 'Yin ',
+return [
+  'en' => ['Ba ', 'Fang ', 'Chen ', 'Xing ', 'Tou ', 'Yue ', 'Yan ', 'Fu ', 'Pi ', 'Na ', 'Xin ', 'E ', 'Jue ', 'Dun ', 'Gou ', 'Yin ',
     'Qian ', 'Ban ', 'Ji ', 'Ren ', 'Chao ', 'Niu ', 'Fen ', 'Yun ', 'Ji ', 'Qin ', 'Pi ', 'Guo ', 'Hong ', 'Yin ', 'Jun ', 'Shi ',
-    'Yi ', 'Zhong ', 'Nie ', 'Gai ', 'Ri ', 'Huo ', 'Tai ', 'Kang ', 'Habaki ', 'Irori ', 'Ngaak ', NULL, 'Duo ', 'Zi ', 'Ni ', 'Tu ',
+    'Yi ', 'Zhong ', 'Nie ', 'Gai ', 'Ri ', 'Huo ', 'Tai ', 'Kang ', 'Habaki ', 'Irori ', 'Ngaak ', null, 'Duo ', 'Zi ', 'Ni ', 'Tu ',
     'Shi ', 'Min ', 'Gu ', 'E ', 'Ling ', 'Bing ', 'Yi ', 'Gu ', 'Ba ', 'Pi ', 'Yu ', 'Si ', 'Zuo ', 'Bu ', 'You ', 'Dian ',
     'Jia ', 'Zhen ', 'Shi ', 'Shi ', 'Tie ', 'Ju ', 'Zhan ', 'Shi ', 'She ', 'Xuan ', 'Zhao ', 'Bao ', 'He ', 'Bi ', 'Sheng ', 'Chu ',
     'Shi ', 'Bo ', 'Zhu ', 'Chi ', 'Za ', 'Po ', 'Tong ', 'Qian ', 'Fu ', 'Zhai ', 'Liu ', 'Qian ', 'Fu ', 'Li ', 'Yue ', 'Pi ',
@@ -17,5 +17,5 @@ return array(
     'Dou ', 'Lu ', 'Mei ', 'Lang ', 'Wan ', 'Xin ', 'Yun ', 'Bei ', 'Wu ', 'Su ', 'Yu ', 'Chan ', 'Ting ', 'Bo ', 'Han ', 'Jia ',
     'Hong ', 'Cuan ', 'Feng ', 'Chan ', 'Wan ', 'Zhi ', 'Si ', 'Xuan ', 'Wu ', 'Wu ', 'Tiao ', 'Gong ', 'Zhuo ', 'Lue ', 'Xing ', 'Qian ',
     'Shen ', 'Han ', 'Lue ', 'Xie ', 'Chu ', 'Zheng ', 'Ju ', 'Xian ', 'Tie ', 'Mang ', 'Pu ', 'Li ', 'Pan ', 'Rui ', 'Cheng ', 'Gao ',
-    'Li ', 'Te ', 'Pyeng ', 'Zhu ', NULL, 'Tu ', 'Liu ', 'Zui ', 'Ju ', 'Chang ', 'Yuan ', 'Jian ', 'Gang ', 'Diao ', 'Tao ', 'Chang '),
-);
+    'Li ', 'Te ', 'Pyeng ', 'Zhu ', null, 'Tu ', 'Liu ', 'Zui ', 'Ju ', 'Chang ', 'Yuan ', 'Jian ', 'Gang ', 'Diao ', 'Tao ', 'Chang '],
+];

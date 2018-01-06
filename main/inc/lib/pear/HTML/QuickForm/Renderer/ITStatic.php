@@ -38,89 +38,89 @@
  */
 class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
 {
-   /**#@+
-    * @access private
-    */
-   /**
-    * An HTML_Template_IT or some other API compatible Template instance
-    * @var object
-    */
-    var $_tpl = null;
+    /**#@+
+     * @access private
+     */
+    /**
+     * An HTML_Template_IT or some other API compatible Template instance
+     * @var object
+     */
+    public $_tpl = null;
 
-   /**
-    * Rendered form name
-    * @var string
-    */
-    var $_formName = 'form';
+    /**
+     * Rendered form name
+     * @var string
+     */
+    public $_formName = 'form';
 
-   /**
-    * The errors that were not shown near concrete fields go here
-    * @var array
-    */
-    var $_errors = array();
+    /**
+     * The errors that were not shown near concrete fields go here
+     * @var array
+     */
+    public $_errors = [];
 
-   /**
-    * Show the block with required note?
-    * @var bool
-    */
-    var $_showRequired = false;
+    /**
+     * Show the block with required note?
+     * @var bool
+     */
+    public $_showRequired = false;
 
-   /**
-    * Which group are we currently parsing ?
-    * @var string
-    */
-    var $_inGroup;
+    /**
+     * Which group are we currently parsing ?
+     * @var string
+     */
+    public $_inGroup;
 
-   /**
-    * Index of the element in its group
-    * @var int
-    */
-    var $_elementIndex = 0;
+    /**
+     * Index of the element in its group
+     * @var int
+     */
+    public $_elementIndex = 0;
 
-   /**
-    * If elements have been added with the same name
-    * @var array
-    */
-    var $_duplicateElements = array();
+    /**
+     * If elements have been added with the same name
+     * @var array
+     */
+    public $_duplicateElements = [];
 
-   /**
-    * How to handle the required tag for required fields
-    * @var string
-    */
-    var $_required = '{label}<font size="1" color="red">*</font>';
+    /**
+     * How to handle the required tag for required fields
+     * @var string
+     */
+    public $_required = '{label}<font size="1" color="red">*</font>';
 
-   /**
-    * How to handle error messages in form validation
-    * @var string
-    */
-    var $_error = '<font color="red">{error}</font><br />{html}';
+    /**
+     * How to handle error messages in form validation
+     * @var string
+     */
+    public $_error = '<font color="red">{error}</font><br />{html}';
 
-   /**
-    * Collected HTML for hidden elements, if needed
-    * @var string
-    */
-    var $_hidden = '';
-   /**#@-*/
+    /**
+     * Collected HTML for hidden elements, if needed
+     * @var string
+     */
+    public $_hidden = '';
+    /**#@-*/
 
-   /**
-    * Constructor
-    *
-    * @param HTML_Template_IT|HTML_Template_Sigma   Template object to use
-    */
-    function HTML_QuickForm_Renderer_ITStatic(&$tpl)
+    /**
+     * Constructor
+     *
+     * @param HTML_Template_IT|HTML_Template_Sigma   Template object to use
+     */
+    public function HTML_QuickForm_Renderer_ITStatic(&$tpl)
     {
         $this->HTML_QuickForm_Renderer();
         $this->_tpl =& $tpl;
     } // end constructor
 
-   /**
-    * Called when visiting a form, before processing any form elements
-    *
-    * @param    HTML_QuickForm  form object being visited
-    * @access   public
-    * @return   void
-    */
-    function startForm(&$form)
+    /**
+     * Called when visiting a form, before processing any form elements
+     *
+     * @param    HTML_QuickForm  form object being visited
+     * @access   public
+     * @return   void
+     */
+    public function startForm(&$form)
     {
         $this->_formName = $form->getAttribute('id');
 
@@ -132,14 +132,14 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         }
     } // end func startForm
 
-   /**
-    * Called when visiting a form, after processing all form elements
-    *
-    * @param    HTML_QuickForm  form object being visited
-    * @access   public
-    * @return   void
-    */
-    function finishForm(&$form)
+    /**
+     * Called when visiting a form, after processing all form elements
+     *
+     * @param    HTML_QuickForm  form object being visited
+     * @access   public
+     * @return   void
+     */
+    public function finishForm(&$form)
     {
         // display errors above form
         if (!empty($this->_errors) && $this->_tpl->blockExists($this->_formName.'_error_loop')) {
@@ -162,14 +162,14 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         $this->_tpl->setVariable($this->_formName.'_javascript', $form->getValidationScript());
     } // end func finishForm
 
-   /**
-    * Called when visiting a header element
-    *
-    * @param    HTML_QuickForm_header   header element being visited
-    * @access   public
-    * @return   void
-    */
-    function renderHeader(&$header)
+    /**
+     * Called when visiting a header element
+     *
+     * @param    HTML_QuickForm_header   header element being visited
+     * @access   public
+     * @return   void
+     */
+    public function renderHeader(&$header)
     {
         $name = $header->getName();
         $varName = $this->_formName.'_header';
@@ -181,22 +181,22 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         $this->_tpl->setVariable($varName, $header->toHtml());
     } // end func renderHeader
 
-   /**
-    * Called when visiting an element
-    *
-    * @param    HTML_QuickForm_element  form element being visited
-    * @param    bool                    Whether an element is required
-    * @param    string                  An error message associated with an element
-    * @access   public
-    * @return   void
-    */
-    function renderElement(&$element, $required, $error)
+    /**
+     * Called when visiting an element
+     *
+     * @param    HTML_QuickForm_element  form element being visited
+     * @param    bool                    Whether an element is required
+     * @param    string                  An error message associated with an element
+     * @access   public
+     * @return   void
+     */
+    public function renderElement(&$element, $required, $error)
     {
         $name = $element->getName();
 
         // are we inside a group?
         if (!empty($this->_inGroup)) {
-            $varName = $this->_formName.'_'.str_replace(array('[', ']'), '_', $name);
+            $varName = $this->_formName.'_'.str_replace(['[', ']'], '_', $name);
             if (substr($varName, -2) == '__') {
                 // element name is of type : group[]
                 $varName = $this->_inGroup.'_'.$this->_elementIndex.'_';
@@ -223,10 +223,8 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
                 }
                 $this->_tpl->setVariable($varName.'html', $html);
             }
-
         } else {
-
-            $name = str_replace(array('[', ']'), array('_', ''), $name);
+            $name = str_replace(['[', ']'], ['_', ''], $name);
 
             if (isset($this->_duplicateElements[$name])) {
                 // Element is a duplicate
@@ -257,34 +255,34 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         }
     } // end func renderElement
 
-   /**
-    * Called when visiting a hidden element
-    *
-    * @param    HTML_QuickForm_element  hidden element being visited
-    * @access   public
-    * @return   void
-    */
-    function renderHidden(&$element)
+    /**
+     * Called when visiting a hidden element
+     *
+     * @param    HTML_QuickForm_element  hidden element being visited
+     * @access   public
+     * @return   void
+     */
+    public function renderHidden(&$element)
     {
         if ($this->_tpl->placeholderExists($this->_formName . '_hidden')) {
             $this->_hidden .= $element->toHtml();
         } else {
             $name = $element->getName();
-            $name = str_replace(array('[', ']'), array('_', ''), $name);
+            $name = str_replace(['[', ']'], ['_', ''], $name);
             $this->_tpl->setVariable($this->_formName.'_'.$name.'_html', $element->toHtml());
         }
     } // end func renderHidden
 
-   /**
-    * Called when visiting a group, before processing any group elements
-    *
-    * @param    HTML_QuickForm_group    group being visited
-    * @param    bool                    Whether a group is required
-    * @param    string                  An error message associated with a group
-    * @access   public
-    * @return   void
-    */
-    function startGroup(&$group, $required, $error)
+    /**
+     * Called when visiting a group, before processing any group elements
+     *
+     * @param    HTML_QuickForm_group    group being visited
+     * @param    bool                    Whether a group is required
+     * @param    string                  An error message associated with a group
+     * @access   public
+     * @return   void
+     */
+    public function startGroup(&$group, $required, $error)
     {
         $name = $group->getName();
         $varName = $this->_formName.'_'.$name;
@@ -328,78 +326,78 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         $this->_inGroup = $varName;
     } // end func startGroup
 
-   /**
-    * Called when visiting a group, after processing all group elements
-    *
-    * @param    HTML_QuickForm_group    group being visited
-    * @access   public
-    * @return   void
-    */
-    function finishGroup(&$group)
+    /**
+     * Called when visiting a group, after processing all group elements
+     *
+     * @param    HTML_QuickForm_group    group being visited
+     * @access   public
+     * @return   void
+     */
+    public function finishGroup(&$group)
     {
         $this->_inGroup = '';
     } // end func finishGroup
 
-   /**
-    * Sets the way required elements are rendered
-    *
-    * You can use {label} or {html} placeholders to let the renderer know where
-    * where the element label or the element html are positionned according to the
-    * required tag. They will be replaced accordingly with the right value.
-    * For example:
-    * <font color="red">*</font>{label}
-    * will put a red star in front of the label if the element is required.
-    *
-    * @param    string      The required element template
-    * @access   public
-    * @return   void
-    */
-    function setRequiredTemplate($template)
+    /**
+     * Sets the way required elements are rendered
+     *
+     * You can use {label} or {html} placeholders to let the renderer know where
+     * where the element label or the element html are positionned according to the
+     * required tag. They will be replaced accordingly with the right value.
+     * For example:
+     * <font color="red">*</font>{label}
+     * will put a red star in front of the label if the element is required.
+     *
+     * @param    string      The required element template
+     * @access   public
+     * @return   void
+     */
+    public function setRequiredTemplate($template)
     {
         $this->_required = $template;
     } // end func setRequiredTemplate
 
-   /**
-    * Sets the way elements with validation errors are rendered
-    *
-    * You can use {label} or {html} placeholders to let the renderer know where
-    * where the element label or the element html are positionned according to the
-    * error message. They will be replaced accordingly with the right value.
-    * The error message will replace the {error} place holder.
-    * For example:
-    * <font color="red">{error}</font><br />{html}
-    * will put the error message in red on top of the element html.
-    *
-    * If you want all error messages to be output in the main error block, do not specify
-    * {html} nor {label}.
-    *
-    * Groups can have special layouts. With this kind of groups, the renderer will need
-    * to know where to place the error message. In this case, use error blocks like:
-    * <!-- BEGIN form_group_error -->{form_group_error}<!-- END form_group_error -->
-    * where you want the error message to appear in the form.
-    *
-    * @param    string      The element error template
-    * @access   public
-    * @return   void
-    */
-    function setErrorTemplate($template)
+    /**
+     * Sets the way elements with validation errors are rendered
+     *
+     * You can use {label} or {html} placeholders to let the renderer know where
+     * where the element label or the element html are positionned according to the
+     * error message. They will be replaced accordingly with the right value.
+     * The error message will replace the {error} place holder.
+     * For example:
+     * <font color="red">{error}</font><br />{html}
+     * will put the error message in red on top of the element html.
+     *
+     * If you want all error messages to be output in the main error block, do not specify
+     * {html} nor {label}.
+     *
+     * Groups can have special layouts. With this kind of groups, the renderer will need
+     * to know where to place the error message. In this case, use error blocks like:
+     * <!-- BEGIN form_group_error -->{form_group_error}<!-- END form_group_error -->
+     * where you want the error message to appear in the form.
+     *
+     * @param    string      The element error template
+     * @access   public
+     * @return   void
+     */
+    public function setErrorTemplate($template)
     {
         $this->_error = $template;
     } // end func setErrorTemplate
 
-   /**
-    * Called when an element is required
-    *
-    * This method will add the required tag to the element label and/or the element html
-    * such as defined with the method setRequiredTemplate
-    *
-    * @param    string      The element label
-    * @param    string      The element html rendering
-    * @see      setRequiredTemplate()
-    * @access   private
-    * @return   void
-    */
-    function _renderRequired(&$label, &$html)
+    /**
+     * Called when an element is required
+     *
+     * This method will add the required tag to the element label and/or the element html
+     * such as defined with the method setRequiredTemplate
+     *
+     * @param    string      The element label
+     * @param    string      The element html rendering
+     * @see      setRequiredTemplate()
+     * @access   private
+     * @return   void
+     */
+    public function _renderRequired(&$label, &$html)
     {
         if ($this->_tpl->blockExists($tplBlock = $this->_formName . '_required_block')) {
             if (!empty($label) && $this->_tpl->placeholderExists($this->_formName . '_label', $tplBlock)) {
@@ -428,21 +426,21 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         }
     } // end func _renderRequired
 
-   /**
-    * Called when an element has a validation error
-    *
-    * This method will add the error message to the element label or the element html
-    * such as defined with the method setErrorTemplate. If the error placeholder is not found
-    * in the template, the error will be displayed in the form error block.
-    *
-    * @param    string      The element label
-    * @param    string      The element html rendering
-    * @param    string      The element error
-    * @see      setErrorTemplate()
-    * @access   private
-    * @return   void
-    */
-    function _renderError(&$label, &$html, $error)
+    /**
+     * Called when an element has a validation error
+     *
+     * This method will add the error message to the element label or the element html
+     * such as defined with the method setErrorTemplate. If the error placeholder is not found
+     * in the template, the error will be displayed in the form error block.
+     *
+     * @param    string      The element label
+     * @param    string      The element html rendering
+     * @param    string      The element error
+     * @see      setErrorTemplate()
+     * @access   private
+     * @return   void
+     */
+    public function _renderError(&$label, &$html, $error)
     {
         if ($this->_tpl->blockExists($tplBlock = $this->_formName . '_error_block')) {
             $this->_tpl->setVariable($this->_formName . '_error', $error);
@@ -461,28 +459,28 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
             $this->_tpl->setVariable($this->_formName . '_error', null);
         } elseif (!empty($label) && strpos($this->_error, '{label}') !== false) {
             if (is_array($label)) {
-                $label[0] = str_replace(array('{label}', '{error}'), array($label[0], $error), $this->_error);
+                $label[0] = str_replace(['{label}', '{error}'], [$label[0], $error], $this->_error);
             } else {
-                $label = str_replace(array('{label}', '{error}'), array($label, $error), $this->_error);
+                $label = str_replace(['{label}', '{error}'], [$label, $error], $this->_error);
             }
         } elseif (!empty($html) && strpos($this->_error, '{html}') !== false) {
-            $html = str_replace(array('{html}', '{error}'), array($html, $error), $this->_error);
+            $html = str_replace(['{html}', '{error}'], [$html, $error], $this->_error);
         } else {
             $this->_errors[] = $error;
         }
     }// end func _renderError
 
 
-   /**
-    * Returns the block's contents
-    *
-    * The method is needed because ITX and Sigma implement clearing
-    * the block contents on get() a bit differently
-    *
-    * @param    string  Block name
-    * @return   string  Block contents
-    */
-    function _getTplBlock($block)
+    /**
+     * Returns the block's contents
+     *
+     * The method is needed because ITX and Sigma implement clearing
+     * the block contents on get() a bit differently
+     *
+     * @param    string  Block name
+     * @return   string  Block contents
+     */
+    public function _getTplBlock($block)
     {
         $this->_tpl->parse($block);
         if (is_a($this->_tpl, 'html_template_sigma')) {
@@ -496,4 +494,3 @@ class HTML_QuickForm_Renderer_ITStatic extends HTML_QuickForm_Renderer
         return $ret;
     }
 } // end class HTML_QuickForm_Renderer_ITStatic
-?>

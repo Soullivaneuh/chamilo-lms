@@ -41,7 +41,7 @@ class HTML_QuickForm_RuleRegistry
      * @var     array
      * @access  private
      */
-    var $_rules = array();
+    public $_rules = [];
 
     /**
      * Returns a singleton of HTML_QuickForm_RuleRegistry
@@ -53,7 +53,7 @@ class HTML_QuickForm_RuleRegistry
      * @static
      * @return    HTML_QuickForm_RuleRegistry
      */
-    static function &singleton()
+    public static function &singleton()
     {
         static $obj;
         if (!isset($obj)) {
@@ -90,7 +90,6 @@ class HTML_QuickForm_RuleRegistry
             // Regular expression
             $rule =& $this->getRule('regex');
             $rule->addData($ruleName, $data1);
-
         } elseif ($type == 'function' || $type == 'callback') {
             // Callback function
             $rule = $this->getRule('callback');
@@ -114,7 +113,7 @@ class HTML_QuickForm_RuleRegistry
             return false;
         }
 
-        $rules = array(
+        $rules = [
             'required' => 'HTML_QuickForm_Rule_Required',
             'maxlength' => 'HTML_QuickForm_Rule_Range',
             'minlength' => 'HTML_QuickForm_Rule_Range',
@@ -152,7 +151,7 @@ class HTML_QuickForm_RuleRegistry
             'filename', 'HTML_QuickForm_Rule_FileName',
             'validquestiontype' => 'HTML_QuickForm_Rule_QuestionType',
             'mintext' => 'Html_Quickform_Rule_MinText'
-        );
+        ];
 
         $class = $rules[$ruleName];
 
@@ -179,7 +178,7 @@ class HTML_QuickForm_RuleRegistry
      * @access    public
      * @return    mixed    true if no error found, int of valid values (when an array of values is given) or false if error
      */
-    function validate($ruleName, $values, $options = null, $multiple = false)
+    public function validate($ruleName, $values, $options = null, $multiple = false)
     {
         $rule = $this->getRule($ruleName);
         if (is_array($values) && !$multiple) {
@@ -206,7 +205,7 @@ class HTML_QuickForm_RuleRegistry
      * @access    public
      * @return    string    JavaScript for the rule
      */
-    function getValidationScript(&$element, $elementName, $ruleData)
+    public function getValidationScript(&$element, $elementName, $ruleData)
     {
         $reset =  (isset($ruleData['reset'])) ? $ruleData['reset'] : false;
         $rule  = $this->getRule($ruleData['type']);
@@ -222,7 +221,7 @@ class HTML_QuickForm_RuleRegistry
             }
         }
         $jsField = isset($ruleData['group'])? $ruleData['group']: $elementName;
-        list ($jsPrefix, $jsCheck) = $rule->getValidationScript($ruleData['format']);
+        list($jsPrefix, $jsCheck) = $rule->getValidationScript($ruleData['format']);
         if (!isset($ruleData['howmany'])) {
             $js = $jsValue . "\n" . $jsPrefix .
                   "  if (" . str_replace('{jsVar}', 'value', $jsCheck) . " && !errFlag['{$jsField}']) {\n" .
@@ -248,19 +247,19 @@ class HTML_QuickForm_RuleRegistry
     } // end func getValidationScript
 
 
-   /**
-    * Returns JavaScript to get and to reset the element's value
-    *
-    * @access private
-    * @param  HTML_QuickForm_element    element being processed
-    * @param  string                    element's name
-    * @param  bool                      whether to generate JavaScript to reset
-    *                                   the value
-    * @param  integer                   value's index in the array (only used for
-    *                                   multielement rules)
-    * @return array     first item is value javascript, second is reset
-    */
-    function _getJsValue(&$element, $elementName, $reset = false, $index = null)
+    /**
+     * Returns JavaScript to get and to reset the element's value
+     *
+     * @access private
+     * @param  HTML_QuickForm_element    element being processed
+     * @param  string                    element's name
+     * @param  bool                      whether to generate JavaScript to reset
+     *                                   the value
+     * @param  integer                   value's index in the array (only used for
+     *                                   multielement rules)
+     * @return array     first item is value javascript, second is reset
+     */
+    public function _getJsValue(&$element, $elementName, $reset = false, $index = null)
     {
         $jsIndex = isset($index)? '[' . $index . ']': '';
         $tmp_reset = $reset? "    var field = frm.elements['$elementName'];\n": '';
@@ -330,7 +329,6 @@ class HTML_QuickForm_RuleRegistry
                     "      }\n" .
                     "    }\n";
             }
-
         } elseif ($element->getType() == 'select') {
             if ($element->getMultiple()) {
                 $elementName .= '[]';
@@ -351,7 +349,6 @@ class HTML_QuickForm_RuleRegistry
                     "      field.options[i].selected = field.options[i].defaultSelected;\n" .
                     "    }\n";
             }
-
         } elseif ($element->getType() == 'checkbox') {
             if (is_a($element, 'html_quickform_advcheckbox')) {
                 $value = "  value{$jsIndex} = frm.elements['$elementName'][1].checked? frm.elements['$elementName'][1].value: frm.elements['$elementName'][0].value;\n";
@@ -360,7 +357,6 @@ class HTML_QuickForm_RuleRegistry
                 $value = "  value{$jsIndex} = frm.elements['$elementName'].checked? '1': '';\n";
                 $tmp_reset .= $reset ? "    field.checked = field.defaultChecked;\n" : '';
             }
-
         } elseif ($element->getType() == 'radio') {
             $value = "  value{$jsIndex} = '';\n" .
                      // Fix for bug #5644
@@ -375,11 +371,10 @@ class HTML_QuickForm_RuleRegistry
                               "      field[i].checked = field[i].defaultChecked;\n" .
                               "    }";
             }
-
         } else {
             $value = "  value{$jsIndex} = frm.elements['$elementName'].value;";
             $tmp_reset .= ($reset) ? "    field.value = field.defaultValue;\n" : '';
         }
-        return array($value, $tmp_reset);
+        return [$value, $tmp_reset];
     }
 }

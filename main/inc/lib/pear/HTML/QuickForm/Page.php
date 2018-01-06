@@ -37,60 +37,60 @@
  */
 class HTML_QuickForm_Page extends HTML_QuickForm
 {
-   /**
-    * Contains the mapping of actions to corresponding HTML_QuickForm_Action objects
-    * @var array
-    */
-    var $_actions = array();
+    /**
+     * Contains the mapping of actions to corresponding HTML_QuickForm_Action objects
+     * @var array
+     */
+    public $_actions = [];
 
-   /**
-    * Contains a reference to a Controller object containing this page
-    * @var      HTML_QuickForm_Controller
-    * @access   public
-    */
-    var $controller = null;
+    /**
+     * Contains a reference to a Controller object containing this page
+     * @var      HTML_QuickForm_Controller
+     * @access   public
+     */
+    public $controller = null;
 
-   /**
-    * Should be set to true on first call to buildForm()
-    * @var bool
-    */
-    var $_formBuilt = false;
+    /**
+     * Should be set to true on first call to buildForm()
+     * @var bool
+     */
+    public $_formBuilt = false;
 
-   /**
-    * Class constructor
-    *
-    * @access public
-    */
-    function HTML_QuickForm_Page($formName, $method = 'post', $target = '', $attributes = null)
+    /**
+     * Class constructor
+     *
+     * @access public
+     */
+    public function HTML_QuickForm_Page($formName, $method = 'post', $target = '', $attributes = null)
     {
         $this->HTML_QuickForm($formName, $method, '', $target, $attributes);
     }
 
 
-   /**
-    * Registers a handler for a specific action.
-    *
-    * @access public
-    * @param  string                name of the action
-    * @param  HTML_QuickForm_Action the handler for the action
-    */
-    function addAction($actionName, &$action)
+    /**
+     * Registers a handler for a specific action.
+     *
+     * @access public
+     * @param  string                name of the action
+     * @param  HTML_QuickForm_Action the handler for the action
+     */
+    public function addAction($actionName, &$action)
     {
         $this->_actions[$actionName] =& $action;
     }
 
 
-   /**
-    * Handles an action.
-    *
-    * If an Action object was not registered here, controller's handle()
-    * method will be called.
-    *
-    * @access public
-    * @param  string Name of the action
-    * @throws PEAR_Error
-    */
-    function handle($actionName)
+    /**
+     * Handles an action.
+     *
+     * If an Action object was not registered here, controller's handle()
+     * method will be called.
+     *
+     * @access public
+     * @param  string Name of the action
+     * @throws PEAR_Error
+     */
+    public function handle($actionName)
     {
         if (isset($this->_actions[$actionName])) {
             return $this->_actions[$actionName]->perform($this, $actionName);
@@ -100,28 +100,28 @@ class HTML_QuickForm_Page extends HTML_QuickForm
     }
 
 
-   /**
-    * Returns a name for a submit button that will invoke a specific action.
-    *
-    * @access public
-    * @param  string  Name of the action
-    * @return string  "name" attribute for a submit button
-    */
-    function getButtonName($actionName)
+    /**
+     * Returns a name for a submit button that will invoke a specific action.
+     *
+     * @access public
+     * @param  string  Name of the action
+     * @return string  "name" attribute for a submit button
+     */
+    public function getButtonName($actionName)
     {
         return '_qf_' . $this->getAttribute('id') . '_' . $actionName;
     }
 
 
-   /**
-    * Loads the submit values from the array.
-    *
-    * The method is NOT intended for general usage.
-    *
-    * @param array  'submit' values
-    * @access public
-    */
-    function loadValues($values)
+    /**
+     * Loads the submit values from the array.
+     *
+     * The method is NOT intended for general usage.
+     *
+     * @param array  'submit' values
+     * @access public
+     */
+    public function loadValues($values)
     {
         $this->_flagSubmitted = true;
         $this->_submitValues = $values;
@@ -131,47 +131,47 @@ class HTML_QuickForm_Page extends HTML_QuickForm
     }
 
 
-   /**
-    * Builds a form.
-    *
-    * You should override this method when you subclass HTML_QuickForm_Page,
-    * it should contain all the necessary addElement(), applyFilter(), addRule()
-    * and possibly setDefaults() and setConstants() calls. The method will be
-    * called on demand, so please be sure to set $_formBuilt property to true to
-    * assure that the method works only once.
-    *
-    * @access public
-    * @abstract
-    */
-    function buildForm()
+    /**
+     * Builds a form.
+     *
+     * You should override this method when you subclass HTML_QuickForm_Page,
+     * it should contain all the necessary addElement(), applyFilter(), addRule()
+     * and possibly setDefaults() and setConstants() calls. The method will be
+     * called on demand, so please be sure to set $_formBuilt property to true to
+     * assure that the method works only once.
+     *
+     * @access public
+     * @abstract
+     */
+    public function buildForm()
     {
         $this->_formBuilt = true;
     }
 
 
-   /**
-    * Checks whether the form was already built.
-    *
-    * @access public
-    * @return bool
-    */
-    function isFormBuilt()
+    /**
+     * Checks whether the form was already built.
+     *
+     * @access public
+     * @return bool
+     */
+    public function isFormBuilt()
     {
         return $this->_formBuilt;
     }
 
 
-   /**
-    * Sets the default action invoked on page-form submit
-    *
-    * This is necessary as the user may just press Enter instead of
-    * clicking one of the named submit buttons and then no action name will
-    * be passed to the script.
-    *
-    * @access public
-    * @param  string    default action name
-    */
-    function setDefaultAction($actionName)
+    /**
+     * Sets the default action invoked on page-form submit
+     *
+     * This is necessary as the user may just press Enter instead of
+     * clicking one of the named submit buttons and then no action name will
+     * be passed to the script.
+     *
+     * @access public
+     * @param  string    default action name
+     */
+    public function setDefaultAction($actionName)
     {
         if ($this->elementExists('_qf_default')) {
             $element =& $this->getElement('_qf_default');
@@ -182,13 +182,13 @@ class HTML_QuickForm_Page extends HTML_QuickForm
     }
 
 
-   /**
-    * Returns 'safe' elements' values
-    *
-    * @param   mixed   Array/string of element names, whose values we want. If not set then return all elements.
-    * @param   bool    Whether to remove internal (_qf_...) values from the resultant array
-    */
-    function exportValues($elementList = null, $filterInternal = false)
+    /**
+     * Returns 'safe' elements' values
+     *
+     * @param   mixed   Array/string of element names, whose values we want. If not set then return all elements.
+     * @param   bool    Whether to remove internal (_qf_...) values from the resultant array
+     */
+    public function exportValues($elementList = null, $filterInternal = false)
     {
         $values = parent::exportValues($elementList);
         if ($filterInternal) {
@@ -201,5 +201,3 @@ class HTML_QuickForm_Page extends HTML_QuickForm
         return $values;
     }
 }
-
-?>

@@ -11,5 +11,4 @@ use Sonata\CoreBundle\Model\BaseEntityManager;
  */
 class SettingsCurrentManager extends BaseEntityManager
 {
-
 }

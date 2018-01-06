@@ -3539,4 +3539,3 @@ $CourseCatalog = "دليل المقررات";
 $List = "قائمة";
 $GlossaryTermUpdated = "تم تحديث المصطلح";
 $DeleteAllGlossaryTerms = "احذف جميع المفردات";
-?>

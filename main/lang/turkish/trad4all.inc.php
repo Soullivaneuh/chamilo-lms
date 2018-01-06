@@ -3397,4 +3397,3 @@ $MessageMaxUploadFilesizeComment = "Mesaj maksimum upload dosya boyutu Yorumu";
 $YouDoNotHaveAnySessionInItsHistory = "Tarihçede kayıtlı eğitim sömestriniz yoktur.";
 $StudentAllowedToDeleteOwnPublication = "Öğrencilerin kendi yayınlarını silmelerine izin ver";
 $ConfirmYourChoiceDeleteAllfiles = "Lğtfen seçiminizi onaylayınız. Tüm dosyalar geri kurtarma şansı olmadan silinecektir.";
-?>

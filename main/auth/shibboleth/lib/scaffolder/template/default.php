@@ -51,9 +51,11 @@ class <?php echo $prefix . $class_name ?>
         return self::store()->create_object($data);
     }   
 
-<?php foreach($fields as $field){?>
+<?php foreach ($fields as $field) {
+    ?>
     public $<?php echo $field->name; ?> = <?php echo $field->def ? $field->def : 'null'; ?>;    
-<?php }?> 
+<?php
+}?> 
     
     /**
      *
@@ -114,7 +116,8 @@ class <?php echo $prefix . $class_name ?>Store extends Store
     {
         return parent::create_object($data);
     }    
-<?php foreach($keys as $key){?>
+<?php foreach ($keys as $key) {
+        ?>
     
     /**
      *
@@ -142,5 +145,6 @@ class <?php echo $prefix . $class_name ?>Store extends Store
     {
         return $this->delete(array('<?php echo $key; ?>' => $value));
     }    
-<?php }?>     
+<?php
+    }?>     
 }

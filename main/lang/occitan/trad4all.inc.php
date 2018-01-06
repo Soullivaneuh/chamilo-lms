@@ -421,4 +421,3 @@ $ToolIsNowHidden = "L'aisina es actualament invisibla";
 $GreyIcons = "Instruments";
 $Interaction = "Interaccion";
 $Authoring = "Creacion de contenguts";
-?>

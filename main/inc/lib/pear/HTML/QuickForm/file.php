@@ -35,11 +35,11 @@
  */
 class HTML_QuickForm_file extends HTML_QuickForm_input
 {
-   /**
-    * Uploaded file data, from $_FILES
-    * @var array
-    */
-    var $_value = null;
+    /**
+     * Uploaded file data, from $_FILES
+     * @var array
+     */
+    public $_value = null;
 
     /**
      * Class constructor
@@ -64,9 +64,9 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @since     1.0
      * @access    public
      */
-    function setSize($size)
+    public function setSize($size)
     {
-        $this->updateAttributes(array('size' => $size));
+        $this->updateAttributes(['size' => $size]);
     }
 
     /**
@@ -76,7 +76,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @access    public
      * @return    int
      */
-    function getSize()
+    public function getSize()
     {
         return $this->getAttribute('size');
     }
@@ -87,7 +87,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @access    public
      * @return    bool
      */
-    function freeze()
+    public function freeze()
     {
         return false;
     }
@@ -105,7 +105,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
      * @since     3.0
      * @access    public
      */
-    function setValue($value)
+    public function setValue($value)
     {
         return null;
     }
@@ -143,7 +143,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
                     throw new \Exception('Cannot add a file upload field to a GET method form');
                 }
                 $this->_value = $this->_findValue();
-                $caller->updateAttributes(array('enctype' => 'multipart/form-data'));
+                $caller->updateAttributes(['enctype' => 'multipart/form-data']);
                 $caller->setMaxFileSize();
                 break;
             case 'addElement':
@@ -206,15 +206,15 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
     }
 
 
-   /**
-    * Tries to find the element value from the values array
-    *
-    * Needs to be redefined here as $_FILES is populated differently from
-    * other arrays when element name is of the form foo[bar]
-    *
-    * @access    public
-    * @return    mixed
-    */
+    /**
+     * Tries to find the element value from the values array
+     *
+     * Needs to be redefined here as $_FILES is populated differently from
+     * other arrays when element name is of the form foo[bar]
+     *
+     * @access    public
+     * @return    mixed
+     */
     public function _findValue(&$values = null)
     {
         if (empty($_FILES)) {
@@ -225,14 +225,16 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
             return $_FILES[$elementName];
         } elseif (false !== ($pos = strpos($elementName, '['))) {
             $base  = str_replace(
-                        array('\\', '\''), array('\\\\', '\\\''),
+                        ['\\', '\''],
+                ['\\\\', '\\\''],
                         substr($elementName, 0, $pos)
                     );
             $idx   = "['" . str_replace(
-                        array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                        ['\\', '\'', ']', '['],
+                ['\\\\', '\\\'', '', "']['"],
                         substr($elementName, $pos + 1, -1)
                      ) . "']";
-            $props = array('name', 'type', 'size', 'tmp_name', 'error');
+            $props = ['name', 'type', 'size', 'tmp_name', 'error'];
             $code  = "if (!isset(\$_FILES['{$base}']['name']{$idx})) {\n" .
                      "    return null;\n" .
                      "} else {\n" .
@@ -351,7 +353,7 @@ class HTML_QuickForm_file extends HTML_QuickForm_input
             if (!empty($this->_attributes['crop_ratio'])) {
                 $ratio = $this->_attributes['crop_ratio'];
             }
-            $js = $this->getElementJS(array('ratio' => $ratio));
+            $js = $this->getElementJS(['ratio' => $ratio]);
         }
 
         if ($this->_flagFrozen) {

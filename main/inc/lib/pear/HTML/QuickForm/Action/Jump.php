@@ -31,30 +31,30 @@
  */
 class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
 {
-   /**
-    * Splits (part of) the URI into path and query components
-    *
-    * @param    string  String of the form 'foo?bar'
-    * @return   array   Array of the form array('foo', '?bar)
-    * @access   private
-    */
-    function _splitUri($uri)
+    /**
+     * Splits (part of) the URI into path and query components
+     *
+     * @param    string  String of the form 'foo?bar'
+     * @return   array   Array of the form array('foo', '?bar)
+     * @access   private
+     */
+    public function _splitUri($uri)
     {
         if (false === ($qm = strpos($uri, '?'))) {
-            return array($uri, '');
+            return [$uri, ''];
         } else {
-            return array(substr($uri, 0, $qm), substr($uri, $qm));
+            return [substr($uri, 0, $qm), substr($uri, $qm)];
         }
     }
 
-   /**
-    * Removes the '..' and '.' segments from the path component
-    *
-    * @param    string  Path component of the URL, possibly with '.' and '..' segments
-    * @return   string  Path component of the URL with '.' and '..' segments removed
-    * @access   private
-    */
-    function _normalizePath($path)
+    /**
+     * Removes the '..' and '.' segments from the path component
+     *
+     * @param    string  Path component of the URL, possibly with '.' and '..' segments
+     * @return   string  Path component of the URL with '.' and '..' segments removed
+     * @access   private
+     */
+    public function _normalizePath($path)
     {
         $pathAry = explode('/', $path);
         $i       = 1;
@@ -67,7 +67,6 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
                     $pathAry[$i] = '';
                     $i++;
                 }
-
             } elseif ('..' == $pathAry[$i] && $i > 1 && '..' != $pathAry[$i - 1]) {
                 if ($i < count($pathAry) -1) {
                     array_splice($pathAry, $i - 1, 2);
@@ -75,7 +74,6 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
                 } else {
                     array_splice($pathAry, $i - 1, 2, '');
                 }
-
             } else {
                 $i++;
             }
@@ -84,34 +82,31 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
         return implode('/', $pathAry);
     }
 
-   /**
-    * Resolves relative URL using current page's URL as base
-    *
-    * The method follows procedure described in section 4 of RFC 1808 and
-    * passes the examples provided in section 5 of said RFC. Values from
-    * $_SERVER array are used for calculation of "current URL"
-    *
-    * @param    string  Relative URL, probably from form's action attribute
-    * @return   string  Absolute URL
-    * @access   private
-    */
-    function _resolveRelativeURL($url)
+    /**
+     * Resolves relative URL using current page's URL as base
+     *
+     * The method follows procedure described in section 4 of RFC 1808 and
+     * passes the examples provided in section 5 of said RFC. Values from
+     * $_SERVER array are used for calculation of "current URL"
+     *
+     * @param    string  Relative URL, probably from form's action attribute
+     * @return   string  Absolute URL
+     * @access   private
+     */
+    public function _resolveRelativeURL($url)
     {
         $https  = !empty($_SERVER['HTTPS']) && ('off' != strtolower($_SERVER['HTTPS']));
         $scheme = ($https? 'https:': 'http:');
         if ('//' == substr($url, 0, 2)) {
             return $scheme . $url;
-
         } else {
             $host   = $scheme . '//' . $_SERVER['SERVER_NAME'] .
                       (($https && 443 == $_SERVER['SERVER_PORT'] ||
                         !$https && 80 == $_SERVER['SERVER_PORT'])? '': ':' . $_SERVER['SERVER_PORT']);
             if ('' == $url) {
                 return $host . $_SERVER['REQUEST_URI'];
-
             } elseif ('/' == $url[0]) {
                 return $host . $url;
-
             } else {
                 list($basePath, $baseQuery) = $this->_splitUri($_SERVER['REQUEST_URI']);
                 list($actPath, $actQuery)   = $this->_splitUri($url);
@@ -125,7 +120,7 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
         }
     }
 
-    function perform(&$page, $actionName)
+    public function perform(&$page, $actionName)
     {
         // check whether the page is valid before trying to go to it
         if ($page->controller->isModal()) {
@@ -137,7 +132,6 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
                 $pageName = $page->controller->findInvalid();
             }
             $current =& $page->controller->getPage($pageName);
-
         } else {
             $current =& $page;
         }
@@ -154,4 +148,3 @@ class HTML_QuickForm_Action_Jump extends HTML_QuickForm_Action
         exit;
     }
 }
-?>

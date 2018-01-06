@@ -65,9 +65,9 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setSource($src)
+    public function setSource($src)
     {
-        $this->updateAttributes(array('src' => $src));
+        $this->updateAttributes(['src' => $src]);
     } // end func setSource
 
     // }}}
@@ -81,9 +81,9 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setBorder($border)
+    public function setBorder($border)
     {
-        $this->updateAttributes(array('border' => $border));
+        $this->updateAttributes(['border' => $border]);
     } // end func setBorder
 
     // }}}
@@ -97,9 +97,9 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setAlign($align)
+    public function setAlign($align)
     {
-        $this->updateAttributes(array('align' => $align));
+        $this->updateAttributes(['align' => $align]);
     } // end func setAlign
 
     // }}}
@@ -111,12 +111,10 @@ class HTML_QuickForm_image extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function freeze()
+    public function freeze()
     {
         return false;
     } //end func freeze
 
     // }}}
-
 } // end class HTML_QuickForm_image
-?>

@@ -35,13 +35,13 @@ class Text_CAPTCHA_Driver_Equation extends Text_CAPTCHA_Driver_Base
      *
      * @var array
      */
-    private $_operators = array(
+    private $_operators = [
         '%s * %s',
         '%s + %s',
         '%s - %s',
         'min(%s, %s)',
         'max(%s, %s)'
-    );
+    ];
 
     /**
      * Minimal number to use in an equation.
@@ -94,7 +94,7 @@ class Text_CAPTCHA_Driver_Equation extends Text_CAPTCHA_Driver_Base
      * @throws Text_CAPTCHA_Exception when numbersToText is true, but Number_Words
      *                                package is not available
      */
-    public function initDriver($options = array())
+    public function initDriver($options = [])
     {
         if (isset($options['min'])) {
             $this->_min = (int)$options['min'];
@@ -198,7 +198,7 @@ class Text_CAPTCHA_Driver_Equation extends Text_CAPTCHA_Driver_Base
                 $numberWords->toWords($two, $this->_locale)
             );
         }
-        return array($equation, $function());
+        return [$equation, $function()];
     }
 
     /**

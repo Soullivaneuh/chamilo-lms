@@ -42,19 +42,19 @@ class HTML_QuickForm_Rule_Callback extends HTML_QuickForm_Rule
      * @var     array
      * @access  private
      */
-    var $_data = array();
+    public $_data = [];
 
-   /**
-    * Whether to use BC mode for specific rules
-    *
-    * Previous versions of QF passed element's name as a first parameter
-    * to validation functions, but not to validation methods. This behaviour
-    * is emulated if you are using 'function' as rule type when registering.
-    *
-    * @var array
-    * @access private
-    */
-    var $_BCMode = array();
+    /**
+     * Whether to use BC mode for specific rules
+     *
+     * Previous versions of QF passed element's name as a first parameter
+     * to validation functions, but not to validation methods. This behaviour
+     * is emulated if you are using 'function' as rule type when registering.
+     *
+     * @var array
+     * @access private
+     */
+    public $_BCMode = [];
 
     /**
      * Validates a value using a callback
@@ -64,12 +64,12 @@ class HTML_QuickForm_Rule_Callback extends HTML_QuickForm_Rule
      * @access    public
      * @return    boolean   true if value is valid
      */
-    function validate($value, $options = null)
+    public function validate($value, $options = null)
     {
         if (isset($this->_data[$this->name])) {
             $callback = $this->_data[$this->name];
             if (isset($callback[1])) {
-                return call_user_func(array($callback[1], $callback[0]), $value, $options);
+                return call_user_func([$callback[1], $callback[0]], $value, $options);
             } elseif ($this->_BCMode[$this->name]) {
                 return $callback[0]('', $value, $options);
             } else {
@@ -91,18 +91,18 @@ class HTML_QuickForm_Rule_Callback extends HTML_QuickForm_Rule
      * @param     bool      $BCMode     Backwards compatibility mode
      * @access    public
      */
-    function addData($name, $callback, $class = null, $BCMode = false)
+    public function addData($name, $callback, $class = null, $BCMode = false)
     {
         if (!empty($class)) {
-            $this->_data[$name] = array($callback, $class);
+            $this->_data[$name] = [$callback, $class];
         } else {
-            $this->_data[$name] = array($callback);
+            $this->_data[$name] = [$callback];
         }
         $this->_BCMode[$name] = $BCMode;
     } // end func addData
 
 
-    function getValidationScript($options = null)
+    public function getValidationScript($options = null)
     {
         if (isset($this->_data[$this->name])) {
             $callback = $this->_data[$this->name][0];
@@ -112,8 +112,6 @@ class HTML_QuickForm_Rule_Callback extends HTML_QuickForm_Rule
             $callback = is_array($options)? $options[1]: $options;
             $params   = '{jsVar}';
         }
-        return array('', "{jsVar} != '' && !{$callback}({$params})");
+        return ['', "{jsVar} != '' && !{$callback}({$params})"];
     } // end func getValidationScript
-
 } // end class HTML_QuickForm_Rule_Callback
-?>

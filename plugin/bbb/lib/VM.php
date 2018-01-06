@@ -34,7 +34,6 @@ class VM
         $config = $this->getConfig();
 
         if (!isset($config)) {
-            
             return false;
         }
 
@@ -43,7 +42,6 @@ class VM
         }
 
         if (isset($config['enabled']) && $config['enabled']) {
-
             return true;
         }
 

@@ -5879,4 +5879,3 @@ $DataTableSearch = "Meklēt";
 $HideColumn = "Slēpt kolonu";
 $DisplayColumn = "Rādīt kolonu";
 $LegalAgreementAccepted = "Tiesiskais līgums pieņemts";
-?>

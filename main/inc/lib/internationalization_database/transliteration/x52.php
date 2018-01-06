@@ -1,8 +1,8 @@
 <?php
 // $Id: x52.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Dao ', 'Diao ', 'Dao ', 'Ren ', 'Ren ', 'Chuang ', 'Fen ', 'Qie ', 'Yi ', 'Ji ', 'Kan ', 'Qian ', 'Cun ', 'Chu ', 'Wen ', 'Ji ',
+return [
+  'en' => ['Dao ', 'Diao ', 'Dao ', 'Ren ', 'Ren ', 'Chuang ', 'Fen ', 'Qie ', 'Yi ', 'Ji ', 'Kan ', 'Qian ', 'Cun ', 'Chu ', 'Wen ', 'Ji ',
     'Dan ', 'Xing ', 'Hua ', 'Wan ', 'Jue ', 'Li ', 'Yue ', 'Lie ', 'Liu ', 'Ze ', 'Gang ', 'Chuang ', 'Fu ', 'Chu ', 'Qu ', 'Ju ',
     'Shan ', 'Min ', 'Ling ', 'Zhong ', 'Pan ', 'Bie ', 'Jie ', 'Jie ', 'Bao ', 'Li ', 'Shan ', 'Bie ', 'Chan ', 'Jing ', 'Gua ', 'Gen ',
     'Dao ', 'Chuang ', 'Kui ', 'Ku ', 'Duo ', 'Er ', 'Zhi ', 'Shua ', 'Quan ', 'Cha ', 'Ci ', 'Ke ', 'Jie ', 'Gui ', 'Ci ', 'Gui ',
@@ -17,5 +17,5 @@ return array(
     'Ke ', 'Jing ', 'Hao ', 'Bo ', 'Min ', 'Chi ', 'Lang ', 'Yong ', 'Yong ', 'Mian ', 'Ke ', 'Xun ', 'Juan ', 'Qing ', 'Lu ', 'Pou ',
     'Meng ', 'Lai ', 'Le ', 'Kai ', 'Mian ', 'Dong ', 'Xu ', 'Xu ', 'Kan ', 'Wu ', 'Yi ', 'Xun ', 'Weng ', 'Sheng ', 'Lao ', 'Mu ',
     'Lu ', 'Piao ', 'Shi ', 'Ji ', 'Qin ', 'Qiang ', 'Jiao ', 'Quan ', 'Yang ', 'Yi ', 'Jue ', 'Fan ', 'Juan ', 'Tong ', 'Ju ', 'Dan ',
-    'Xie ', 'Mai ', 'Xun ', 'Xun ', 'Lu ', 'Li ', 'Che ', 'Rang ', 'Quan ', 'Bao ', 'Shao ', 'Yun ', 'Jiu ', 'Bao ', 'Gou ', 'Wu '),
-);
+    'Xie ', 'Mai ', 'Xun ', 'Xun ', 'Lu ', 'Li ', 'Che ', 'Rang ', 'Quan ', 'Bao ', 'Shao ', 'Yun ', 'Jiu ', 'Bao ', 'Gou ', 'Wu '],
+];

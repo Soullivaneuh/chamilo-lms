@@ -63,10 +63,10 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setType($type)
+    public function setType($type)
     {
         $this->_type = $type;
-        $this->updateAttributes(array('type'=>$type));
+        $this->updateAttributes(['type'=>$type]);
     } // end func setType
 
     // }}}
@@ -80,9 +80,9 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setName($name)
+    public function setName($name)
     {
-        $this->updateAttributes(array('name'=>$name));
+        $this->updateAttributes(['name'=>$name]);
     } //end func setName
 
     // }}}
@@ -95,7 +95,7 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @access    public
      * @return    string
      */
-    function getName()
+    public function getName()
     {
         return $this->getAttribute('name');
     } //end func getName
@@ -113,7 +113,7 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      */
     public function setValue($value)
     {
-        $this->updateAttributes(array('value'=>$value));
+        $this->updateAttributes(['value'=>$value]);
     } // end func setValue
 
     // }}}
@@ -164,7 +164,7 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
      * @return    void
      * @throws
      */
-    function onQuickFormEvent($event, $arg, &$caller)
+    public function onQuickFormEvent($event, $arg, &$caller)
     {
         // do not use submit values for button-type elements
         $type = $this->getType();
@@ -183,10 +183,10 @@ class HTML_QuickForm_input extends HTML_QuickForm_element
         return true;
     }
 
-   /**
-    * We don't need values from button-type elements (except submit) and files
-    */
-    function exportValue(&$submitValues, $assoc = false)
+    /**
+     * We don't need values from button-type elements (except submit) and files
+     */
+    public function exportValue(&$submitValues, $assoc = false)
     {
         $type = $this->getType();
         if ('reset' == $type || 'image' == $type || 'button' == $type || 'file' == $type) {

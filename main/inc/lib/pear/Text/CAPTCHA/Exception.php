@@ -23,5 +23,4 @@
  */
 class Text_CAPTCHA_Exception extends PEAR_Exception
 {
-
 }

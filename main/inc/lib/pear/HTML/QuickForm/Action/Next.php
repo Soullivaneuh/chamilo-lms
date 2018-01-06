@@ -31,7 +31,7 @@
  */
 class HTML_QuickForm_Action_Next extends HTML_QuickForm_Action
 {
-    function perform(&$page, $actionName)
+    public function perform(&$page, $actionName)
     {
         // save the form values and validation status to the session
         $page->isFormBuilt() or $page->buildForm();
@@ -55,7 +55,7 @@ class HTML_QuickForm_Action_Next extends HTML_QuickForm_Action
             return $next->handle('jump');
             //
         // Consider this a 'finish' button, if there is no explicit one
-        } elseif($page->controller->isModal()) {
+        } elseif ($page->controller->isModal()) {
             if ($page->controller->isValid()) {
                 // Modified by Chamilo team, 16-MAR-2010.
                 //$page->handle('process');
@@ -76,5 +76,3 @@ class HTML_QuickForm_Action_Next extends HTML_QuickForm_Action
         }
     }
 }
-
-?>

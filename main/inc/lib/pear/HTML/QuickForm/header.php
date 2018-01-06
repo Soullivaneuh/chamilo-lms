@@ -34,14 +34,14 @@ class HTML_QuickForm_header extends HTML_QuickForm_static
 {
     // {{{ constructor
 
-   /**
-    * Class constructor
-    *
-    * @param string $elementName    Header name
-    * @param string $text           Header text
-    * @access public
-    * @return void
-    */
+    /**
+     * Class constructor
+     *
+     * @param string $elementName    Header name
+     * @param string $text           Header text
+     * @access public
+     * @return void
+     */
     public function __construct($elementName = null, $text = null)
     {
         if (!empty($elementName)) {
@@ -54,19 +54,17 @@ class HTML_QuickForm_header extends HTML_QuickForm_static
     // }}}
     // {{{ accept()
 
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object
-    * @access public
-    * @return void
-    */
-    function accept(&$renderer, $required=false, $error=null)
+    /**
+     * Accepts a renderer
+     *
+     * @param HTML_QuickForm_Renderer    renderer object
+     * @access public
+     * @return void
+     */
+    public function accept(&$renderer, $required=false, $error=null)
     {
         $renderer->renderHeader($this);
     } // end func accept
 
     // }}}
-
 } //end class HTML_QuickForm_header
-?>

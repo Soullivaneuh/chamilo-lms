@@ -35,7 +35,7 @@ class OLE_PPS_Root extends OLE_PPS
     * The temporary dir for storing the OLE file
     * @var string
     */
-    var $_tmp_dir;
+    public $_tmp_dir;
 
     /**
     * Constructor
@@ -44,7 +44,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @param integer $time_1st A timestamp
     * @param integer $time_2nd A timestamp
     */
-    function OLE_PPS_Root($time_1st, $time_2nd, $raChild)
+    public function OLE_PPS_Root($time_1st, $time_2nd, $raChild)
     {
         $this->_tmp_dir = '';
         $this->OLE_PPS(
@@ -57,7 +57,8 @@ class OLE_PPS_Root extends OLE_PPS
            $time_1st,
            $time_2nd,
            null,
-           $raChild);
+           $raChild
+        );
     }
 
     /**
@@ -67,7 +68,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @param string $dir The dir to be used as temp dir
     * @return true if given dir is valid, false otherwise
     */
-    function setTempDir($dir)
+    public function setTempDir($dir)
     {
         if (is_dir($dir)) {
             $this->_tmp_dir = $dir;
@@ -85,18 +86,22 @@ class OLE_PPS_Root extends OLE_PPS
     * @access public
     * @return mixed true on success, PEAR_Error on failure
     */
-    function save($filename)
+    public function save($filename)
     {
         // Initial Setting for saving
-        $this->_BIG_BLOCK_SIZE  = pow(2,
-                      ((isset($this->_BIG_BLOCK_SIZE))? $this->_adjust2($this->_BIG_BLOCK_SIZE)  : 9));
-        $this->_SMALL_BLOCK_SIZE= pow(2,
-                      ((isset($this->_SMALL_BLOCK_SIZE))?  $this->_adjust2($this->_SMALL_BLOCK_SIZE): 6));
+        $this->_BIG_BLOCK_SIZE  = pow(
+            2,
+                      ((isset($this->_BIG_BLOCK_SIZE))? $this->_adjust2($this->_BIG_BLOCK_SIZE)  : 9)
+        );
+        $this->_SMALL_BLOCK_SIZE= pow(
+            2,
+                      ((isset($this->_SMALL_BLOCK_SIZE))?  $this->_adjust2($this->_SMALL_BLOCK_SIZE): 6)
+        );
 
         // Open temp file if we are sending output to stdout
         if (($filename == '-') || ($filename == '')) {
             $this->_tmp_filename = tempnam($this->_tmp_dir, "OLE_PPS_Root");
-            $this->_FILEH_ = @fopen($this->_tmp_filename,"w+b");
+            $this->_FILEH_ = @fopen($this->_tmp_filename, "w+b");
             if ($this->_FILEH_ == false) {
                 return $this->raiseError("Can't create temporary file.");
             }
@@ -107,7 +112,7 @@ class OLE_PPS_Root extends OLE_PPS
             }
         }
         // Make an array of PPS's (for Save)
-        $aList = array();
+        $aList = [];
         $this->_savePpsSetPnt($aList);
         // calculate values for header
         list($iSBDcnt, $iBBcnt, $iPPScnt) = $this->_calcSize($aList); //, $rhInfo);
@@ -144,10 +149,10 @@ class OLE_PPS_Root extends OLE_PPS
     * @param array $raList Reference to an array of PPS's
     * @return array The array of numbers
     */
-    function _calcSize(&$raList)
+    public function _calcSize(&$raList)
     {
         // Calculate Basic Setting
-        list($iSBDcnt, $iBBcnt, $iPPScnt) = array(0,0,0);
+        list($iSBDcnt, $iBBcnt, $iPPScnt) = [0,0,0];
         $iSmallLen = 0;
         $iSBcnt = 0;
         for ($i = 0; $i < count($raList); $i++) {
@@ -166,12 +171,12 @@ class OLE_PPS_Root extends OLE_PPS
         $iSlCnt = floor($this->_BIG_BLOCK_SIZE / OLE_LONG_INT_SIZE);
         $iSBDcnt = floor($iSBcnt / $iSlCnt) + (($iSBcnt % $iSlCnt)? 1:0);
         $iBBcnt +=  (floor($iSmallLen / $this->_BIG_BLOCK_SIZE) +
-                      (( $iSmallLen % $this->_BIG_BLOCK_SIZE)? 1: 0));
+                      (($iSmallLen % $this->_BIG_BLOCK_SIZE)? 1: 0));
         $iCnt = count($raList);
         $iBdCnt = $this->_BIG_BLOCK_SIZE / OLE_PPS_SIZE;
         $iPPScnt = (floor($iCnt/$iBdCnt) + (($iCnt % $iBdCnt)? 1: 0));
 
-        return array($iSBDcnt, $iBBcnt, $iPPScnt);
+        return [$iSBDcnt, $iBBcnt, $iPPScnt];
     }
 
     /**
@@ -182,7 +187,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @see save()
     * @return integer
     */
-    function _adjust2($i2)
+    public function _adjust2($i2)
     {
         $iWk = log($i2)/log(2);
         return ($iWk > floor($iWk))? floor($iWk)+1:$iWk;
@@ -196,7 +201,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @param integer $iBBcnt
     * @param integer $iPPScnt
     */
-    function _saveHeader($iSBDcnt, $iBBcnt, $iPPScnt)
+    public function _saveHeader($iSBDcnt, $iBBcnt, $iPPScnt)
     {
         $FILE = $this->_FILEH_;
 
@@ -224,7 +229,8 @@ class OLE_PPS_Root extends OLE_PPS
         }
 
         // Save Header
-        fwrite($FILE,
+        fwrite(
+            $FILE,
                   "\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1"
                   . "\x00\x00\x00\x00"
                   . "\x00\x00\x00\x00"
@@ -247,7 +253,8 @@ class OLE_PPS_Root extends OLE_PPS
           );
         // Extra BDList Start, Count
         if ($iBdCnt < $i1stBdL) {
-            fwrite($FILE,
+            fwrite(
+                $FILE,
                       pack("V", -2).      // Extra BDList Start
                       pack("V", 0)        // Extra BDList Count
                   );
@@ -273,7 +280,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @param integer $iStBlk
     * @param array &$raList Reference to array of PPS's
     */
-    function _saveBigData($iStBlk, &$raList)
+    public function _saveBigData($iStBlk, &$raList)
     {
         $FILE = $this->_FILEH_;
 
@@ -282,13 +289,12 @@ class OLE_PPS_Root extends OLE_PPS
             if ($raList[$i]->Type != OLE_PPS_TYPE_DIR) {
                 $raList[$i]->Size = $raList[$i]->_DataLen();
                 if (($raList[$i]->Size >= OLE_DATA_SIZE_SMALL) ||
-                    (($raList[$i]->Type == OLE_PPS_TYPE_ROOT) && isset($raList[$i]->_data)))
-                {
+                    (($raList[$i]->Type == OLE_PPS_TYPE_ROOT) && isset($raList[$i]->_data))) {
                     // Write Data
                     if (isset($raList[$i]->_PPS_FILE)) {
                         $iLen = 0;
                         fseek($raList[$i]->_PPS_FILE, 0); // To The Top
-                        while($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
+                        while ($sBuff = fread($raList[$i]->_PPS_FILE, 4096)) {
                             $iLen += strlen($sBuff);
                             fwrite($FILE, $sBuff);
                         }
@@ -323,7 +329,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @access private
     * @param array &$raList Reference to array of PPS's
     */
-    function _makeSmallData(&$raList)
+    public function _makeSmallData(&$raList)
     {
         $sRes = '';
         $FILE = $this->_FILEH_;
@@ -379,7 +385,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @access private
     * @param array $raList Reference to an array with all PPS's
     */
-    function _savePps(&$raList)
+    public function _savePps(&$raList)
     {
         // Save each PPS WK
         for ($i = 0; $i < count($raList); $i++) {
@@ -403,7 +409,7 @@ class OLE_PPS_Root extends OLE_PPS
     * @param integer $iBsize
     * @param integer $iPpsCnt
     */
-    function _saveBbd($iSbdSize, $iBsize, $iPpsCnt)
+    public function _saveBbd($iSbdSize, $iBsize, $iPpsCnt)
     {
         $FILE = $this->_FILEH_;
         // Calculate Basic Setting
@@ -482,4 +488,3 @@ class OLE_PPS_Root extends OLE_PPS
         }
     }
 }
-?>

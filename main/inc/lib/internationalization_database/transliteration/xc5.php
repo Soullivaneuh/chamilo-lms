@@ -1,8 +1,8 @@
 <?php
 // $Id: xc5.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('sseum', 'sseub', 'sseubs', 'sseus', 'sseuss', 'sseung', 'sseuj', 'sseuc', 'sseuk', 'sseut', 'sseup', 'sseuh', 'ssyi', 'ssyig', 'ssyigg', 'ssyigs',
+return [
+  'en' => ['sseum', 'sseub', 'sseubs', 'sseus', 'sseuss', 'sseung', 'sseuj', 'sseuc', 'sseuk', 'sseut', 'sseup', 'sseuh', 'ssyi', 'ssyig', 'ssyigg', 'ssyigs',
     'ssyin', 'ssyinj', 'ssyinh', 'ssyid', 'ssyil', 'ssyilg', 'ssyilm', 'ssyilb', 'ssyils', 'ssyilt', 'ssyilp', 'ssyilh', 'ssyim', 'ssyib', 'ssyibs', 'ssyis',
     'ssyiss', 'ssying', 'ssyij', 'ssyic', 'ssyik', 'ssyit', 'ssyip', 'ssyih', 'ssi', 'ssig', 'ssigg', 'ssigs', 'ssin', 'ssinj', 'ssinh', 'ssid',
     'ssil', 'ssilg', 'ssilm', 'ssilb', 'ssils', 'ssilt', 'ssilp', 'ssilh', 'ssim', 'ssib', 'ssibs', 'ssis', 'ssiss', 'ssing', 'ssij', 'ssic',
@@ -17,5 +17,5 @@ return array(
     'eols', 'eolt', 'eolp', 'eolh', 'eom', 'eob', 'eobs', 'eos', 'eoss', 'eong', 'eoj', 'eoc', 'eok', 'eot', 'eop', 'eoh',
     'e', 'eg', 'egg', 'egs', 'en', 'enj', 'enh', 'ed', 'el', 'elg', 'elm', 'elb', 'els', 'elt', 'elp', 'elh',
     'em', 'eb', 'ebs', 'es', 'ess', 'eng', 'ej', 'ec', 'ek', 'et', 'ep', 'eh', 'yeo', 'yeog', 'yeogg', 'yeogs',
-    'yeon', 'yeonj', 'yeonh', 'yeod', 'yeol', 'yeolg', 'yeolm', 'yeolb', 'yeols', 'yeolt', 'yeolp', 'yeolh', 'yeom', 'yeob', 'yeobs', 'yeos'),
-);
+    'yeon', 'yeonj', 'yeonh', 'yeod', 'yeol', 'yeolg', 'yeolm', 'yeolb', 'yeols', 'yeolt', 'yeolp', 'yeolh', 'yeom', 'yeob', 'yeobs', 'yeos'],
+];

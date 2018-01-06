@@ -15,13 +15,12 @@ class Scaffolder
     /**
      *
      * @staticvar boolean $result
-     * @return Scaffolder 
+     * @return Scaffolder
      */
     public static function instance()
     {
         static $result = false;
-        if (empty($result))
-        {
+        if (empty($result)) {
             $result = new self();
         }
         return $result;
@@ -32,21 +31,18 @@ class Scaffolder
         $db_name = Database :: get_main_database();
         $sql = "SELECT * FROM `$db_name`.`$table_name` LIMIT 1";
 
-        $fields = array();
-        $unique_fields = array();
+        $fields = [];
+        $unique_fields = [];
         $rs = Database::query($sql, null, __FILE__);
-        while ($field = mysql_fetch_field($rs))
-        {
+        while ($field = mysql_fetch_field($rs)) {
             $fields[] = $field;
-            if ($field->primary_key)
-            {
+            if ($field->primary_key) {
                 /**
                  * Could move that to an array to support multiple keys
                  */
                 $id_name = $field->name;
             }
-            if ($field->unique_key | $field->primary_key)
-            {
+            if ($field->unique_key | $field->primary_key) {
                 $keys[] = $field->name;
             }
         }
@@ -60,5 +56,4 @@ class Scaffolder
         $result = ob_get_clean();
         return $result;
     }
-
 }

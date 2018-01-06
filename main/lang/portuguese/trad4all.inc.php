@@ -6857,4 +6857,3 @@ $MoodleFile = "Arquivo do curso Moodle";
 $FailedToImportThisIsNotAMoodleFile = "As importações tiveram um problema: este arquivo não parece ser um arquivo de backup de curso Moodle (.mbz )";
 $ProcessingImportPleaseDontCloseThisWindowThisActionMayTakeLongTimePlaseWait = "Processando a importação ... Por favor, não fechar esta janela. Este processo pode levar uma quantidade considerável de tempo. Por favor, seja paciente.";
 $YouAlreadySentThisFile = "E enviou este arquivo ou outro arquivo com o mesmo nome. Por favor, não se esqueça de enviar cada arquivo uma vez.";
-?>

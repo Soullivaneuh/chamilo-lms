@@ -1,8 +1,8 @@
 <?php
 // $Id: xbe.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('byum', 'byub', 'byubs', 'byus', 'byuss', 'byung', 'byuj', 'byuc', 'byuk', 'byut', 'byup', 'byuh', 'beu', 'beug', 'beugg', 'beugs',
+return [
+  'en' => ['byum', 'byub', 'byubs', 'byus', 'byuss', 'byung', 'byuj', 'byuc', 'byuk', 'byut', 'byup', 'byuh', 'beu', 'beug', 'beugg', 'beugs',
     'beun', 'beunj', 'beunh', 'beud', 'beul', 'beulg', 'beulm', 'beulb', 'beuls', 'beult', 'beulp', 'beulh', 'beum', 'beub', 'beubs', 'beus',
     'beuss', 'beung', 'beuj', 'beuc', 'beuk', 'beut', 'beup', 'beuh', 'byi', 'byig', 'byigg', 'byigs', 'byin', 'byinj', 'byinh', 'byid',
     'byil', 'byilg', 'byilm', 'byilb', 'byils', 'byilt', 'byilp', 'byilh', 'byim', 'byib', 'byibs', 'byis', 'byiss', 'bying', 'byij', 'byic',
@@ -17,5 +17,5 @@ return array(
     'bbyaels', 'bbyaelt', 'bbyaelp', 'bbyaelh', 'bbyaem', 'bbyaeb', 'bbyaebs', 'bbyaes', 'bbyaess', 'bbyaeng', 'bbyaej', 'bbyaec', 'bbyaek', 'bbyaet', 'bbyaep', 'bbyaeh',
     'bbeo', 'bbeog', 'bbeogg', 'bbeogs', 'bbeon', 'bbeonj', 'bbeonh', 'bbeod', 'bbeol', 'bbeolg', 'bbeolm', 'bbeolb', 'bbeols', 'bbeolt', 'bbeolp', 'bbeolh',
     'bbeom', 'bbeob', 'bbeobs', 'bbeos', 'bbeoss', 'bbeong', 'bbeoj', 'bbeoc', 'bbeok', 'bbeot', 'bbeop', 'bbeoh', 'bbe', 'bbeg', 'bbegg', 'bbegs',
-    'bben', 'bbenj', 'bbenh', 'bbed', 'bbel', 'bbelg', 'bbelm', 'bbelb', 'bbels', 'bbelt', 'bbelp', 'bbelh', 'bbem', 'bbeb', 'bbebs', 'bbes'),
-);
+    'bben', 'bbenj', 'bbenh', 'bbed', 'bbel', 'bbelg', 'bbelm', 'bbelb', 'bbels', 'bbelt', 'bbelp', 'bbelh', 'bbem', 'bbeb', 'bbebs', 'bbes'],
+];

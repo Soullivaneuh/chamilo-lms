@@ -4897,4 +4897,3 @@ $ViewUsersWithTask = "Ya presentaron la tarea";
 $ReminderMessage = "Unviar un recordatoriu";
 $DateSent = "Data d'unvíu";
 $ViewUsersWithoutTask = "Ver a los usuarios ensin tarea";
-?>

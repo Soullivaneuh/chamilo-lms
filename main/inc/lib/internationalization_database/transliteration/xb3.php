@@ -1,8 +1,8 @@
 <?php
 // $Id: xb3.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('dae', 'daeg', 'daegg', 'daegs', 'daen', 'daenj', 'daenh', 'daed', 'dael', 'daelg', 'daelm', 'daelb', 'daels', 'daelt', 'daelp', 'daelh',
+return [
+  'en' => ['dae', 'daeg', 'daegg', 'daegs', 'daen', 'daenj', 'daenh', 'daed', 'dael', 'daelg', 'daelm', 'daelb', 'daels', 'daelt', 'daelp', 'daelh',
     'daem', 'daeb', 'daebs', 'daes', 'daess', 'daeng', 'daej', 'daec', 'daek', 'daet', 'daep', 'daeh', 'dya', 'dyag', 'dyagg', 'dyags',
     'dyan', 'dyanj', 'dyanh', 'dyad', 'dyal', 'dyalg', 'dyalm', 'dyalb', 'dyals', 'dyalt', 'dyalp', 'dyalh', 'dyam', 'dyab', 'dyabs', 'dyas',
     'dyass', 'dyang', 'dyaj', 'dyac', 'dyak', 'dyat', 'dyap', 'dyah', 'dyae', 'dyaeg', 'dyaegg', 'dyaegs', 'dyaen', 'dyaenj', 'dyaenh', 'dyaed',
@@ -17,5 +17,5 @@ return array(
     'dyek', 'dyet', 'dyep', 'dyeh', 'do', 'dog', 'dogg', 'dogs', 'don', 'donj', 'donh', 'dod', 'dol', 'dolg', 'dolm', 'dolb',
     'dols', 'dolt', 'dolp', 'dolh', 'dom', 'dob', 'dobs', 'dos', 'doss', 'dong', 'doj', 'doc', 'dok', 'dot', 'dop', 'doh',
     'dwa', 'dwag', 'dwagg', 'dwags', 'dwan', 'dwanj', 'dwanh', 'dwad', 'dwal', 'dwalg', 'dwalm', 'dwalb', 'dwals', 'dwalt', 'dwalp', 'dwalh',
-    'dwam', 'dwab', 'dwabs', 'dwas', 'dwass', 'dwang', 'dwaj', 'dwac', 'dwak', 'dwat', 'dwap', 'dwah', 'dwae', 'dwaeg', 'dwaegg', 'dwaegs'),
-);
+    'dwam', 'dwab', 'dwabs', 'dwas', 'dwass', 'dwang', 'dwaj', 'dwac', 'dwak', 'dwat', 'dwap', 'dwah', 'dwae', 'dwaeg', 'dwaegg', 'dwaegs'],
+];

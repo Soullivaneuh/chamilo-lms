@@ -1,8 +1,8 @@
 <?php
 // $Id: xc2.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('syon', 'syonj', 'syonh', 'syod', 'syol', 'syolg', 'syolm', 'syolb', 'syols', 'syolt', 'syolp', 'syolh', 'syom', 'syob', 'syobs', 'syos',
+return [
+  'en' => ['syon', 'syonj', 'syonh', 'syod', 'syol', 'syolg', 'syolm', 'syolb', 'syols', 'syolt', 'syolp', 'syolh', 'syom', 'syob', 'syobs', 'syos',
     'syoss', 'syong', 'syoj', 'syoc', 'syok', 'syot', 'syop', 'syoh', 'su', 'sug', 'sugg', 'sugs', 'sun', 'sunj', 'sunh', 'sud',
     'sul', 'sulg', 'sulm', 'sulb', 'suls', 'sult', 'sulp', 'sulh', 'sum', 'sub', 'subs', 'sus', 'suss', 'sung', 'suj', 'suc',
     'suk', 'sut', 'sup', 'suh', 'sweo', 'sweog', 'sweogg', 'sweogs', 'sweon', 'sweonj', 'sweonh', 'sweod', 'sweol', 'sweolg', 'sweolm', 'sweolb',
@@ -17,5 +17,5 @@ return array(
     'syi', 'syig', 'syigg', 'syigs', 'syin', 'syinj', 'syinh', 'syid', 'syil', 'syilg', 'syilm', 'syilb', 'syils', 'syilt', 'syilp', 'syilh',
     'syim', 'syib', 'syibs', 'syis', 'syiss', 'sying', 'syij', 'syic', 'syik', 'syit', 'syip', 'syih', 'si', 'sig', 'sigg', 'sigs',
     'sin', 'sinj', 'sinh', 'sid', 'sil', 'silg', 'silm', 'silb', 'sils', 'silt', 'silp', 'silh', 'sim', 'sib', 'sibs', 'sis',
-    'siss', 'sing', 'sij', 'sic', 'sik', 'sit', 'sip', 'sih', 'ssa', 'ssag', 'ssagg', 'ssags', 'ssan', 'ssanj', 'ssanh', 'ssad'),
-);
+    'siss', 'sing', 'sij', 'sic', 'sik', 'sit', 'sip', 'sih', 'ssa', 'ssag', 'ssagg', 'ssags', 'ssan', 'ssanj', 'ssanh', 'ssad'],
+];

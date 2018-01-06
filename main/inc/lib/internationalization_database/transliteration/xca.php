@@ -1,8 +1,8 @@
 <?php
 // $Id: xca.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('jjael', 'jjaelg', 'jjaelm', 'jjaelb', 'jjaels', 'jjaelt', 'jjaelp', 'jjaelh', 'jjaem', 'jjaeb', 'jjaebs', 'jjaes', 'jjaess', 'jjaeng', 'jjaej', 'jjaec',
+return [
+  'en' => ['jjael', 'jjaelg', 'jjaelm', 'jjaelb', 'jjaels', 'jjaelt', 'jjaelp', 'jjaelh', 'jjaem', 'jjaeb', 'jjaebs', 'jjaes', 'jjaess', 'jjaeng', 'jjaej', 'jjaec',
     'jjaek', 'jjaet', 'jjaep', 'jjaeh', 'jjya', 'jjyag', 'jjyagg', 'jjyags', 'jjyan', 'jjyanj', 'jjyanh', 'jjyad', 'jjyal', 'jjyalg', 'jjyalm', 'jjyalb',
     'jjyals', 'jjyalt', 'jjyalp', 'jjyalh', 'jjyam', 'jjyab', 'jjyabs', 'jjyas', 'jjyass', 'jjyang', 'jjyaj', 'jjyac', 'jjyak', 'jjyat', 'jjyap', 'jjyah',
     'jjyae', 'jjyaeg', 'jjyaegg', 'jjyaegs', 'jjyaen', 'jjyaenj', 'jjyaenh', 'jjyaed', 'jjyael', 'jjyaelg', 'jjyaelm', 'jjyaelb', 'jjyaels', 'jjyaelt', 'jjyaelp', 'jjyaelh',
@@ -17,5 +17,5 @@ return array(
     'jjon', 'jjonj', 'jjonh', 'jjod', 'jjol', 'jjolg', 'jjolm', 'jjolb', 'jjols', 'jjolt', 'jjolp', 'jjolh', 'jjom', 'jjob', 'jjobs', 'jjos',
     'jjoss', 'jjong', 'jjoj', 'jjoc', 'jjok', 'jjot', 'jjop', 'jjoh', 'jjwa', 'jjwag', 'jjwagg', 'jjwags', 'jjwan', 'jjwanj', 'jjwanh', 'jjwad',
     'jjwal', 'jjwalg', 'jjwalm', 'jjwalb', 'jjwals', 'jjwalt', 'jjwalp', 'jjwalh', 'jjwam', 'jjwab', 'jjwabs', 'jjwas', 'jjwass', 'jjwang', 'jjwaj', 'jjwac',
-    'jjwak', 'jjwat', 'jjwap', 'jjwah', 'jjwae', 'jjwaeg', 'jjwaegg', 'jjwaegs', 'jjwaen', 'jjwaenj', 'jjwaenh', 'jjwaed', 'jjwael', 'jjwaelg', 'jjwaelm', 'jjwaelb'),
-);
+    'jjwak', 'jjwat', 'jjwap', 'jjwah', 'jjwae', 'jjwaeg', 'jjwaegg', 'jjwaegs', 'jjwaen', 'jjwaenj', 'jjwaenh', 'jjwaed', 'jjwael', 'jjwaelg', 'jjwaelm', 'jjwaelb'],
+];

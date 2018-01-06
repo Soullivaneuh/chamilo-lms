@@ -1,8 +1,8 @@
 <?php
 // $Id: xa2.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('kax', 'ka', 'kap', 'kuox', 'kuo', 'kuop', 'kot', 'kox', 'ko', 'kop', 'ket', 'kex', 'ke', 'kep', 'kut', 'kux',
+return [
+  'en' => ['kax', 'ka', 'kap', 'kuox', 'kuo', 'kuop', 'kot', 'kox', 'ko', 'kop', 'ket', 'kex', 'ke', 'kep', 'kut', 'kux',
     'ku', 'kup', 'kurx', 'kur', 'ggit', 'ggix', 'ggi', 'ggiex', 'ggie', 'ggiep', 'ggat', 'ggax', 'gga', 'ggap', 'gguot', 'gguox',
     'gguo', 'gguop', 'ggot', 'ggox', 'ggo', 'ggop', 'gget', 'ggex', 'gge', 'ggep', 'ggut', 'ggux', 'ggu', 'ggup', 'ggurx', 'ggur',
     'mgiex', 'mgie', 'mgat', 'mgax', 'mga', 'mgap', 'mguox', 'mguo', 'mguop', 'mgot', 'mgox', 'mgo', 'mgop', 'mgex', 'mge', 'mgep',
@@ -17,5 +17,5 @@ return array(
     'cop', 'cex', 'ce', 'cep', 'cut', 'cux', 'cu', 'cup', 'curx', 'cur', 'cyt', 'cyx', 'cy', 'cyp', 'cyrx', 'cyr',
     'zzit', 'zzix', 'zzi', 'zzip', 'zziet', 'zziex', 'zzie', 'zziep', 'zzat', 'zzax', 'zza', 'zzap', 'zzox', 'zzo', 'zzop', 'zzex',
     'zze', 'zzep', 'zzux', 'zzu', 'zzup', 'zzurx', 'zzur', 'zzyt', 'zzyx', 'zzy', 'zzyp', 'zzyrx', 'zzyr', 'nzit', 'nzix', 'nzi',
-    'nzip', 'nziex', 'nzie', 'nziep', 'nzat', 'nzax', 'nza', 'nzap', 'nzuox', 'nzuo', 'nzox', 'nzop', 'nzex', 'nze', 'nzux', 'nzu'),
-);
+    'nzip', 'nziex', 'nzie', 'nziep', 'nzat', 'nzax', 'nza', 'nzap', 'nzuox', 'nzuo', 'nzox', 'nzop', 'nzex', 'nze', 'nzux', 'nzu'],
+];

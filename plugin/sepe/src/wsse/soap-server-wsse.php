@@ -53,7 +53,8 @@ class WSSESoapServer
     const WSUNS = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd';
     const WSSEPFX = 'wsse';
     const WSUPFX = 'wsu';
-    private $soapNS, $soapPFX;
+    private $soapNS;
+    private $soapPFX;
     private $soapDoc = null;
     private $envelope = null;
     private $SOAPXPath = null;
@@ -145,7 +146,7 @@ class WSSESoapServer
                             $nodeset = $this->SOAPXPath->query($query);
                             if ($encmeth = $nodeset->item(0)) {
                                 $x509cert = $encmeth->textContent;
-                                $x509cert = str_replace(array("\r", "\n"), "", $x509cert);
+                                $x509cert = str_replace(["\r", "\n"], "", $x509cert);
                                 $x509cert = "-----BEGIN CERTIFICATE-----\n".chunk_split($x509cert, 64, "\n")."-----END CERTIFICATE-----\n";
 
                                 $objKey->loadKey($x509cert);
@@ -156,7 +157,7 @@ class WSSESoapServer
                 }
                 throw new Exception("Error loading key to handle Signature");
             }
-        } while(0);
+        } while (0);
 
         if (! $objXMLSecDSig->verify($objKey)) {
             throw new Exception("Unable to validate Signature");

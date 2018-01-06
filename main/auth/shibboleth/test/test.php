@@ -4,14 +4,13 @@ namespace Shibboleth;
 
 /**
  * Run unit tests. Server needs to be a test server to run those.
- * 
+ *
  * @license see /license.txt
  * @author Laurent Opprecht <laurent@opprecht.info>, Nicolas Rod for the University of Geneva
  */
 include_once __DIR__.'/../init.php';
 
-if (!ShibbolethTest::is_enabled())
-{
+if (!ShibbolethTest::is_enabled()) {
     echo 'This is not a test server';
     die;
 }
@@ -27,6 +26,3 @@ ShibbolethTest::test_new_staff();
 ShibbolethTest::test_new_infer_status_request();
 
 echo '-------------------<br/>Done!';
-
-
-

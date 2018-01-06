@@ -1,8 +1,8 @@
 <?php
 // $Id: xc1.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('syae', 'syaeg', 'syaegg', 'syaegs', 'syaen', 'syaenj', 'syaenh', 'syaed', 'syael', 'syaelg', 'syaelm', 'syaelb', 'syaels', 'syaelt', 'syaelp', 'syaelh',
+return [
+  'en' => ['syae', 'syaeg', 'syaegg', 'syaegs', 'syaen', 'syaenj', 'syaenh', 'syaed', 'syael', 'syaelg', 'syaelm', 'syaelb', 'syaels', 'syaelt', 'syaelp', 'syaelh',
     'syaem', 'syaeb', 'syaebs', 'syaes', 'syaess', 'syaeng', 'syaej', 'syaec', 'syaek', 'syaet', 'syaep', 'syaeh', 'seo', 'seog', 'seogg', 'seogs',
     'seon', 'seonj', 'seonh', 'seod', 'seol', 'seolg', 'seolm', 'seolb', 'seols', 'seolt', 'seolp', 'seolh', 'seom', 'seob', 'seobs', 'seos',
     'seoss', 'seong', 'seoj', 'seoc', 'seok', 'seot', 'seop', 'seoh', 'se', 'seg', 'segg', 'segs', 'sen', 'senj', 'senh', 'sed',
@@ -17,5 +17,5 @@ return array(
     'swak', 'swat', 'swap', 'swah', 'swae', 'swaeg', 'swaegg', 'swaegs', 'swaen', 'swaenj', 'swaenh', 'swaed', 'swael', 'swaelg', 'swaelm', 'swaelb',
     'swaels', 'swaelt', 'swaelp', 'swaelh', 'swaem', 'swaeb', 'swaebs', 'swaes', 'swaess', 'swaeng', 'swaej', 'swaec', 'swaek', 'swaet', 'swaep', 'swaeh',
     'soe', 'soeg', 'soegg', 'soegs', 'soen', 'soenj', 'soenh', 'soed', 'soel', 'soelg', 'soelm', 'soelb', 'soels', 'soelt', 'soelp', 'soelh',
-    'soem', 'soeb', 'soebs', 'soes', 'soess', 'soeng', 'soej', 'soec', 'soek', 'soet', 'soep', 'soeh', 'syo', 'syog', 'syogg', 'syogs'),
-);
+    'soem', 'soeb', 'soebs', 'soes', 'soess', 'soeng', 'soej', 'soec', 'soek', 'soet', 'soep', 'soeh', 'syo', 'syog', 'syogg', 'syogs'],
+];

@@ -7985,4 +7985,3 @@ $StudentCourseProgressX = "Progrés: %s %%";
 $SessionDurationNotStartedMaxX = "Aquesta sessió té una durada màxima de %s";
 $StudentCourseScoreX = "Puntuació: %s %%";
 $StudentCourseCertificateX = "Certificat: %s";
-?>

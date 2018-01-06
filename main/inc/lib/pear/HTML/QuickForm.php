@@ -71,7 +71,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_elements = array();
+    public $_elements = [];
 
     /**
      * Array containing element name to index map
@@ -79,7 +79,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_elementIndex = array();
+    public $_elementIndex = [];
 
     /**
      * Array containing indexes of duplicate elements
@@ -87,7 +87,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_duplicateIndex = array();
+    public $_duplicateIndex = [];
 
     /**
      * Array containing required field IDs
@@ -95,7 +95,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_required = array();
+    public $_required = [];
 
     /**
      * Prefix message in javascript alert if error
@@ -128,7 +128,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_defaultValues = array();
+    public $_defaultValues = [];
 
     /**
      * Array of constant form values
@@ -136,7 +136,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_constantValues = array();
+    public $_constantValues = [];
 
     /**
      * Array of submitted form values
@@ -144,7 +144,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_submitValues = array();
+    public $_submitValues = [];
 
     /**
      * Array of submitted form files
@@ -152,7 +152,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  integer
      * @access   public
      */
-    public $_submitFiles = array();
+    public $_submitFiles = [];
 
     /**
      * Value for maxfilesize hidden element if form contains file input
@@ -176,14 +176,14 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_rules = array();
+    public $_rules = [];
 
     /**
      * Form rules, global variety
      * @var     array
      * @access  private
      */
-    public $_formRules = array();
+    public $_formRules = [];
 
     /**
      * Array containing the validation errors
@@ -191,7 +191,7 @@ class HTML_QuickForm extends HTML_Common
      * @var  array
      * @access   private
      */
-    public $_errors = array();
+    public $_errors = [];
 
     /**
      * Note for required fields in the form
@@ -229,17 +229,17 @@ class HTML_QuickForm extends HTML_Common
         parent::__construct($attributes);
         $method = (strtoupper($method) == 'GET') ? 'get' : 'post';
         $action = ($action == '') ? api_get_self() : $action;
-        $target = empty($target) ? array() : array('target' => $target);
+        $target = empty($target) ? [] : ['target' => $target];
         $form_id = $formName;
         if (isset($attributes['id']) && !empty($attributes['id'])) {
             $form_id = Security::remove_XSS($attributes['id']);
         }
-        $attributes = array(
+        $attributes = [
             'action' => $action,
             'method' => $method,
             'name' => $formName,
             'id' => $form_id
-        ) + $target;
+        ] + $target;
         $this->updateAttributes($attributes);
         if (!$trackSubmit || isset($_REQUEST['_qf__' . $formName])) {
             $this->_submitValues = 'get' == $method ? $_GET : $_POST;
@@ -285,7 +285,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    float
      */
-    function apiVersion()
+    public function apiVersion()
     {
         return 3.2;
     }
@@ -300,9 +300,9 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    void
      */
-    function registerElementType($typeName, $include, $className)
+    public function registerElementType($typeName, $include, $className)
     {
-        $GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES'][strtolower($typeName)] = array($include, $className);
+        $GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES'][strtolower($typeName)] = [$include, $className];
     }
 
     /**
@@ -423,7 +423,7 @@ class HTML_QuickForm extends HTML_Common
             $this->addElement('hidden', 'MAX_FILE_SIZE', $this->_maxFileSize);
         } else {
             $el =& $this->getElement('MAX_FILE_SIZE');
-            $el->updateAttributes(array('value' => $this->_maxFileSize));
+            $el->updateAttributes(['value' => $this->_maxFileSize]);
         }
     }
 
@@ -597,26 +597,25 @@ class HTML_QuickForm extends HTML_Common
         return $this->_elements;
     }
 
-   /**
-    * Inserts a new element right before the other element
-    *
-    * Warning: it is not possible to check whether the $element is already
-    * added to the form, therefore if you want to move the existing form
-    * element to a new position, you'll have to use removeElement():
-    * $form->insertElementBefore($form->removeElement('foo', false), 'bar');
-    *
-    * @access   public
-    * @since    3.2.4
-    * @param    HTML_QuickForm_element  Element to insert
-    * @param    string                  Name of the element before which the new
-    *                                   one is inserted
-    * @return   HTML_QuickForm_element  reference to inserted element
-    */
+    /**
+     * Inserts a new element right before the other element
+     *
+     * Warning: it is not possible to check whether the $element is already
+     * added to the form, therefore if you want to move the existing form
+     * element to a new position, you'll have to use removeElement():
+     * $form->insertElementBefore($form->removeElement('foo', false), 'bar');
+     *
+     * @access   public
+     * @since    3.2.4
+     * @param    HTML_QuickForm_element  Element to insert
+     * @param    string                  Name of the element before which the new
+     *                                   one is inserted
+     * @return   HTML_QuickForm_element  reference to inserted element
+     */
     public function &insertElementBefore(&$element, $nameAfter)
     {
         if (!empty($this->_duplicateIndex[$nameAfter])) {
             throw new \Exception('Several elements named "' . $nameAfter . '" exist in HTML_QuickForm::insertElementBefore().');
-
         } elseif (!$this->elementExists($nameAfter)) {
             throw new \Exception("Element '$nameAfter' does not exist in HTML_QuickForm::insertElementBefore()");
         }
@@ -698,7 +697,6 @@ class HTML_QuickForm extends HTML_Common
     public function &getElement($element)
     {
         if (isset($this->_elementIndex[$element])) {
-
             return $this->_elements[$this->_elementIndex[$element]];
         } else {
             throw new \Exception("Element '$element' does not exist in HTML_QuickForm::getElement()");
@@ -740,7 +738,7 @@ class HTML_QuickForm extends HTML_Common
      * @return    mixed     element value
      * @throws    HTML_QuickForm_Error
      */
-    function &getElementValue($element)
+    public function &getElementValue($element)
     {
         if (!isset($this->_elementIndex[$element])) {
             throw new \Exception("Element '$element' does not exist in HTML_QuickForm::getElementValue()");
@@ -752,7 +750,7 @@ class HTML_QuickForm extends HTML_Common
                     if (is_array($value)) {
                         $value[] = $v;
                     } else {
-                        $value = (null === $value)? $v: array($value, $v);
+                        $value = (null === $value)? $v: [$value, $v];
                     }
                 }
             }
@@ -772,7 +770,7 @@ class HTML_QuickForm extends HTML_Common
     {
         $value = null;
         if (isset($this->_submitValues[$elementName]) || isset($this->_submitFiles[$elementName])) {
-            $value = isset($this->_submitValues[$elementName])? $this->_submitValues[$elementName]: array();
+            $value = isset($this->_submitValues[$elementName])? $this->_submitValues[$elementName]: [];
             if (is_array($value) && isset($this->_submitFiles[$elementName])) {
                 foreach ($this->_submitFiles[$elementName] as $k => $v) {
                     $value = HTML_QuickForm::arrayMerge(
@@ -783,16 +781,15 @@ class HTML_QuickForm extends HTML_Common
             }
         } elseif ('file' == $this->getElementType($elementName)) {
             return $this->getElementValue($elementName);
-
         } elseif (false !== ($pos = strpos($elementName, '['))) {
             $base = str_replace(
-                array('\\', '\''),
-                array('\\\\', '\\\''),
+                ['\\', '\''],
+                ['\\\\', '\\\''],
                 substr($elementName, 0, $pos)
             );
             $idx = "['".str_replace(
-                    array('\\', '\'', ']', '['),
-                    array('\\\\', '\\\'', '', "']['"),
+                    ['\\', '\'', ']', '['],
+                    ['\\\\', '\\\'', '', "']['"],
                     substr($elementName, $pos + 1, -1)
                 )."']";
             if (isset($this->_submitValues[$base])) {
@@ -800,7 +797,7 @@ class HTML_QuickForm extends HTML_Common
             }
 
             if ((is_array($value) || null === $value) && isset($this->_submitFiles[$base])) {
-                $props = array('name', 'type', 'size', 'tmp_name', 'error');
+                $props = ['name', 'type', 'size', 'tmp_name', 'error'];
                 $code  = "if (!isset(\$this->_submitFiles['{$base}']['name']{$idx})) {\n" .
                          "    return null;\n" .
                          "} else {\n" .
@@ -844,19 +841,19 @@ class HTML_QuickForm extends HTML_Common
         return $value;
     }
 
-   /**
-    * A helper function to change the indexes in $_FILES array
-    *
-    * @param  mixed   Some value from the $_FILES array
-    * @param  string  The key from the $_FILES array that should be appended
-    * @return array
-    */
-    function _reindexFiles($value, $key)
+    /**
+     * A helper function to change the indexes in $_FILES array
+     *
+     * @param  mixed   Some value from the $_FILES array
+     * @param  string  The key from the $_FILES array that should be appended
+     * @return array
+     */
+    public function _reindexFiles($value, $key)
     {
         if (!is_array($value)) {
-            return array($key => $value);
+            return [$key => $value];
         } else {
-            $ret = array();
+            $ret = [];
             foreach ($value as $k => $v) {
                 $ret[$k] = $this->_reindexFiles($v, $key);
             }
@@ -872,7 +869,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    string    error message corresponding to checked element
      */
-    function getElementError($element)
+    public function getElementError($element)
     {
         if (isset($this->_errors[$element])) {
             return $this->_errors[$element];
@@ -891,7 +888,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    void
      */
-    function setElementError($element, $message = null)
+    public function setElementError($element, $message = null)
     {
         if (!empty($message)) {
             $this->_errors[$element] = $message;
@@ -900,27 +897,27 @@ class HTML_QuickForm extends HTML_Common
         }
     } // end func setElementError
 
-     // }}}
-     // {{{ getElementType()
+    // }}}
+    // {{{ getElementType()
 
-     /**
-      * Returns the type of the given element
-      *
-      * @param      string    $element    Name of form element
-      * @since      1.1
-      * @access     public
-      * @return     string    Type of the element, false if the element is not found
-      */
-     function getElementType($element)
-     {
-         if (isset($this->_elementIndex[$element])) {
-             return $this->_elements[$this->_elementIndex[$element]]->getType();
-         }
-         return false;
-     } // end func getElementType
+    /**
+     * Returns the type of the given element
+     *
+     * @param      string    $element    Name of form element
+     * @since      1.1
+     * @access     public
+     * @return     string    Type of the element, false if the element is not found
+     */
+    public function getElementType($element)
+    {
+        if (isset($this->_elementIndex[$element])) {
+            return $this->_elements[$this->_elementIndex[$element]]->getType();
+        }
+        return false;
+    } // end func getElementType
 
-     // }}}
-     // {{{ updateElementAttr()
+    // }}}
+    // {{{ updateElementAttr()
 
     /**
      * Updates Attributes for one or more elements
@@ -931,7 +928,7 @@ class HTML_QuickForm extends HTML_Common
      * @access     public
      * @return     void
      */
-    function updateElementAttr($elements, $attrs)
+    public function updateElementAttr($elements, $attrs)
     {
         if (is_string($elements)) {
             $elements = split('[ ]?,[ ]?', $elements);
@@ -964,7 +961,7 @@ class HTML_QuickForm extends HTML_Common
      * @return HTML_QuickForm_element    a reference to the removed element
      * @throws HTML_QuickForm_Error
      */
-    function &removeElement($elementName, $removeRules = true)
+    public function &removeElement($elementName, $removeRules = true)
     {
         if (!isset($this->_elementIndex[$elementName])) {
             throw new \Exception("Element '$elementName' does not exist in HTML_QuickForm::removeElement()");
@@ -977,7 +974,7 @@ class HTML_QuickForm extends HTML_Common
             $this->_elementIndex[$elementName] = array_shift($this->_duplicateIndex[$elementName]);
         }
         if ($removeRules) {
-            $this->_required = array_diff($this->_required, array($elementName));
+            $this->_required = array_diff($this->_required, [$elementName]);
             unset($this->_rules[$elementName], $this->_errors[$elementName]);
             if ('group' == $el->getType()) {
                 foreach (array_keys($el->getElements()) as $key) {
@@ -1043,21 +1040,21 @@ class HTML_QuickForm extends HTML_Common
             $this->_required[] = $element;
         }
         if (!isset($this->_rules[$element])) {
-            $this->_rules[$element] = array();
+            $this->_rules[$element] = [];
         }
         if ($validation == 'client') {
             $this->updateAttributes(
-                array('onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);')
+                ['onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);']
             );
         }
-        $this->_rules[$element][] = array(
+        $this->_rules[$element][] = [
             'type' => $type,
             'format' => $format,
             'message' => $message,
             'validation' => $validation,
             'reset' => $reset,
             'dependent' => $dependent,
-        );
+        ];
     }
 
     /**
@@ -1080,7 +1077,7 @@ class HTML_QuickForm extends HTML_Common
      * @access   public
      * @throws   HTML_QuickForm_Error
      */
-    function addGroupRule($group, $arg1, $type='', $format=null, $howmany=0, $validation = 'server', $reset = false)
+    public function addGroupRule($group, $arg1, $type='', $format=null, $howmany=0, $validation = 'server', $reset = false)
     {
         if (!$this->elementExists($group)) {
             throw new \Exception("Group '$group' does not exist in HTML_QuickForm::addGroupRule()");
@@ -1102,14 +1099,14 @@ class HTML_QuickForm extends HTML_Common
                         $type = $newName;
                     }
 
-                    $this->_rules[$elementName][] = array(
+                    $this->_rules[$elementName][] = [
                         'type' => $type,
                         'format' => $format,
                         'message' => $rule[0],
                         'validation' => $validation,
                         'reset' => $reset,
                         'group' => $group,
-                    );
+                    ];
 
                     if ('required' == $type || 'uploadedfile' == $type) {
                         $groupObj->_required[] = $elementName;
@@ -1117,7 +1114,7 @@ class HTML_QuickForm extends HTML_Common
                         $required++;
                     }
                     if ('client' == $validation) {
-                        $this->updateAttributes(array('onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);'));
+                        $this->updateAttributes(['onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);']);
                     }
                 }
             }
@@ -1142,19 +1139,19 @@ class HTML_QuickForm extends HTML_Common
                 }
             }
 
-            $this->_rules[$group][] = array(
+            $this->_rules[$group][] = [
                 'type' => $type,
                 'format' => $format,
                 'message' => $arg1,
                 'validation' => $validation,
                 'howmany' => $howmany,
                 'reset' => $reset,
-            );
+            ];
             if ($type == 'required') {
                 $this->_required[] = $group;
             }
             if ($validation == 'client') {
-                $this->updateAttributes(array('onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);'));
+                $this->updateAttributes(['onsubmit' => 'try { var myValidator = validate_' . $this->_attributes['id'] . '; } catch(e) { return true; } return myValidator(this);']);
             }
         }
     } // end func addGroupRule
@@ -1162,18 +1159,18 @@ class HTML_QuickForm extends HTML_Common
     // }}}
     // {{{ addFormRule()
 
-   /**
-    * Adds a global validation rule
-    *
-    * This should be used when for a rule involving several fields or if
-    * you want to use some completely custom validation for your form.
-    * The rule function/method should return true in case of successful
-    * validation and array('element name' => 'error') when there were errors.
-    *
-    * @access   public
-    * @param    mixed   Callback, either function name or array(&$object, 'method')
-    * @throws   HTML_QuickForm_Error
-    */
+    /**
+     * Adds a global validation rule
+     *
+     * This should be used when for a rule involving several fields or if
+     * you want to use some completely custom validation for your form.
+     * The rule function/method should return true in case of successful
+     * validation and array('element name' => 'error') when there were errors.
+     *
+     * @access   public
+     * @param    mixed   Callback, either function name or array(&$object, 'method')
+     * @throws   HTML_QuickForm_Error
+     */
     public function addFormRule($rule)
     {
         if (!is_callable($rule)) {
@@ -1194,7 +1191,7 @@ class HTML_QuickForm extends HTML_Common
      * @access   public
      * @throws   HTML_QuickForm_Error
      */
-    function applyFilter($element, $filter)
+    public function applyFilter($element, $filter)
     {
         if (!is_callable($filter)) {
             throw new \Exception("Callback function does not exist in QuickForm::applyFilter()");
@@ -1203,7 +1200,7 @@ class HTML_QuickForm extends HTML_Common
             $this->_submitValues = $this->_recursiveFilter($filter, $this->_submitValues);
         } else {
             if (!is_array($element)) {
-                $element = array($element);
+                $element = [$element];
             }
             foreach ($element as $elName) {
                 $value = $this->getSubmitValue($elName);
@@ -1212,7 +1209,8 @@ class HTML_QuickForm extends HTML_Common
                         $this->_submitValues[$elName] = $this->_recursiveFilter($filter, $value);
                     } else {
                         $idx  = "['" . str_replace(
-                                    array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                                    ['\\', '\'', ']', '['],
+                            ['\\\\', '\\\'', '', "']['"],
                                     $elName
                                 ) . "']";
                         eval("\$this->_submitValues{$idx} = \$this->_recursiveFilter(\$filter, \$value);");
@@ -1234,10 +1232,10 @@ class HTML_QuickForm extends HTML_Common
      * @access    private
      * @return    cleaned values
      */
-    function _recursiveFilter($filter, $value)
+    public function _recursiveFilter($filter, $value)
     {
         if (is_array($value)) {
-            $cleanValues = array();
+            $cleanValues = [];
             foreach ($value as $k => $v) {
                 $cleanValues[$k] = $this->_recursiveFilter($filter, $v);
             }
@@ -1250,19 +1248,19 @@ class HTML_QuickForm extends HTML_Common
     // }}}
     // {{{ arrayMerge()
 
-   /**
-    * Merges two arrays
-    *
-    * Merges two array like the PHP function array_merge but recursively.
-    * The main difference is that existing keys will not be renumbered
-    * if they are integers.
-    *
-    * @access   public
-    * @param    array   $a  original array
-    * @param    array   $b  array which will be merged into first one
-    * @return   array   merged array
-    */
-    static function arrayMerge($a, $b)
+    /**
+     * Merges two arrays
+     *
+     * Merges two array like the PHP function array_merge but recursively.
+     * The main difference is that existing keys will not be renumbered
+     * if they are integers.
+     *
+     * @access   public
+     * @param    array   $a  original array
+     * @param    array   $b  array which will be merged into first one
+     * @return   array   merged array
+     */
+    public static function arrayMerge($a, $b)
     {
         foreach ($b as $k => $v) {
             if (is_array($v)) {
@@ -1270,7 +1268,7 @@ class HTML_QuickForm extends HTML_Common
                     $a[$k] = $v;
                 } else {
                     if (!isset($a[$k])) {
-                        $a[$k] = array();
+                        $a[$k] = [];
                     }
                     $a[$k] = HTML_QuickForm::arrayMerge($a[$k], $v);
                 }
@@ -1292,7 +1290,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    boolean
      */
-    static function isTypeRegistered($type)
+    public static function isTypeRegistered($type)
     {
         return isset($GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES'][strtolower($type)]);
     }
@@ -1304,7 +1302,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    array
      */
-    function getRegisteredTypes()
+    public function getRegisteredTypes()
     {
         return array_keys($GLOBALS['HTML_QUICKFORM_ELEMENT_TYPES']);
     } // end func getRegisteredTypes
@@ -1321,7 +1319,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    mixed    true if previously registered, false if not, new rule name if auto-registering worked
      */
-    function isRuleRegistered($name, $autoRegister = false)
+    public function isRuleRegistered($name, $autoRegister = false)
     {
         return true;
     }
@@ -1333,7 +1331,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    array
      */
-    function getRegisteredRules()
+    public function getRegisteredRules()
     {
         return array_keys($GLOBALS['_HTML_QuickForm_registered_rules']);
     } // end func getRegisteredRules
@@ -1349,7 +1347,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    boolean
      */
-    function isElementRequired($element)
+    public function isElementRequired($element)
     {
         return in_array($element, $this->_required, true);
     } // end func isElementRequired
@@ -1365,12 +1363,12 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    boolean
      */
-    function isElementFrozen($element)
+    public function isElementFrozen($element)
     {
-         if (isset($this->_elementIndex[$element])) {
-             return $this->_elements[$this->_elementIndex[$element]]->isFrozen();
-         }
-         return false;
+        if (isset($this->_elementIndex[$element])) {
+            return $this->_elements[$this->_elementIndex[$element]]->isFrozen();
+        }
+        return false;
     } // end func isElementFrozen
 
     // }}}
@@ -1385,7 +1383,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    void
      */
-    function setJsWarnings($pref, $post)
+    public function setJsWarnings($pref, $post)
     {
         $this->_jsPrefix = $pref;
         $this->_jsPostfix = $post;
@@ -1402,7 +1400,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    void
      */
-    function setRequiredNote($note)
+    public function setRequiredNote($note)
     {
         $this->_requiredNote = $note;
     } // end func setRequiredNote
@@ -1417,7 +1415,7 @@ class HTML_QuickForm extends HTML_Common
      * @access    public
      * @return    string
      */
-    function getRequiredNote()
+    public function getRequiredNote()
     {
         return $this->_requiredNote;
     }
@@ -1435,7 +1433,6 @@ class HTML_QuickForm extends HTML_Common
             $this->isSubmitted()) {
             return (0 == count($this->_errors));
         } elseif (!$this->isSubmitted()) {
-
             return false;
         }
 
@@ -1466,11 +1463,13 @@ class HTML_QuickForm extends HTML_Common
                             $isUpload = !empty($this->_submitFiles[$target]);
                         } else {
                             $base = str_replace(
-                                        array('\\', '\''), array('\\\\', '\\\''),
+                                        ['\\', '\''],
+                                ['\\\\', '\\\''],
                                         substr($target, 0, $pos)
                                     );
                             $idx  = "['" . str_replace(
-                                        array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                                        ['\\', '\'', ']', '['],
+                                ['\\\\', '\\\'', '', "']['"],
                                         substr($target, $pos + 1, -1)
                                     ) . "']";
                             eval("\$isUpload = isset(\$this->_submitFiles['{$base}']['name']{$idx});");
@@ -1482,7 +1481,7 @@ class HTML_QuickForm extends HTML_Common
                 }
 
                 if (isset($rule['dependent'])) {
-                    $values = array($submitValue);
+                    $values = [$submitValue];
                     if (is_array($rule['dependent'])) {
                         foreach ($rule['dependent'] as $elName) {
                             $values[] = $this->getSubmitValue($elName);
@@ -1543,7 +1542,7 @@ class HTML_QuickForm extends HTML_Common
     {
         if (!isset($elementList)) {
             $this->_freezeAll = true;
-            $elementList = array();
+            $elementList = [];
         } else {
             if (!is_array($elementList)) {
                 $elementList = preg_split('/[ ]*,[ ]*/', $elementList);
@@ -1578,7 +1577,7 @@ class HTML_QuickForm extends HTML_Common
      */
     public function isFrozen()
     {
-         return $this->_freezeAll;
+        return $this->_freezeAll;
     }
 
     /**
@@ -1601,14 +1600,14 @@ class HTML_QuickForm extends HTML_Common
         return call_user_func($callback, $values);
     }
 
-   /**
-    * Accepts a renderer
-    *
-    * @param object     An HTML_QuickForm_Renderer object
-    * @since 3.0
-    * @access public
-    * @return void
-    */
+    /**
+     * Accepts a renderer
+     *
+     * @param object     An HTML_QuickForm_Renderer object
+     * @since 3.0
+     * @access public
+     * @return void
+     */
     public function accept(&$renderer)
     {
         $renderer->startForm($this);
@@ -1622,13 +1621,13 @@ class HTML_QuickForm extends HTML_Common
         $renderer->finishForm($this);
     }
 
-   /**
-    * Returns a reference to default renderer object
-    *
-    * @access public
-    * @since 3.0
-    * @return HTML_QuickForm_Renderer_Default
-    */
+    /**
+     * Returns a reference to default renderer object
+     *
+     * @access public
+     * @since 3.0
+     * @return HTML_QuickForm_Renderer_Default
+     */
     public function &defaultRenderer()
     {
         if (!isset($GLOBALS['_HTML_QuickForm_default_renderer'])) {
@@ -1674,15 +1673,15 @@ class HTML_QuickForm extends HTML_Common
         }
 
         $registry =& HTML_QuickForm_RuleRegistry::singleton();
-        $test = array();
-        $js_escape = array(
+        $test = [];
+        $js_escape = [
             "\r"    => '\r',
             "\n"    => '\n',
             "\t"    => '\t',
             "'"     => "\\'",
             '"'     => '\"',
             '\\'    => '\\\\'
-        );
+        ];
 
         foreach ($this->_rules as $elementName => $rules) {
             foreach ($rules as $rule) {
@@ -1706,7 +1705,7 @@ class HTML_QuickForm extends HTML_Common
                             }
                         }
                     } elseif ($dependent) {
-                        $element   =  array();
+                        $element   =  [];
                         $element[] =& $this->getElement($elementName);
                         foreach ($rule['dependent'] as $elName) {
                             $element[] =& $this->getElement($elName);
@@ -1785,7 +1784,7 @@ class HTML_QuickForm extends HTML_Common
         //
         $this->accept($renderer);
         return $renderer->toArray();
-     }
+    }
 
     /**
      * Returns a 'safe' element's value
@@ -1811,7 +1810,7 @@ class HTML_QuickForm extends HTML_Common
                     if (is_array($value)) {
                         $value[] = $v;
                     } else {
-                        $value = (null === $value)? $v: array($value, $v);
+                        $value = (null === $value)? $v: [$value, $v];
                     }
                 }
             }
@@ -1832,7 +1831,7 @@ class HTML_QuickForm extends HTML_Common
      */
     public function exportValues($elementList = null)
     {
-        $values = array();
+        $values = [];
         if (null === $elementList) {
             // iterate over all elements, calling their exportValue() methods
             foreach (array_keys($this->_elements) as $key) {
@@ -1857,15 +1856,15 @@ class HTML_QuickForm extends HTML_Common
         return $values;
     }
 
-   /**
-    * Tells whether the form was already submitted
-    *
-    * This is useful since the _submitFiles and _submitValues arrays
-    * may be completely empty after the trackSubmit value is removed.
-    *
-    * @access public
-    * @return bool
-    */
+    /**
+     * Tells whether the form was already submitted
+     *
+     * This is useful since the _submitFiles and _submitValues arrays
+     * may be completely empty after the trackSubmit value is removed.
+     *
+     * @access public
+     * @return bool
+     */
     public function isSubmitted()
     {
         return $this->_flagSubmitted;
@@ -1899,7 +1898,7 @@ class HTML_QuickForm extends HTML_Common
 
         // define the varies error messages
         if (!isset($errorMessages)) {
-            $errorMessages = array(
+            $errorMessages = [
                 QUICKFORM_OK => 'no error',
                 QUICKFORM_ERROR => 'unknown error',
                 QUICKFORM_INVALID_RULE => 'the rule does not exist as a registered rule',
@@ -1910,7 +1909,7 @@ class HTML_QuickForm extends HTML_Common
                 QUICKFORM_INVALID_PROCESS => 'process callback does not exist',
                 QUICKFORM_DEPRECATED => 'method is deprecated',
                 QUICKFORM_INVALID_DATASOURCE => 'datasource is not an object',
-            );
+            ];
         }
 
         // If this is an error object, then grab the corresponding error code

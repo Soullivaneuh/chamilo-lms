@@ -13,13 +13,12 @@ class ShibbolethTestHelper
 
     /**
      *
-     * @return ShibbolethTestHelper 
+     * @return ShibbolethTestHelper
      */
     public static function instance()
     {
         static $result = false;
-        if (empty($result))
-        {
+        if (empty($result)) {
             $result = new self();
         }
         return $result;
@@ -125,9 +124,8 @@ class ShibbolethTestHelper
     public function setup_new_minimal_data()
     {
         $id = uniqid();
-        $_SERVER['Shib-SwissEP-UniqueID'] = 'usr_' . $id;       
+        $_SERVER['Shib-SwissEP-UniqueID'] = 'usr_' . $id;
         $_SERVER['Shib-InetOrgPerson-givenName'] = 'John';
         $_SERVER['Shib-Person-surname'] = 'Doe' . $id;
     }
-
 }

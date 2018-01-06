@@ -26,20 +26,20 @@ ini_set('debug_level', E_ALL);
 
 // Now get cli options.
 list($options, $unrecognized) = cli_get_params(
-    array(
+    [
         'interactive' => false,
         'help'        => false,
         'config'      => false,
         'nodes'       => '',
         'lint'        => false
-    ),
-    array(
+    ],
+    [
         'h' => 'help',
         'c' => 'config',
         'n' => 'nodes',
         'i' => 'interactive',
         'l' => 'lint'
-    )
+    ]
 );
 
 $interactive = !empty($options['interactive']);
@@ -140,10 +140,9 @@ if (empty($nodes)) {
 ctrace('Starting CLI processing');
 
 foreach ($nodes as $n) {
-
     ctrace('Destroying node :'.$n->vhostname);
 
-    if (!$DB->get_record('vchamilo', array('root_web' => $n->root_web))) {
+    if (!$DB->get_record('vchamilo', ['root_web' => $n->root_web])) {
         ctrace('Node does not exist. Skipping');
         continue;
     }
@@ -167,4 +166,4 @@ foreach ($nodes as $n) {
         }
     }
 }
-exit (0);
+exit(0);

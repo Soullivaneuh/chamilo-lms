@@ -17,22 +17,22 @@ class HTML_QuickForm_advanced_settings extends HTML_QuickForm_static
             $label = get_lang('AdvancedParameters');
         }
         $this->updateAttributes(
-            array(
+            [
                 'label' => $label,
                 'name' => $name
-            )
+            ]
         );
         $this->_type = 'html';
     }
 
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object (only works with Default renderer!)
-    * @access public
-    * @return void
-    */
-    function accept(&$renderer, $required = false, $error = null)
+    /**
+     * Accepts a renderer
+     *
+     * @param HTML_QuickForm_Renderer    renderer object (only works with Default renderer!)
+     * @access public
+     * @return void
+     */
+    public function accept(&$renderer, $required = false, $error = null)
     {
         $renderer->renderHtml($this);
     }

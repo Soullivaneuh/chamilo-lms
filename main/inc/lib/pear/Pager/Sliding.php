@@ -56,7 +56,7 @@ class Pager_Sliding extends Pager_Common
      *
      * @access public
      */
-    public function __construct($options = array())
+    public function __construct($options = [])
     {
         //set default Pager_Sliding options
         $this->_delta                 = 2;
@@ -88,7 +88,7 @@ class Pager_Sliding extends Pager_Common
      * @deprecated
      * @access public
      */
-    function getPageIdByOffset($index)
+    public function getPageIdByOffset($index)
     {
     }
 
@@ -108,7 +108,7 @@ class Pager_Sliding extends Pager_Common
      * @return array  First and last offsets
      * @access public
      */
-    function getPageRangeByPageId($pageid = null)
+    public function getPageRangeByPageId($pageid = null)
     {
         $pageid = isset($pageid) ? (int)$pageid : $this->_currentPage;
         if (!isset($this->_pageData)) {
@@ -122,12 +122,12 @@ class Pager_Sliding extends Pager_Common
             } else {
                 $min_surplus = $max_surplus = 0;
             }
-            return array(
+            return [
                 max($pageid - $this->_delta - $max_surplus, 1),
                 min($pageid + $this->_delta + $min_surplus, $this->_totalPages)
-            );
+            ];
         }
-        return array(0, 0);
+        return [0, 0];
     }
 
     // }}}
@@ -144,7 +144,7 @@ class Pager_Sliding extends Pager_Common
      * @return array back/pages/next/first/last/all links
      * @access public
      */
-    function getLinks($pageID = null, $dummy='')
+    public function getLinks($pageID = null, $dummy='')
     {
         if (!is_null($pageID)) {
             $_sav = $this->_currentPage;
@@ -175,7 +175,7 @@ class Pager_Sliding extends Pager_Common
             $this->_currentPage = $_sav;
         }
 
-        return array(
+        return [
             $back,
             $pages,
             trim($next),
@@ -191,7 +191,7 @@ class Pager_Sliding extends Pager_Common
             'all'         => $all,
             'linktags'    => $linkTags,
             'linkTagsRaw' => $linkTagsRaw,
-        );
+        ];
     }
 
     // }}}
@@ -205,7 +205,7 @@ class Pager_Sliding extends Pager_Common
      * @return string Links
      * @access private
      */
-    function _getPageLinks($url = '')
+    public function _getPageLinks($url = '')
     {
         //legacy setting... the preferred way to set an option now
         //is adding it to the constuctor
@@ -270,7 +270,6 @@ class Pager_Sliding extends Pager_Common
                       . ($print_separator_flag ? $this->_separator.$this->_spacesAfter : '');
                 }
             }
-
         } else {
             //if $this->_totalPages <= (2*Delta+1) show them all
             for ($i=1; $i<=$this->_totalPages; $i++) {
@@ -291,4 +290,3 @@ class Pager_Sliding extends Pager_Common
 
     // }}}
 }
-?>

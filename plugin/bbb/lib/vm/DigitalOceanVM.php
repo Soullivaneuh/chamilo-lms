@@ -51,7 +51,6 @@ class DigitalOceanVM extends AbstractVM implements VirtualMachineInterface
             $availableSizes = $sizes->getAll();
 
             if (isset($availableSizes->status) && $availableSizes->status == 'OK') {
-
                 $minSizeIdExists = false;
                 $maxSizeIdExists = false;
 
@@ -126,7 +125,7 @@ class DigitalOceanVM extends AbstractVM implements VirtualMachineInterface
 
         $resizeDroplet = $droplets->resize(
             $this->vmId,
-            array('size_id' => intval($sizeId))
+            ['size_id' => intval($sizeId)]
         );
         $this->addMessage('Resize droplet to size id: '.$sizeId);
         $this->waitForEvent($resizeDroplet->event_id);
@@ -134,7 +133,6 @@ class DigitalOceanVM extends AbstractVM implements VirtualMachineInterface
         $powerOn = $droplets->powerOn($this->vmId);
         $this->waitForEvent($powerOn->event_id);
         $this->addMessage('Power on droplet #'.$this->vmId);
-
     }
 
     /**

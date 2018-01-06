@@ -1,8 +1,8 @@
 <?php
 // $Id: xcd.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('cyess', 'cyeng', 'cyej', 'cyec', 'cyek', 'cyet', 'cyep', 'cyeh', 'co', 'cog', 'cogg', 'cogs', 'con', 'conj', 'conh', 'cod',
+return [
+  'en' => ['cyess', 'cyeng', 'cyej', 'cyec', 'cyek', 'cyet', 'cyep', 'cyeh', 'co', 'cog', 'cogg', 'cogs', 'con', 'conj', 'conh', 'cod',
     'col', 'colg', 'colm', 'colb', 'cols', 'colt', 'colp', 'colh', 'com', 'cob', 'cobs', 'cos', 'coss', 'cong', 'coj', 'coc',
     'cok', 'cot', 'cop', 'coh', 'cwa', 'cwag', 'cwagg', 'cwags', 'cwan', 'cwanj', 'cwanh', 'cwad', 'cwal', 'cwalg', 'cwalm', 'cwalb',
     'cwals', 'cwalt', 'cwalp', 'cwalh', 'cwam', 'cwab', 'cwabs', 'cwas', 'cwass', 'cwang', 'cwaj', 'cwac', 'cwak', 'cwat', 'cwap', 'cwah',
@@ -17,5 +17,5 @@ return array(
     'cweom', 'cweob', 'cweobs', 'cweos', 'cweoss', 'cweong', 'cweoj', 'cweoc', 'cweok', 'cweot', 'cweop', 'cweoh', 'cwe', 'cweg', 'cwegg', 'cwegs',
     'cwen', 'cwenj', 'cwenh', 'cwed', 'cwel', 'cwelg', 'cwelm', 'cwelb', 'cwels', 'cwelt', 'cwelp', 'cwelh', 'cwem', 'cweb', 'cwebs', 'cwes',
     'cwess', 'cweng', 'cwej', 'cwec', 'cwek', 'cwet', 'cwep', 'cweh', 'cwi', 'cwig', 'cwigg', 'cwigs', 'cwin', 'cwinj', 'cwinh', 'cwid',
-    'cwil', 'cwilg', 'cwilm', 'cwilb', 'cwils', 'cwilt', 'cwilp', 'cwilh', 'cwim', 'cwib', 'cwibs', 'cwis', 'cwiss', 'cwing', 'cwij', 'cwic'),
-);
+    'cwil', 'cwilg', 'cwilm', 'cwilb', 'cwils', 'cwilt', 'cwilp', 'cwilh', 'cwim', 'cwib', 'cwibs', 'cwis', 'cwiss', 'cwing', 'cwij', 'cwic'],
+];

@@ -1,8 +1,8 @@
 <?php
 // $Id: x02.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('A', 'a', 'A', 'a', 'E', 'e', 'E', 'e', 'I', 'i', 'I', 'i', 'O', 'o', 'O', 'o',
+return [
+  'en' => ['A', 'a', 'A', 'a', 'E', 'e', 'E', 'e', 'I', 'i', 'I', 'i', 'O', 'o', 'O', 'o',
     'R', 'r', 'R', 'r', 'U', 'u', 'U', 'u', 'S', 's', 'T', 't', 'Y', 'y', 'H', 'h',
     'N', 'd', 'OU', 'ou', 'Z', 'z', 'A', 'a', 'E', 'e', 'O', 'o', 'O', 'o', 'O', 'o',
     'O', 'o', 'Y', 'y', 'l', 'n', 't', 'j', 'db', 'qp', 'A', 'C', 'c', 'L', 'T', 's',
@@ -16,6 +16,6 @@ return array(
     'k', 'h', 'j', 'r', 'r', 'r', 'r', 'w', 'y', '\'', '"', '`', '\'', '`', '`', '\'',
     '?', '?', '<', '>', '^', 'V', '^', 'V', '\'', '-', '/', '\\', ',', '_', '\\', '/',
     ':', '.', '`', '\'', '^', 'V', '+', '-', 'V', '.', '@', ',', '~', '"', 'R', 'X',
-    'G', 'l', 's', 'x', '?', '', '', '', '', '', '', '', 'V', '=', '"', NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-);
+    'G', 'l', 's', 'x', '?', '', '', '', '', '', '', '', 'V', '=', '"', null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+];

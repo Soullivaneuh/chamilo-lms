@@ -83,9 +83,9 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
         $this->setType('checkbox');
 
         if (!isset($attributes['value'])) {
-            $this->updateAttributes(array('value' => 1));
+            $this->updateAttributes(['value' => 1]);
         } else {
-            $this->updateAttributes(array('value' => $attributes['value']));
+            $this->updateAttributes(['value' => $attributes['value']]);
         }
 
         $this->_generateId();
@@ -99,12 +99,12 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setChecked($checked)
+    public function setChecked($checked)
     {
         if (!$checked) {
             $this->removeAttribute('checked');
         } else {
-            $this->updateAttributes(array('checked' => 'checked'));
+            $this->updateAttributes(['checked' => 'checked']);
         }
     } //end func setChecked
 
@@ -118,7 +118,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    bool
      */
-    function getChecked()
+    public function getChecked()
     {
         return (bool)$this->getAttribute('checked');
     } //end func getChecked
@@ -167,17 +167,17 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
         $size = $this->getColumnsSize();
 
         if (empty($size)) {
-            $size = array(2, 8, 2);
+            $size = [2, 8, 2];
         } else {
             if (is_array($size)) {
                 if (count($size) == 1) {
-                    $size = array(2, intval($size[0]), 2);
+                    $size = [2, intval($size[0]), 2];
                 } elseif (count($size) != 3) {
-                    $size = array(2, 8, 2);
+                    $size = [2, 8, 2];
                 }
                 // else just keep the $size array as received
             } else {
-                $size = array(2, intval($size), 2);
+                $size = [2, intval($size), 2];
             }
         }
 
@@ -238,7 +238,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    string
      */
-    function getFrozenHtml()
+    public function getFrozenHtml()
     {
         if ($this->getChecked()) {
             return '<code>[x]</code>' .
@@ -259,7 +259,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setText($text)
+    public function setText($text)
     {
         $this->_text = $text;
     } //end func setText
@@ -274,7 +274,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    string
      */
-    function getText()
+    public function getText()
     {
         return $this->_text;
     } //end func getText
@@ -290,7 +290,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setValue($value)
+    public function setValue($value)
     {
         return $this->setChecked($value);
     } // end func setValue
@@ -305,7 +305,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    bool
      */
-    function getValue()
+    public function getValue()
     {
         return $this->getChecked();
     } // end func getValue
@@ -323,7 +323,7 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function onQuickFormEvent($event, $arg, &$caller)
+    public function onQuickFormEvent($event, $arg, &$caller)
     {
         switch ($event) {
             case 'updateValue':
@@ -357,10 +357,10 @@ class HTML_QuickForm_checkbox extends HTML_QuickForm_input
     // }}}
     // {{{ exportValue()
 
-   /**
-    * Return true if the checkbox is checked, null if it is not checked (getValue() returns false)
-    */
-    function exportValue(&$submitValues, $assoc = false)
+    /**
+     * Return true if the checkbox is checked, null if it is not checked (getValue() returns false)
+     */
+    public function exportValue(&$submitValues, $assoc = false)
     {
         $value = $this->_findValue($submitValues);
         if (null === $value) {

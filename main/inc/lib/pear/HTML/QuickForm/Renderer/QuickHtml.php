@@ -42,7 +42,7 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
      * The array of rendered elements
      * @var array
      */
-    var $renderedElements = array();
+    public $renderedElements = [];
 
     // }}}
     // {{{ constructor
@@ -68,7 +68,7 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
      * @access public
      * @return string
      */
-    function toHtml($data = '')
+    public function toHtml($data = '')
     {
         // Render any elements that haven't been rendered explicitly by elementToHtml()
         foreach (array_keys($this->renderedElements) as $key) {
@@ -141,11 +141,11 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
         $this->_html = '';
         parent::renderElement($element, $required, $error);
         if (!$this->_inGroup) {
-            $this->renderedElements[] = array(
+            $this->renderedElements[] = [
                     'name' => $element->getName(),
                     'value' => $element->getValue(),
                     'html' => $this->_html,
-                    'rendered' => false);
+                    'rendered' => false];
         }
         $this->_html = '';
     }
@@ -159,11 +159,11 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
      */
     public function renderHidden(&$element)
     {
-        $this->renderedElements[] = array(
+        $this->renderedElements[] = [
                 'name' => $element->getName(),
                 'value' => $element->getValue(),
                 'html' => $element->toHtml(),
-                'rendered' => false);
+                'rendered' => false];
     } // end func renderHidden
 
     // }}}
@@ -181,11 +181,11 @@ class HTML_QuickForm_Renderer_QuickHtml extends HTML_QuickForm_Renderer_Default
     {
         $this->_html = '';
         parent::finishGroup($group);
-        $this->renderedElements[] = array(
+        $this->renderedElements[] = [
                 'name' => $group->getName(),
                 'value' => $group->getValue(),
                 'html' => $this->_html,
-                'rendered' => false);
+                'rendered' => false];
         $this->_html = '';
     }
 }
