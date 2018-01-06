@@ -1,8 +1,8 @@
 <?php
 // $Id: xae.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('geul', 'geulg', 'geulm', 'geulb', 'geuls', 'geult', 'geulp', 'geulh', 'geum', 'geub', 'geubs', 'geus', 'geuss', 'geung', 'geuj', 'geuc',
+return [
+  'en' => ['geul', 'geulg', 'geulm', 'geulb', 'geuls', 'geult', 'geulp', 'geulh', 'geum', 'geub', 'geubs', 'geus', 'geuss', 'geung', 'geuj', 'geuc',
     'geuk', 'geut', 'geup', 'geuh', 'gyi', 'gyig', 'gyigg', 'gyigs', 'gyin', 'gyinj', 'gyinh', 'gyid', 'gyil', 'gyilg', 'gyilm', 'gyilb',
     'gyils', 'gyilt', 'gyilp', 'gyilh', 'gyim', 'gyib', 'gyibs', 'gyis', 'gyiss', 'gying', 'gyij', 'gyic', 'gyik', 'gyit', 'gyip', 'gyih',
     'gi', 'gig', 'gigg', 'gigs', 'gin', 'ginj', 'ginh', 'gid', 'gil', 'gilg', 'gilm', 'gilb', 'gils', 'gilt', 'gilp', 'gilh',
@@ -17,5 +17,5 @@ return array(
     'ggeon', 'ggeonj', 'ggeonh', 'ggeod', 'ggeol', 'ggeolg', 'ggeolm', 'ggeolb', 'ggeols', 'ggeolt', 'ggeolp', 'ggeolh', 'ggeom', 'ggeob', 'ggeobs', 'ggeos',
     'ggeoss', 'ggeong', 'ggeoj', 'ggeoc', 'ggeok', 'ggeot', 'ggeop', 'ggeoh', 'gge', 'ggeg', 'ggegg', 'ggegs', 'ggen', 'ggenj', 'ggenh', 'gged',
     'ggel', 'ggelg', 'ggelm', 'ggelb', 'ggels', 'ggelt', 'ggelp', 'ggelh', 'ggem', 'ggeb', 'ggebs', 'gges', 'ggess', 'ggeng', 'ggej', 'ggec',
-    'ggek', 'gget', 'ggep', 'ggeh', 'ggyeo', 'ggyeog', 'ggyeogg', 'ggyeogs', 'ggyeon', 'ggyeonj', 'ggyeonh', 'ggyeod', 'ggyeol', 'ggyeolg', 'ggyeolm', 'ggyeolb'),
-);
+    'ggek', 'gget', 'ggep', 'ggeh', 'ggyeo', 'ggyeog', 'ggyeogg', 'ggyeogs', 'ggyeon', 'ggyeonj', 'ggyeonh', 'ggyeod', 'ggyeol', 'ggyeolg', 'ggyeolm', 'ggyeolb'],
+];

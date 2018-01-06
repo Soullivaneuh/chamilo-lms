@@ -74,7 +74,7 @@ class HTML_QuickForm_CAPTCHA_Image extends HTML_QuickForm_CAPTCHA
      * @var    array
      * @access protected
      */
-    var $_options = array(
+    public $_options = [
             'sessionVar'   => '_HTML_QuickForm_CAPTCHA',
             'width'        => '200',
             'height'       => '80',
@@ -82,7 +82,7 @@ class HTML_QuickForm_CAPTCHA_Image extends HTML_QuickForm_CAPTCHA
             'callback'     => '',
             'imageOptions' => null,
             'phrase'       => null,
-    );
+    ];
 
     /**
      * CAPTCHA driver
@@ -90,7 +90,7 @@ class HTML_QuickForm_CAPTCHA_Image extends HTML_QuickForm_CAPTCHA
      * @var    string
      * @access protected
      */
-    var $_CAPTCHA_driver = 'Image';
+    public $_CAPTCHA_driver = 'Image';
 
     /**
      * Code based in HTML_QuickForm_text::getTemplate()
@@ -157,7 +157,6 @@ class HTML_QuickForm_CAPTCHA_Image extends HTML_QuickForm_CAPTCHA
      */
     public function toHtml()
     {
-
         if ($this->_flagFrozen) {
             return '';
         }
@@ -205,7 +204,7 @@ class HTML_QuickForm_CAPTCHA_Image extends HTML_QuickForm_CAPTCHA
      * @return string
      * @access public
      */
-    function getOnclickJs($imageName)
+    public function getOnclickJs($imageName)
     {
         $onclickJs = ''
             .'if (document.images) {'

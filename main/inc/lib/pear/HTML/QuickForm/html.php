@@ -50,13 +50,13 @@ class HTML_QuickForm_html extends HTML_QuickForm_static
         $this->_type = 'html';
     }
 
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object (only works with Default renderer!)
-    * @access public
-    * @return void
-    */
+    /**
+     * Accepts a renderer
+     *
+     * @param HTML_QuickForm_Renderer    renderer object (only works with Default renderer!)
+     * @access public
+     * @return void
+     */
     public function accept(&$renderer, $required = false, $error = null)
     {
         $renderer->renderHtml($this);

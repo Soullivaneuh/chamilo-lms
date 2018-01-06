@@ -63,7 +63,7 @@ class HTML_QuickForm_password extends HTML_QuickForm_text
      */
     public function setSize($size)
     {
-        $this->updateAttributes(array('size'=>$size));
+        $this->updateAttributes(['size'=>$size]);
     }
 
     /**
@@ -76,7 +76,7 @@ class HTML_QuickForm_password extends HTML_QuickForm_text
      */
     public function setMaxlength($maxlength)
     {
-        $this->updateAttributes(array('maxlength'=>$maxlength));
+        $this->updateAttributes(['maxlength'=>$maxlength]);
     }
 
     /**

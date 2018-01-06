@@ -52,7 +52,7 @@ $filename = $file;//from svg-edit
 $extension = $suffix;// from svg-edit
 $content = $contents;//from svg-edit
 
-$title = Database::escape_string(str_replace('_',' ',$filename));
+$title = Database::escape_string(str_replace('_', ' ', $filename));
 
 //get Chamilo variables
 $relativeUrlPath = Session::read('draw_dir');
@@ -100,10 +100,10 @@ if (phpversion() >= '5.3' && extension_loaded('fileinfo')) {
 //checks if the file exists, then rename the new
 if (file_exists($saveDir.'/'.$filename.'.'.$extension) && $currentTool=='document/createdraw') {
     $message = get_lang('FileExistsChangeToSave');
-    $params = array(
+    $params = [
         'message' => $message,
         'url' => ''
-    );
+    ];
     echo json_encode($params);
     exit;
 } else {
@@ -136,7 +136,6 @@ if ($currentTool == 'document/createdraw') {
         null,
         $current_session_id
     );
-
 } elseif ($currentTool == 'document/editdraw') {
     //check path
     if (!isset($_SESSION['draw_file'])) {
@@ -207,9 +206,9 @@ if ($suffix != 'png') {
     $message = get_lang('FileExportAs').': '.$title;
 }
 
-$params = array(
+$params = [
     'message' => $message,
     'url' => $url
-);
+];
 echo json_encode($params);
 exit;

@@ -3775,4 +3775,3 @@ $ExtensionMBStringNotAvailable = "Az MBString kiterjesztés nem használható";
 $ExtensionMySQLNotAvailable = "A MySQL kiterjesztés nem érhető el";
 $LMSMediaLicense = "A Chamiloban felhasznált és látható képek a Nuvola, Crystal Clear és Tango ikongyűjteményből származnak. Más képek, mint például a táblázatok és Flash animációk a Wikimedia és Ali Pakdel, Denis Hoa kurzusaiból származnak az engedélyükkel a BY-SA Creative Commons licensz oltalma alatt. A licensz réslzeteiről angolul <a href=\"http://creativecommons.org/licenses/by-sa/3.0/\">a CC weboldalán olvashat</a>, ahol elolvashatja a licensz teljes szövegét.";
 $OptionalParameters = "Opcionális paraméterek";
-?>

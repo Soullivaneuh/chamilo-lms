@@ -16,19 +16,19 @@ $user_web_path = UserManager::getUserPathById($userId, 'web').'my_files/';
 //get all files and folders
 $scan_files = [];
 if (is_dir($user_disk_path)) {
-	$scan_files = scandir($user_disk_path);
+    $scan_files = scandir($user_disk_path);
 }
 //get all svg and png files
-$accepted_extensions = array('.svg', '.png');
+$accepted_extensions = ['.svg', '.png'];
 
 if (is_array($scan_files) && count($scan_files) > 0) {
-	foreach ($scan_files as & $file) {
-		$slideshow_extension = strrchr($file, '.');
-		$slideshow_extension = strtolower($slideshow_extension);
-		if (in_array($slideshow_extension, $accepted_extensions)) {
-			$png_svg_files[] =$file;
-		}
-	}
+    foreach ($scan_files as & $file) {
+        $slideshow_extension = strrchr($file, '.');
+        $slideshow_extension = strtolower($slideshow_extension);
+        if (in_array($slideshow_extension, $accepted_extensions)) {
+            $png_svg_files[] =$file;
+        }
+    }
 }
 $style = '<style>';
 $style .= '@import "'.api_get_path(WEB_CSS_PATH).'base.css";';
@@ -47,23 +47,23 @@ $style .='</style>';
 echo '<h2>'.get_lang('SocialNetwork').': '.get_lang('MyFiles').'</h2>';
 
 if (!empty($png_svg_files)) {
-	echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
-	echo '<ul>';
-	foreach($png_svg_files as $filename) {
-		$image = $user_disk_path.$filename;
+    echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
+    echo '<ul>';
+    foreach ($png_svg_files as $filename) {
+        $image = $user_disk_path.$filename;
 
-		if (strpos($filename, "svg")){
-			$new_sizes['width'] = 60;
-			$new_sizes['height'] = 60;
-		} else {
-			$new_sizes = api_resize_image($image, 60, 60);
-		}
+        if (strpos($filename, "svg")) {
+            $new_sizes['width'] = 60;
+            $new_sizes['height'] = 60;
+        } else {
+            $new_sizes = api_resize_image($image, 60, 60);
+        }
 
-			echo '<li style="display:inline; padding:8px;"><a href="'.$user_web_path.$filename.'" alt "'.$filename.'" title="'.$filename.'"><img src="'.$user_web_path.$filename.'" width="'.$new_sizes['width'].'" height="'.$new_sizes['height'].'" border="0"></a></li>';
-	}
-	echo '</ul>';
+        echo '<li style="display:inline; padding:8px;"><a href="'.$user_web_path.$filename.'" alt "'.$filename.'" title="'.$filename.'"><img src="'.$user_web_path.$filename.'" width="'.$new_sizes['width'].'" height="'.$new_sizes['height'].'" border="0"></a></li>';
+    }
+    echo '</ul>';
 } else {
-	echo Display::return_message(get_lang('NoSVGImages'), 'warning');
+    echo Display::return_message(get_lang('NoSVGImages'), 'warning');
 }
 ?>
 </body>

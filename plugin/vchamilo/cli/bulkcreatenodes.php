@@ -20,22 +20,22 @@ ini_set('debug_level', E_ALL);
 
 // now get cli options
 list($options, $unrecognized) = cli_get_params(
-    array(
+    [
         'interactive'       => false,
         'help'              => false,
         'config'            => false,
         'nodes'             => '',
         'lint'              => false,
         'verbose'           => false
-    ),
-    array(
+    ],
+    [
         'h' => 'help',
         'i' => 'interactive',
         'c' => 'config',
         'n' => 'nodes',
         'l' => 'lint',
         'v' => 'verbose'
-    )
+    ]
 );
 
 $interactive = !empty($options['interactive']);
@@ -74,8 +74,12 @@ if (!empty($options['config'])) {
 
     $content = file($options['config']);
     foreach ($content as $l) {
-        if (preg_match('/^\s+$/', $l)) continue; // Empty lines.
-        if (preg_match('/^[#\/!;]/', $l)) continue; // Comments (any form).
+        if (preg_match('/^\s+$/', $l)) {
+            continue;
+        } // Empty lines.
+        if (preg_match('/^[#\/!;]/', $l)) {
+            continue;
+        } // Comments (any form).
         if (preg_match('/^(.*?)=(.*)$/', $l, $matches)) {
             if (in_array($matches[1], $expectedoptions)) {
                 $options[trim($matches[1])] = trim($matches[2]);
@@ -90,16 +94,22 @@ require_once($_configuration['root_sys'].'local/classes/mootochamlib.php'); // m
 require_once($_configuration['root_sys'].'/plugin/vchamilo/lib/vchamilo_plugin.class.php');
 
 global $DB;
-if ($options['verbose']) echo "building database manager\n";
+if ($options['verbose']) {
+    echo "building database manager\n";
+}
 $DB = new DatabaseManager();
-if ($options['verbose']) echo "building plugin vchamilo\n";
+if ($options['verbose']) {
+    echo "building plugin vchamilo\n";
+}
 $plugin = VChamiloPlugin::create();
 
 if (empty($options['nodes'])) {
     cli_error('Missing node definition. Halt.');
 }
 
-if ($options['verbose']) echo "parsing nodelist\n";
+if ($options['verbose']) {
+    echo "parsing nodelist\n";
+}
 $nodes = vchamilo_parse_csv_nodelist($options['nodes'], $plugin);
 
 if ($options['lint']) {
@@ -115,10 +125,9 @@ if (empty($nodes)) {
 ctrace('Starting generation');
 
 // Get main admin for further replacement.
-$admin = $DB->get_record('user', array('username' => 'admin'));
+$admin = $DB->get_record('user', ['username' => 'admin']);
 
 foreach ($nodes as $data) {
-
     ctrace('Making node '.$data->root_web);
 
     if (!empty($data->template)) {
@@ -130,7 +139,7 @@ foreach ($nodes as $data) {
         }
     }
 
-    if ($DB->get_record('vchamilo', array('root_web' => $data->root_web))) {
+    if ($DB->get_record('vchamilo', ['root_web' => $data->root_web])) {
         ctrace('Node exists. skipping');
         continue;
     }
@@ -150,7 +159,7 @@ foreach ($nodes as $data) {
     ctrace('Setting up ent_installer');
     if ($NDB) {
         // Copy admin account info from master
-        $NDB->set_field('user', 'password', $admin->password, array('username' => 'admin'), 'user_id');
+        $NDB->set_field('user', 'password', $admin->password, ['username' => 'admin'], 'user_id');
 
         // Setting ENT_installer values
         if (!empty($data->ent_installer)) {
@@ -163,7 +172,7 @@ foreach ($nodes as $data) {
                 $settingrec->access_url = 1;
                 $settingrec->selected_value = $value;
                 ctrace("Setting up {$settingrec->variable}|{$settingrec->subkey} to $value\n");
-                if ($oldrec = $NDB->get_record('settings_current', array('variable' => $settingrec->variable, 'subkey' => $settingrec->subkey, 'type' => $settingrec->type))) {
+                if ($oldrec = $NDB->get_record('settings_current', ['variable' => $settingrec->variable, 'subkey' => $settingrec->subkey, 'type' => $settingrec->type])) {
                     $settingrec->id = $oldrec->id;
                     $NDB->update_record('settings_current', $settingrec, 'id');
                 } else {
@@ -189,9 +198,9 @@ foreach ($nodes as $data) {
                 $settingrec->selected_value = $configsetting->value;
 
                 if (!empty($settingrec->subkey)) {
-                    $params = array('variable' => $settingrec->variable, 'subkey' => $settingrec->subkey);
+                    $params = ['variable' => $settingrec->variable, 'subkey' => $settingrec->subkey];
                 } else {
-                    $params = array('variable' => $settingrec->variable);
+                    $params = ['variable' => $settingrec->variable];
                 }
 
                 if ($oldrec = $NDB->get_record('settings_current', $params)) {

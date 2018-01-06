@@ -7206,4 +7206,3 @@ $CaptchaTimeAccountIsLockedText = "CAPTCHA ΧΡΌΝΟΣ ΚΛΕΙΔΏΜΑΤΟΣ �
 $CaptchaTimeAccountIsLockedComment = "If the user reaches the maximum allowance for login mistakes (when using the CAPTCHA), his/her account will be locked for this number of minutes.";
 $DRHAccessToAllSessionContentText = "Οι διευθυντές HR έχουν πρόσβαση σε όλο το περιεχόμενο συνεδριών";
 $DRHAccessToAllSessionContentComment = "If enabled, human resources directors will get access to all content and users from the sessions (s)he follows";
-?>

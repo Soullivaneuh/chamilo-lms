@@ -55,7 +55,7 @@ class Text_CAPTCHA
      *
      * @throws Text_CAPTCHA_Exception no driver given
      */
-    function __construct($driver)
+    public function __construct($driver)
     {
         if (is_null($driver)) {
             throw new Text_CAPTCHA_Exception("No driver given");
@@ -101,14 +101,14 @@ class Text_CAPTCHA
      * @return void
      * @throws Text_CAPTCHA_Exception when driver is not initialized
      */
-    public final function generate($newPhrase = false)
+    final public function generate($newPhrase = false)
     {
         if (!$this->_driverInitDone) {
             throw new Text_CAPTCHA_Exception("Driver not initialized");
         }
         if ($newPhrase === true || is_null($this->_driver->getPhrase())) {
             $this->_driver->createPhrase();
-        } else if (strlen($newPhrase) > 0) {
+        } elseif (strlen($newPhrase) > 0) {
             $this->_driver->setPhrase($newPhrase);
         }
         $this->_driver->createCAPTCHA();
@@ -121,7 +121,7 @@ class Text_CAPTCHA
      *
      * @return void
      */
-    public final function init($options = array())
+    final public function init($options = [])
     {
         $this->_driver->resetDriver();
         $this->_driver->initDriver($options);
@@ -135,7 +135,7 @@ class Text_CAPTCHA
      *
      * @return string|object
      */
-    public final function getCAPTCHA()
+    final public function getCAPTCHA()
     {
         return $this->_driver->getCAPTCHA();
     }
@@ -145,7 +145,7 @@ class Text_CAPTCHA
      *
      * @return string secret phrase
      */
-    public final function getPhrase()
+    final public function getPhrase()
     {
         return $this->_driver->getPhrase();
     }

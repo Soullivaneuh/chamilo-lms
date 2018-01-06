@@ -1,8 +1,8 @@
 <?php
 // $Id: x66.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Yun ', 'Bei ', 'Ang ', 'Ze ', 'Ban ', 'Jie ', 'Kun ', 'Sheng ', 'Hu ', 'Fang ', 'Hao ', 'Gui ', 'Chang ', 'Xuan ', 'Ming ', 'Hun ',
+return [
+  'en' => ['Yun ', 'Bei ', 'Ang ', 'Ze ', 'Ban ', 'Jie ', 'Kun ', 'Sheng ', 'Hu ', 'Fang ', 'Hao ', 'Gui ', 'Chang ', 'Xuan ', 'Ming ', 'Hun ',
     'Fen ', 'Qin ', 'Hu ', 'Yi ', 'Xi ', 'Xin ', 'Yan ', 'Ze ', 'Fang ', 'Tan ', 'Shen ', 'Ju ', 'Yang ', 'Zan ', 'Bing ', 'Xing ',
     'Ying ', 'Xuan ', 'Pei ', 'Zhen ', 'Ling ', 'Chun ', 'Hao ', 'Mei ', 'Zuo ', 'Mo ', 'Bian ', 'Xu ', 'Hun ', 'Zhao ', 'Zong ', 'Shi ',
     'Shi ', 'Yu ', 'Fei ', 'Die ', 'Mao ', 'Ni ', 'Chang ', 'Wen ', 'Dong ', 'Ai ', 'Bing ', 'Ang ', 'Zhou ', 'Long ', 'Xian ', 'Kuang ',
@@ -16,6 +16,6 @@ return array(
     'Cong ', 'Ni ', 'Zhang ', 'Hui ', 'Bao ', 'Han ', 'Xuan ', 'Chuan ', 'Liao ', 'Xian ', 'Dan ', 'Jing ', 'Pie ', 'Lin ', 'Tun ', 'Xi ',
     'Yi ', 'Ji ', 'Huang ', 'Tai ', 'Ye ', 'Ye ', 'Li ', 'Tan ', 'Tong ', 'Xiao ', 'Fei ', 'Qin ', 'Zhao ', 'Hao ', 'Yi ', 'Xiang ',
     'Xing ', 'Sen ', 'Jiao ', 'Bao ', 'Jing ', 'Yian ', 'Ai ', 'Ye ', 'Ru ', 'Shu ', 'Meng ', 'Xun ', 'Yao ', 'Pu ', 'Li ', 'Chen ',
-    'Kuang ', 'Die ', NULL, 'Yan ', 'Huo ', 'Lu ', 'Xi ', 'Rong ', 'Long ', 'Nang ', 'Luo ', 'Luan ', 'Shai ', 'Tang ', 'Yan ', 'Chu ',
-    'Yue ', 'Yue ', 'Qu ', 'Yi ', 'Geng ', 'Ye ', 'Hu ', 'He ', 'Shu ', 'Cao ', 'Cao ', 'Noboru ', 'Man ', 'Ceng ', 'Ceng ', 'Ti '),
-);
+    'Kuang ', 'Die ', null, 'Yan ', 'Huo ', 'Lu ', 'Xi ', 'Rong ', 'Long ', 'Nang ', 'Luo ', 'Luan ', 'Shai ', 'Tang ', 'Yan ', 'Chu ',
+    'Yue ', 'Yue ', 'Qu ', 'Yi ', 'Geng ', 'Ye ', 'Hu ', 'He ', 'Shu ', 'Cao ', 'Cao ', 'Noboru ', 'Man ', 'Ceng ', 'Ceng ', 'Ti '],
+];

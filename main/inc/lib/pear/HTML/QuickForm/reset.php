@@ -31,11 +31,10 @@ class HTML_QuickForm_reset extends HTML_QuickForm_button
      * @access    public
      * @return    void
      */
-    function freeze()
+    public function freeze()
     {
         return false;
     } //end func freeze
 
     // }}}
-
 }

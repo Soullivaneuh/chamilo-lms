@@ -6684,4 +6684,3 @@ $DataTableSearch = "Szukaj";
 $HideColumn = "Ukryj kolumnę";
 $DisplayColumn = "Pokaż kolumnę";
 $LegalAgreementAccepted = "Regulamin zaakceptowany";
-?>

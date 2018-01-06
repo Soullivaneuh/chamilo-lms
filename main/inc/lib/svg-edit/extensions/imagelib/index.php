@@ -26,25 +26,25 @@ $docs_and_folders = DocumentManager::get_all_document_data(
 );
 
 //get all filenames
-$array_to_search = is_array($docs_and_folders) ? $docs_and_folders : array();
+$array_to_search = is_array($docs_and_folders) ? $docs_and_folders : [];
 
 if (count($array_to_search) > 0) {
-	while (list($key) = each($array_to_search)) {
-		$all_files[] = basename($array_to_search[$key]['path']);
-	}
+    while (list($key) = each($array_to_search)) {
+        $all_files[] = basename($array_to_search[$key]['path']);
+    }
 }
 
 //get all svg and png files
-$accepted_extensions = array('.svg', '.png');
+$accepted_extensions = ['.svg', '.png'];
 
 if (is_array($all_files) && count($all_files) > 0) {
-	foreach ($all_files as & $file) {
-		$slideshow_extension = strrchr($file, '.');
-		$slideshow_extension = strtolower($slideshow_extension);
-		if (in_array($slideshow_extension, $accepted_extensions)) {
-			$png_svg_files[] =$file;
-		}
-	}
+    foreach ($all_files as & $file) {
+        $slideshow_extension = strrchr($file, '.');
+        $slideshow_extension = strtolower($slideshow_extension);
+        if (in_array($slideshow_extension, $accepted_extensions)) {
+            $png_svg_files[] =$file;
+        }
+    }
 }
 
 $disk_path = api_get_path(SYS_COURSE_PATH).$course_info['path'].'/document/images/gallery/';
@@ -63,24 +63,23 @@ $style .='</style>';
 <?php
 echo '<h2>'.get_lang('Course').': '.$course_info['name'].'</h2>';
 if (!empty($png_svg_files)) {
-	echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
-	echo '<ul>';
-	foreach($png_svg_files as $filename) {
-		$image=$disk_path.$filename;
+    echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
+    echo '<ul>';
+    foreach ($png_svg_files as $filename) {
+        $image=$disk_path.$filename;
 
-		if (strpos($filename, "svg")){
-			$new_sizes['width'] = 60;
-			$new_sizes['height'] = 60;
-		}
-		else {
-			$new_sizes = api_resize_image($image, 60, 60);
-		}
+        if (strpos($filename, "svg")) {
+            $new_sizes['width'] = 60;
+            $new_sizes['height'] = 60;
+        } else {
+            $new_sizes = api_resize_image($image, 60, 60);
+        }
 
-		echo '<li style="display:inline; padding:8px;"><a href="'.$web_path.$filename.'" alt "'.$filename.'" title="'.$filename.'"><img src="'.$web_path.$filename.'" width="'.$new_sizes['width'].'" height="'.$new_sizes['height'].'" border="0"></a></li>';
-	}
-	echo '</ul>';
+        echo '<li style="display:inline; padding:8px;"><a href="'.$web_path.$filename.'" alt "'.$filename.'" title="'.$filename.'"><img src="'.$web_path.$filename.'" width="'.$new_sizes['width'].'" height="'.$new_sizes['height'].'" border="0"></a></li>';
+    }
+    echo '</ul>';
 } else {
-	echo Display::return_message(get_lang('NoSVGImagesInImagesGalleryPath'), 'warning');
+    echo Display::return_message(get_lang('NoSVGImagesInImagesGalleryPath'), 'warning');
 }
 ?>
 </body>

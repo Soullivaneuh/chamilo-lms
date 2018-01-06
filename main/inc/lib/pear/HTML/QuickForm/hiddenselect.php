@@ -72,7 +72,7 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
      * @return    string
      * @throws
      */
-    function toHtml()
+    public function toHtml()
     {
         if (empty($this->_values)) {
             return '';
@@ -85,11 +85,11 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
         foreach ($this->_values as $key => $val) {
             for ($i = 0, $optCount = count($this->_options); $i < $optCount; $i++) {
                 if ($val == $this->_options[$i]['attr']['value']) {
-                    $strHtml .= $tabs . '<input' . $this->_getAttrString(array(
+                    $strHtml .= $tabs . '<input' . $this->_getAttrString([
                         'type'  => 'hidden',
                         'name'  => $name,
                         'value' => $val
-                    )) . " />\n" ;
+                    ]) . " />\n" ;
                 }
             }
         }
@@ -100,14 +100,13 @@ class HTML_QuickForm_hiddenselect extends HTML_QuickForm_select
     // }}}
     // {{{ accept()
 
-   /**
-    * This is essentially a hidden element and should be rendered as one
-    */
-    function accept(&$renderer)
+    /**
+     * This is essentially a hidden element and should be rendered as one
+     */
+    public function accept(&$renderer)
     {
         $renderer->renderHidden($this);
     }
 
     // }}}
 } //end class HTML_QuickForm_hiddenselect
-?>

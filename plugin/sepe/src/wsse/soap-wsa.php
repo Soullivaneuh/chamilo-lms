@@ -47,7 +47,8 @@ class WSASoap
 {
     const WSANS = 'http://schemas.xmlsoap.org/ws/2004/08/addressing';
     const WSAPFX = 'wsa';
-    private $soapNS, $soapPFX;
+    private $soapNS;
+    private $soapPFX;
     private $soapDoc = null;
     private $envelope = null;
     private $SOAPXPath = null;
@@ -165,4 +166,3 @@ class WSASoap
         return $this->soapDoc->save($file);
     }
 }
-

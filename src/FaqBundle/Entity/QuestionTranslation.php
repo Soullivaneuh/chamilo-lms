@@ -13,7 +13,7 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  *
  * @ORM\Entity
  * @ORM\Table(name="faq_question_translation")
- * 
+ *
  *
  * @package Chamilo\FaqBundle\Entity
  */

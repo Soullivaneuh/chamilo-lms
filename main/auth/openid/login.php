@@ -21,9 +21,9 @@ function openid_form()
         'post',
         null,
         null,
-        array('class' => 'form-vertical form_login')
+        ['class' => 'form-vertical form_login']
     );
-    $form -> addElement('text', 'openid_url', array(get_lang('OpenIDURL'), Display::url(get_lang('OpenIDWhatIs'), 'main/auth/openid/whatis.php')), array('class' => 'openid_input'));
+    $form -> addElement('text', 'openid_url', [get_lang('OpenIDURL'), Display::url(get_lang('OpenIDWhatIs'), 'main/auth/openid/whatis.php')], ['class' => 'openid_input']);
     $form -> addElement('button', 'submit', get_lang('Login'));
 
     return $form->returnForm();
@@ -39,8 +39,8 @@ function openid_form()
  * @param $claimed_id The OpenID to authenticate
  * @param $return_to The endpoint to return to from the OpenID Provider
  */
-function openid_begin($claimed_id, $return_to = '', $form_values = array()) {
-
+function openid_begin($claimed_id, $return_to = '', $form_values = [])
+{
     $claimed_id = _openid_normalize($claimed_id);
     $services = openid_discovery($claimed_id);
     if (count($services) == 0) {
@@ -81,7 +81,8 @@ function openid_begin($claimed_id, $return_to = '', $form_values = array()) {
  * @param array $response Array of returned from the OpenID provider (typically $_REQUEST).
  * @return array $response Response values for further processing with $response['status'] set to one of 'success', 'failed' or 'cancel'.
  */
-function openid_complete($response) {
+function openid_complete($response)
+{
     // Default to failed response
     $response['status'] = 'failed';
     if (isset($_SESSION['openid_op_endpoint']) && isset($_SESSION['openid_claimed_id'])) {
@@ -115,7 +116,7 @@ function openid_complete($response) {
  */
 function openid_discovery($claimed_id)
 {
-    $services = array();
+    $services = [];
 
     $xrds_url = $claimed_id;
     if (_openid_is_xri($claimed_id)) {
@@ -124,7 +125,7 @@ function openid_discovery($claimed_id)
     $url = @parse_url($xrds_url);
     if ($url['scheme'] == 'http' || $url['scheme'] == 'https') {
         // For regular URLs, try Yadis resolution first, then HTML-based discovery
-        $headers = array('Accept' => 'application/xrds+xml');
+        $headers = ['Accept' => 'application/xrds+xml'];
         //TODO
         $result = openid_http_request($xrds_url, $headers);
 
@@ -133,7 +134,7 @@ function openid_discovery($claimed_id)
                 // Parse XML document to find URL
                 $services = xrds_parse($result->data);
             } else {
-                $xrds_url = NULL;
+                $xrds_url = null;
                 if (isset($result->headers['X-XRDS-Location'])) {
                     $xrds_url = $result->headers['X-XRDS-Location'];
                 } else {
@@ -141,7 +142,7 @@ function openid_discovery($claimed_id)
                     $xrds_url = _openid_meta_httpequiv('X-XRDS-Location', $result->data);
                 }
                 if (!empty($xrds_url)) {
-                    $headers = array('Accept' => 'application/xrds+xml');
+                    $headers = ['Accept' => 'application/xrds+xml'];
                     //TODO
                     $xrds_result = openid_http_request($xrds_url, $headers);
                     if (!isset($xrds_result->error)) {
@@ -164,7 +165,7 @@ function openid_discovery($claimed_id)
                     $version = 1;
                 }
                 if (!empty($uri)) {
-                    $services[] = array('uri' => $uri, 'delegate' => $delegate, 'version' => $version);
+                    $services[] = ['uri' => $uri, 'delegate' => $delegate, 'version' => $version];
                 }
             }
         }
@@ -178,7 +179,8 @@ function openid_discovery($claimed_id)
  * @param $op_endpoint URL of the OpenID Provider endpoint.
  * @return object $assoc_handle The association handle.
  */
-function openid_association($op_endpoint) {
+function openid_association($op_endpoint)
+{
     //@todo Remove Old Associations:
     $openid_association = Database::get_main_table(TABLE_MAIN_OPENID_ASSOCIATION);
     $sql = "DELETE FROM $openid_association
@@ -201,16 +203,16 @@ function openid_association($op_endpoint) {
         // If there is no existing association, then request one
         $assoc_request = openid_association_request($public);
         $assoc_message = _openid_encode_message(_openid_create_message($assoc_request));
-        $assoc_headers = array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8');
+        $assoc_headers = ['Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'];
         //TODO
         $assoc_result = openid_http_request($op_endpoint, $assoc_headers, 'POST', $assoc_message);
         if (isset($assoc_result->error)) {
-            return FALSE;
+            return false;
         }
 
         $assoc_response = _openid_parse_message($assoc_result->data);
         if (isset($assoc_response['mode']) && $assoc_response['mode'] == 'error') {
-            return FALSE;
+            return false;
         }
 
         if ($assoc_response['session_type'] == 'DH-SHA1') {
@@ -231,14 +233,14 @@ function openid_association($op_endpoint) {
 /**
  * ?
  */
-function openid_association_request($public) {
-
-    $request = array(
+function openid_association_request($public)
+{
+    $request = [
         'openid.ns' => OPENID_NS_2_0,
         'openid.mode' => 'associate',
         'openid.session_type' => 'DH-SHA1',
         'openid.assoc_type' => 'HMAC-SHA1'
-    );
+    ];
 
     if ($request['openid.session_type'] == 'DH-SHA1' || $request['openid.session_type'] == 'DH-SHA256') {
         $cpub = _openid_dh_long_to_base64($public);
@@ -251,19 +253,19 @@ function openid_association_request($public) {
 /**
  *
  */
-function openid_authentication_request($claimed_id, $identity, $return_to = '', $assoc_handle = '', $version = 2) {
-
+function openid_authentication_request($claimed_id, $identity, $return_to = '', $assoc_handle = '', $version = 2)
+{
     $realm = ($return_to) ? $return_to : api_get_self();
 
     $ns = ($version == 2) ? OPENID_NS_2_0 : OPENID_NS_1_0;
-    $request = array(
+    $request = [
         'openid.ns' => $ns,
         'openid.mode' => 'checkid_setup',
         'openid.identity' => $identity,
         'openid.claimed_id' => $claimed_id,
         'openid.assoc_handle' => $assoc_handle,
         'openid.return_to' => $return_to,
-    );
+    ];
 
     if ($version == 2) {
         $request['openid.realm'] = $realm;
@@ -290,9 +292,9 @@ function openid_authentication_request($claimed_id, $identity, $return_to = '', 
  *
  * @return boolean
  */
-function openid_verify_assertion($op_endpoint, $response) {
-
-    $valid = FALSE;
+function openid_verify_assertion($op_endpoint, $response)
+{
+    $valid = false;
 
     //TODO
     $openid_association = Database::get_main_table(TABLE_MAIN_OPENID_ASSOCIATION);
@@ -303,22 +305,22 @@ function openid_verify_assertion($op_endpoint, $response) {
         $keys_to_sign = explode(',', $response['openid.signed']);
         $self_sig = _openid_signature($association, $response, $keys_to_sign);
         if ($self_sig == $response['openid.sig']) {
-            $valid = TRUE;
+            $valid = true;
         } else {
-            $valid = FALSE;
+            $valid = false;
         }
     } else {
         $request = $response;
         $request['openid.mode'] = 'check_authentication';
         $message = _openid_create_message($request);
-        $headers = array('Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8');
+        $headers = ['Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'];
         $result = openid_http_request($op_endpoint, $headers, 'POST', _openid_encode_message($message));
         if (!isset($result->error)) {
             $response = _openid_parse_message($result->data);
             if (strtolower(trim($response['is_valid'])) == 'true') {
-                $valid = TRUE;
+                $valid = true;
             } else {
-                $valid = FALSE;
+                $valid = false;
             }
         }
     }
@@ -330,7 +332,8 @@ function openid_verify_assertion($op_endpoint, $response) {
  * Make a HTTP request - This function has been copied straight over from Drupal 6 code (drupal_http_request)
  * @param string $data
  */
-function openid_http_request($url, $headers = array(), $method = 'GET', $data = NULL, $retry = 3) {
+function openid_http_request($url, $headers = [], $method = 'GET', $data = null, $retry = 3)
+{
     $result = new stdClass();
 
     // Parse the URL and make sure we can handle the schema.
@@ -369,14 +372,14 @@ function openid_http_request($url, $headers = array(), $method = 'GET', $data = 
     }
 
     // Create HTTP request.
-    $defaults = array(
+    $defaults = [
         // RFC 2616: "non-standard ports MUST, default ports MAY be included".
         // We don't add the port to prevent from breaking rewrite rules checking the
         // host that do not take into account the port number.
         'Host' => "Host: $host",
         'User-Agent' => 'User-Agent: Chamilo (+http://www.chamilo.org/)',
         'Content-Length' => 'Content-Length: ' . strlen($data)
-    );
+    ];
 
     // If the server url has a user then attempt to use basic authentication
     if (isset($uri['user'])) {
@@ -409,7 +412,7 @@ function openid_http_request($url, $headers = array(), $method = 'GET', $data = 
     $split = preg_split("/\r\n|\n|\r/", $split);
 
     list($protocol, $code, $text) = explode(' ', trim(array_shift($split)), 3);
-    $result->headers = array();
+    $result->headers = [];
 
     // Parse headers.
     while ($line = trim(array_shift($split))) {
@@ -423,13 +426,13 @@ function openid_http_request($url, $headers = array(), $method = 'GET', $data = 
         }
     }
 
-    $responses = array(
+    $responses = [
         100 => 'Continue', 101 => 'Switching Protocols',
         200 => 'OK', 201 => 'Created', 202 => 'Accepted', 203 => 'Non-Authoritative Information', 204 => 'No Content', 205 => 'Reset Content', 206 => 'Partial Content',
         300 => 'Multiple Choices', 301 => 'Moved Permanently', 302 => 'Found', 303 => 'See Other', 304 => 'Not Modified', 305 => 'Use Proxy', 307 => 'Temporary Redirect',
         400 => 'Bad Request', 401 => 'Unauthorized', 402 => 'Payment Required', 403 => 'Forbidden', 404 => 'Not Found', 405 => 'Method Not Allowed', 406 => 'Not Acceptable', 407 => 'Proxy Authentication Required', 408 => 'Request Time-out', 409 => 'Conflict', 410 => 'Gone', 411 => 'Length Required', 412 => 'Precondition Failed', 413 => 'Request Entity Too Large', 414 => 'Request-URI Too Large', 415 => 'Unsupported Media Type', 416 => 'Requested range not satisfiable', 417 => 'Expectation Failed',
         500 => 'Internal Server Error', 501 => 'Not Implemented', 502 => 'Bad Gateway', 503 => 'Service Unavailable', 504 => 'Gateway Time-out', 505 => 'HTTP Version not supported'
-    );
+    ];
     // RFC 2616 states that all unknown HTTP codes must be treated the same as the
     // base code in their class.
     if (!isset($responses[$code])) {

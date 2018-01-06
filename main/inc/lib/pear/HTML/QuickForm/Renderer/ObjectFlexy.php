@@ -50,48 +50,48 @@
  */
 class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
 {
-   /**#@+
-    * @access private
-    */
+    /**#@+
+     * @access private
+     */
     /**
      * HTML_Template_Flexy instance
      * @var object $_flexy
      */
-    var $_flexy;
+    public $_flexy;
 
     /**
      * Current element index
      * @var integer $_elementIdx
      */
-    var $_elementIdx;
+    public $_elementIdx;
 
     /**
      * The current element index inside a group
      * @var integer $_groupElementIdx
      */
-    var $_groupElementIdx = 0;
+    public $_groupElementIdx = 0;
 
     /**
      * Name of template file for form html
      * @var string $_html
      * @see     setRequiredTemplate()
      */
-    var $_html = '';
+    public $_html = '';
 
     /**
      * Name of template file for form labels
      * @var string $label
      * @see        setErrorTemplate()
      */
-    var $label = '';
+    public $label = '';
 
     /**
      * Class of the element objects, so you can add your own
      * element methods
      * @var string $_elementType
      */
-    var $_elementType = 'QuickformFlexyElement';
-   /**#@-*/
+    public $_elementType = 'QuickformFlexyElement';
+    /**#@-*/
 
     /**
      * Constructor
@@ -99,16 +99,16 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
      * @param HTML_Template_Flexy   template object to use
      * @public
      */
-    function HTML_QuickForm_Renderer_ObjectFlexy(&$flexy)
+    public function HTML_QuickForm_Renderer_ObjectFlexy(&$flexy)
     {
         $this->HTML_QuickForm_Renderer_Object(true);
         $this->_obj = new QuickformFlexyForm();
         $this->_flexy =& $flexy;
     } // end constructor
 
-    function renderHeader(&$header)
+    public function renderHeader(&$header)
     {
-        if($name = $header->getName()) {
+        if ($name = $header->getName()) {
             $this->_obj->header->$name = $header->toHtml();
         } else {
             $this->_obj->header[$this->_sectionCount] = $header->toHtml();
@@ -116,7 +116,7 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
         $this->_currentSection = $this->_sectionCount++;
     } // end func renderHeader
 
-    function startGroup(&$group, $required, $error)
+    public function startGroup(&$group, $required, $error)
     {
         parent::startGroup($group, $required, $error);
         $this->_groupElementIdx = 1;
@@ -132,18 +132,18 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
      * @param string    Error associated with the element
      * @return object
      */
-    function _elementToObject(&$element, $required, $error)
+    public function _elementToObject(&$element, $required, $error)
     {
         $ret = parent::_elementToObject($element, $required, $error);
-        if($ret->type == 'group') {
+        if ($ret->type == 'group') {
             $ret->html = $element->toHtml();
             unset($ret->elements);
         }
-        if(!empty($this->_label)) {
+        if (!empty($this->_label)) {
             $this->_renderLabel($ret);
         }
 
-        if(!empty($this->_html)) {
+        if (!empty($this->_html)) {
             $this->_renderHtml($ret);
             $ret->error = $error;
         }
@@ -151,10 +151,11 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
         // Create an element key from the name
         if (false !== ($pos = strpos($ret->name, '[')) || is_object($this->_currentGroup)) {
             if (!$pos) {
-                $keys = '->{\'' . str_replace(array('\\', '\''), array('\\\\', '\\\''), $ret->name) . '\'}';
+                $keys = '->{\'' . str_replace(['\\', '\''], ['\\\\', '\\\''], $ret->name) . '\'}';
             } else {
                 $keys = '->{\'' . str_replace(
-                            array('\\', '\'', '[', ']'), array('\\\\', '\\\'', '\'}->{\'', ''),
+                            ['\\', '\'', '[', ']'],
+                    ['\\\\', '\\\'', '\'}->{\'', ''],
                             $ret->name
                         ) . '\'}';
             }
@@ -173,11 +174,11 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
         } elseif (0 == strlen($ret->name)) {
             $keys = '->{\'element_' . $this->_elementIdx . '\'}';
         } else {
-            $keys = '->{\'' . str_replace(array('\\', '\''), array('\\\\', '\\\''), $ret->name) . '\'}';
+            $keys = '->{\'' . str_replace(['\\', '\''], ['\\\\', '\\\''], $ret->name) . '\'}';
         }
         // for radios: add extra key from value
         if ('radio' == $ret->type && '[]' != substr($keys, -2)) {
-            $keys .= '->{\'' . str_replace(array('\\', '\''), array('\\\\', '\\\''), $ret->value) . '\'}';
+            $keys .= '->{\'' . str_replace(['\\', '\''], ['\\\\', '\\\''], $ret->value) . '\'}';
         }
         $ret->keys = $keys;
         $this->_elementIdx++;
@@ -192,12 +193,12 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
      * @param QuickformElement  Object representation of an element
      * @return void
      */
-    function _storeObject($elObj)
+    public function _storeObject($elObj)
     {
         if ($elObj) {
             $keys = $elObj->keys;
             unset($elObj->keys);
-            if(is_object($this->_currentGroup) && ('group' != $elObj->type)) {
+            if (is_object($this->_currentGroup) && ('group' != $elObj->type)) {
                 $code = '$this->_currentGroup' . $keys . ' = $elObj;';
             } else {
                 $code = '$this->_obj' . $keys . ' = $elObj;';
@@ -222,7 +223,7 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
      * @param string   Filename of template
      * @return void
      */
-    function setHtmlTemplate($template)
+    public function setHtmlTemplate($template)
     {
         $this->_html = $template;
     }
@@ -244,18 +245,18 @@ class HTML_QuickForm_Renderer_ObjectFlexy extends HTML_QuickForm_Renderer_Object
      * @param string   Filename of template
      * @return void
      */
-    function setLabelTemplate($template)
+    public function setLabelTemplate($template)
     {
         $this->_label = $template;
     }
 
-    function _renderLabel(&$ret)
+    public function _renderLabel(&$ret)
     {
         $this->_flexy->compile($this->_label);
         $ret->label = $this->_flexy->bufferedOutputObject($ret);
     }
 
-    function _renderHtml(&$ret)
+    public function _renderHtml(&$ret)
     {
         $this->_flexy->compile($this->_html);
         $ret->html = $this->_flexy->bufferedOutputObject($ret);
@@ -283,4 +284,3 @@ class QuickformFlexyForm extends QuickformForm
 class QuickformFlexyElement extends QuickformElement
 {
 }
-?>

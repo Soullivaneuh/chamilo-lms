@@ -82,10 +82,10 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @var array
      * @access protected
      */
-    var $_options = array(
+    public $_options = [
         'sessionVar' => '_HTML_QuickForm_CAPTCHA',
         'phrase' => null,
-    );
+    ];
 
     /**
      * CAPTCHA driver
@@ -93,7 +93,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @var string
      * @access protected
      */
-    var $_CAPTCHA_driver;
+    public $_CAPTCHA_driver;
 
     /**
      * Class constructor
@@ -132,12 +132,11 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return boolean TRUE or PEAR_Error on error
      * @access protected
      */
-    function _initCAPTCHA()
+    public function _initCAPTCHA()
     {
         $sessionVar = $this->_options['sessionVar'];
 
         if (empty($_SESSION[$sessionVar])) {
-
             $_SESSION[$sessionVar] = Text_CAPTCHA::factory($this->_CAPTCHA_driver);
 
             if (PEAR::isError($_SESSION[$sessionVar])) {
@@ -160,7 +159,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return string
      * @access private
      */
-    function _findValue(&$values)
+    public function _findValue(&$values)
     {
         return $this->getValue();
     }
@@ -171,7 +170,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return string
      * @access public
      */
-    function getValue()
+    public function getValue()
     {
         $sessionVar = $this->_options['sessionVar'];
 
@@ -189,10 +188,10 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return string
      * @access public
      */
-    function exportValue(&$submitValues, $assoc = false)
+    public function exportValue(&$submitValues, $assoc = false)
     {
         return ($assoc)
-               ? array($this->getName() => $this->getValue())
+               ? [$this->getName() => $this->getValue()]
                : $this->getValue();
     }
 
@@ -206,7 +205,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return void
      * @access public
      */
-    function setPhrase($phrase = null)
+    public function setPhrase($phrase = null)
     {
         $this->_options['phrase'] = $phrase;
 
@@ -221,7 +220,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return void
      * @access public
      */
-    function destroy()
+    public function destroy()
     {
         unset($_SESSION[$this->_options['sessionVar']]);
     }
@@ -235,7 +234,7 @@ class HTML_QuickForm_CAPTCHA extends HTML_QuickForm_input
      * @return string
      * @access public
      */
-    function toHtml()
+    public function toHtml()
     {
         $result = $this->_initCAPTCHA();
         if (PEAR::isError($result)) {

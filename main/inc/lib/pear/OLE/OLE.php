@@ -23,19 +23,19 @@
 /**
 * Constants for OLE package
 */
-define('OLE_PPS_TYPE_ROOT',        5);
-define('OLE_PPS_TYPE_DIR',         1);
-define('OLE_PPS_TYPE_FILE',        2);
+define('OLE_PPS_TYPE_ROOT', 5);
+define('OLE_PPS_TYPE_DIR', 1);
+define('OLE_PPS_TYPE_FILE', 2);
 define('OLE_DATA_SIZE_SMALL', 0x1000);
-define('OLE_LONG_INT_SIZE',        4);
-define('OLE_PPS_SIZE',          0x80);
+define('OLE_LONG_INT_SIZE', 4);
+define('OLE_PPS_SIZE', 0x80);
 
 /**
 * Array for storing OLE instances that are accessed from
 * OLE_ChainedBlockStream::stream_open().
 * @var  array
 */
-$GLOBALS['_OLE_INSTANCES'] = array();
+$GLOBALS['_OLE_INSTANCES'] = [];
 
 /**
 * OLE package base class.
@@ -52,51 +52,51 @@ class OLE extends PEAR
     * The file handle for reading an OLE container
     * @var resource
     */
-    var $_file_handle;
+    public $_file_handle;
 
     /**
     * Array of PPS's found on the OLE container
     * @var array
     */
-    var $_list;
+    public $_list;
 
     /**
     * Root directory of OLE container
     * @var OLE_PPS_Root
     */
-    var $root;
+    public $root;
 
     /**
     * Big Block Allocation Table
     * @var array  (blockId => nextBlockId)
     */
-    var $bbat;
+    public $bbat;
 
     /**
     * Short Block Allocation Table
     * @var array  (blockId => nextBlockId)
     */
-    var $sbat;
+    public $sbat;
 
     /**
     * Size of big blocks. This is usually 512.
     * @var  int  number of octets per block.
     */
-    var $bigBlockSize;
+    public $bigBlockSize;
 
     /**
     * Size of small blocks. This is usually 64.
     * @var  int  number of octets per block
     */
-    var $smallBlockSize;
+    public $smallBlockSize;
 
     /**
     * Creates a new OLE object
     * @access public
     */
-    function OLE()
+    public function OLE()
     {
-        $this->_list = array();
+        $this->_list = [];
     }
 
     /**
@@ -105,7 +105,7 @@ class OLE extends PEAR
     *
     * @access private
     */
-    function _OLE()
+    public function _OLE()
     {
         fclose($this->_file_handle);
     }
@@ -117,7 +117,7 @@ class OLE extends PEAR
     * @param string $file
     * @return mixed true on success, PEAR_Error on failure
     */
-    function read($file)
+    public function read($file)
     {
         $fh = @fopen($file, "r");
         if (!$fh) {
@@ -158,11 +158,11 @@ class OLE extends PEAR
         $mbatFirstBlockId = $this->_readInt4($fh);
         // Number of blocks in Master Block Allocation Table
         $mbbatBlockCount = $this->_readInt4($fh);
-        $this->bbat = array();
+        $this->bbat = [];
 
         // Remaining 4 * 109 bytes of current block is beginning of Master
         // Block Allocation Table
-        $mbatBlocks = array();
+        $mbatBlocks = [];
         for ($i = 0; $i < 109; $i++) {
             $mbatBlocks[] = $this->_readInt4($fh);
         }
@@ -189,7 +189,7 @@ class OLE extends PEAR
         }
 
         // Read short block allocation table (SBAT)
-        $this->sbat = array();
+        $this->sbat = [];
         $shortBlockCount = $sbbatBlockCount * $this->bigBlockSize / 4;
         $sbatFh = $this->getStream($sbatFirstBlockId);
         for ($blockId = 0; $blockId < $shortBlockCount; $blockId++) {
@@ -207,7 +207,7 @@ class OLE extends PEAR
      * @return int byte offset from beginning of file
      * @access private
      */
-    function _getBlockOffset($blockId)
+    public function _getBlockOffset($blockId)
     {
         return 512 + $blockId * $this->bigBlockSize;
     }
@@ -218,13 +218,15 @@ class OLE extends PEAR
      * @param int|PPS $blockIdOrPps block id or PPS
      * @return resource read-only stream
      */
-    function getStream($blockIdOrPps)
+    public function getStream($blockIdOrPps)
     {
         include_once 'OLE/ChainedBlockStream.php';
         static $isRegistered = false;
         if (!$isRegistered) {
-            stream_wrapper_register('ole-chainedblockstream',
-                                    'OLE_ChainedBlockStream');
+            stream_wrapper_register(
+                'ole-chainedblockstream',
+                                    'OLE_ChainedBlockStream'
+            );
             $isRegistered = true;
         }
 
@@ -250,7 +252,7 @@ class OLE extends PEAR
      * @return int
      * @access private
      */
-    function _readInt1($fh)
+    public function _readInt1($fh)
     {
         list(, $tmp) = unpack("c", fread($fh, 1));
         return $tmp;
@@ -262,7 +264,7 @@ class OLE extends PEAR
      * @return int
      * @access private
      */
-    function _readInt2($fh)
+    public function _readInt2($fh)
     {
         list(, $tmp) = unpack("v", fread($fh, 2));
         return $tmp;
@@ -274,7 +276,7 @@ class OLE extends PEAR
      * @return  int
      * @access private
      */
-    function _readInt4($fh)
+    public function _readInt4($fh)
     {
         list(, $tmp) = unpack("V", fread($fh, 4));
         return $tmp;
@@ -288,7 +290,7 @@ class OLE extends PEAR
     * @param integer $blockId the block id of the first block
     * @return mixed true on success, PEAR_Error on failure
     */
-    function _readPpsWks($blockId)
+    public function _readPpsWks($blockId)
     {
         $fh = $this->getStream($blockId);
         for ($pos = 0; ; $pos += 128) {
@@ -302,12 +304,22 @@ class OLE extends PEAR
             switch ($type) {
             case OLE_PPS_TYPE_ROOT:
                 require_once 'OLE/PPS/Root.php';
-                $pps = new OLE_PPS_Root(null, null, array());
+                $pps = new OLE_PPS_Root(null, null, []);
                 $this->root = $pps;
                 break;
             case OLE_PPS_TYPE_DIR:
-                $pps = new OLE_PPS(null, null, null, null, null,
-                                   null, null, null, null, array());
+                $pps = new OLE_PPS(
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                                   null,
+                    null,
+                    null,
+                    null,
+                    []
+                );
                 break;
             case OLE_PPS_TYPE_FILE:
                 require_once 'OLE/PPS/File.php';
@@ -333,7 +345,6 @@ class OLE extends PEAR
             // check if the PPS tree (starting from root) is complete
             if (isset($this->root) &&
                 $this->_ppsTreeComplete($this->root->No)) {
-
                 break;
             }
         }
@@ -342,8 +353,8 @@ class OLE extends PEAR
         // Initialize $pps->children on directories
         foreach ($this->_list as $pps) {
             if ($pps->Type == OLE_PPS_TYPE_DIR || $pps->Type == OLE_PPS_TYPE_ROOT) {
-                $nos = array($pps->DirPps);
-                $pps->children = array();
+                $nos = [$pps->DirPps];
+                $pps->children = [];
                 while ($nos) {
                     $no = array_pop($nos);
                     if ($no != -1) {
@@ -367,7 +378,7 @@ class OLE extends PEAR
     * @param integer $index The index of the PPS from which we are checking
     * @return boolean Whether the PPS tree for the given PPS is complete
     */
-    function _ppsTreeComplete($index)
+    public function _ppsTreeComplete($index)
     {
         return isset($this->_list[$index]) &&
                ($pps = $this->_list[$index]) &&
@@ -386,7 +397,7 @@ class OLE extends PEAR
     * @return bool true if it's a File PPS, false otherwise
     * @access public
     */
-    function isFile($index)
+    public function isFile($index)
     {
         if (isset($this->_list[$index])) {
             return ($this->_list[$index]->Type == OLE_PPS_TYPE_FILE);
@@ -401,7 +412,7 @@ class OLE extends PEAR
     * @return bool true if it's a Root PPS, false otherwise
     * @access public
     */
-    function isRoot($index)
+    public function isRoot($index)
     {
         if (isset($this->_list[$index])) {
             return ($this->_list[$index]->Type == OLE_PPS_TYPE_ROOT);
@@ -414,7 +425,7 @@ class OLE extends PEAR
     * @return integer The total number of PPS's found in the OLE container
     * @access public
     */
-    function ppsTotal()
+    public function ppsTotal()
     {
         return count($this->_list);
     }
@@ -430,13 +441,12 @@ class OLE extends PEAR
     * @access public
     * @see OLE_PPS_File::getStream()
     */
-    function getData($index, $position, $length)
+    public function getData($index, $position, $length)
     {
         // if position is not valid return empty string
         if (!isset($this->_list[$index]) ||
             $position >= $this->_list[$index]->Size ||
             $position < 0) {
-
             return '';
         }
         $fh = $this->getStream($this->_list[$index]);
@@ -452,7 +462,7 @@ class OLE extends PEAR
     * @return integer The amount of bytes in data the PPS has
     * @access public
     */
-    function getDataLength($index)
+    public function getDataLength($index)
     {
         if (isset($this->_list[$index])) {
             return $this->_list[$index]->Size;
@@ -468,7 +478,7 @@ class OLE extends PEAR
     * @param string $ascii The ASCII string to transform
     * @return string The string in Unicode
     */
-    function Asc2Ucs($ascii)
+    public function Asc2Ucs($ascii)
     {
         $rawname = '';
         for ($i = 0; $i < strlen($ascii); $i++) {
@@ -486,7 +496,7 @@ class OLE extends PEAR
     * @param integer $date A timestamp
     * @return string The string for the OLE container
     */
-    function LocalDate2OLE($date = null)
+    public function LocalDate2OLE($date = null)
     {
         if (!isset($date)) {
             return "\x00\x00\x00\x00\x00\x00\x00\x00";
@@ -499,8 +509,14 @@ class OLE extends PEAR
         $days = 134774;
         // calculate seconds
         $big_date = $days * 24 * 3600 +
-            gmmktime(date("H",$date),date("i",$date),date("s",$date),
-                     date("m",$date),date("d",$date),date("Y",$date));
+            gmmktime(
+                date("H", $date),
+                date("i", $date),
+                date("s", $date),
+                     date("m", $date),
+                date("d", $date),
+                date("Y", $date)
+            );
         // multiply just to make MS happy
         $big_date *= 10000000;
 
@@ -531,14 +547,14 @@ class OLE extends PEAR
     * @access public
     * @static
     */
-    function OLE2LocalDate($string)
+    public function OLE2LocalDate($string)
     {
         if (strlen($string) != 8) {
             return new PEAR_Error("Expecting 8 byte string");
         }
 
         // factor used for separating numbers into 4 bytes parts
-        $factor = pow(2,32);
+        $factor = pow(2, 32);
         $high_part = 0;
         for ($i = 0; $i < 4; $i++) {
             list(, $high_part) = unpack('C', $string{(7 - $i)});
@@ -565,4 +581,3 @@ class OLE extends PEAR
         return floor($big_date);
     }
 }
-?>

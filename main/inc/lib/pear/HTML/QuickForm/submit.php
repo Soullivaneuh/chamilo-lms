@@ -62,7 +62,7 @@ class HTML_QuickForm_submit extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function freeze()
+    public function freeze()
     {
         return false;
     } //end func freeze
@@ -70,15 +70,14 @@ class HTML_QuickForm_submit extends HTML_QuickForm_input
     // }}}
     // {{{ exportValue()
 
-   /**
-    * Only return the value if it is found within $submitValues (i.e. if
-    * this particular submit button was clicked)
-    */
-    function exportValue(&$submitValues, $assoc = false)
+    /**
+     * Only return the value if it is found within $submitValues (i.e. if
+     * this particular submit button was clicked)
+     */
+    public function exportValue(&$submitValues, $assoc = false)
     {
         return $this->_prepareValue($this->_findValue($submitValues), $assoc);
     }
 
     // }}}
 } //end class HTML_QuickForm_submit
-?>

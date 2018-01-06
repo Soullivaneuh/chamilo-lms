@@ -8,8 +8,7 @@ namespace Shibboleth;
  */
 include_once __DIR__.'/../init.php';
 
-if (!ShibbolethTest::is_enabled())
-{
+if (!ShibbolethTest::is_enabled()) {
     echo 'This is not a test server';
     die;
 }

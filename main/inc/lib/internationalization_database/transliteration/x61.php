@@ -1,13 +1,13 @@
 <?php
 // $Id: x61.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Qiao ', 'Chou ', 'Bei ', 'Xuan ', 'Wei ', 'Ge ', 'Qian ', 'Wei ', 'Yu ', 'Yu ', 'Bi ', 'Xuan ', 'Huan ', 'Min ', 'Bi ', 'Yi ',
+return [
+  'en' => ['Qiao ', 'Chou ', 'Bei ', 'Xuan ', 'Wei ', 'Ge ', 'Qian ', 'Wei ', 'Yu ', 'Yu ', 'Bi ', 'Xuan ', 'Huan ', 'Min ', 'Bi ', 'Yi ',
     'Mian ', 'Yong ', 'Kai ', 'Dang ', 'Yin ', 'E ', 'Chen ', 'Mou ', 'Ke ', 'Ke ', 'Yu ', 'Ai ', 'Qie ', 'Yan ', 'Nuo ', 'Gan ',
-    'Yun ', 'Zong ', 'Sai ', 'Leng ', 'Fen ', NULL, 'Kui ', 'Kui ', 'Que ', 'Gong ', 'Yun ', 'Su ', 'Su ', 'Qi ', 'Yao ', 'Song ',
+    'Yun ', 'Zong ', 'Sai ', 'Leng ', 'Fen ', null, 'Kui ', 'Kui ', 'Que ', 'Gong ', 'Yun ', 'Su ', 'Su ', 'Qi ', 'Yao ', 'Song ',
     'Huang ', 'Ji ', 'Gu ', 'Ju ', 'Chuang ', 'Ni ', 'Xie ', 'Kai ', 'Zheng ', 'Yong ', 'Cao ', 'Sun ', 'Shen ', 'Bo ', 'Kai ', 'Yuan ',
     'Xie ', 'Hun ', 'Yong ', 'Yang ', 'Li ', 'Sao ', 'Tao ', 'Yin ', 'Ci ', 'Xu ', 'Qian ', 'Tai ', 'Huang ', 'Yun ', 'Shen ', 'Ming ',
-    NULL, 'She ', 'Cong ', 'Piao ', 'Mo ', 'Mu ', 'Guo ', 'Chi ', 'Can ', 'Can ', 'Can ', 'Cui ', 'Min ', 'Te ', 'Zhang ', 'Tong ',
+    null, 'She ', 'Cong ', 'Piao ', 'Mo ', 'Mu ', 'Guo ', 'Chi ', 'Can ', 'Can ', 'Can ', 'Cui ', 'Min ', 'Te ', 'Zhang ', 'Tong ',
     'Ao ', 'Shuang ', 'Man ', 'Guan ', 'Que ', 'Zao ', 'Jiu ', 'Hui ', 'Kai ', 'Lian ', 'Ou ', 'Song ', 'Jin ', 'Yin ', 'Lu ', 'Shang ',
     'Wei ', 'Tuan ', 'Man ', 'Qian ', 'She ', 'Yong ', 'Qing ', 'Kang ', 'Di ', 'Zhi ', 'Lou ', 'Juan ', 'Qi ', 'Qi ', 'Yu ', 'Ping ',
     'Liao ', 'Cong ', 'You ', 'Chong ', 'Zhi ', 'Tong ', 'Cheng ', 'Qi ', 'Qu ', 'Peng ', 'Bei ', 'Bie ', 'Chun ', 'Jiao ', 'Zeng ', 'Chi ',
@@ -17,5 +17,5 @@ return array(
     'Wai ', 'Huan ', 'Dong ', 'Qin ', 'Qin ', 'Qu ', 'Cao ', 'Ken ', 'Xie ', 'Ying ', 'Ao ', 'Mao ', 'Yi ', 'Lin ', 'Se ', 'Jun ',
     'Huai ', 'Men ', 'Lan ', 'Ai ', 'Lin ', 'Yan ', 'Gua ', 'Xia ', 'Chi ', 'Yu ', 'Yin ', 'Dai ', 'Meng ', 'Ai ', 'Meng ', 'Dui ',
     'Qi ', 'Mo ', 'Lan ', 'Men ', 'Chou ', 'Zhi ', 'Nuo ', 'Nuo ', 'Yan ', 'Yang ', 'Bo ', 'Zhi ', 'Kuang ', 'Kuang ', 'You ', 'Fu ',
-    'Liu ', 'Mie ', 'Cheng ', NULL, 'Chan ', 'Meng ', 'Lan ', 'Huai ', 'Xuan ', 'Rang ', 'Chan ', 'Ji ', 'Ju ', 'Huan ', 'She ', 'Yi '),
-);
+    'Liu ', 'Mie ', 'Cheng ', null, 'Chan ', 'Meng ', 'Lan ', 'Huai ', 'Xuan ', 'Rang ', 'Chan ', 'Ji ', 'Ju ', 'Huan ', 'She ', 'Yi '],
+];

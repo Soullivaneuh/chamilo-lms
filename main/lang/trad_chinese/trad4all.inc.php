@@ -2959,4 +2959,3 @@ $PleaseGoBackToStep1 = "請回到步驟 1";
 $NoWritePermissionPleaseReadInstallGuide = "部份檔案或資料夾沒有寫入的權限。要安裝 Chamilo，你必須先使用 CHMOD 改變它們的權限，詳情請看安裝說明。";
 $DBServerDoesntWorkOrLoginPassIsWrong = "數據庫伺服器沒有運作或登入失敗。";
 $PleaseGoBackToStep = "請回到步驟";
-?>

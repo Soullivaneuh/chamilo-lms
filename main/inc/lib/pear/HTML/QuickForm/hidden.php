@@ -63,7 +63,7 @@ class HTML_QuickForm_hidden extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function freeze()
+    public function freeze()
     {
         return false;
     } //end func freeze
@@ -71,20 +71,18 @@ class HTML_QuickForm_hidden extends HTML_QuickForm_input
     // }}}
     // {{{ accept()
 
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object
-    * @access public
-    * @return void
-    */
+    /**
+     * Accepts a renderer
+     *
+     * @param HTML_QuickForm_Renderer    renderer object
+     * @access public
+     * @return void
+     */
     //function accept(&$renderer)
-    function accept(&$renderer, $required=false, $error=null)
+    public function accept(&$renderer, $required=false, $error=null)
     {
         $renderer->renderHidden($this);
     } // end func accept
 
     // }}}
-
 } //end class HTML_QuickForm_hidden
-?>

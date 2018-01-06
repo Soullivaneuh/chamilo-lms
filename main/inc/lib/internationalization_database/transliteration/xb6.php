@@ -1,8 +1,8 @@
 <?php
 // $Id: xb6.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ddyels', 'ddyelt', 'ddyelp', 'ddyelh', 'ddyem', 'ddyeb', 'ddyebs', 'ddyes', 'ddyess', 'ddyeng', 'ddyej', 'ddyec', 'ddyek', 'ddyet', 'ddyep', 'ddyeh',
+return [
+  'en' => ['ddyels', 'ddyelt', 'ddyelp', 'ddyelh', 'ddyem', 'ddyeb', 'ddyebs', 'ddyes', 'ddyess', 'ddyeng', 'ddyej', 'ddyec', 'ddyek', 'ddyet', 'ddyep', 'ddyeh',
     'ddo', 'ddog', 'ddogg', 'ddogs', 'ddon', 'ddonj', 'ddonh', 'ddod', 'ddol', 'ddolg', 'ddolm', 'ddolb', 'ddols', 'ddolt', 'ddolp', 'ddolh',
     'ddom', 'ddob', 'ddobs', 'ddos', 'ddoss', 'ddong', 'ddoj', 'ddoc', 'ddok', 'ddot', 'ddop', 'ddoh', 'ddwa', 'ddwag', 'ddwagg', 'ddwags',
     'ddwan', 'ddwanj', 'ddwanh', 'ddwad', 'ddwal', 'ddwalg', 'ddwalm', 'ddwalb', 'ddwals', 'ddwalt', 'ddwalp', 'ddwalh', 'ddwam', 'ddwab', 'ddwabs', 'ddwas',
@@ -17,5 +17,5 @@ return array(
     'ddweol', 'ddweolg', 'ddweolm', 'ddweolb', 'ddweols', 'ddweolt', 'ddweolp', 'ddweolh', 'ddweom', 'ddweob', 'ddweobs', 'ddweos', 'ddweoss', 'ddweong', 'ddweoj', 'ddweoc',
     'ddweok', 'ddweot', 'ddweop', 'ddweoh', 'ddwe', 'ddweg', 'ddwegg', 'ddwegs', 'ddwen', 'ddwenj', 'ddwenh', 'ddwed', 'ddwel', 'ddwelg', 'ddwelm', 'ddwelb',
     'ddwels', 'ddwelt', 'ddwelp', 'ddwelh', 'ddwem', 'ddweb', 'ddwebs', 'ddwes', 'ddwess', 'ddweng', 'ddwej', 'ddwec', 'ddwek', 'ddwet', 'ddwep', 'ddweh',
-    'ddwi', 'ddwig', 'ddwigg', 'ddwigs', 'ddwin', 'ddwinj', 'ddwinh', 'ddwid', 'ddwil', 'ddwilg', 'ddwilm', 'ddwilb', 'ddwils', 'ddwilt', 'ddwilp', 'ddwilh'),
-);
+    'ddwi', 'ddwig', 'ddwigg', 'ddwigs', 'ddwin', 'ddwinj', 'ddwinh', 'ddwid', 'ddwil', 'ddwilg', 'ddwilm', 'ddwilb', 'ddwils', 'ddwilt', 'ddwilp', 'ddwilh'],
+];

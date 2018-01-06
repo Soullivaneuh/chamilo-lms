@@ -91,7 +91,7 @@ class HTML_Table extends HTML_Common
      * @var    string
      * @access private
      */
-    var $_autoFill = '&nbsp;';
+    public $_autoFill = '&nbsp;';
 
     /**
      * Automatically adds a new row, column, or body if a given row, column, or
@@ -100,14 +100,14 @@ class HTML_Table extends HTML_Common
      * @var    bool
      * @access private
      */
-    var $_autoGrow = true;
+    public $_autoGrow = true;
 
     /**
      * Array containing the table caption
      * @var     array
      * @access  private
      */
-    var $_caption = array();
+    public $_caption = [];
 
     /**
      * Array containing the table column group specifications
@@ -116,42 +116,42 @@ class HTML_Table extends HTML_Common
      * @author  Laurent Laville (pear at laurent-laville dot org)
      * @access  private
      */
-    var $_colgroup = array();
+    public $_colgroup = [];
 
     /**
      * HTML_Table_Storage object for the (t)head of the table
      * @var    object
      * @access private
      */
-    var $_thead = null;
+    public $_thead = null;
 
     /**
      * HTML_Table_Storage object for the (t)foot of the table
      * @var    object
      * @access private
      */
-    var $_tfoot = null;
+    public $_tfoot = null;
 
     /**
      * HTML_Table_Storage object for the (t)body of the table
      * @var    object
      * @access private
      */
-    var $_tbodies = array();
+    public $_tbodies = [];
 
     /**
      * Number of bodies in the table
      * @var    int
      * @access private
      */
-    var $_tbodyCount = 0;
+    public $_tbodyCount = 0;
 
     /**
      * Whether to use <thead>, <tfoot> and <tbody> or not
      * @var    bool
      * @access private
      */
-    var $_useTGroups = false;
+    public $_useTGroups = false;
 
     /**
      * Class constructor
@@ -179,7 +179,7 @@ class HTML_Table extends HTML_Common
      * @return  double
      * @deprecated
      */
-    function apiVersion()
+    public function apiVersion()
     {
         return 1.7;
     }
@@ -189,12 +189,14 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @return  object
      */
-    function &getHeader()
+    public function &getHeader()
     {
         if (is_null($this->_thead)) {
             $this->_useTGroups = true;
-            $this->_thead = new HTML_Table_Storage($this->_tabOffset,
-                                                    $this->_useTGroups);
+            $this->_thead = new HTML_Table_Storage(
+                $this->_tabOffset,
+                                                    $this->_useTGroups
+            );
             for ($i = 0; $i < $this->_tbodyCount; $i++) {
                 $this->_tbodies[$i]->setUseTGroups(true);
             }
@@ -207,12 +209,14 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @return  object
      */
-    function &getFooter()
+    public function &getFooter()
     {
         if (is_null($this->_tfoot)) {
             $this->_useTGroups = true;
-            $this->_tfoot = new HTML_Table_Storage($this->_tabOffset,
-                                                    $this->_useTGroups);
+            $this->_tfoot = new HTML_Table_Storage(
+                $this->_tabOffset,
+                                                    $this->_useTGroups
+            );
             for ($i = 0; $i < $this->_tbodyCount; $i++) {
                 $this->_tbodies[$i]->setUseTGroups(true);
             }
@@ -229,7 +233,7 @@ class HTML_Table extends HTML_Common
      * @return  object
      * @throws  PEAR_Error
      */
-    function &getBody($body = 0)
+    public function &getBody($body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'getBody');
         if (PEAR::isError($ret)) {
@@ -245,7 +249,7 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @return  int
      */
-    function addBody($attributes = null)
+    public function addBody($attributes = null)
     {
         if (!$this->_useTGroups && $this->_tbodyCount > 0) {
             for ($i = 0; $i < $this->_tbodyCount; $i++) {
@@ -255,8 +259,10 @@ class HTML_Table extends HTML_Common
         }
 
         $body = $this->_tbodyCount++;
-        $this->_tbodies[$body] = new HTML_Table_Storage($this->_tabOffset,
-                                                         $this->_useTGroups);
+        $this->_tbodies[$body] = new HTML_Table_Storage(
+            $this->_tabOffset,
+                                                         $this->_useTGroups
+        );
         $this->_tbodies[$body]->setAutoFill($this->_autoFill);
         $this->_tbodies[$body]->setAttributes($attributes);
         return $body;
@@ -269,7 +275,7 @@ class HTML_Table extends HTML_Common
      * @access  private
      * @throws  PEAR_Error
      */
-    function _adjustTbodyCount($body, $method)
+    public function _adjustTbodyCount($body, $method)
     {
         if ($this->_autoGrow) {
             while ($this->_tbodyCount <= (int)$body) {
@@ -287,10 +293,10 @@ class HTML_Table extends HTML_Common
      *                                       table row attributes
      * @access  public
      */
-    function setCaption($caption, $attributes = null)
+    public function setCaption($caption, $attributes = null)
     {
         $attributes = $this->_parseAttributes($attributes);
-        $this->_caption = array('attr' => $attributes, 'contents' => $caption);
+        $this->_caption = ['attr' => $attributes, 'contents' => $caption];
     }
 
     /**
@@ -302,14 +308,14 @@ class HTML_Table extends HTML_Common
      * @author  Laurent Laville (pear at laurent-laville dot org)
      * @access  public
      */
-    function setColGroup($colgroup = null, $attributes = null)
+    public function setColGroup($colgroup = null, $attributes = null)
     {
         if (isset($colgroup)) {
             $attributes = $this->_parseAttributes($attributes);
-            $this->_colgroup[] = array('attr' => $attributes,
-                                       'contents' => $colgroup);
+            $this->_colgroup[] = ['attr' => $attributes,
+                                       'contents' => $colgroup];
         } else {
-            $this->_colgroup = array();
+            $this->_colgroup = [];
         }
     }
 
@@ -321,7 +327,7 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @throws  PEAR_Error
      */
-    function setAutoFill($fill, $body = null)
+    public function setAutoFill($fill, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'setAutoFill');
@@ -345,7 +351,7 @@ class HTML_Table extends HTML_Common
      * @return   mixed
      * @throws   PEAR_Error
      */
-    function getAutoFill($body = null)
+    public function getAutoFill($body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'getAutoFill');
@@ -366,7 +372,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setAutoGrow($grow, $body = null)
+    public function setAutoGrow($grow, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'setAutoGrow');
@@ -390,7 +396,7 @@ class HTML_Table extends HTML_Common
      * @return   mixed
      * @throws   PEAR_Error
      */
-    function getAutoGrow($body = null)
+    public function getAutoGrow($body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'getAutoGrow');
@@ -410,7 +416,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setRowCount($rows, $body = 0)
+    public function setRowCount($rows, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setRowCount');
         if (PEAR::isError($ret)) {
@@ -426,7 +432,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setColCount($cols, $body = 0)
+    public function setColCount($cols, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setColCount');
         if (PEAR::isError($ret)) {
@@ -444,7 +450,7 @@ class HTML_Table extends HTML_Common
      * @return   int
      * @throws   PEAR_Error
      */
-    function getRowCount($body = null)
+    public function getRowCount($body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'getRowCount');
@@ -473,7 +479,7 @@ class HTML_Table extends HTML_Common
      * @return   int
      * @throws   PEAR_Error
      */
-    function getColCount($row = null, $body = 0)
+    public function getColCount($row = null, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'getColCount');
         if (PEAR::isError($ret)) {
@@ -490,7 +496,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setRowType($row, $type, $body = 0)
+    public function setRowType($row, $type, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setRowType');
         if (PEAR::isError($ret)) {
@@ -508,7 +514,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setColType($col, $type, $body = null)
+    public function setColType($col, $type, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'setColType');
@@ -537,7 +543,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setCellAttributes($row, $col, $attributes, $body = 0)
+    public function setCellAttributes($row, $col, $attributes, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setCellAttributes');
         if (PEAR::isError($ret)) {
@@ -560,7 +566,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function updateCellAttributes($row, $col, $attributes, $body = 0)
+    public function updateCellAttributes($row, $col, $attributes, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'updateCellAttributes');
         if (PEAR::isError($ret)) {
@@ -581,7 +587,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function getCellAttributes($row, $col, $body = 0)
+    public function getCellAttributes($row, $col, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'getCellAttributes');
         if (PEAR::isError($ret)) {
@@ -609,7 +615,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setCellContents($row, $col, $contents, $type = 'TD', $body = 0)
+    public function setCellContents($row, $col, $contents, $type = 'TD', $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setCellContents');
         if (PEAR::isError($ret)) {
@@ -630,7 +636,7 @@ class HTML_Table extends HTML_Common
      * @return   mixed
      * @throws   PEAR_Error
      */
-    function getCellContents($row, $col, $body = 0)
+    public function getCellContents($row, $col, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'getCellContents');
         if (PEAR::isError($ret)) {
@@ -650,9 +656,13 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setHeaderContents($row, $col, $contents, $attributes = null,
-        $body = 0)
-    {
+    public function setHeaderContents(
+        $row,
+        $col,
+        $contents,
+        $attributes = null,
+        $body = 0
+    ) {
         $ret = $this->_adjustTbodyCount($body, 'setHeaderContents');
         if (PEAR::isError($ret)) {
             return $ret;
@@ -678,9 +688,13 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function addRow($contents = null, $attributes = null, $type = 'td',
-        $inTR = false, $body = 0)
-    {
+    public function addRow(
+        $contents = null,
+        $attributes = null,
+        $type = 'td',
+        $inTR = false,
+        $body = 0
+    ) {
         $ret = $this->_adjustTbodyCount($body, 'addRow');
         if (PEAR::isError($ret)) {
             return $ret;
@@ -703,7 +717,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setRowAttributes($row, $attributes, $inTR = false, $body = 0)
+    public function setRowAttributes($row, $attributes, $inTR = false, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'setRowAttributes');
         if (PEAR::isError($ret)) {
@@ -727,9 +741,12 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function updateRowAttributes($row, $attributes = null, $inTR = false,
-        $body = 0)
-    {
+    public function updateRowAttributes(
+        $row,
+        $attributes = null,
+        $inTR = false,
+        $body = 0
+    ) {
         $ret = $this->_adjustTbodyCount($body, 'updateRowAttributes');
         if (PEAR::isError($ret)) {
             return $ret;
@@ -748,7 +765,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function getRowAttributes($row, $body = 0)
+    public function getRowAttributes($row, $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'getRowAttributes');
         if (PEAR::isError($ret)) {
@@ -775,20 +792,35 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @throws  PEAR_Error
      */
-    function altRowAttributes($start, $attributes1, $attributes2, $inTR = false,
-        $firstAttributes = 1, $body = null)
-    {
+    public function altRowAttributes(
+        $start,
+        $attributes1,
+        $attributes2,
+        $inTR = false,
+        $firstAttributes = 1,
+        $body = null
+    ) {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'altRowAttributes');
             if (PEAR::isError($ret)) {
                 return $ret;
             }
-            $this->_tbodies[$body]->altRowAttributes($start, $attributes1,
-                $attributes2, $inTR, $firstAttributes);
+            $this->_tbodies[$body]->altRowAttributes(
+                $start,
+                $attributes1,
+                $attributes2,
+                $inTR,
+                $firstAttributes
+            );
         } else {
             for ($i = 0; $i < $this->_tbodyCount; $i++) {
-                $this->_tbodies[$i]->altRowAttributes($start, $attributes1,
-                    $attributes2, $inTR, $firstAttributes);
+                $this->_tbodies[$i]->altRowAttributes(
+                    $start,
+                    $attributes1,
+                    $attributes2,
+                    $inTR,
+                    $firstAttributes
+                );
                 // if the tbody's row count is odd, toggle $firstAttributes to
                 // prevent the next tbody's first row from having the same
                 // attributes as this tbody's last row.
@@ -811,7 +843,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function addCol($contents = null, $attributes = null, $type = 'td', $body = 0)
+    public function addCol($contents = null, $attributes = null, $type = 'td', $body = 0)
     {
         $ret = $this->_adjustTbodyCount($body, 'addCol');
         if (PEAR::isError($ret)) {
@@ -830,7 +862,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setColAttributes($col, $attributes = null, $body = null)
+    public function setColAttributes($col, $attributes = null, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'setColAttributes');
@@ -855,7 +887,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function updateColAttributes($col, $attributes = null, $body = null)
+    public function updateColAttributes($col, $attributes = null, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'updateColAttributes');
@@ -879,7 +911,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function setAllAttributes($attributes = null, $body = null)
+    public function setAllAttributes($attributes = null, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'setAllAttributes');
@@ -903,7 +935,7 @@ class HTML_Table extends HTML_Common
      * @access   public
      * @throws   PEAR_Error
      */
-    function updateAllAttributes($attributes = null, $body = null)
+    public function updateAllAttributes($attributes = null, $body = null)
     {
         if (!is_null($body)) {
             $ret = $this->_adjustTbodyCount($body, 'updateAllAttributes');
@@ -923,13 +955,13 @@ class HTML_Table extends HTML_Common
      * @access  public
      * @return  string
      */
-    function toHtml()
+    public function toHtml()
     {
         $strHtml = '';
         $tabs = $this->_getTabs();
         $tab = $this->_getTab();
         $lnEnd = $this->_getLineEnd();
-        $tBodyColCounts = array();
+        $tBodyColCounts = [];
         for ($i = 0; $i < $this->_tbodyCount; $i++) {
             $tBodyColCounts[] = $this->_tbodies[$i]->getColCount();
         }
@@ -961,7 +993,7 @@ class HTML_Table extends HTML_Common
                     if (!empty($contents)) {
                         $strHtml .= $lnEnd;
                         if (!is_array($contents)) {
-                            $contents = array($contents);
+                            $contents = [$contents];
                         }
                         foreach ($contents as $a => $colAttr) {
                             $attr = $this->_parseAttributes($colAttr);
@@ -1022,7 +1054,4 @@ class HTML_Table extends HTML_Common
         }
         return $strHtml;
     }
-
 }
-
-?>

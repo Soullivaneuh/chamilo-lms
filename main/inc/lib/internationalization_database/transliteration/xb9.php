@@ -1,8 +1,8 @@
 <?php
 // $Id: xb9.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ruk', 'rut', 'rup', 'ruh', 'rweo', 'rweog', 'rweogg', 'rweogs', 'rweon', 'rweonj', 'rweonh', 'rweod', 'rweol', 'rweolg', 'rweolm', 'rweolb',
+return [
+  'en' => ['ruk', 'rut', 'rup', 'ruh', 'rweo', 'rweog', 'rweogg', 'rweogs', 'rweon', 'rweonj', 'rweonh', 'rweod', 'rweol', 'rweolg', 'rweolm', 'rweolb',
     'rweols', 'rweolt', 'rweolp', 'rweolh', 'rweom', 'rweob', 'rweobs', 'rweos', 'rweoss', 'rweong', 'rweoj', 'rweoc', 'rweok', 'rweot', 'rweop', 'rweoh',
     'rwe', 'rweg', 'rwegg', 'rwegs', 'rwen', 'rwenj', 'rwenh', 'rwed', 'rwel', 'rwelg', 'rwelm', 'rwelb', 'rwels', 'rwelt', 'rwelp', 'rwelh',
     'rwem', 'rweb', 'rwebs', 'rwes', 'rwess', 'rweng', 'rwej', 'rwec', 'rwek', 'rwet', 'rwep', 'rweh', 'rwi', 'rwig', 'rwigg', 'rwigs',
@@ -17,5 +17,5 @@ return array(
     'riss', 'ring', 'rij', 'ric', 'rik', 'rit', 'rip', 'rih', 'ma', 'mag', 'magg', 'mags', 'man', 'manj', 'manh', 'mad',
     'mal', 'malg', 'malm', 'malb', 'mals', 'malt', 'malp', 'malh', 'mam', 'mab', 'mabs', 'mas', 'mass', 'mang', 'maj', 'mac',
     'mak', 'mat', 'map', 'mah', 'mae', 'maeg', 'maegg', 'maegs', 'maen', 'maenj', 'maenh', 'maed', 'mael', 'maelg', 'maelm', 'maelb',
-    'maels', 'maelt', 'maelp', 'maelh', 'maem', 'maeb', 'maebs', 'maes', 'maess', 'maeng', 'maej', 'maec', 'maek', 'maet', 'maep', 'maeh'),
-);
+    'maels', 'maelt', 'maelp', 'maelh', 'maem', 'maeb', 'maebs', 'maes', 'maess', 'maeng', 'maej', 'maec', 'maek', 'maet', 'maep', 'maeh'],
+];

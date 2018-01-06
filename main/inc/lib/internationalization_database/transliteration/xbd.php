@@ -1,8 +1,8 @@
 <?php
 // $Id: xbd.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('bols', 'bolt', 'bolp', 'bolh', 'bom', 'bob', 'bobs', 'bos', 'boss', 'bong', 'boj', 'boc', 'bok', 'bot', 'bop', 'boh',
+return [
+  'en' => ['bols', 'bolt', 'bolp', 'bolh', 'bom', 'bob', 'bobs', 'bos', 'boss', 'bong', 'boj', 'boc', 'bok', 'bot', 'bop', 'boh',
     'bwa', 'bwag', 'bwagg', 'bwags', 'bwan', 'bwanj', 'bwanh', 'bwad', 'bwal', 'bwalg', 'bwalm', 'bwalb', 'bwals', 'bwalt', 'bwalp', 'bwalh',
     'bwam', 'bwab', 'bwabs', 'bwas', 'bwass', 'bwang', 'bwaj', 'bwac', 'bwak', 'bwat', 'bwap', 'bwah', 'bwae', 'bwaeg', 'bwaegg', 'bwaegs',
     'bwaen', 'bwaenj', 'bwaenh', 'bwaed', 'bwael', 'bwaelg', 'bwaelm', 'bwaelb', 'bwaels', 'bwaelt', 'bwaelp', 'bwaelh', 'bwaem', 'bwaeb', 'bwaebs', 'bwaes',
@@ -17,5 +17,5 @@ return array(
     'bwel', 'bwelg', 'bwelm', 'bwelb', 'bwels', 'bwelt', 'bwelp', 'bwelh', 'bwem', 'bweb', 'bwebs', 'bwes', 'bwess', 'bweng', 'bwej', 'bwec',
     'bwek', 'bwet', 'bwep', 'bweh', 'bwi', 'bwig', 'bwigg', 'bwigs', 'bwin', 'bwinj', 'bwinh', 'bwid', 'bwil', 'bwilg', 'bwilm', 'bwilb',
     'bwils', 'bwilt', 'bwilp', 'bwilh', 'bwim', 'bwib', 'bwibs', 'bwis', 'bwiss', 'bwing', 'bwij', 'bwic', 'bwik', 'bwit', 'bwip', 'bwih',
-    'byu', 'byug', 'byugg', 'byugs', 'byun', 'byunj', 'byunh', 'byud', 'byul', 'byulg', 'byulm', 'byulb', 'byuls', 'byult', 'byulp', 'byulh'),
-);
+    'byu', 'byug', 'byugg', 'byugs', 'byun', 'byunj', 'byunh', 'byud', 'byul', 'byulg', 'byulm', 'byulb', 'byuls', 'byult', 'byulp', 'byulh'],
+];

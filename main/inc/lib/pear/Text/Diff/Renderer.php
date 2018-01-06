@@ -14,7 +14,8 @@
  *
  * @package Text_Diff
  */
-class Text_Diff_Renderer {
+class Text_Diff_Renderer
+{
 
     /**
      * Number of leading context "lines" to preserve.
@@ -22,7 +23,7 @@ class Text_Diff_Renderer {
      * This should be left at zero for this class, but subclasses may want to
      * set this to other values.
      */
-    var $_leading_context_lines = 0;
+    public $_leading_context_lines = 0;
 
     /**
      * Number of trailing context "lines" to preserve.
@@ -30,12 +31,12 @@ class Text_Diff_Renderer {
      * This should be left at zero for this class, but subclasses may want to
      * set this to other values.
      */
-    var $_trailing_context_lines = 0;
+    public $_trailing_context_lines = 0;
 
     /**
      * Constructor.
      */
-    public function __construct($params = array())
+    public function __construct($params = [])
     {
         foreach ($params as $param => $value) {
             $v = '_' . $param;
@@ -50,9 +51,9 @@ class Text_Diff_Renderer {
      *
      * @return array  All parameters of this renderer object.
      */
-    function getParams()
+    public function getParams()
     {
-        $params = array();
+        $params = [];
         foreach (get_object_vars($this) as $k => $v) {
             if ($k[0] == '_') {
                 $params[substr($k, 1)] = $v;
@@ -69,11 +70,11 @@ class Text_Diff_Renderer {
      *
      * @return string  The formatted output.
      */
-    function render($diff)
+    public function render($diff)
     {
         $xi = $yi = 1;
         $block = false;
-        $context = array();
+        $context = [];
 
         $nlead = $this->_leading_context_lines;
         $ntrail = $this->_trailing_context_lines;
@@ -103,9 +104,13 @@ class Text_Diff_Renderer {
                             $block[] = new Text_Diff_Op_copy($context);
                         }
                         /* @todo */
-                        $output .= $this->_block($x0, $ntrail + $xi - $x0,
-                                                 $y0, $ntrail + $yi - $y0,
-                                                 $block);
+                        $output .= $this->_block(
+                            $x0,
+                            $ntrail + $xi - $x0,
+                                                 $y0,
+                            $ntrail + $yi - $y0,
+                                                 $block
+                        );
                         $block = false;
                     }
                 }
@@ -118,7 +123,7 @@ class Text_Diff_Renderer {
                     $context = array_slice($context, count($context) - $nlead);
                     $x0 = $xi - count($context);
                     $y0 = $yi - count($context);
-                    $block = array();
+                    $block = [];
                     if ($context) {
                         $block[] = new Text_Diff_Op_copy($context);
                     }
@@ -135,15 +140,19 @@ class Text_Diff_Renderer {
         }
 
         if (is_array($block)) {
-            $output .= $this->_block($x0, $xi - $x0,
-                                     $y0, $yi - $y0,
-                                     $block);
+            $output .= $this->_block(
+                $x0,
+                $xi - $x0,
+                                     $y0,
+                $yi - $y0,
+                                     $block
+            );
         }
 
         return $output . $this->_endDiff();
     }
 
-    function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
+    public function _block($xbeg, $xlen, $ybeg, $ylen, &$edits)
     {
         $output = $this->_startBlock($this->_blockHeader($xbeg, $xlen, $ybeg, $ylen));
 
@@ -170,17 +179,17 @@ class Text_Diff_Renderer {
         return $output . $this->_endBlock();
     }
 
-    function _startDiff()
+    public function _startDiff()
     {
         return '';
     }
 
-    function _endDiff()
+    public function _endDiff()
     {
         return '';
     }
 
-    function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
+    public function _blockHeader($xbeg, $xlen, $ybeg, $ylen)
     {
         if ($xlen > 1) {
             $xbeg .= ',' . ($xbeg + $xlen - 1);
@@ -199,39 +208,38 @@ class Text_Diff_Renderer {
         return $xbeg . ($xlen ? ($ylen ? 'c' : 'd') : 'a') . $ybeg;
     }
 
-    function _startBlock($header)
+    public function _startBlock($header)
     {
         return $header . "\n";
     }
 
-    function _endBlock()
+    public function _endBlock()
     {
         return '';
     }
 
-    function _lines($lines, $prefix = ' ')
+    public function _lines($lines, $prefix = ' ')
     {
         return $prefix . implode("\n$prefix", $lines) . "\n";
     }
 
-    function _context($lines)
+    public function _context($lines)
     {
         return $this->_lines($lines, '  ');
     }
 
-    function _added($lines)
+    public function _added($lines)
     {
         return $this->_lines($lines, '> ');
     }
 
-    function _deleted($lines)
+    public function _deleted($lines)
     {
         return $this->_lines($lines, '< ');
     }
 
-    function _changed($orig, $final)
+    public function _changed($orig, $final)
     {
         return $this->_deleted($orig) . "---\n" . $this->_added($final);
     }
-
 }

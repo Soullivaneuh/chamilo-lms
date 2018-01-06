@@ -64,7 +64,7 @@ class SettingsManager implements SettingsManagerInterface
      *
      * @var Settings[]
      */
-    protected $resolvedSettings = array();
+    protected $resolvedSettings = [];
 
     /**
      * SettingsManager constructor.
@@ -645,7 +645,6 @@ class SettingsManager implements SettingsManagerInterface
                     strtolower($items[$originalName])
                 );
                 $name = $category.'.'.$name;
-
             } else {
                 throw new \InvalidArgumentException(sprintf('Parameter must be in format "category.name", "%s" given.', $name));
             }
@@ -688,7 +687,7 @@ class SettingsManager implements SettingsManagerInterface
             $settings->setSchemaAlias($schemaAlias);
         }
 
-         // We need to get a plain parameters array since we use the options resolver on it
+        // We need to get a plain parameters array since we use the options resolver on it
         $parameters = $this->getParameters($schemaAliasNoPrefix);
 
         $settingsBuilder = new SettingsBuilder();
@@ -705,7 +704,7 @@ class SettingsManager implements SettingsManagerInterface
 
         foreach ($settingsBuilder->getTransformers() as $parameter => $transformer) {
             if (array_key_exists($parameter, $parameters)) {
-               $parameters[$parameter] = $transformer->reverseTransform($parameters[$parameter]);
+                $parameters[$parameter] = $transformer->reverseTransform($parameters[$parameter]);
             }
         }
         $parameters = $settingsBuilder->resolve($parameters);
@@ -747,7 +746,7 @@ class SettingsManager implements SettingsManagerInterface
 
         $repo = $this->manager->getRepository('ChamiloCoreBundle:SettingsCurrent');
         $persistedParameters = $repo->findBy(['category' => $settings->getSchemaAlias()]);
-        $persistedParametersMap = array();
+        $persistedParametersMap = [];
 
         foreach ($persistedParameters as $parameter) {
             $persistedParametersMap[$parameter->getTitle()] = $parameter;
@@ -770,7 +769,7 @@ class SettingsManager implements SettingsManagerInterface
                 $persistedParametersMap[$name]->setValue($value);
             } else {
                 $parameter = new SettingsCurrent();
-var_dump($name, $value);
+                var_dump($name, $value);
                 $parameter
                     ->setVariable($name)
                     ->setCategory($simpleCategoryName)
@@ -875,7 +874,7 @@ var_dump($name, $value);
         $repo = $this->manager->getRepository('ChamiloCoreBundle:SettingsCurrent');
         $parameters = [];
         /** @var  SettingsCurrent $parameter */
-        foreach ($repo->findBy(array('category' => $namespace)) as $parameter) {
+        foreach ($repo->findBy(['category' => $namespace]) as $parameter) {
             $parameters[$parameter->getTitle()] = $parameter->getSelectedValue();
         }
 
@@ -884,14 +883,14 @@ var_dump($name, $value);
 
     public function getParametersFromKeyword($namespace, $keyword = '')
     {
-        $criteria = array('category' => $namespace);
+        $criteria = ['category' => $namespace];
         if (!empty($keyword)) {
             $criteria['variable'] = $keyword;
         }
 
         $parametersFromDb = $this->parameterRepository->findBy($criteria);
 
-        $parameters = array();
+        $parameters = [];
         /** @var \Chamilo\CoreBundle\Entity\SettingsCurrent $parameter */
         foreach ($parametersFromDb as $parameter) {
             $parameters[$parameter->getName()] = $parameter->getValue();

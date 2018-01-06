@@ -39,7 +39,8 @@ $GLOBALS['_Text_Password_NumberOfPossibleCharacters'] = 0;
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Text_Password
  */
-class Text_Password {
+class Text_Password
+{
 
     /**
      * Create a single password.
@@ -52,14 +53,14 @@ class Text_Password {
      *                 or numeric, alphabetical or alphanumeric.
      * @return string  Returns the generated password.
      */
-    function create($length = 10, $type = 'pronounceable', $chars = '')
+    public function create($length = 10, $type = 'pronounceable', $chars = '')
     {
         switch ($type) {
-        case 'unpronounceable' :
+        case 'unpronounceable':
             return Text_Password::_createUnpronounceable($length, $chars);
 
-        case 'pronounceable' :
-        default :
+        case 'pronounceable':
+        default:
             return Text_Password::_createPronounceable($length);
         }
     }
@@ -79,9 +80,9 @@ class Text_Password {
      *                 or numeric, alphabetical or alphanumeric.
      * @return array   Array containing the passwords
      */
-    function createMultiple($number, $length = 10, $type = 'pronounceable', $chars = '')
+    public function createMultiple($number, $length = 10, $type = 'pronounceable', $chars = '')
     {
-        $passwords = array();
+        $passwords = [];
 
         while ($number > 0) {
             while (true) {
@@ -107,7 +108,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function createFromLogin($login, $type, $key = 0)
+    public function createFromLogin($login, $type, $key = 0)
     {
         switch ($type) {
         case 'reverse':
@@ -153,9 +154,9 @@ class Text_Password {
      * @param  integer Key
      * @return array   Array containing the passwords
      */
-    function createMultipleFromLogin($login, $type, $key = 0)
+    public function createMultipleFromLogin($login, $type, $key = 0)
     {
-        $passwords = array();
+        $passwords = [];
         $number    = count($login);
         $save      = $number;
 
@@ -182,7 +183,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _xor($login, $key)
+    public function _xor($login, $key)
     {
         $tmp = '';
 
@@ -210,7 +211,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _rotx($login, $key)
+    public function _rotx($login, $key)
     {
         $tmp = '';
         $login = strtolower($login);
@@ -243,7 +244,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _rotxpp($login, $key)
+    public function _rotxpp($login, $key)
     {
         $tmp = '';
         $login = strtolower($login);
@@ -276,7 +277,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _rotxmm($login, $key)
+    public function _rotxmm($login, $key)
     {
         $tmp = '';
         $login = strtolower($login);
@@ -308,7 +309,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _asciiRotx($login, $key)
+    public function _asciiRotx($login, $key)
     {
         $tmp = '';
 
@@ -342,7 +343,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _asciiRotxpp($login, $key)
+    public function _asciiRotxpp($login, $key)
     {
         $tmp = '';
 
@@ -376,7 +377,7 @@ class Text_Password {
      * @param  integer Key
      * @return string
      */
-    function _asciiRotxmm($login, $key)
+    public function _asciiRotxmm($login, $key)
     {
         $tmp = '';
 
@@ -409,9 +410,9 @@ class Text_Password {
      * @param  string  Login
      * @return string
      */
-    function _shuffle($login)
+    public function _shuffle($login)
     {
-        $tmp = array();
+        $tmp = [];
 
         for ($i = 0; $i < strlen($login); $i++) {
             $tmp[] = $login{$i};
@@ -432,26 +433,25 @@ class Text_Password {
      * @param  integer Length of the password
      * @return string  Returns the password
      */
-    function _createPronounceable($length)
+    public function _createPronounceable($length)
     {
-
         $retVal = '';
 
         /**
          * List of vowels and vowel sounds
          */
-        $v = array('a', 'e', 'i', 'o', 'u', 'ae', 'ou', 'io',
+        $v = ['a', 'e', 'i', 'o', 'u', 'ae', 'ou', 'io',
                    'ea', 'ou', 'ia', 'ai'
-                   );
+                   ];
 
         /**
          * List of consonants and consonant sounds
          */
-        $c = array('b', 'c', 'd', 'g', 'h', 'j', 'k', 'l', 'm',
+        $c = ['b', 'c', 'd', 'g', 'h', 'j', 'k', 'l', 'm',
                    'n', 'p', 'r', 's', 't', 'u', 'v', 'w',
                    'tr', 'cr', 'fr', 'dr', 'wr', 'pr', 'th',
                    'ch', 'ph', 'st', 'sl', 'cl'
-                   );
+                   ];
 
         $v_count = 12;
         $c_count = 29;
@@ -477,14 +477,14 @@ class Text_Password {
      *                 or numeric, alphabetical or alphanumeric.
      * @return string  Returns the password
      */
-    function _createUnpronounceable($length, $chars)
+    public function _createUnpronounceable($length, $chars)
     {
         $password = '';
 
         /**
          * List of character which could be use in the password
          */
-         switch($chars) {
+        switch ($chars) {
 
          case 'alphanumeric':
              $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -511,23 +511,22 @@ class Text_Password {
               * Some characters shouldn't be used
               */
              $chars = trim($chars);
-             $chars = str_replace(array('+', '|', '$', '^', '/', '\\', ','), '', $chars);
+             $chars = str_replace(['+', '|', '$', '^', '/', '\\', ','], '', $chars);
 
              $GLOBALS['_Text_Password_NumberOfPossibleCharacters'] = strlen($chars);
          }
 
-         /**
-          * Generate password
-          */
-         for ($i = 0; $i < $length; $i++) {
-             $num = mt_rand(0, $GLOBALS['_Text_Password_NumberOfPossibleCharacters'] - 1);
-             $password .= $chars{$num};
-         }
+        /**
+         * Generate password
+         */
+        for ($i = 0; $i < $length; $i++) {
+            $num = mt_rand(0, $GLOBALS['_Text_Password_NumberOfPossibleCharacters'] - 1);
+            $password .= $chars{$num};
+        }
 
-         /**
-          * Return password
-          */
-         return $password;
+        /**
+         * Return password
+         */
+        return $password;
     }
 }
-?>

@@ -99,7 +99,7 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
         if (!$checked) {
             $this->removeAttribute('checked');
         } else {
-            $this->updateAttributes(array('checked'=>'checked'));
+            $this->updateAttributes(['checked'=>'checked']);
         }
     }
 
@@ -230,9 +230,9 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
         return true;
     }
 
-   /**
-    * Returns the value attribute if the radio is checked, null if it is not
-    */
+    /**
+     * Returns the value attribute if the radio is checked, null if it is not
+     */
     public function exportValue(&$submitValues, $assoc = false)
     {
         $value = $this->_findValue($submitValues);
@@ -245,7 +245,7 @@ class HTML_QuickForm_radio extends HTML_QuickForm_input
         return $this->_prepareValue($value, $assoc);
     }
 
-      /**
+    /**
      * @return null
      */
     public function getColumnsSize()

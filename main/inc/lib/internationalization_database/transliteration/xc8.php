@@ -1,8 +1,8 @@
 <?php
 // $Id: xc8.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('jeo', 'jeog', 'jeogg', 'jeogs', 'jeon', 'jeonj', 'jeonh', 'jeod', 'jeol', 'jeolg', 'jeolm', 'jeolb', 'jeols', 'jeolt', 'jeolp', 'jeolh',
+return [
+  'en' => ['jeo', 'jeog', 'jeogg', 'jeogs', 'jeon', 'jeonj', 'jeonh', 'jeod', 'jeol', 'jeolg', 'jeolm', 'jeolb', 'jeols', 'jeolt', 'jeolp', 'jeolh',
     'jeom', 'jeob', 'jeobs', 'jeos', 'jeoss', 'jeong', 'jeoj', 'jeoc', 'jeok', 'jeot', 'jeop', 'jeoh', 'je', 'jeg', 'jegg', 'jegs',
     'jen', 'jenj', 'jenh', 'jed', 'jel', 'jelg', 'jelm', 'jelb', 'jels', 'jelt', 'jelp', 'jelh', 'jem', 'jeb', 'jebs', 'jes',
     'jess', 'jeng', 'jej', 'jec', 'jek', 'jet', 'jep', 'jeh', 'jyeo', 'jyeog', 'jyeogg', 'jyeogs', 'jyeon', 'jyeonj', 'jyeonh', 'jyeod',
@@ -17,5 +17,5 @@ return array(
     'jwaek', 'jwaet', 'jwaep', 'jwaeh', 'joe', 'joeg', 'joegg', 'joegs', 'joen', 'joenj', 'joenh', 'joed', 'joel', 'joelg', 'joelm', 'joelb',
     'joels', 'joelt', 'joelp', 'joelh', 'joem', 'joeb', 'joebs', 'joes', 'joess', 'joeng', 'joej', 'joec', 'joek', 'joet', 'joep', 'joeh',
     'jyo', 'jyog', 'jyogg', 'jyogs', 'jyon', 'jyonj', 'jyonh', 'jyod', 'jyol', 'jyolg', 'jyolm', 'jyolb', 'jyols', 'jyolt', 'jyolp', 'jyolh',
-    'jyom', 'jyob', 'jyobs', 'jyos', 'jyoss', 'jyong', 'jyoj', 'jyoc', 'jyok', 'jyot', 'jyop', 'jyoh', 'ju', 'jug', 'jugg', 'jugs'),
-);
+    'jyom', 'jyob', 'jyobs', 'jyos', 'jyoss', 'jyong', 'jyoj', 'jyoc', 'jyok', 'jyot', 'jyop', 'jyoh', 'ju', 'jug', 'jugg', 'jugs'],
+];

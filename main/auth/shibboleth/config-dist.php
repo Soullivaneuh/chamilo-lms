@@ -3,9 +3,9 @@
 namespace Shibboleth;
 
 /**
- * Example of a config.php file. Not used. Configuration must appear in 
+ * Example of a config.php file. Not used. Configuration must appear in
  * config.php.
- * 
+ *
  * By default set up the aai configuration.
  *
  * @license see /license.txt

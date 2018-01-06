@@ -60,7 +60,7 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
      *
      * @var array
      */
-    private $_imageOptions = array(
+    private $_imageOptions = [
         'font_size' => 24,
         'font_path' => './',
         'font_file' => 'COUR.TTF',
@@ -68,7 +68,7 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
         'lines_color' => '#CACACA',
         'background_color' => '#555555',
         'antialias' => false
-    );
+    ];
 
     /**
      * Init function
@@ -79,7 +79,7 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
      *
      * @return void
      */
-    public function initDriver($options = array())
+    public function initDriver($options = [])
     {
         if (is_array($options)) {
             if (isset($options['width']) && is_int($options['width'])) {
@@ -95,7 +95,7 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
             if (!isset($options['phrase']) || empty($options['phrase'])) {
                 $phraseOptions = (isset($options['phraseOptions'])
                     && is_array($options['phraseOptions']))
-                    ? $options['phraseOptions'] : array();
+                    ? $options['phraseOptions'] : [];
                 $this->_textPasswordOptions = $phraseOptions;
             } else {
                 $this->setPhrase($options['phrase']);
@@ -110,7 +110,8 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
                 && count($options['imageOptions']) > 0
             ) {
                 $this->_imageOptions = array_merge(
-                    $this->_imageOptions, $options['imageOptions']
+                    $this->_imageOptions,
+                    $options['imageOptions']
                 );
             }
         }
@@ -127,10 +128,10 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
      */
     public function createCAPTCHA()
     {
-        $options['canvas'] = array(
+        $options['canvas'] = [
             'width' => $this->_width,
             'height' => $this->_height
-        );
+        ];
         $options['width'] = $this->_width - 20;
         $options['height'] = $this->_height - 20;
         $options['cx'] = ceil(($this->_width) / 2 + 10);
@@ -139,7 +140,7 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
         $options['font_size'] = $this->_imageOptions['font_size'];
         $options['font_path'] = $this->_imageOptions['font_path'];
         $options['font_file'] = $this->_imageOptions['font_file'];
-        $options['color'] = array($this->_imageOptions['text_color']);
+        $options['color'] = [$this->_imageOptions['text_color']];
         $options['background_color'] = $this->_imageOptions['background_color'];
         $options['max_lines'] = 1;
         $options['mode'] = 'auto';
@@ -165,7 +166,10 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
             $this->_imageOptions['lines_color']
         );
         $linesColor = imagecolorallocate(
-            $image, $colors['r'], $colors['g'], $colors['b']
+            $image,
+            $colors['r'],
+            $colors['g'],
+            $colors['b']
         );
         //some obfuscation
         for ($i = 0; $i < 3; $i++) {
@@ -190,13 +194,13 @@ class Text_CAPTCHA_Driver_Image extends Text_CAPTCHA_Driver_Base
 
         if ($this->_output == 'gif' && imagetypes() & IMG_GIF) {
             $this->setCaptcha($this->_getCAPTCHAAsGIF($image));
-        } else if (($this->_output == 'jpg' && imagetypes() & IMG_JPG)
+        } elseif (($this->_output == 'jpg' && imagetypes() & IMG_JPG)
             || ($this->_output == 'jpeg' && imagetypes() & IMG_JPEG)
         ) {
             $this->setCaptcha($this->_getCAPTCHAAsJPEG($image));
-        } else if ($this->_output == 'png' && imagetypes() & IMG_PNG) {
+        } elseif ($this->_output == 'png' && imagetypes() & IMG_PNG) {
             $this->setCaptcha($this->_getCAPTCHAAsPNG($image));
-        } else if ($this->_output == 'resource') {
+        } elseif ($this->_output == 'resource') {
             $this->setCaptcha($image);
         } else {
             throw new Text_CAPTCHA_Exception(

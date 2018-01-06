@@ -1,8 +1,8 @@
 <?php
 // $Id: xad.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('gwan', 'gwanj', 'gwanh', 'gwad', 'gwal', 'gwalg', 'gwalm', 'gwalb', 'gwals', 'gwalt', 'gwalp', 'gwalh', 'gwam', 'gwab', 'gwabs', 'gwas',
+return [
+  'en' => ['gwan', 'gwanj', 'gwanh', 'gwad', 'gwal', 'gwalg', 'gwalm', 'gwalb', 'gwals', 'gwalt', 'gwalp', 'gwalh', 'gwam', 'gwab', 'gwabs', 'gwas',
     'gwass', 'gwang', 'gwaj', 'gwac', 'gwak', 'gwat', 'gwap', 'gwah', 'gwae', 'gwaeg', 'gwaegg', 'gwaegs', 'gwaen', 'gwaenj', 'gwaenh', 'gwaed',
     'gwael', 'gwaelg', 'gwaelm', 'gwaelb', 'gwaels', 'gwaelt', 'gwaelp', 'gwaelh', 'gwaem', 'gwaeb', 'gwaebs', 'gwaes', 'gwaess', 'gwaeng', 'gwaej', 'gwaec',
     'gwaek', 'gwaet', 'gwaep', 'gwaeh', 'goe', 'goeg', 'goegg', 'goegs', 'goen', 'goenj', 'goenh', 'goed', 'goel', 'goelg', 'goelm', 'goelb',
@@ -17,5 +17,5 @@ return array(
     'gwi', 'gwig', 'gwigg', 'gwigs', 'gwin', 'gwinj', 'gwinh', 'gwid', 'gwil', 'gwilg', 'gwilm', 'gwilb', 'gwils', 'gwilt', 'gwilp', 'gwilh',
     'gwim', 'gwib', 'gwibs', 'gwis', 'gwiss', 'gwing', 'gwij', 'gwic', 'gwik', 'gwit', 'gwip', 'gwih', 'gyu', 'gyug', 'gyugg', 'gyugs',
     'gyun', 'gyunj', 'gyunh', 'gyud', 'gyul', 'gyulg', 'gyulm', 'gyulb', 'gyuls', 'gyult', 'gyulp', 'gyulh', 'gyum', 'gyub', 'gyubs', 'gyus',
-    'gyuss', 'gyung', 'gyuj', 'gyuc', 'gyuk', 'gyut', 'gyup', 'gyuh', 'geu', 'geug', 'geugg', 'geugs', 'geun', 'geunj', 'geunh', 'geud'),
-);
+    'gyuss', 'gyung', 'gyuj', 'gyuc', 'gyuk', 'gyut', 'gyup', 'gyuh', 'geu', 'geug', 'geugg', 'geugs', 'geun', 'geunj', 'geunh', 'geud'],
+];

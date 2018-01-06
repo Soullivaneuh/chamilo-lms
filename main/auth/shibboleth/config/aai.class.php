@@ -13,7 +13,7 @@ class aai
 
     /**
      *
-     * @return ShibbolethConfig 
+     * @return ShibbolethConfig
      */
     public static function config()
     {
@@ -33,37 +33,36 @@ class aai
 
         $result->default_status = Shibboleth::STUDENT_STATUS;
 
-        $result->affiliation_status = array(
+        $result->affiliation_status = [
             'faculty' => Shibboleth::TEACHER_STATUS,
             'member'  => Shibboleth::STUDENT_STATUS,
             'staff'   => Shibboleth::STUDENT_STATUS,
             'student' => Shibboleth::STUDENT_STATUS,
-        );
+        ];
 
-        $result->update_fields = array(
+        $result->update_fields = [
             'firstname'     => true,
             'lastname'      => true,
             'email'         => true,
             'status'        => false,
             'persistent_id' => true,
-        );
+        ];
         /*
-         * Persistent id should never change but it was introduced after unique id. 
+         * Persistent id should never change but it was introduced after unique id.
          * So we update persistent id on login for those users who are still missing it.
          */
 
         $result->is_email_mandatory = true;
 
 
-        $result->affiliation_status_request = array(
+        $result->affiliation_status_request = [
             'faculty' => false,
             'member'  => false,
             'staff'   => true,
             'student' => false,
-        );
+        ];
         $result->admnistrator_email = '';
 
         return $result;
     }
-
 }

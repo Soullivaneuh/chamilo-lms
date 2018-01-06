@@ -7955,4 +7955,3 @@ $ThisEmailWasSentViaCourseXInSessionX = "Este e-mail foi enviado via curso %s na
 $Diagram = "Diagrama";
 $CareerXDoesntHaveADiagram = "Carreira %s não possui um diagrama.";
 $ExerciseCategoryAllSessionsReport = "Relatório de exercícios por categoria para todas as sessões";
-?>

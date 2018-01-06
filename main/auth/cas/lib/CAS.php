@@ -3,10 +3,10 @@
 /*
  * Copyright © 2003-2010, The ESUP-Portail consortium & the JA-SIG Collaborative.
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- * 
+ *
  *     * Redistributions of source code must retain the above copyright notice,
  *       this list of conditions and the following disclaimer.
  *     * Redistributions in binary form must reproduce the above copyright notice,
@@ -97,8 +97,10 @@ define("SAML_XML_HEADER", '<?xml version="1.0" encoding="UTF-8"?>');
 /**
  * SOAP envelope for SAML POST
  */
-define("SAML_SOAP_ENV",
-    '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/>');
+define(
+    "SAML_SOAP_ENV",
+    '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/>'
+);
 
 /**
  * SOAP body for SAML POST
@@ -108,8 +110,10 @@ define("SAML_SOAP_BODY", '<SOAP-ENV:Body>');
 /**
  * SAMLP request
  */
-define("SAMLP_REQUEST",
-    '<samlp:Request xmlns:samlp="urn:oasis:names:tc:SAML:1.0:protocol"  MajorVersion="1" MinorVersion="1" RequestID="_192.168.16.51.1024506224022" IssueInstant="2002-06-19T17:03:44.022Z">');
+define(
+    "SAMLP_REQUEST",
+    '<samlp:Request xmlns:samlp="urn:oasis:names:tc:SAML:1.0:protocol"  MajorVersion="1" MinorVersion="1" RequestID="_192.168.16.51.1024506224022" IssueInstant="2002-06-19T17:03:44.022Z">'
+);
 define("SAMLP_REQUEST_CLOSE", '</samlp:Request>');
 
 /**
@@ -283,12 +287,12 @@ $GLOBALS['PHPCAS_CLIENT'] = null;
  *
  * @hideinitializer
  */
-$GLOBALS['PHPCAS_INIT_CALL'] = array(
+$GLOBALS['PHPCAS_INIT_CALL'] = [
     'done' => false,
     'file' => '?',
     'line' => -1,
     'method' => '?'
-);
+];
 
 /**
  * This global variable is used to store where the method checking
@@ -296,24 +300,24 @@ $GLOBALS['PHPCAS_INIT_CALL'] = array(
  *
  * @hideinitializer
  */
-$GLOBALS['PHPCAS_AUTH_CHECK_CALL'] = array(
+$GLOBALS['PHPCAS_AUTH_CHECK_CALL'] = [
     'done' => false,
     'file' => '?',
     'line' => -1,
     'method' => '?',
     'result' => false
-);
+];
 
 /**
  * This global variable is used to store phpCAS debug mode.
  *
  * @hideinitializer
  */
-$GLOBALS['PHPCAS_DEBUG'] = array(
+$GLOBALS['PHPCAS_DEBUG'] = [
     'filename' => '/tmp/cas.log',
     'indent' => 0,
     'unique_id' => ''
-);
+];
 
 /** @} */
 
@@ -388,12 +392,12 @@ class phpCAS
 
         // store where the initializer is called from
         $dbg = self::backtrace();
-        $PHPCAS_INIT_CALL = array(
+        $PHPCAS_INIT_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__
-        );
+        ];
 
         // initialize the global object $PHPCAS_CLIENT
         $PHPCAS_CLIENT = new CASClient($server_version, false /*proxy*/
@@ -438,12 +442,12 @@ class phpCAS
 
         // store where the initialzer is called from
         $dbg = self::backtrace();
-        $PHPCAS_INIT_CALL = array(
+        $PHPCAS_INIT_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__
-        );
+        ];
 
         // initialize the global object $PHPCAS_CLIENT
         $PHPCAS_CLIENT = new CASClient($server_version, true /*proxy*/
@@ -474,12 +478,12 @@ class phpCAS
             self::error('type mismatched for parameter $dbg (should be FALSE or the name of the log file)');
         }
 
-        if (empty ($filename)) {
+        if (empty($filename)) {
             if (preg_match('/^Win.*/', getenv('OS'))) {
-                if (isset ($_ENV['TMP'])) {
+                if (isset($_ENV['TMP'])) {
                     $debugDir = $_ENV['TMP'].'/';
                 } else {
-                    if (isset ($_ENV['TEMP'])) {
+                    if (isset($_ENV['TEMP'])) {
                         $debugDir = $_ENV['TEMP'].'/';
                     } else {
                         $debugDir = '';
@@ -491,7 +495,7 @@ class phpCAS
             $filename = $debugDir.'phpCAS.log';
         }
 
-        if (empty ($PHPCAS_DEBUG['unique_id'])) {
+        if (empty($PHPCAS_DEBUG['unique_id'])) {
             $PHPCAS_DEBUG['unique_id'] = substr(strtoupper(md5(uniqid(''))), 0, 4);
         }
 
@@ -516,7 +520,7 @@ class phpCAS
             return debug_backtrace();
         } else {
             // poor man's hack ... but it does work ...
-            return array();
+            return [];
         }
     }
 
@@ -538,7 +542,6 @@ class phpCAS
             }
             error_log($PHPCAS_DEBUG['unique_id'].' '.$indent_str.$str."\n", 3, $PHPCAS_DEBUG['filename']);
         }
-
     }
 
     /**
@@ -569,7 +572,7 @@ class phpCAS
         echo "<br />\n<b>phpCAS error</b>: <font color=\"FF0000\"><b>".__CLASS__."::".$function.'(): '.htmlentities($msg)."</b></font> in <b>".$file."</b> on line <b>".$line."</b><br />\n";
         self::trace($msg);
         self::traceExit();
-        exit ();
+        exit();
     }
 
     /**
@@ -590,7 +593,7 @@ class phpCAS
 
         $dbg = self::backtrace();
         $str = '=> ';
-        if (!empty ($dbg[2]['class'])) {
+        if (!empty($dbg[2]['class'])) {
             $str .= $dbg[2]['class'].'::';
         }
         $str .= $dbg[2]['function'].'(';
@@ -972,13 +975,13 @@ class phpCAS
 
         // store where the authentication has been checked and the result
         $dbg = self::backtrace();
-        $PHPCAS_AUTH_CHECK_CALL = array(
+        $PHPCAS_AUTH_CHECK_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__,
             'result' => $auth
-        );
+        ];
         self::traceEnd($auth);
         return $auth;
     }
@@ -1001,13 +1004,13 @@ class phpCAS
 
         // store where the authentication has been checked and the result
         $dbg = self::backtrace();
-        $PHPCAS_AUTH_CHECK_CALL = array(
+        $PHPCAS_AUTH_CHECK_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__,
             'result' => $auth
-        );
+        ];
 
         if (!$auth) {
             self::trace('user is not authenticated, redirecting to the CAS server');
@@ -1034,13 +1037,13 @@ class phpCAS
 
         // store where the authentication has been checked and the result
         $dbg = self::backtrace();
-        $PHPCAS_AUTH_CHECK_CALL = array(
+        $PHPCAS_AUTH_CHECK_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__,
             'result' => $auth
-        );
+        ];
 
         $PHPCAS_CLIENT->renewAuthentication();
         self::traceEnd();
@@ -1074,13 +1077,13 @@ class phpCAS
 
         // store where the authentication has been checked and the result
         $dbg = self::backtrace();
-        $PHPCAS_AUTH_CHECK_CALL = array(
+        $PHPCAS_AUTH_CHECK_CALL = [
             'done' => true,
             'file' => $dbg[0]['file'],
             'line' => $dbg[0]['line'],
             'method' => __CLASS__.'::'.__FUNCTION__,
             'result' => $auth
-        );
+        ];
         self::traceEnd($auth);
         return $auth;
     }
@@ -1305,7 +1308,7 @@ class phpCAS
         if (!is_object($PHPCAS_CLIENT)) {
             self::error('this method should only be called after '.__CLASS__.'::client() or'.__CLASS__.'::proxy()');
         }
-        $parsedParams = array();
+        $parsedParams = [];
         if ($params != "") {
             if (is_string($params)) {
                 self::error('method `phpCAS::logout($url)\' is now deprecated, use `phpCAS::logoutWithUrl($url)\' instead');
@@ -1339,9 +1342,9 @@ class phpCAS
         if (!is_string($service)) {
             self::error('type mismatched for parameter $service (should be `string\')');
         }
-        $PHPCAS_CLIENT->logout(array(
+        $PHPCAS_CLIENT->logout([
             "service" => $service
-        ));
+        ]);
         // never reached
         self::traceEnd();
     }
@@ -1360,9 +1363,9 @@ class phpCAS
         if (!is_string($url)) {
             self::error('type mismatched for parameter $url (should be `string\')');
         }
-        $PHPCAS_CLIENT->logout(array(
+        $PHPCAS_CLIENT->logout([
             "url" => $url
-        ));
+        ]);
         // never reached
         self::traceEnd();
     }
@@ -1385,10 +1388,10 @@ class phpCAS
         if (!is_string($url)) {
             self::error('type mismatched for parameter $url (should be `string\')');
         }
-        $PHPCAS_CLIENT->logout(array(
+        $PHPCAS_CLIENT->logout([
             "service" => $service,
             "url" => $url
-        ));
+        ]);
         // never reached
         self::traceEnd();
     }
@@ -1533,7 +1536,6 @@ class phpCAS
         $PHPCAS_CLIENT->setExtraCurlOption($key, $value);
         self::traceEnd();
     }
-
 }
 
 // ########################################################################

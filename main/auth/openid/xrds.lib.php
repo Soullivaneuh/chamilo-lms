@@ -8,60 +8,63 @@
  * Code
  */
 // Global variables to track parsing state
-$xrds_open_elements = array();
-$xrds_services = array();
-$xrds_current_service = array();
+$xrds_open_elements = [];
+$xrds_services = [];
+$xrds_current_service = [];
 
 /**
  * Main entry point for parsing XRDS documents
  */
-function xrds_parse($xml) {
-  global $xrds_services;
+function xrds_parse($xml)
+{
+    global $xrds_services;
 
-  $parser = xml_parser_create_ns();
-  xml_set_element_handler($parser, '_xrds_element_start', '_xrds_element_end');
-  xml_set_character_data_handler($parser, '_xrds_cdata');
+    $parser = xml_parser_create_ns();
+    xml_set_element_handler($parser, '_xrds_element_start', '_xrds_element_end');
+    xml_set_character_data_handler($parser, '_xrds_cdata');
 
-  xml_parse($parser, $xml);
-  xml_parser_free($parser);
+    xml_parse($parser, $xml);
+    xml_parser_free($parser);
 
-  return $xrds_services;
+    return $xrds_services;
 }
 
 /**
  * Parser callback functions
  */
-function _xrds_element_start(&$parser, $name, $attribs) {
-  global $xrds_open_elements;
+function _xrds_element_start(&$parser, $name, $attribs)
+{
+    global $xrds_open_elements;
 
-  $xrds_open_elements[] = _xrds_strip_namespace($name);
+    $xrds_open_elements[] = _xrds_strip_namespace($name);
 }
 
-function _xrds_element_end(&$parser, $name) {
-  global $xrds_open_elements, $xrds_services, $xrds_current_service;
+function _xrds_element_end(&$parser, $name)
+{
+    global $xrds_open_elements, $xrds_services, $xrds_current_service;
 
-  $name = _xrds_strip_namespace($name);
-  if ($name == 'SERVICE') {
-    if (in_array(OPENID_NS_2_0 .'/signon', $xrds_current_service['types']) ||
+    $name = _xrds_strip_namespace($name);
+    if ($name == 'SERVICE') {
+        if (in_array(OPENID_NS_2_0 .'/signon', $xrds_current_service['types']) ||
         in_array(OPENID_NS_2_0 .'/server', $xrds_current_service['types'])) {
-      $xrds_current_service['version'] = 2;
-    }
-    elseif (in_array(OPENID_NS_1_1, $xrds_current_service['types']) ||
+            $xrds_current_service['version'] = 2;
+        } elseif (in_array(OPENID_NS_1_1, $xrds_current_service['types']) ||
             in_array(OPENID_NS_1_0, $xrds_current_service['types'])) {
-      $xrds_current_service['version'] = 1;
+            $xrds_current_service['version'] = 1;
+        }
+        if (!empty($xrds_current_service['version'])) {
+            $xrds_services[] = $xrds_current_service;
+        }
+        $xrds_current_service = [];
     }
-    if (!empty($xrds_current_service['version'])) {
-      $xrds_services[] = $xrds_current_service;
-    }
-    $xrds_current_service = array();
-  }
-  array_pop($xrds_open_elements);
+    array_pop($xrds_open_elements);
 }
 
-function _xrds_cdata(&$parser, $data) {
-  global $xrds_open_elements, $xrds_services, $xrds_current_service;
-  $path = strtoupper(implode('/', $xrds_open_elements));
-  switch ($path) {
+function _xrds_cdata(&$parser, $data)
+{
+    global $xrds_open_elements, $xrds_services, $xrds_current_service;
+    $path = strtoupper(implode('/', $xrds_open_elements));
+    switch ($path) {
     case 'XRDS/XRD/SERVICE/TYPE':
       $xrds_current_service['types'][] = $data;
       break;
@@ -74,12 +77,13 @@ function _xrds_cdata(&$parser, $data) {
   }
 }
 
-function _xrds_strip_namespace($name) {
-  // Strip namespacing.
-  $pos = strrpos($name, ':');
-  if ($pos !== FALSE) {
-    $name = substr($name, $pos + 1, strlen($name));
-  }
+function _xrds_strip_namespace($name)
+{
+    // Strip namespacing.
+    $pos = strrpos($name, ':');
+    if ($pos !== false) {
+        $name = substr($name, $pos + 1, strlen($name));
+    }
 
-  return $name;
+    return $name;
 }

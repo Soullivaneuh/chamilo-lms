@@ -75,10 +75,10 @@ if (file_exists($saveDir.'/'.$filename.'.'.$extension) &&
     empty($drawFileNameFromSession)
 ) {
     $message = get_lang('FileExistsChangeToSave');
-    $params = array(
+    $params = [
         'message' => $message,
         'url' => ''
-    );
+    ];
     echo json_encode($params);
     exit;
 } else {
@@ -175,9 +175,9 @@ if ($suffix != 'png') {
     $message = get_lang('FileExportAs').': '.$title;
 }
 
-$params = array(
+$params = [
     'message' => $message,
     'url' => $url
-);
+];
 echo json_encode($params);
 exit;

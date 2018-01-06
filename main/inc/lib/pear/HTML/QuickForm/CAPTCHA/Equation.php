@@ -59,12 +59,12 @@ class HTML_QuickForm_CAPTCHA_Equation extends HTML_QuickForm_CAPTCHA
      * @var    array
      * @access protected
      */
-    var $_options = array(
+    public $_options = [
             'sessionVar'    => '_HTML_QuickForm_CAPTCHA',
             'severity'      => 1,
             'numbersToText' => false,
             'phrase'        => null,
-            );
+            ];
 
     /**
      * CAPTCHA driver
@@ -72,5 +72,5 @@ class HTML_QuickForm_CAPTCHA_Equation extends HTML_QuickForm_CAPTCHA
      * @var    string
      * @access protected
      */
-    var $_CAPTCHA_driver = 'Equation';
+    public $_CAPTCHA_driver = 'Equation';
 }

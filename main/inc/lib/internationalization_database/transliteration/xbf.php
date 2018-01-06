@@ -1,8 +1,8 @@
 <?php
 // $Id: xbf.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('bbess', 'bbeng', 'bbej', 'bbec', 'bbek', 'bbet', 'bbep', 'bbeh', 'bbyeo', 'bbyeog', 'bbyeogg', 'bbyeogs', 'bbyeon', 'bbyeonj', 'bbyeonh', 'bbyeod',
+return [
+  'en' => ['bbess', 'bbeng', 'bbej', 'bbec', 'bbek', 'bbet', 'bbep', 'bbeh', 'bbyeo', 'bbyeog', 'bbyeogg', 'bbyeogs', 'bbyeon', 'bbyeonj', 'bbyeonh', 'bbyeod',
     'bbyeol', 'bbyeolg', 'bbyeolm', 'bbyeolb', 'bbyeols', 'bbyeolt', 'bbyeolp', 'bbyeolh', 'bbyeom', 'bbyeob', 'bbyeobs', 'bbyeos', 'bbyeoss', 'bbyeong', 'bbyeoj', 'bbyeoc',
     'bbyeok', 'bbyeot', 'bbyeop', 'bbyeoh', 'bbye', 'bbyeg', 'bbyegg', 'bbyegs', 'bbyen', 'bbyenj', 'bbyenh', 'bbyed', 'bbyel', 'bbyelg', 'bbyelm', 'bbyelb',
     'bbyels', 'bbyelt', 'bbyelp', 'bbyelh', 'bbyem', 'bbyeb', 'bbyebs', 'bbyes', 'bbyess', 'bbyeng', 'bbyej', 'bbyec', 'bbyek', 'bbyet', 'bbyep', 'bbyeh',
@@ -17,5 +17,5 @@ return array(
     'bbyom', 'bbyob', 'bbyobs', 'bbyos', 'bbyoss', 'bbyong', 'bbyoj', 'bbyoc', 'bbyok', 'bbyot', 'bbyop', 'bbyoh', 'bbu', 'bbug', 'bbugg', 'bbugs',
     'bbun', 'bbunj', 'bbunh', 'bbud', 'bbul', 'bbulg', 'bbulm', 'bbulb', 'bbuls', 'bbult', 'bbulp', 'bbulh', 'bbum', 'bbub', 'bbubs', 'bbus',
     'bbuss', 'bbung', 'bbuj', 'bbuc', 'bbuk', 'bbut', 'bbup', 'bbuh', 'bbweo', 'bbweog', 'bbweogg', 'bbweogs', 'bbweon', 'bbweonj', 'bbweonh', 'bbweod',
-    'bbweol', 'bbweolg', 'bbweolm', 'bbweolb', 'bbweols', 'bbweolt', 'bbweolp', 'bbweolh', 'bbweom', 'bbweob', 'bbweobs', 'bbweos', 'bbweoss', 'bbweong', 'bbweoj', 'bbweoc'),
-);
+    'bbweol', 'bbweolg', 'bbweolm', 'bbweolb', 'bbweols', 'bbweolt', 'bbweolp', 'bbweolh', 'bbweom', 'bbweob', 'bbweobs', 'bbweos', 'bbweoss', 'bbweong', 'bbweoj', 'bbweoc'],
+];

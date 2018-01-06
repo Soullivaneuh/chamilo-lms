@@ -28,19 +28,19 @@
  * @author  Geoffrey T. Dairiki <dairiki@dairiki.org>
  * @package Text_Diff
  */
-class Text_Diff_Engine_native {
-
-    function diff($from_lines, $to_lines)
+class Text_Diff_Engine_native
+{
+    public function diff($from_lines, $to_lines)
     {
-        array_walk($from_lines, array('Text_Diff', 'trimNewlines'));
-        array_walk($to_lines, array('Text_Diff', 'trimNewlines'));
+        array_walk($from_lines, ['Text_Diff', 'trimNewlines']);
+        array_walk($to_lines, ['Text_Diff', 'trimNewlines']);
 
         $n_from = count($from_lines);
         $n_to = count($to_lines);
 
-        $this->xchanged = $this->ychanged = array();
-        $this->xv = $this->yv = array();
-        $this->xind = $this->yind = array();
+        $this->xchanged = $this->ychanged = [];
+        $this->xv = $this->yv = [];
+        $this->xind = $this->yind = [];
         unset($this->seq);
         unset($this->in_seq);
         unset($this->lcs);
@@ -54,7 +54,8 @@ class Text_Diff_Engine_native {
         }
 
         // Skip trailing common lines.
-        $xi = $n_from; $yi = $n_to;
+        $xi = $n_from;
+        $yi = $n_to;
         for ($endskip = 0; --$xi > $skip && --$yi > $skip; $endskip++) {
             if ($from_lines[$xi] !== $to_lines[$yi]) {
                 break;
@@ -92,14 +93,14 @@ class Text_Diff_Engine_native {
         $this->_shiftBoundaries($to_lines, $this->ychanged, $this->xchanged);
 
         // Compute the edit operations.
-        $edits = array();
+        $edits = [];
         $xi = $yi = 0;
         while ($xi < $n_from || $yi < $n_to) {
             assert($yi < $n_to || $this->xchanged[$xi]);
             assert($xi < $n_from || $this->ychanged[$yi]);
 
             // Skip matching "snake".
-            $copy = array();
+            $copy = [];
             while ($xi < $n_from && $yi < $n_to
                    && !$this->xchanged[$xi] && !$this->ychanged[$yi]) {
                 $copy[] = $from_lines[$xi++];
@@ -110,12 +111,12 @@ class Text_Diff_Engine_native {
             }
 
             // Find deletes & adds.
-            $delete = array();
+            $delete = [];
             while ($xi < $n_from && $this->xchanged[$xi]) {
                 $delete[] = $from_lines[$xi++];
             }
 
-            $add = array();
+            $add = [];
             while ($yi < $n_to && $this->ychanged[$yi]) {
                 $add[] = $to_lines[$yi++];
             }
@@ -148,7 +149,7 @@ class Text_Diff_Engine_native {
      * match.  The caller must trim matching lines from the beginning and end
      * of the portions it is going to specify.
      */
-    function _diag ($xoff, $xlim, $yoff, $ylim, $nchunks)
+    public function _diag($xoff, $xlim, $yoff, $ylim, $nchunks)
     {
         $flip = false;
 
@@ -156,8 +157,8 @@ class Text_Diff_Engine_native {
             /* Things seems faster (I'm not sure I understand why) when the
              * shortest sequence is in X. */
             $flip = true;
-            list ($xoff, $xlim, $yoff, $ylim)
-                = array($yoff, $ylim, $xoff, $xlim);
+            list($xoff, $xlim, $yoff, $ylim)
+                = [$yoff, $ylim, $xoff, $xlim];
         }
 
         if ($flip) {
@@ -172,8 +173,8 @@ class Text_Diff_Engine_native {
 
         $this->lcs = 0;
         $this->seq[0]= $yoff - 1;
-        $this->in_seq = array();
-        $ymids[0] = array();
+        $this->in_seq = [];
+        $ymids[0] = [];
 
         $numer = $xlim - $xoff + $nchunks - 1;
         $x = $xoff;
@@ -217,19 +218,19 @@ class Text_Diff_Engine_native {
             }
         }
 
-        $seps[] = $flip ? array($yoff, $xoff) : array($xoff, $yoff);
+        $seps[] = $flip ? [$yoff, $xoff] : [$xoff, $yoff];
         $ymid = $ymids[$this->lcs];
         for ($n = 0; $n < $nchunks - 1; $n++) {
             $x1 = $xoff + (int)(($numer + ($xlim - $xoff) * $n) / $nchunks);
             $y1 = $ymid[$n] + 1;
-            $seps[] = $flip ? array($y1, $x1) : array($x1, $y1);
+            $seps[] = $flip ? [$y1, $x1] : [$x1, $y1];
         }
-        $seps[] = $flip ? array($ylim, $xlim) : array($xlim, $ylim);
+        $seps[] = $flip ? [$ylim, $xlim] : [$xlim, $ylim];
 
-        return array($this->lcs, $seps);
+        return [$this->lcs, $seps];
     }
 
-    function _lcsPos($ypos)
+    public function _lcsPos($ypos)
     {
         $end = $this->lcs;
         if ($end == 0 || $ypos > $this->seq[$end]) {
@@ -268,7 +269,7 @@ class Text_Diff_Engine_native {
      * Note that XLIM, YLIM are exclusive bounds.  All line numbers are
      * origin-0 and discarded lines are not counted.
      */
-    function _compareseq ($xoff, $xlim, $yoff, $ylim)
+    public function _compareseq($xoff, $xlim, $yoff, $ylim)
     {
         /* Slide down the bottom initial diagonal. */
         while ($xoff < $xlim && $yoff < $ylim
@@ -309,7 +310,7 @@ class Text_Diff_Engine_native {
             reset($seps);
             $pt1 = $seps[0];
             while ($pt2 = next($seps)) {
-                $this->_compareseq ($pt1[0], $pt2[0], $pt1[1], $pt2[1]);
+                $this->_compareseq($pt1[0], $pt2[0], $pt1[1], $pt2[1]);
                 $pt1 = $pt2;
             }
         }
@@ -327,7 +328,7 @@ class Text_Diff_Engine_native {
      *
      * This is extracted verbatim from analyze.c (GNU diffutils-2.7).
      */
-    function _shiftBoundaries($lines, &$changed, $other_changed)
+    public function _shiftBoundaries($lines, &$changed, $other_changed)
     {
         $i = 0;
         $j = 0;
@@ -354,7 +355,8 @@ class Text_Diff_Engine_native {
 
             while ($i < $len && ! $changed[$i]) {
                 assert('$j < $other_len && ! $other_changed[$j]');
-                $i++; $j++;
+                $i++;
+                $j++;
                 while ($j < $other_len && $other_changed[$j]) {
                     $j++;
                 }
@@ -434,5 +436,4 @@ class Text_Diff_Engine_native {
             }
         }
     }
-
 }

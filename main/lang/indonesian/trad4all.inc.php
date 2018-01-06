@@ -2183,4 +2183,3 @@ $IAccept = "Saya Setuju";
 $ConfigSettingsInfo = "Berikut ini akan dituliskan ke file konfigurasi <b>main/inc/conf/configuration.php</b>:";
 $GoToYourNewlyCreatedPortal = "Lihat ke portal anda yang baru dibuat.";
 $FirstUseTip = "Ketika memasukkan kampus anda untuk pertama kali, cara terbaik untuk mengertinya adalah dengan mendaftar dengan opsi 'Buat area mata kuliah' dan ikuti langkah selanjutnya.";
-?>

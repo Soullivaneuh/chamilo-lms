@@ -2425,4 +2425,3 @@ $Support = "subteno";
 $PHPVersionOK = "PHP-versio estas en ordo";
 $RecommendedSettings = "Rekomenditaj aranĝoj";
 $RecommendedSettingsInfo = "Rekomendindaj aranĝoj por via servilo. Eblas ŝanĝi tiujn aranĝojn en la php.ini konfigura dosiero en via servilo.";
-?>

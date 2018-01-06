@@ -44,9 +44,9 @@ class HTML_QuickForm_email extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setSize($size)
+    public function setSize($size)
     {
-        $this->updateAttributes(array('size'=>$size));
+        $this->updateAttributes(['size'=>$size]);
     }
 
     /**
@@ -57,8 +57,8 @@ class HTML_QuickForm_email extends HTML_QuickForm_input
      * @access    public
      * @return    void
      */
-    function setMaxlength($maxlength)
+    public function setMaxlength($maxlength)
     {
-        $this->updateAttributes(array('maxlength'=>$maxlength));
+        $this->updateAttributes(['maxlength'=>$maxlength]);
     }
 }

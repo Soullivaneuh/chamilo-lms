@@ -35,16 +35,16 @@ $docs_and_folders = DocumentManager::get_all_document_data(
 );
 
 // get all group filenames
-$array_to_search = is_array($docs_and_folders) ? $docs_and_folders : array();
+$array_to_search = is_array($docs_and_folders) ? $docs_and_folders : [];
 
 if (count($array_to_search) > 0) {
-	while (list($key) = each($array_to_search)) {
-		$all_files[] = basename($array_to_search[$key]['path']);
-	}
+    while (list($key) = each($array_to_search)) {
+        $all_files[] = basename($array_to_search[$key]['path']);
+    }
 }
 
 //get all svg and png group files
-$accepted_extensions = array('.svg', '.png');
+$accepted_extensions = ['.svg', '.png'];
 
 if (is_array($all_files) && count($all_files) > 0) {
     foreach ($all_files as & $file) {
@@ -71,29 +71,29 @@ echo '<h2>'.get_lang('GroupSingle').': '.$group_properties['name'].'</h2>';
 
 if ((
         $group_properties['doc_state'] == 2 &&
-        ($is_allowed_to_edit || GroupManager :: is_user_in_group($_user['user_id'], $group_properties))) || $group_properties['doc_state'] == 1
-){
+        ($is_allowed_to_edit || GroupManager :: is_user_in_group($_user['user_id'], $group_properties))
+) || $group_properties['doc_state'] == 1
+) {
+    if (!empty($png_svg_files)) {
+        echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
+        echo '<ul>';
+        foreach ($png_svg_files as $filename) {
+            $image = $group_disk_path.$filename;
 
-	if (!empty($png_svg_files)) {
-		echo '<h3>'.get_lang('SelectSVGEditImage').'</h3>';
-		echo '<ul>';
-		foreach($png_svg_files as $filename) {
-			$image = $group_disk_path.$filename;
-
-			if (strpos($filename, "svg")){
-				$new_sizes['width'] = 60;
-				$new_sizes['height'] = 60;
-			} else {
-				$new_sizes = api_resize_image($image, 60, 60);
-			}
+            if (strpos($filename, "svg")) {
+                $new_sizes['width'] = 60;
+                $new_sizes['height'] = 60;
+            } else {
+                $new_sizes = api_resize_image($image, 60, 60);
+            }
             echo '<li style="display:inline; padding:8px;">';
             echo '<a href = "'.$group_web_path.$filename.'" alt="'.$filename.'" title="'.$filename.'">';
             echo '<img src = "'.$group_web_path.$filename.'" width = "'.$new_sizes['width'].'" height="'.$new_sizes['height'].'" border="0"></a></li>';
-		}
-		echo '</ul>';
-	}
+        }
+        echo '</ul>';
+    }
 } else {
-	echo Display::return_message(get_lang('OnlyAccessFromYourGroup'), 'warning');
+    echo Display::return_message(get_lang('OnlyAccessFromYourGroup'), 'warning');
 }
 ?>
 </body>

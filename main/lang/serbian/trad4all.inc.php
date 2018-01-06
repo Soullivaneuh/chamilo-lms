@@ -2833,4 +2833,3 @@ $ViewUsersWithTask = "Fajl već dostavljen";
 $ReminderMessage = "Pošalji podsetnik";
 $DateSent = "Podaci poslati";
 $ViewUsersWithoutTask = "Pogledaj korisnike bez zadatka";
-?>

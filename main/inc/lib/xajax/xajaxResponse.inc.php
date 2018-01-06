@@ -73,16 +73,16 @@ class xajaxResponse
     /**
      * @var string internal XML storage
      */
-    var $xml;
+    public $xml;
     /**
      * @var string the encoding type to use
      */
-    var $sEncoding;
+    public $sEncoding;
     /**
      * @var boolean if special characters in the XML should be converted to
      *              entities
      */
-    var $bOutputEntities;
+    public $bOutputEntities;
 
     /**#@-*/
 
@@ -123,7 +123,7 @@ class xajaxResponse
      * Tells the response object to convert special characters to HTML entities
      * automatically (only works if the mb_string extension is available).
      */
-    function outputEntitiesOn()
+    public function outputEntitiesOn()
     {
         $this->bOutputEntities = true;
     }
@@ -148,7 +148,7 @@ class xajaxResponse
      */
     public function addConfirmCommands($iCmdNumber, $sMessage)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "cc", "t" => $iCmdNumber), $sMessage);
+        $this->xml .= $this->_cmdXML(["n" => "cc", "t" => $iCmdNumber], $sMessage);
     }
 
     /**
@@ -163,7 +163,7 @@ class xajaxResponse
      */
     public function addAssign($sTarget, $sAttribute, $sData)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "as", "t" => $sTarget, "p" => $sAttribute), $sData);
+        $this->xml .= $this->_cmdXML(["n" => "as", "t" => $sTarget, "p" => $sAttribute], $sData);
     }
 
     /**
@@ -178,7 +178,7 @@ class xajaxResponse
      */
     public function addAppend($sTarget, $sAttribute, $sData)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ap", "t" => $sTarget, "p" => $sAttribute), $sData);
+        $this->xml .= $this->_cmdXML(["n" => "ap", "t" => $sTarget, "p" => $sAttribute], $sData);
     }
 
     /**
@@ -194,7 +194,7 @@ class xajaxResponse
      */
     public function addPrepend($sTarget, $sAttribute, $sData)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "pp", "t" => $sTarget, "p" => $sAttribute), $sData);
+        $this->xml .= $this->_cmdXML(["n" => "pp", "t" => $sTarget, "p" => $sAttribute], $sData);
     }
 
     /**
@@ -212,7 +212,7 @@ class xajaxResponse
     public function addReplace($sTarget, $sAttribute, $sSearch, $sData)
     {
         $sDta = "<s><![CDATA[$sSearch]]></s><r><![CDATA[$sData]]></r>";
-        $this->xml .= $this->_cmdXML(array("n" => "rp", "t" => $sTarget, "p" => $sAttribute), $sDta);
+        $this->xml .= $this->_cmdXML(["n" => "rp", "t" => $sTarget, "p" => $sAttribute], $sDta);
     }
 
     /**
@@ -238,7 +238,7 @@ class xajaxResponse
      */
     public function addAlert($sMsg)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "al"), $sMsg);
+        $this->xml .= $this->_cmdXML(["n" => "al"], $sMsg);
     }
 
     /**
@@ -261,7 +261,7 @@ class xajaxResponse
                 $queryEnd = strlen($sURL);
             }
             $queryPart = substr($sURL, $queryStart, $queryEnd - $queryStart);
-            $queryParts = array();
+            $queryParts = [];
             parse_str($queryPart, $queryParts);
             $newQueryPart = "";
             foreach ($queryParts as $key => $value) {
@@ -281,7 +281,7 @@ class xajaxResponse
      */
     public function addScript($sJS)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "js"), $sJS);
+        $this->xml .= $this->_cmdXML(["n" => "js"], $sJS);
     }
 
     /**
@@ -297,7 +297,7 @@ class xajaxResponse
         $arguments = func_get_args();
         $sFunc = array_shift($arguments);
         $sData = $this->_buildObjXml($arguments);
-        $this->xml .= $this->_cmdXML(array("n" => "jc", "t" => $sFunc), $sData);
+        $this->xml .= $this->_cmdXML(["n" => "jc", "t" => $sFunc], $sData);
     }
 
     /**
@@ -309,7 +309,7 @@ class xajaxResponse
      */
     public function addRemove($sTarget)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "rm", "t" => $sTarget), '');
+        $this->xml .= $this->_cmdXML(["n" => "rm", "t" => $sTarget], '');
     }
 
     /**
@@ -332,7 +332,7 @@ class xajaxResponse
             );
             return;
         }
-        $this->xml .= $this->_cmdXML(array("n" => "ce", "t" => $sParent, "p" => $sId), $sTag);
+        $this->xml .= $this->_cmdXML(["n" => "ce", "t" => $sParent, "p" => $sId], $sTag);
     }
 
     /**
@@ -347,7 +347,7 @@ class xajaxResponse
      */
     public function addInsert($sBefore, $sTag, $sId)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ie", "t" => $sBefore, "p" => $sId), $sTag);
+        $this->xml .= $this->_cmdXML(["n" => "ie", "t" => $sBefore, "p" => $sId], $sTag);
     }
 
     /**
@@ -362,7 +362,7 @@ class xajaxResponse
      */
     public function addInsertAfter($sAfter, $sTag, $sId)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ia", "t" => $sAfter, "p" => $sId), $sTag);
+        $this->xml .= $this->_cmdXML(["n" => "ia", "t" => $sAfter, "p" => $sId], $sTag);
     }
 
     /**
@@ -380,7 +380,7 @@ class xajaxResponse
      */
     public function addCreateInput($sParent, $sType, $sName, $sId)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ci", "t" => $sParent, "p" => $sId, "c" => $sType), $sName);
+        $this->xml .= $this->_cmdXML(["n" => "ci", "t" => $sParent, "p" => $sId, "c" => $sType], $sName);
     }
 
     /**
@@ -398,7 +398,7 @@ class xajaxResponse
      */
     public function addInsertInput($sBefore, $sType, $sName, $sId)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ii", "t" => $sBefore, "p" => $sId, "c" => $sType), $sName);
+        $this->xml .= $this->_cmdXML(["n" => "ii", "t" => $sBefore, "p" => $sId, "c" => $sType], $sName);
     }
 
     /**
@@ -416,7 +416,7 @@ class xajaxResponse
      */
     public function addInsertInputAfter($sAfter, $sType, $sName, $sId)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "iia", "t" => $sAfter, "p" => $sId, "c" => $sType), $sName);
+        $this->xml .= $this->_cmdXML(["n" => "iia", "t" => $sAfter, "p" => $sId, "c" => $sType], $sName);
     }
 
     /**
@@ -430,7 +430,7 @@ class xajaxResponse
      */
     public function addEvent($sTarget, $sEvent, $sScript)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ev", "t" => $sTarget, "p" => $sEvent), $sScript);
+        $this->xml .= $this->_cmdXML(["n" => "ev", "t" => $sTarget, "p" => $sEvent], $sScript);
     }
 
     /**
@@ -445,7 +445,7 @@ class xajaxResponse
      */
     public function addHandler($sTarget, $sEvent, $sHandler)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "ah", "t" => $sTarget, "p" => $sEvent), $sHandler);
+        $this->xml .= $this->_cmdXML(["n" => "ah", "t" => $sTarget, "p" => $sEvent], $sHandler);
     }
 
     /**
@@ -461,7 +461,7 @@ class xajaxResponse
      */
     public function addRemoveHandler($sTarget, $sEvent, $sHandler)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "rh", "t" => $sTarget, "p" => $sEvent), $sHandler);
+        $this->xml .= $this->_cmdXML(["n" => "rh", "t" => $sTarget, "p" => $sEvent], $sHandler);
     }
 
     /**
@@ -473,7 +473,7 @@ class xajaxResponse
      */
     public function addIncludeScript($sFileName)
     {
-        $this->xml .= $this->_cmdXML(array("n" => "in"), $sFileName);
+        $this->xml .= $this->_cmdXML(["n" => "in"], $sFileName);
     }
 
     /**
@@ -537,12 +537,12 @@ class xajaxResponse
             if (function_exists('api_convert_encoding')) {
                 $sData = call_user_func_array(
                     'api_convert_encoding',
-                    array(&$sData, 'HTML-ENTITIES', $this->sEncoding)
+                    [&$sData, 'HTML-ENTITIES', $this->sEncoding]
                 );
             } //if (function_exists('mb_convert_encoding')) {
             elseif (function_exists('mb_convert_encoding')) {
                 //
-                $sData = call_user_func_array('mb_convert_encoding', array(&$sData, 'HTML-ENTITIES', $this->sEncoding));
+                $sData = call_user_func_array('mb_convert_encoding', [&$sData, 'HTML-ENTITIES', $this->sEncoding]);
             } else {
                 trigger_error(
                     "The xajax XML response output could not be converted to HTML entities because the mb_convert_encoding function is not available",

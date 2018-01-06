@@ -22,4 +22,3 @@ $PublicAccess = "ayefun gbogbo enia";
 $PrivateAccess = "aye fun enia kan";
 $Language = "Ede";
 $LoginName = "wole";
-?>

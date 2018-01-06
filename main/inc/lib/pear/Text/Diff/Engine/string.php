@@ -22,7 +22,8 @@
  * @package Text_Diff
  * @since   0.2.0
  */
-class Text_Diff_Engine_string {
+class Text_Diff_Engine_string
+{
 
     /**
      * Parses a unified or context diff.
@@ -37,7 +38,7 @@ class Text_Diff_Engine_string {
      *
      * @return array  List of all diff operations.
      */
-    function diff($diff, $mode = 'autodetect')
+    public function diff($diff, $mode = 'autodetect')
     {
         // Detect line breaks.
         $lnbr = "\n";
@@ -90,12 +91,12 @@ class Text_Diff_Engine_string {
      *
      * @return array  List of all diff operations.
      */
-    function parseUnifiedDiff($diff)
+    public function parseUnifiedDiff($diff)
     {
-        $edits = array();
+        $edits = [];
         $end = count($diff) - 1;
         for ($i = 0; $i < $end;) {
-            $diff1 = array();
+            $diff1 = [];
             switch (substr($diff[$i], 0, 1)) {
             case ' ':
                 do {
@@ -114,7 +115,7 @@ class Text_Diff_Engine_string {
 
             case '-':
                 // get changed or removed lines
-                $diff2 = array();
+                $diff2 = [];
                 do {
                     $diff1[] = substr($diff[$i], 1);
                 } while (++$i < $end && substr($diff[$i], 0, 1) == '-');
@@ -145,9 +146,9 @@ class Text_Diff_Engine_string {
      *
      * @return array  List of all diff operations.
      */
-    function parseContextDiff(&$diff)
+    public function parseContextDiff(&$diff)
     {
-        $edits = array();
+        $edits = [];
         $i = $max_i = $j = $max_j = 0;
         $end = count($diff) - 1;
         while ($i < $end && $j < $end) {
@@ -168,7 +169,7 @@ class Text_Diff_Engine_string {
             }
 
             // find what hasn't been changed
-            $array = array();
+            $array = [];
             while ($i < $max_i &&
                    $j < $max_j &&
                    strcmp($diff[$i], $diff[$j]) == 0) {
@@ -195,10 +196,10 @@ class Text_Diff_Engine_string {
             }
 
             if ($i < $max_i) {
-                $diff1 = array();
+                $diff1 = [];
                 switch (substr($diff[$i], 0, 1)) {
                 case '!':
-                    $diff2 = array();
+                    $diff2 = [];
                     do {
                         $diff1[] = substr($diff[$i], 2);
                         if ($j < $max_j && substr($diff[$j], 0, 1) == '!') {
@@ -225,7 +226,7 @@ class Text_Diff_Engine_string {
             }
 
             if ($j < $max_j) {
-                $diff2 = array();
+                $diff2 = [];
                 switch (substr($diff[$j], 0, 1)) {
                 case '+':
                     do {
@@ -246,5 +247,4 @@ class Text_Diff_Engine_string {
 
         return $edits;
     }
-
 }

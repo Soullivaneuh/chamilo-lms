@@ -11,29 +11,27 @@ namespace Shibboleth;
  */
 class ShibbolethTest
 {
-
-    static function is_enabled()
+    public static function is_enabled()
     {
         return api_get_setting('server_type') == 'test';
     }
 
     /**
-     * @return ShibbolethTestHelper 
+     * @return ShibbolethTestHelper
      */
-    static function helper()
+    public static function helper()
     {
         return ShibbolethTestHelper::instance();
     }
 
-    static function init()
+    public static function init()
     {
-        if (!self::is_enabled())
-        {
+        if (!self::is_enabled()) {
             die;
         }
     }
 
-    static function test_new_teacher()
+    public static function test_new_teacher()
     {
         self::init();
 
@@ -53,7 +51,7 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function test_new_student()
+    public static function test_new_student()
     {
         self::init();
 
@@ -74,7 +72,7 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function test_new_staff()
+    public static function test_new_staff()
     {
         self::init();
 
@@ -95,7 +93,7 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function test_new_infer_status_request()
+    public static function test_new_infer_status_request()
     {
         self::init();
 
@@ -117,7 +115,7 @@ class ShibbolethTest
         self::assert(!$shib_user->status_request);
     }
 
-    static function test_update_teacher()
+    public static function test_update_teacher()
     {
         self::init();
 
@@ -153,7 +151,7 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function test_new_student_multiple_givenname()
+    public static function test_new_student_multiple_givenname()
     {
         self::init();
 
@@ -175,7 +173,7 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function test_new_no_affiliation_default()
+    public static function test_new_no_affiliation_default()
     {
         self::init();
 
@@ -198,21 +196,17 @@ class ShibbolethTest
         self::assert(!empty($user->username));
     }
 
-    static function assert($assertion, $message = '')
+    public static function assert($assertion, $message = '')
     {
-        if (!$assertion)
-        {
+        if (!$assertion) {
             $message = "Assert failed $message <br/>";
             echo $message;
             // Dump variable for debug
             error_log(print_r(debug_backtrace(), 1));
             die;
-        }
-        else
-        {
+        } else {
             $message = "Assert successful $message <br/>";
             echo $message;
         }
     }
-
 }

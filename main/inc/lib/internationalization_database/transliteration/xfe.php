@@ -1,15 +1,15 @@
 <?php
 // $Id: xfe.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array(NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    '', '', '', '~', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+return [
+  'en' => [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    '', '', '', '~', null, null, null, null, null, null, null, null, null, null, null, null,
     '..', '--', '-', '_', '_', '(', ') ', '{', '} ', '[', '] ', '[(', ')] ', '<<', '>> ', '<',
-    '> ', '[', '] ', '{', '}', NULL, NULL, NULL, NULL, '', '', '', '', '', '', '',
+    '> ', '[', '] ', '{', '}', null, null, null, null, '', '', '', '', '', '', '',
     ',', ',', '.', '', ';', ':', '?', '!', '-', '(', ')', '{', '}', '{', '}', '#',
-    '&', '*', '+', '-', '<', '>', '=', '', '\\', '$', '%', '@', NULL, NULL, NULL, NULL,
-    '', '', '', NULL, '', NULL, '', '', '', '', '', '', '', '', '', '',
+    '&', '*', '+', '-', '<', '>', '=', '', '\\', '$', '%', '@', null, null, null, null,
+    '', '', '', null, '', null, '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -17,5 +17,5 @@ return array(
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-    '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, ''),
-);
+    '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, ''],
+];

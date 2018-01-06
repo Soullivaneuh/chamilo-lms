@@ -46,14 +46,14 @@ class HTML_QuickForm_element extends HTML_Common
      * @since     1.3
      * @access    private
      */
-    var $_label = '';
+    public $_label = '';
 
     /**
      * Label "for" a field... (Chamilo LMS customization)
      * @var     string
      * @access  private
      */
-    var $_label_for = '';
+    public $_label_for = '';
 
     /**
      * Form element type
@@ -61,7 +61,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @since     1.0
      * @access    private
      */
-    var $_type = '';
+    public $_type = '';
 
     /**
      * Flag to tell if element is frozen
@@ -69,7 +69,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @since     1.0
      * @access    private
      */
-    var $_flagFrozen = false;
+    public $_flagFrozen = false;
 
     /**
      * Does the element support persistant data when frozen
@@ -77,7 +77,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @since     1.3
      * @access    private
      */
-    var $_persistantFreeze = false;
+    public $_persistantFreeze = false;
 
     protected $columnsSize;
 
@@ -111,9 +111,9 @@ class HTML_QuickForm_element extends HTML_Common
         }
     }
 
-     /**
-     * @return null
-     */
+    /**
+    * @return null
+    */
     public function getColumnsSize()
     {
         return $this->columnsSize;
@@ -274,13 +274,13 @@ class HTML_QuickForm_element extends HTML_Common
     // }}}
     // {{{ unfreeze()
 
-   /**
-    * Unfreezes the element so that it becomes editable
-    *
-    * @access public
-    * @return void
-    * @since  3.2.4
-    */
+    /**
+     * Unfreezes the element so that it becomes editable
+     *
+     * @access public
+     * @return void
+     * @since  3.2.4
+     */
     public function unfreeze()
     {
         $this->_flagFrozen = false;
@@ -315,17 +315,17 @@ class HTML_QuickForm_element extends HTML_Common
     * @access private
     * @return string
     */
-    function _getPersistantData()
+    public function _getPersistantData()
     {
         if (!$this->_persistantFreeze) {
             return '';
         } else {
             $id = $this->getAttribute('id');
-            return '<input' . $this->_getAttrString(array(
+            return '<input' . $this->_getAttrString([
                        'type'  => 'hidden',
                        'name'  => $this->getName(),
                        'value' => $this->getValue()
-                   ) + (isset($id)? array('id' => $id): array())) . ' />';
+                   ] + (isset($id)? ['id' => $id]: [])) . ' />';
         }
     }
 
@@ -356,7 +356,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @access    public
      * @return    void
      */
-    function setPersistantFreeze($persistant=false)
+    public function setPersistantFreeze($persistant=false)
     {
         $this->_persistantFreeze = $persistant;
     } //end func setPersistantFreeze
@@ -391,7 +391,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @access    public
      * @return    string
      */
-    function getLabel()
+    public function getLabel()
     {
         return $this->_label;
     } //end func getLabel
@@ -402,7 +402,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @access    public
      * @return    string
      */
-    function getLabelFor()
+    public function getLabelFor()
     {
         return $this->_label_for;
     } //end func getLabelFor
@@ -417,7 +417,7 @@ class HTML_QuickForm_element extends HTML_Common
      * @access    private
      * @return    mixed
      */
-    function _findValue(&$values)
+    public function _findValue(&$values)
     {
         if (empty($values)) {
             return null;
@@ -440,8 +440,8 @@ class HTML_QuickForm_element extends HTML_Common
                 }
             }
             $replacedName = str_replace(
-                array('\\', '\'', ']', '['),
-                array('\\\\', '\\\'', '', "']['"),
+                ['\\', '\'', ']', '['],
+                ['\\\\', '\\\'', '', "']['"],
                 $elementName
             );
             $myVar = "['$replacedName']";
@@ -498,47 +498,47 @@ class HTML_QuickForm_element extends HTML_Common
         return true;
     }
 
-   /**
-    * Accepts a renderer
-    *
-    * @param HTML_QuickForm_Renderer    renderer object
-    * @param bool                       Whether an element is required
-    * @param string                     An error message associated with an element
-    * @access public
-    * @return void
-    */
-    function accept(&$renderer, $required=false, $error=null)
+    /**
+     * Accepts a renderer
+     *
+     * @param HTML_QuickForm_Renderer    renderer object
+     * @param bool                       Whether an element is required
+     * @param string                     An error message associated with an element
+     * @access public
+     * @return void
+     */
+    public function accept(&$renderer, $required=false, $error=null)
     {
         $renderer->renderElement($this, $required, $error);
     }
 
-   /**
-    * Automatically generates and assigns an 'id' attribute for the element.
-    *
-    * Currently used to ensure that labels work on radio buttons and
-    * checkboxes. Per idea of Alexander Radivanovich.
-    *
-    * @access private
-    * @return void
-    */
-    function _generateId()
+    /**
+     * Automatically generates and assigns an 'id' attribute for the element.
+     *
+     * Currently used to ensure that labels work on radio buttons and
+     * checkboxes. Per idea of Alexander Radivanovich.
+     *
+     * @access private
+     * @return void
+     */
+    public function _generateId()
     {
         static $idx = 1;
 
         if (!$this->getAttribute('id')) {
-            $this->updateAttributes(array('id' => 'qf_' . substr(md5(microtime() . $idx++), 0, 6)));
+            $this->updateAttributes(['id' => 'qf_' . substr(md5(microtime() . $idx++), 0, 6)]);
         }
     }
 
-   /**
-    * Returns a 'safe' element's value
-    *
-    * @param  array   array of submitted values to search
-    * @param  bool    whether to return the value as associative array
-    * @access public
-    * @return mixed
-    */
-    function exportValue(&$submitValues, $assoc = false)
+    /**
+     * Returns a 'safe' element's value
+     *
+     * @param  array   array of submitted values to search
+     * @param  bool    whether to return the value as associative array
+     * @access public
+     * @return mixed
+     */
+    public function exportValue(&$submitValues, $assoc = false)
     {
         $value = $this->_findValue($submitValues);
         if (null === $value) {
@@ -550,15 +550,15 @@ class HTML_QuickForm_element extends HTML_Common
     // }}}
     // {{{ _prepareValue()
 
-   /**
-    * Used by exportValue() to prepare the value for returning
-    *
-    * @param  mixed   the value found in exportValue()
-    * @param  bool    whether to return the value as associative array
-    * @access private
-    * @return mixed
-    */
-    function _prepareValue($value, $assoc)
+    /**
+     * Used by exportValue() to prepare the value for returning
+     *
+     * @param  mixed   the value found in exportValue()
+     * @param  bool    whether to return the value as associative array
+     * @access private
+     * @return mixed
+     */
+    public function _prepareValue($value, $assoc)
     {
         if (null === $value) {
             return null;
@@ -567,11 +567,12 @@ class HTML_QuickForm_element extends HTML_Common
         } else {
             $name = $this->getName();
             if (!strpos($name, '[')) {
-                return array($name => $value);
+                return [$name => $value];
             } else {
-                $valueAry = array();
+                $valueAry = [];
                 $myIndex  = "['" . str_replace(
-                                array('\\', '\'', ']', '['), array('\\\\', '\\\'', '', "']['"),
+                                ['\\', '\'', ']', '['],
+                    ['\\\\', '\\\'', '', "']['"],
                                 $name
                             ) . "']";
                 eval("\$valueAry$myIndex = \$value;");
@@ -609,8 +610,4 @@ class HTML_QuickForm_element extends HTML_Common
 
         return $this;
     }
-
-
-
-
 }

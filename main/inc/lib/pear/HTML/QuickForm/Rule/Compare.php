@@ -34,12 +34,12 @@
  */
 class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
 {
-   /**
-    * Possible operators to use
-    * @var array
-    * @access private
-    */
-    public $_operators = array(
+    /**
+     * Possible operators to use
+     * @var array
+     * @access private
+     */
+    public $_operators = [
         'eq'  => '===',
         'neq' => '!==',
         'gt'  => '>',
@@ -48,16 +48,16 @@ class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
         'lte' => '<=',
         '=='  => '===',
         '!='  => '!=='
-    );
+    ];
 
-   /**
-    * Returns the operator to use for comparing the values
-    *
-    * @access private
-    * @param  string     operator name
-    * @return string     operator to use for validation
-    */
-    function _findOperator($name)
+    /**
+     * Returns the operator to use for comparing the values
+     *
+     * @access private
+     * @param  string     operator name
+     * @return string     operator to use for validation
+     */
+    public function _findOperator($name)
     {
         $name = trim($name);
         if (empty($name)) {
@@ -96,6 +96,6 @@ class HTML_QuickForm_Rule_Compare extends HTML_QuickForm_Rule
             $check = "!(String({jsVar}[0]) {$operator} String({jsVar}[1]))";
         }
 
-        return array('', "'' != {jsVar}[0] && {$check}");
+        return ['', "'' != {jsVar}[0] && {$check}"];
     }
 }

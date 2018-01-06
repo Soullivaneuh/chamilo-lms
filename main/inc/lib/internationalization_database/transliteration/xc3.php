@@ -1,8 +1,8 @@
 <?php
 // $Id: xc3.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ssal', 'ssalg', 'ssalm', 'ssalb', 'ssals', 'ssalt', 'ssalp', 'ssalh', 'ssam', 'ssab', 'ssabs', 'ssas', 'ssass', 'ssang', 'ssaj', 'ssac',
+return [
+  'en' => ['ssal', 'ssalg', 'ssalm', 'ssalb', 'ssals', 'ssalt', 'ssalp', 'ssalh', 'ssam', 'ssab', 'ssabs', 'ssas', 'ssass', 'ssang', 'ssaj', 'ssac',
     'ssak', 'ssat', 'ssap', 'ssah', 'ssae', 'ssaeg', 'ssaegg', 'ssaegs', 'ssaen', 'ssaenj', 'ssaenh', 'ssaed', 'ssael', 'ssaelg', 'ssaelm', 'ssaelb',
     'ssaels', 'ssaelt', 'ssaelp', 'ssaelh', 'ssaem', 'ssaeb', 'ssaebs', 'ssaes', 'ssaess', 'ssaeng', 'ssaej', 'ssaec', 'ssaek', 'ssaet', 'ssaep', 'ssaeh',
     'ssya', 'ssyag', 'ssyagg', 'ssyags', 'ssyan', 'ssyanj', 'ssyanh', 'ssyad', 'ssyal', 'ssyalg', 'ssyalm', 'ssyalb', 'ssyals', 'ssyalt', 'ssyalp', 'ssyalh',
@@ -17,5 +17,5 @@ return array(
     'ssyen', 'ssyenj', 'ssyenh', 'ssyed', 'ssyel', 'ssyelg', 'ssyelm', 'ssyelb', 'ssyels', 'ssyelt', 'ssyelp', 'ssyelh', 'ssyem', 'ssyeb', 'ssyebs', 'ssyes',
     'ssyess', 'ssyeng', 'ssyej', 'ssyec', 'ssyek', 'ssyet', 'ssyep', 'ssyeh', 'sso', 'ssog', 'ssogg', 'ssogs', 'sson', 'ssonj', 'ssonh', 'ssod',
     'ssol', 'ssolg', 'ssolm', 'ssolb', 'ssols', 'ssolt', 'ssolp', 'ssolh', 'ssom', 'ssob', 'ssobs', 'ssos', 'ssoss', 'ssong', 'ssoj', 'ssoc',
-    'ssok', 'ssot', 'ssop', 'ssoh', 'sswa', 'sswag', 'sswagg', 'sswags', 'sswan', 'sswanj', 'sswanh', 'sswad', 'sswal', 'sswalg', 'sswalm', 'sswalb'),
-);
+    'ssok', 'ssot', 'ssop', 'ssoh', 'sswa', 'sswag', 'sswagg', 'sswags', 'sswan', 'sswanj', 'sswanh', 'sswad', 'sswal', 'sswalg', 'sswalm', 'sswalb'],
+];

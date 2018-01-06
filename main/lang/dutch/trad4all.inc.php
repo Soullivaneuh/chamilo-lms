@@ -6852,4 +6852,3 @@ $YouHaveBeenSubscribedToCourseXTheStartDateXAndCommentX = "<br />Je bent ingesch
 Indien je nog geen toegang hebt tot onze ELO, zal je bij de eerste les de nodige info ontvangen van jouw lesgever.<br /> <br />
 Het eerstvolgende moment dat voor deze module werd ingevuld is: <br />
 %s <br /> %s";
-?>

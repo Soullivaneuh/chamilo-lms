@@ -1,8 +1,8 @@
 <?php
 // $Id: x9c.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Huan ', 'Quan ', 'Ze ', 'Wei ', 'Wei ', 'Yu ', 'Qun ', 'Rou ', 'Die ', 'Huang ', 'Lian ', 'Yan ', 'Qiu ', 'Qiu ', 'Jian ', 'Bi ',
+return [
+  'en' => ['Huan ', 'Quan ', 'Ze ', 'Wei ', 'Wei ', 'Yu ', 'Qun ', 'Rou ', 'Die ', 'Huang ', 'Lian ', 'Yan ', 'Qiu ', 'Qiu ', 'Jian ', 'Bi ',
     'E ', 'Yang ', 'Fu ', 'Sai ', 'Jian ', 'Xia ', 'Tuo ', 'Hu ', 'Muroaji ', 'Ruo ', 'Haraka ', 'Wen ', 'Jian ', 'Hao ', 'Wu ', 'Fang ',
     'Sao ', 'Liu ', 'Ma ', 'Shi ', 'Shi ', 'Yin ', 'Z ', 'Teng ', 'Ta ', 'Yao ', 'Ge ', 'Rong ', 'Qian ', 'Qi ', 'Wen ', 'Ruo ',
     'Hatahata ', 'Lian ', 'Ao ', 'Le ', 'Hui ', 'Min ', 'Ji ', 'Tiao ', 'Qu ', 'Jian ', 'Sao ', 'Man ', 'Xi ', 'Qiu ', 'Biao ', 'Ji ',
@@ -17,5 +17,5 @@ return array(
     'Shi ', 'Wen ', 'Wei ', 'Sai ', 'E ', 'Qiu ', 'Fu ', 'Huang ', 'Quan ', 'Jiang ', 'Bian ', 'Sao ', 'Ao ', 'Qi ', 'Ta ', 'Yin ',
     'Yao ', 'Fang ', 'Jian ', 'Le ', 'Biao ', 'Xue ', 'Bie ', 'Man ', 'Min ', 'Yong ', 'Wei ', 'Xi ', 'Jue ', 'Shan ', 'Lin ', 'Zun ',
     'Huo ', 'Gan ', 'Li ', 'Zhan ', 'Guan ', 'Niao ', 'Yi ', 'Fu ', 'Li ', 'Jiu ', 'Bu ', 'Yan ', 'Fu ', 'Diao ', 'Ji ', 'Feng ',
-    'Nio ', 'Gan ', 'Shi ', 'Feng ', 'Ming ', 'Bao ', 'Yuan ', 'Zhi ', 'Hu ', 'Qin ', 'Fu ', 'Fen ', 'Wen ', 'Jian ', 'Shi ', 'Yu '),
-);
+    'Nio ', 'Gan ', 'Shi ', 'Feng ', 'Ming ', 'Bao ', 'Yuan ', 'Zhi ', 'Hu ', 'Qin ', 'Fu ', 'Fen ', 'Wen ', 'Jian ', 'Shi ', 'Yu '],
+];

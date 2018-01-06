@@ -273,4 +273,3 @@ $YouNotYetAchievedCertificates = "Tú hevur ikki fingið prógv enn. Halt áfram
 $UntilDateX = "Tøk til %s";
 $PoweredByX = "Próvstovan";
 $CalendarStartDate = "Byrjanardagur";
-?>

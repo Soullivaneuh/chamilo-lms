@@ -66,12 +66,12 @@ $oauth = new OAuthSimple(
 $oauth->setAction('post');
 $oauth->setSignatureMethod('HMAC-SHA1');
 $oauth->setParameters($params);
-$result = $oauth->sign(array(
+$result = $oauth->sign([
     'path' => $tool->getLaunchUrl(),
-    'parameters' => array(
+    'parameters' => [
         'oauth_callback' => 'about:blank'
-    )
-));
+    ]
+]);
 ?>
 <!DOCTYPE html>
 <html>

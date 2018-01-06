@@ -44,7 +44,7 @@ abstract class Text_CAPTCHA_Driver_Base implements Text_CAPTCHA_Driver
      *
      * @return void
      */
-    public final function setPhrase($phrase)
+    final public function setPhrase($phrase)
     {
         $this->_phrase = $phrase;
     }
@@ -55,7 +55,7 @@ abstract class Text_CAPTCHA_Driver_Base implements Text_CAPTCHA_Driver
      *
      * @return  string   secret phrase
      */
-    public final function getPhrase()
+    final public function getPhrase()
     {
         return $this->_phrase;
     }
@@ -67,7 +67,7 @@ abstract class Text_CAPTCHA_Driver_Base implements Text_CAPTCHA_Driver
      *
      * @return void
      */
-    protected final function setCaptcha($captcha)
+    final protected function setCaptcha($captcha)
     {
         $this->_captcha = $captcha;
     }
@@ -79,7 +79,7 @@ abstract class Text_CAPTCHA_Driver_Base implements Text_CAPTCHA_Driver
      *
      * @return string|object
      */
-    public final function getCAPTCHA()
+    final public function getCAPTCHA()
     {
         return $this->_captcha;
     }

@@ -41,7 +41,7 @@ class HTML_QuickForm_Rule_CAPTCHA extends HTML_QuickForm_Rule
      * @access public
      * @static
      */
-    function validate($value, $captcha)
+    public function validate($value, $captcha)
     {
         return ($value == $captcha->getValue());
     }

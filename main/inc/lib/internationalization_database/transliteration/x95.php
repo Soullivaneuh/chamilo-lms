@@ -1,8 +1,8 @@
 <?php
 // $Id: x95.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Xiao ', 'Suo ', 'Li ', 'Zheng ', 'Chu ', 'Guo ', 'Gao ', 'Tie ', 'Xiu ', 'Cuo ', 'Lue ', 'Feng ', 'Xin ', 'Liu ', 'Kai ', 'Jian ',
+return [
+  'en' => ['Xiao ', 'Suo ', 'Li ', 'Zheng ', 'Chu ', 'Guo ', 'Gao ', 'Tie ', 'Xiu ', 'Cuo ', 'Lue ', 'Feng ', 'Xin ', 'Liu ', 'Kai ', 'Jian ',
     'Rui ', 'Ti ', 'Lang ', 'Qian ', 'Ju ', 'A ', 'Qiang ', 'Duo ', 'Tian ', 'Cuo ', 'Mao ', 'Ben ', 'Qi ', 'De ', 'Kua ', 'Kun ',
     'Chang ', 'Xi ', 'Gu ', 'Luo ', 'Chui ', 'Zhui ', 'Jin ', 'Zhi ', 'Xian ', 'Juan ', 'Huo ', 'Pou ', 'Tan ', 'Ding ', 'Jian ', 'Ju ',
     'Meng ', 'Zi ', 'Qie ', 'Ying ', 'Kai ', 'Qiang ', 'Song ', 'E ', 'Cha ', 'Qiao ', 'Zhong ', 'Duan ', 'Sou ', 'Huang ', 'Huan ', 'Ai ',
@@ -14,8 +14,8 @@ return array(
     'San ', 'Xian ', 'Xian ', 'Jian ', 'Min ', 'Xia ', 'Yuru ', 'Dou ', 'Zha ', 'Nao ', 'Jian ', 'Peng ', 'Xia ', 'Ling ', 'Bian ', 'Bi ',
     'Run ', 'He ', 'Guan ', 'Ge ', 'Ge ', 'Fa ', 'Chu ', 'Hong ', 'Gui ', 'Min ', 'Se ', 'Kun ', 'Lang ', 'Lu ', 'Ting ', 'Sha ',
     'Ju ', 'Yue ', 'Yue ', 'Chan ', 'Qu ', 'Lin ', 'Chang ', 'Shai ', 'Kun ', 'Yan ', 'Min ', 'Yan ', 'E ', 'Hun ', 'Yu ', 'Wen ',
-    'Xiang ', 'Bao ', 'Xiang ', 'Qu ', 'Yao ', 'Wen ', 'Ban ', 'An ', 'Wei ', 'Yin ', 'Kuo ', 'Que ', 'Lan ', 'Du ', NULL, 'Phwung ',
+    'Xiang ', 'Bao ', 'Xiang ', 'Qu ', 'Yao ', 'Wen ', 'Ban ', 'An ', 'Wei ', 'Yin ', 'Kuo ', 'Que ', 'Lan ', 'Du ', null, 'Phwung ',
     'Tian ', 'Nie ', 'Ta ', 'Kai ', 'He ', 'Que ', 'Chuang ', 'Guan ', 'Dou ', 'Qi ', 'Kui ', 'Tang ', 'Guan ', 'Piao ', 'Kan ', 'Xi ',
-    'Hui ', 'Chan ', 'Pi ', 'Dang ', 'Huan ', 'Ta ', 'Wen ', NULL, 'Men ', 'Shuan ', 'Shan ', 'Yan ', 'Han ', 'Bi ', 'Wen ', 'Chuang ',
-    'Run ', 'Wei ', 'Xian ', 'Hong ', 'Jian ', 'Min ', 'Kang ', 'Men ', 'Zha ', 'Nao ', 'Gui ', 'Wen ', 'Ta ', 'Min ', 'Lu ', 'Kai '),
-);
+    'Hui ', 'Chan ', 'Pi ', 'Dang ', 'Huan ', 'Ta ', 'Wen ', null, 'Men ', 'Shuan ', 'Shan ', 'Yan ', 'Han ', 'Bi ', 'Wen ', 'Chuang ',
+    'Run ', 'Wei ', 'Xian ', 'Hong ', 'Jian ', 'Min ', 'Kang ', 'Men ', 'Zha ', 'Nao ', 'Gui ', 'Wen ', 'Ta ', 'Min ', 'Lu ', 'Kai '],
+];

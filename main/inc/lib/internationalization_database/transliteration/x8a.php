@@ -1,8 +1,8 @@
 <?php
 // $Id: x8a.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Yan ', 'Yan ', 'Ding ', 'Fu ', 'Qiu ', 'Qiu ', 'Jiao ', 'Hong ', 'Ji ', 'Fan ', 'Xun ', 'Diao ', 'Hong ', 'Cha ', 'Tao ', 'Xu ',
+return [
+  'en' => ['Yan ', 'Yan ', 'Ding ', 'Fu ', 'Qiu ', 'Qiu ', 'Jiao ', 'Hong ', 'Ji ', 'Fan ', 'Xun ', 'Diao ', 'Hong ', 'Cha ', 'Tao ', 'Xu ',
     'Jie ', 'Yi ', 'Ren ', 'Xun ', 'Yin ', 'Shan ', 'Qi ', 'Tuo ', 'Ji ', 'Xun ', 'Yin ', 'E ', 'Fen ', 'Ya ', 'Yao ', 'Song ',
     'Shen ', 'Yin ', 'Xin ', 'Jue ', 'Xiao ', 'Ne ', 'Chen ', 'You ', 'Zhi ', 'Xiong ', 'Fang ', 'Xin ', 'Chao ', 'She ', 'Xian ', 'Sha ',
     'Tun ', 'Xu ', 'Yi ', 'Yi ', 'Su ', 'Chi ', 'He ', 'Shen ', 'He ', 'Xu ', 'Zhen ', 'Zhu ', 'Zheng ', 'Gou ', 'Zi ', 'Zi ',
@@ -17,5 +17,5 @@ return array(
     'Pi ', 'Chuo ', 'Chan ', 'Chen ', 'Zhun ', 'Ji ', 'Qi ', 'Tan ', 'Zhui ', 'Wei ', 'Ju ', 'Qing ', 'Jian ', 'Zheng ', 'Ze ', 'Zou ',
     'Qian ', 'Zhuo ', 'Liang ', 'Jian ', 'Zhu ', 'Hao ', 'Lun ', 'Shen ', 'Biao ', 'Huai ', 'Pian ', 'Yu ', 'Die ', 'Xu ', 'Pian ', 'Shi ',
     'Xuan ', 'Shi ', 'Hun ', 'Hua ', 'E ', 'Zhong ', 'Di ', 'Xie ', 'Fu ', 'Pu ', 'Ting ', 'Jian ', 'Qi ', 'Yu ', 'Zi ', 'Chuan ',
-    'Xi ', 'Hui ', 'Yin ', 'An ', 'Xian ', 'Nan ', 'Chen ', 'Feng ', 'Zhu ', 'Yang ', 'Yan ', 'Heng ', 'Xuan ', 'Ge ', 'Nuo ', 'Qi '),
-);
+    'Xi ', 'Hui ', 'Yin ', 'An ', 'Xian ', 'Nan ', 'Chen ', 'Feng ', 'Zhu ', 'Yang ', 'Yan ', 'Heng ', 'Xuan ', 'Ge ', 'Nuo ', 'Qi '],
+];

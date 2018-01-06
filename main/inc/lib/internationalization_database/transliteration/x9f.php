@@ -1,8 +1,8 @@
 <?php
 // $Id: x9f.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('Cu ', 'Qu ', 'Chao ', 'Wa ', 'Zhu ', 'Zhi ', 'Mang ', 'Ao ', 'Bie ', 'Tuo ', 'Bi ', 'Yuan ', 'Chao ', 'Tuo ', 'Ding ', 'Mi ',
+return [
+  'en' => ['Cu ', 'Qu ', 'Chao ', 'Wa ', 'Zhu ', 'Zhi ', 'Mang ', 'Ao ', 'Bie ', 'Tuo ', 'Bi ', 'Yuan ', 'Chao ', 'Tuo ', 'Ding ', 'Mi ',
     'Nai ', 'Ding ', 'Zi ', 'Gu ', 'Gu ', 'Dong ', 'Fen ', 'Tao ', 'Yuan ', 'Pi ', 'Chang ', 'Gao ', 'Qi ', 'Yuan ', 'Tang ', 'Teng ',
     'Shu ', 'Shu ', 'Fen ', 'Fei ', 'Wen ', 'Ba ', 'Diao ', 'Tuo ', 'Tong ', 'Qu ', 'Sheng ', 'Shi ', 'You ', 'Shi ', 'Ting ', 'Wu ',
     'Nian ', 'Jing ', 'Hun ', 'Ju ', 'Yan ', 'Tu ', 'Ti ', 'Xi ', 'Xian ', 'Yan ', 'Lei ', 'Bi ', 'Yao ', 'Qiu ', 'Han ', 'Wu ',
@@ -12,10 +12,10 @@ return array(
     'Cuo ', 'Zou ', 'Qu ', 'Nen ', 'Xian ', 'Ou ', 'E ', 'Wo ', 'Yi ', 'Chuo ', 'Zou ', 'Dian ', 'Chu ', 'Jin ', 'Ya ', 'Chi ',
     'Chen ', 'He ', 'Ken ', 'Ju ', 'Ling ', 'Pao ', 'Tiao ', 'Zi ', 'Ken ', 'Yu ', 'Chuo ', 'Qu ', 'Wo ', 'Long ', 'Pang ', 'Gong ',
     'Pang ', 'Yan ', 'Long ', 'Long ', 'Gong ', 'Kan ', 'Ta ', 'Ling ', 'Ta ', 'Long ', 'Gong ', 'Kan ', 'Gui ', 'Qiu ', 'Bie ', 'Gui ',
-    'Yue ', 'Chui ', 'He ', 'Jue ', 'Xie ', 'Yu ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-);
+    'Yue ', 'Chui ', 'He ', 'Jue ', 'Xie ', 'Yu ', null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+];

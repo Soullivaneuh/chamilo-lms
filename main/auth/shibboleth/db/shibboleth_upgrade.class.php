@@ -22,8 +22,7 @@ class ShibbolethUpgrade
     public static function update()
     {
         static $done = false;
-        if ($done)
-        {
+        if ($done) {
             return false;
         }
         $done = true;
@@ -46,8 +45,7 @@ class ShibbolethUpgrade
         $row = mysql_fetch_assoc($result);
 
         $exists = array_key_exists('shibb_unique_id', $row);
-        if ($exists)
-        {
+        if ($exists) {
             return false;
         }
 
@@ -72,8 +70,7 @@ class ShibbolethUpgrade
         $row = mysql_fetch_assoc($result);
         $exists = array_key_exists('shibb_persistent_id', $row);
 
-        if ($exists)
-        {
+        if ($exists) {
             return false;
         }
 
@@ -81,5 +78,4 @@ class ShibbolethUpgrade
         $result = Database::query($sql);
         return (bool) $result;
     }
-
 }

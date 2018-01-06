@@ -48,15 +48,13 @@ class HTML_QuickForm_Rule_Required extends HTML_QuickForm_Rule
                 isset($value['tmp_name']) &&
                 isset($value['size']) &&
                 isset($value['error'])
-            ){
+            ) {
                 if (empty($value['tmp_name'])) {
-
                     return false;
                 }
             }
         } else {
             if ((string)$value == '') {
-
                 return false;
             }
         }
@@ -67,6 +65,6 @@ class HTML_QuickForm_Rule_Required extends HTML_QuickForm_Rule
 
     public function getValidationScript($options = null)
     {
-        return array('', "{jsVar} == ''");
+        return ['', "{jsVar} == ''"];
     }
 }

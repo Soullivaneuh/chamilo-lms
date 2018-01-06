@@ -1,8 +1,8 @@
 <?php
 // $Id: xaf.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ggyeols', 'ggyeolt', 'ggyeolp', 'ggyeolh', 'ggyeom', 'ggyeob', 'ggyeobs', 'ggyeos', 'ggyeoss', 'ggyeong', 'ggyeoj', 'ggyeoc', 'ggyeok', 'ggyeot', 'ggyeop', 'ggyeoh',
+return [
+  'en' => ['ggyeols', 'ggyeolt', 'ggyeolp', 'ggyeolh', 'ggyeom', 'ggyeob', 'ggyeobs', 'ggyeos', 'ggyeoss', 'ggyeong', 'ggyeoj', 'ggyeoc', 'ggyeok', 'ggyeot', 'ggyeop', 'ggyeoh',
     'ggye', 'ggyeg', 'ggyegg', 'ggyegs', 'ggyen', 'ggyenj', 'ggyenh', 'ggyed', 'ggyel', 'ggyelg', 'ggyelm', 'ggyelb', 'ggyels', 'ggyelt', 'ggyelp', 'ggyelh',
     'ggyem', 'ggyeb', 'ggyebs', 'ggyes', 'ggyess', 'ggyeng', 'ggyej', 'ggyec', 'ggyek', 'ggyet', 'ggyep', 'ggyeh', 'ggo', 'ggog', 'ggogg', 'ggogs',
     'ggon', 'ggonj', 'ggonh', 'ggod', 'ggol', 'ggolg', 'ggolm', 'ggolb', 'ggols', 'ggolt', 'ggolp', 'ggolh', 'ggom', 'ggob', 'ggobs', 'ggos',
@@ -17,5 +17,5 @@ return array(
     'ggul', 'ggulg', 'ggulm', 'ggulb', 'gguls', 'ggult', 'ggulp', 'ggulh', 'ggum', 'ggub', 'ggubs', 'ggus', 'gguss', 'ggung', 'gguj', 'gguc',
     'gguk', 'ggut', 'ggup', 'gguh', 'ggweo', 'ggweog', 'ggweogg', 'ggweogs', 'ggweon', 'ggweonj', 'ggweonh', 'ggweod', 'ggweol', 'ggweolg', 'ggweolm', 'ggweolb',
     'ggweols', 'ggweolt', 'ggweolp', 'ggweolh', 'ggweom', 'ggweob', 'ggweobs', 'ggweos', 'ggweoss', 'ggweong', 'ggweoj', 'ggweoc', 'ggweok', 'ggweot', 'ggweop', 'ggweoh',
-    'ggwe', 'ggweg', 'ggwegg', 'ggwegs', 'ggwen', 'ggwenj', 'ggwenh', 'ggwed', 'ggwel', 'ggwelg', 'ggwelm', 'ggwelb', 'ggwels', 'ggwelt', 'ggwelp', 'ggwelh'),
-);
+    'ggwe', 'ggweg', 'ggwegg', 'ggwegs', 'ggwen', 'ggwenj', 'ggwenh', 'ggwed', 'ggwel', 'ggwelg', 'ggwelm', 'ggwelb', 'ggwels', 'ggwelt', 'ggwelp', 'ggwelh'],
+];

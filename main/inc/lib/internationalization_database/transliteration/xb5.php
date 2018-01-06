@@ -1,8 +1,8 @@
 <?php
 // $Id: xb5.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('dyil', 'dyilg', 'dyilm', 'dyilb', 'dyils', 'dyilt', 'dyilp', 'dyilh', 'dyim', 'dyib', 'dyibs', 'dyis', 'dyiss', 'dying', 'dyij', 'dyic',
+return [
+  'en' => ['dyil', 'dyilg', 'dyilm', 'dyilb', 'dyils', 'dyilt', 'dyilp', 'dyilh', 'dyim', 'dyib', 'dyibs', 'dyis', 'dyiss', 'dying', 'dyij', 'dyic',
     'dyik', 'dyit', 'dyip', 'dyih', 'di', 'dig', 'digg', 'digs', 'din', 'dinj', 'dinh', 'did', 'dil', 'dilg', 'dilm', 'dilb',
     'dils', 'dilt', 'dilp', 'dilh', 'dim', 'dib', 'dibs', 'dis', 'diss', 'ding', 'dij', 'dic', 'dik', 'dit', 'dip', 'dih',
     'dda', 'ddag', 'ddagg', 'ddags', 'ddan', 'ddanj', 'ddanh', 'ddad', 'ddal', 'ddalg', 'ddalm', 'ddalb', 'ddals', 'ddalt', 'ddalp', 'ddalh',
@@ -17,5 +17,5 @@ return array(
     'dden', 'ddenj', 'ddenh', 'dded', 'ddel', 'ddelg', 'ddelm', 'ddelb', 'ddels', 'ddelt', 'ddelp', 'ddelh', 'ddem', 'ddeb', 'ddebs', 'ddes',
     'ddess', 'ddeng', 'ddej', 'ddec', 'ddek', 'ddet', 'ddep', 'ddeh', 'ddyeo', 'ddyeog', 'ddyeogg', 'ddyeogs', 'ddyeon', 'ddyeonj', 'ddyeonh', 'ddyeod',
     'ddyeol', 'ddyeolg', 'ddyeolm', 'ddyeolb', 'ddyeols', 'ddyeolt', 'ddyeolp', 'ddyeolh', 'ddyeom', 'ddyeob', 'ddyeobs', 'ddyeos', 'ddyeoss', 'ddyeong', 'ddyeoj', 'ddyeoc',
-    'ddyeok', 'ddyeot', 'ddyeop', 'ddyeoh', 'ddye', 'ddyeg', 'ddyegg', 'ddyegs', 'ddyen', 'ddyenj', 'ddyenh', 'ddyed', 'ddyel', 'ddyelg', 'ddyelm', 'ddyelb'),
-);
+    'ddyeok', 'ddyeot', 'ddyeop', 'ddyeoh', 'ddye', 'ddyeg', 'ddyegg', 'ddyegs', 'ddyen', 'ddyenj', 'ddyenh', 'ddyed', 'ddyel', 'ddyelg', 'ddyelm', 'ddyelb'],
+];

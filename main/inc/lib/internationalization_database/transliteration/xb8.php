@@ -1,8 +1,8 @@
 <?php
 // $Id: xb8.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('reoss', 'reong', 'reoj', 'reoc', 'reok', 'reot', 'reop', 'reoh', 're', 'reg', 'regg', 'regs', 'ren', 'renj', 'renh', 'red',
+return [
+  'en' => ['reoss', 'reong', 'reoj', 'reoc', 'reok', 'reot', 'reop', 'reoh', 're', 'reg', 'regg', 'regs', 'ren', 'renj', 'renh', 'red',
     'rel', 'relg', 'relm', 'relb', 'rels', 'relt', 'relp', 'relh', 'rem', 'reb', 'rebs', 'res', 'ress', 'reng', 'rej', 'rec',
     'rek', 'ret', 'rep', 'reh', 'ryeo', 'ryeog', 'ryeogg', 'ryeogs', 'ryeon', 'ryeonj', 'ryeonh', 'ryeod', 'ryeol', 'ryeolg', 'ryeolm', 'ryeolb',
     'ryeols', 'ryeolt', 'ryeolp', 'ryeolh', 'ryeom', 'ryeob', 'ryeobs', 'ryeos', 'ryeoss', 'ryeong', 'ryeoj', 'ryeoc', 'ryeok', 'ryeot', 'ryeop', 'ryeoh',
@@ -17,5 +17,5 @@ return array(
     'roem', 'roeb', 'roebs', 'roes', 'roess', 'roeng', 'roej', 'roec', 'roek', 'roet', 'roep', 'roeh', 'ryo', 'ryog', 'ryogg', 'ryogs',
     'ryon', 'ryonj', 'ryonh', 'ryod', 'ryol', 'ryolg', 'ryolm', 'ryolb', 'ryols', 'ryolt', 'ryolp', 'ryolh', 'ryom', 'ryob', 'ryobs', 'ryos',
     'ryoss', 'ryong', 'ryoj', 'ryoc', 'ryok', 'ryot', 'ryop', 'ryoh', 'ru', 'rug', 'rugg', 'rugs', 'run', 'runj', 'runh', 'rud',
-    'rul', 'rulg', 'rulm', 'rulb', 'ruls', 'rult', 'rulp', 'rulh', 'rum', 'rub', 'rubs', 'rus', 'russ', 'rung', 'ruj', 'ruc'),
-);
+    'rul', 'rulg', 'rulm', 'rulb', 'ruls', 'rult', 'rulp', 'rulh', 'rum', 'rub', 'rubs', 'rus', 'russ', 'rung', 'ruj', 'ruc'],
+];

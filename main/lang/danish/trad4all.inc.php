@@ -3002,4 +3002,3 @@ $ClarContent2 = "Ryd indhold";
 $HGroups = "Grupper";
 $GroupsContent = "Gruppernes indhold";
 $Guide = "Manual";
-?>

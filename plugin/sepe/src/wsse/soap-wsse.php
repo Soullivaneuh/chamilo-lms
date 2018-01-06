@@ -53,7 +53,8 @@ class WSSESoap
     const WSUNAME = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0';
     const WSSEPFX = 'wsse';
     const WSUPFX = 'wsu';
-    private $soapNS, $soapPFX;
+    private $soapNS;
+    private $soapPFX;
     private $soapDoc = null;
     private $envelope = null;
     private $SOAPXPath = null;
@@ -81,7 +82,7 @@ class WSSESoap
             if (!$secnode) {
                 $secnode = $this->soapDoc->createElementNS(self::WSSENS, self::WSSEPFX.':Security');
                 ///if (isset($secnode) && !empty($secnode)) {
-                    $header->appendChild($secnode);
+                $header->appendChild($secnode);
                 //}
                 if ($bMustUnderstand) {
                     $secnode->setAttributeNS($this->soapNS, $this->soapPFX.':mustUnderstand', '1');
@@ -225,7 +226,7 @@ class WSSESoap
     {
         $objDSig = new XMLSecurityDSig();
         $objDSig->setCanonicalMethod(XMLSecurityDSig::EXC_C14N);
-        $arNodes = array();
+        $arNodes = [];
         foreach ($this->secNode->childNodes as $node) {
             if ($node->nodeType == XML_ELEMENT_NODE) {
                 $arNodes[] = $node;
@@ -253,7 +254,7 @@ class WSSESoap
             $algorithm = $options["algorithm"];
         }
 
-        $arOptions = array('prefix' => self::WSUPFX, 'prefix_ns' => self::WSUNS);
+        $arOptions = ['prefix' => self::WSUPFX, 'prefix_ns' => self::WSUNS];
         $objDSig->addReferenceList($arNodes, $algorithm, null, $arOptions);
 
         $objDSig->sign($objKey);
@@ -464,7 +465,6 @@ class WSSESoap
 
     public function decryptSoapDoc($doc, $options)
     {
-
         $privKey = null;
         $privKey_isFile = false;
         $privKey_isCert = false;
@@ -484,7 +484,7 @@ class WSSESoap
 
         $nodes = $xpath->query('/soapns:Envelope/soapns:Header/*[local-name()="Security"]/soapenc:EncryptedKey');
 
-        $references = array();
+        $references = [];
         if ($node = $nodes->item(0)) {
             $objenc = new XMLSecEnc();
             $objenc->setNode($node);
@@ -537,4 +537,3 @@ class WSSESoap
         return $this->soapDoc->save($file);
     }
 }
-

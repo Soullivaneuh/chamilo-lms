@@ -19,12 +19,12 @@ class PENSPlugin extends Plugin implements HookPluginInterface
      */
     public function __construct()
     {
-        $parameters = array(
-        );
+        $parameters = [
+        ];
 
         parent::__construct($this->get_version(), $this->get_author(), $parameters);
 
-        $this->errorMessages = array();
+        $this->errorMessages = [];
     }
 
     /**
@@ -164,7 +164,7 @@ class PENSPlugin extends Plugin implements HookPluginInterface
      */
     public function get_info()
     {
-        $result = array();
+        $result = [];
         $result['title'] = $this->get_name();
         $result['comment'] = 'Provides support for the PENS course exchange standard. Read the readme.txt file in the plugin/pens/ folder for a complete installation.';
         $result['version'] = $this->get_version();

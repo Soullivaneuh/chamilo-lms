@@ -50,7 +50,7 @@ class Text_CAPTCHA_Driver_Numeral extends Text_CAPTCHA_Driver_Base
      *
      * @var array $_operators The operations for the captcha.
      */
-    private $_operators = array('-', '+');
+    private $_operators = ['-', '+'];
 
     /**
      * This variable is basically the operation that we're going to be using in the
@@ -85,7 +85,7 @@ class Text_CAPTCHA_Driver_Numeral extends Text_CAPTCHA_Driver_Base
      *
      * @return void
      */
-    public function initDriver($options = array())
+    public function initDriver($options = [])
     {
         if (isset($options['minValue'])) {
             $this->_minValue = (int)$options['minValue'];

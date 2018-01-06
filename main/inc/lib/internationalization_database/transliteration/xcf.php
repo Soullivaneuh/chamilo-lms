@@ -1,8 +1,8 @@
 <?php
 // $Id: xcf.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('ke', 'keg', 'kegg', 'kegs', 'ken', 'kenj', 'kenh', 'ked', 'kel', 'kelg', 'kelm', 'kelb', 'kels', 'kelt', 'kelp', 'kelh',
+return [
+  'en' => ['ke', 'keg', 'kegg', 'kegs', 'ken', 'kenj', 'kenh', 'ked', 'kel', 'kelg', 'kelm', 'kelb', 'kels', 'kelt', 'kelp', 'kelh',
     'kem', 'keb', 'kebs', 'kes', 'kess', 'keng', 'kej', 'kec', 'kek', 'ket', 'kep', 'keh', 'kyeo', 'kyeog', 'kyeogg', 'kyeogs',
     'kyeon', 'kyeonj', 'kyeonh', 'kyeod', 'kyeol', 'kyeolg', 'kyeolm', 'kyeolb', 'kyeols', 'kyeolt', 'kyeolp', 'kyeolh', 'kyeom', 'kyeob', 'kyeobs', 'kyeos',
     'kyeoss', 'kyeong', 'kyeoj', 'kyeoc', 'kyeok', 'kyeot', 'kyeop', 'kyeoh', 'kye', 'kyeg', 'kyegg', 'kyegs', 'kyen', 'kyenj', 'kyenh', 'kyed',
@@ -17,5 +17,5 @@ return array(
     'koek', 'koet', 'koep', 'koeh', 'kyo', 'kyog', 'kyogg', 'kyogs', 'kyon', 'kyonj', 'kyonh', 'kyod', 'kyol', 'kyolg', 'kyolm', 'kyolb',
     'kyols', 'kyolt', 'kyolp', 'kyolh', 'kyom', 'kyob', 'kyobs', 'kyos', 'kyoss', 'kyong', 'kyoj', 'kyoc', 'kyok', 'kyot', 'kyop', 'kyoh',
     'ku', 'kug', 'kugg', 'kugs', 'kun', 'kunj', 'kunh', 'kud', 'kul', 'kulg', 'kulm', 'kulb', 'kuls', 'kult', 'kulp', 'kulh',
-    'kum', 'kub', 'kubs', 'kus', 'kuss', 'kung', 'kuj', 'kuc', 'kuk', 'kut', 'kup', 'kuh', 'kweo', 'kweog', 'kweogg', 'kweogs'),
-);
+    'kum', 'kub', 'kubs', 'kus', 'kuss', 'kung', 'kuj', 'kuc', 'kuk', 'kut', 'kup', 'kuh', 'kweo', 'kweog', 'kweogg', 'kweogs'],
+];

@@ -7913,4 +7913,3 @@ $BestScoreNotInLearningPath = "Najboljši rezultat izven učnih poti";
 $ReSendConfirmationMail = "Ponovno pošlji potrditveno sporočilo";
 $UserConfirmedNowYouCanLogInThePlatform = "Potrditev uporabnika je bila uspešna. Seaj se lahko prijavite v platformo.";
 $YourSessionTimeIsExpired = "Čas tvoje seje je potekel";
-?>

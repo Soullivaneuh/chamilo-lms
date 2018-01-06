@@ -7975,4 +7975,3 @@ $SendEmailToTeacherWhenStudentEndQuizOnlyIfOpenQuestion = "E-Mail an den Tutor s
 $SendEmailToTeacherWhenStudentEndQuizOnlyIfOralQuestion = "E-Mail an den Tutor senden, wenn der Lernende eine Übung beendet hat, aber nur wenn er eine mündliche Frage beantwortet hat";
 $TempScoreXQuestionsNotCorrectedYet = "Temporäre Auswertung: %s offene Frage(n) noch nicht korrigiert.";
 $GoToSurvey = "Zur Umfrage";
-?>

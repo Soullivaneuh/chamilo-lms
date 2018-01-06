@@ -6838,4 +6838,3 @@ $WorkEmailAlertActivateOnlyForTeachers = "Permite doar profesorilor a observa do
 $WorkEmailAlertActivateOnlyForStudents = "Permite doar studenților a observa doar prin e-mail de a trimite o nouă sarcină";
 $Uncategorized = "Fara categorie";
 $NaturalYear = "An natural";
-?>

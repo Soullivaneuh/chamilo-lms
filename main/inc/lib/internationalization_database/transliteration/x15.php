@@ -1,8 +1,8 @@
 <?php
 // $Id: x15.php,v 1.1.8.1 2008/06/12 20:34:31 smk Exp $
 
-return array(
-  'en' => array('swa', 'swa', 'swaa', 'swaa', 'swaa', 's', 's', 'sw', 's', 'sk', 'skw', 'sW', 'spwa', 'stwa', 'skwa', 'scwa',
+return [
+  'en' => ['swa', 'swa', 'swaa', 'swaa', 'swaa', 's', 's', 'sw', 's', 'sk', 'skw', 'sW', 'spwa', 'stwa', 'skwa', 'scwa',
     'she', 'shi', 'shii', 'sho', 'shoo', 'sha', 'shaa', 'shwe', 'shwe', 'shwi', 'shwi', 'shwii', 'shwii', 'shwo', 'shwo', 'shwoo',
     'shwoo', 'shwa', 'shwa', 'shwaa', 'shwaa', 'sh', 'ye', 'yaai', 'yi', 'yii', 'yo', 'yoo', 'yoo', 'ya', 'yaa', 'ywe',
     'ywe', 'ywi', 'ywi', 'ywii', 'ywii', 'ywo', 'ywo', 'ywoo', 'ywoo', 'ywa', 'ywa', 'ywaa', 'ywaa', 'ywaa', 'y', 'y',
@@ -17,5 +17,5 @@ return array(
     'he', 'hi', 'ho', 'ha', 'ghu', 'gho', 'ghe', 'ghee', 'ghi', 'gha', 'ru', 'ro', 're', 'ree', 'ri', 'ra',
     'wu', 'wo', 'we', 'wee', 'wi', 'wa', 'hwu', 'hwo', 'hwe', 'hwee', 'hwi', 'hwa', 'thu', 'tho', 'the', 'thee',
     'thi', 'tha', 'ttu', 'tto', 'tte', 'ttee', 'tti', 'tta', 'pu', 'po', 'pe', 'pee', 'pi', 'pa', 'p', 'gu',
-    'go', 'ge', 'gee', 'gi', 'ga', 'khu', 'kho', 'khe', 'khee', 'khi', 'kha', 'kku', 'kko', 'kke', 'kkee', 'kki'),
-);
+    'go', 'ge', 'gee', 'gi', 'ga', 'khu', 'kho', 'khe', 'khee', 'khi', 'kha', 'kku', 'kko', 'kke', 'kkee', 'kki'],
+];

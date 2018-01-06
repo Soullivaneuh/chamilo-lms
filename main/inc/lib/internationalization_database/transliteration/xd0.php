@@ -1,8 +1,8 @@
 <?php
 // $Id: xd0.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('kweon', 'kweonj', 'kweonh', 'kweod', 'kweol', 'kweolg', 'kweolm', 'kweolb', 'kweols', 'kweolt', 'kweolp', 'kweolh', 'kweom', 'kweob', 'kweobs', 'kweos',
+return [
+  'en' => ['kweon', 'kweonj', 'kweonh', 'kweod', 'kweol', 'kweolg', 'kweolm', 'kweolb', 'kweols', 'kweolt', 'kweolp', 'kweolh', 'kweom', 'kweob', 'kweobs', 'kweos',
     'kweoss', 'kweong', 'kweoj', 'kweoc', 'kweok', 'kweot', 'kweop', 'kweoh', 'kwe', 'kweg', 'kwegg', 'kwegs', 'kwen', 'kwenj', 'kwenh', 'kwed',
     'kwel', 'kwelg', 'kwelm', 'kwelb', 'kwels', 'kwelt', 'kwelp', 'kwelh', 'kwem', 'kweb', 'kwebs', 'kwes', 'kwess', 'kweng', 'kwej', 'kwec',
     'kwek', 'kwet', 'kwep', 'kweh', 'kwi', 'kwig', 'kwigg', 'kwigs', 'kwin', 'kwinj', 'kwinh', 'kwid', 'kwil', 'kwilg', 'kwilm', 'kwilb',
@@ -17,5 +17,5 @@ return array(
     'ta', 'tag', 'tagg', 'tags', 'tan', 'tanj', 'tanh', 'tad', 'tal', 'talg', 'talm', 'talb', 'tals', 'talt', 'talp', 'talh',
     'tam', 'tab', 'tabs', 'tas', 'tass', 'tang', 'taj', 'tac', 'tak', 'tat', 'tap', 'tah', 'tae', 'taeg', 'taegg', 'taegs',
     'taen', 'taenj', 'taenh', 'taed', 'tael', 'taelg', 'taelm', 'taelb', 'taels', 'taelt', 'taelp', 'taelh', 'taem', 'taeb', 'taebs', 'taes',
-    'taess', 'taeng', 'taej', 'taec', 'taek', 'taet', 'taep', 'taeh', 'tya', 'tyag', 'tyagg', 'tyags', 'tyan', 'tyanj', 'tyanh', 'tyad'),
-);
+    'taess', 'taeng', 'taej', 'taec', 'taek', 'taet', 'taep', 'taeh', 'tya', 'tyag', 'tyagg', 'tyags', 'tyan', 'tyanj', 'tyanh', 'tyad'],
+];

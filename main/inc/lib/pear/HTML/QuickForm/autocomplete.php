@@ -55,7 +55,7 @@ class HTML_QuickForm_autocomplete extends HTML_QuickForm_text
      * @var       array
      * @access    private
      */
-    public $_options = array();
+    public $_options = [];
 
     /**
      * "One-time" javascript (containing functions), see bug #4611
@@ -99,7 +99,7 @@ class HTML_QuickForm_autocomplete extends HTML_QuickForm_text
      * @access    public
      * @return    void
      */
-    function setOptions($options)
+    public function setOptions($options)
     {
         $this->_options = array_values($options);
     } // end func setOptions
@@ -113,14 +113,14 @@ class HTML_QuickForm_autocomplete extends HTML_QuickForm_text
      * @access      public
      * @return      string
      */
-    function toHtml()
+    public function toHtml()
     {
         // prevent problems with grouped elements
-        $arrayName = str_replace(array('[', ']'), array('__', ''), $this->getName()) . '_values';
+        $arrayName = str_replace(['[', ']'], ['__', ''], $this->getName()) . '_values';
 
-        $this->updateAttributes(array(
+        $this->updateAttributes([
             'onkeypress' => 'return autocomplete(this, event, ' . $arrayName . ');'
-        ));
+        ]);
         if ($this->_flagFrozen) {
             $js = '';
         } else {
@@ -229,14 +229,14 @@ function autocomplete(textbox, event, values) {
 EOS;
                 define('HTML_QUICKFORM_AUTOCOMPLETE_EXISTS', true);
             }
-            $jsEscape = array(
+            $jsEscape = [
                 "\r"    => '\r',
                 "\n"    => '\n',
                 "\t"    => '\t',
                 "'"     => "\\'",
                 '"'     => '\"',
                 '\\'    => '\\\\'
-            );
+            ];
 
             $js .= $this->_js;
             $js .= 'var ' . $arrayName . " = new Array();\n";
@@ -250,4 +250,3 @@ EOS;
 
     // }}}
 } // end class HTML_QuickForm_autocomplete
-?>

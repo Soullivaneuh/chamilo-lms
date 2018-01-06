@@ -41,25 +41,25 @@ class OLE_ChainedBlockStream extends PEAR
      * The OLE container of the file that is being read.
      * @var OLE
      */
-    var $ole;
+    public $ole;
 
     /**
      * Parameters specified by fopen().
      * @var array
      */
-    var $params;
+    public $params;
 
     /**
      * The binary data of the file.
      * @var  string
      */
-    var $data;
+    public $data;
 
     /**
      * The file pointer.
      * @var  int  byte offset
      */
-    var $pos;
+    public $pos;
 
     /**
      * Implements support for fopen().
@@ -71,7 +71,7 @@ class OLE_ChainedBlockStream extends PEAR
      * @param  string  absolute path of the opened stream (out parameter)
      * @return bool    true on success
      */
-    function stream_open($path, $mode, $options, &$openedPath)
+    public function stream_open($path, $mode, $options, &$openedPath)
     {
         if ($mode != 'r') {
             if ($options & STREAM_REPORT_ERRORS) {
@@ -85,7 +85,6 @@ class OLE_ChainedBlockStream extends PEAR
         if (!isset($this->params['oleInstanceId'],
                    $this->params['blockId'],
                    $GLOBALS['_OLE_INSTANCES'][$this->params['oleInstanceId']])) {
-
             if ($options & STREAM_REPORT_ERRORS) {
                 trigger_error('OLE stream not found', E_USER_WARNING);
             }
@@ -131,7 +130,7 @@ class OLE_ChainedBlockStream extends PEAR
      * Implements support for fclose().
      * @return  string
      */
-    function stream_close()
+    public function stream_close()
     {
         $this->ole = null;
         unset($GLOBALS['_OLE_INSTANCES']);
@@ -142,7 +141,7 @@ class OLE_ChainedBlockStream extends PEAR
      * @param   int  maximum number of bytes to read
      * @return  string
      */
-    function stream_read($count)
+    public function stream_read($count)
     {
         if ($this->stream_eof()) {
             return false;
@@ -156,14 +155,13 @@ class OLE_ChainedBlockStream extends PEAR
      * Implements support for feof().
      * @return  bool  TRUE if the file pointer is at EOF; otherwise FALSE
      */
-    function stream_eof()
+    public function stream_eof()
     {
         $eof = $this->pos >= strlen($this->data);
         // Workaround for bug in PHP 5.0.x: http://bugs.php.net/27508
         if (version_compare(PHP_VERSION, '5.0', '>=') &&
             version_compare(PHP_VERSION, '5.1', '<')) {
-
-           $eof = !$eof;
+            $eof = !$eof;
         }
         return $eof;
     }
@@ -173,7 +171,7 @@ class OLE_ChainedBlockStream extends PEAR
      * stream. Implements support for ftell().
      * @return  int
      */
-    function stream_tell()
+    public function stream_tell()
     {
         return $this->pos;
     }
@@ -184,7 +182,7 @@ class OLE_ChainedBlockStream extends PEAR
      * @param   int  SEEK_SET, SEEK_CUR or SEEK_END
      * @return  bool
      */
-    function stream_seek($offset, $whence)
+    public function stream_seek($offset, $whence)
     {
         if ($whence == SEEK_SET && $offset >= 0) {
             $this->pos = $offset;
@@ -203,11 +201,11 @@ class OLE_ChainedBlockStream extends PEAR
      * "size".
      * @return  array
      */
-    function stream_stat()
+    public function stream_stat()
     {
-        return array(
+        return [
             'size' => strlen($this->data),
-            );
+            ];
     }
 
     // Methods used by stream_wrapper_register() that are not implemented:
@@ -222,5 +220,3 @@ class OLE_ChainedBlockStream extends PEAR
     // bool dir_rewinddir ( void )
     // bool dir_closedir ( void )
 }
-
-?>

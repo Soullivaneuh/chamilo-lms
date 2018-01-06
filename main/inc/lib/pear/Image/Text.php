@@ -148,7 +148,7 @@ class Image_Text
      * @see Image_Text::set()
      */
 
-    private $_options = array(
+    private $_options = [
         // orientation
         'x' => 0,
         'y' => 0,
@@ -169,7 +169,7 @@ class Image_Text
         'angle' => 0,
 
         // color settings
-        'color' => array('#000000'),
+        'color' => ['#000000'],
 
         'color_mode' => 'line',
 
@@ -192,16 +192,16 @@ class Image_Text
         // misc settings
         'image_type' => IMAGETYPE_PNG,
         'dest_file' => ''
-    );
+    ];
 
     /**
      * Contains option names, which can cause re-initialization force.
      *
      * @var array
      */
-    private $_reInits = array(
+    private $_reInits = [
         'width', 'height', 'canvas', 'angle', 'font_file', 'font_path', 'font_size'
-    );
+    ];
 
     /**
      * The text you want to render.
@@ -222,7 +222,7 @@ class Image_Text
      *
      * @var array
      */
-    private $_tokens = array();
+    private $_tokens = [];
 
     /**
      * Fullpath to the font.
@@ -236,7 +236,7 @@ class Image_Text
      *
      * @var array
      */
-    private $_bbox = array();
+    private $_bbox = [];
 
     /**
      * Defines in which mode the canvas has be set.
@@ -250,14 +250,14 @@ class Image_Text
      *
      * @var array
      */
-    private $_colors = array();
+    private $_colors = [];
 
     /**
      * Width and height of the (rendered) text.
      *
      * @var array
      */
-    private $_realTextSize = array('width' => false, 'height' => false);
+    private $_realTextSize = ['width' => false, 'height' => false];
 
     /**
      * Measurized lines.
@@ -342,7 +342,7 @@ class Image_Text
             if (!isset($value)) {
                 throw new Image_Text_Exception('No value given.');
             }
-            $option = array($option => $value);
+            $option = [$option => $value];
         }
         foreach ($option as $opt => $val) {
             switch ($opt) {
@@ -423,13 +423,13 @@ class Image_Text
      * @throws Image_Text_Exception
      */
 
-    function setColor($color, $id = 0)
+    public function setColor($color, $id = 0)
     {
         if (is_array($color)) {
             if (isset($color['r']) && isset($color['g']) && isset($color['b'])) {
                 $color['a'] = isset($color['a']) ? $color['a'] : 0;
                 $this->_options['colors'][$id] = $color;
-            } else if (isset($color[0]) && isset($color[1]) && isset($color[2])) {
+            } elseif (isset($color[0]) && isset($color[1]) && isset($color[2])) {
                 $color['r'] = $color[0];
                 $color['g'] = $color[1];
                 $color['b'] = $color[2];
@@ -454,13 +454,18 @@ class Image_Text
                 $this->_colors[$id] = $aaFactor *
                     imagecolorallocatealpha(
                         $this->_img,
-                        $color['r'], $color['g'], $color['b'], $color['a']
+                        $color['r'],
+                        $color['g'],
+                        $color['b'],
+                        $color['a']
                     );
             } else {
                 $this->_colors[$id] = $aaFactor *
                     imagecolorallocate(
                         $this->_img,
-                        $color['r'], $color['g'], $color['b']
+                        $color['r'],
+                        $color['g'],
+                        $color['b']
                     );
             }
             if ($this->_colors[$id] == 0 && $aaFactor == -1) {
@@ -514,7 +519,8 @@ class Image_Text
         case (empty($this->_options['canvas'])):
             // Create new image from width && height of the clipping
             $this->_img = imagecreatetruecolor(
-                $this->_options['width'], $this->_options['height']
+                $this->_options['width'],
+                $this->_options['height']
             );
             if (!$this->_img) {
                 throw new Image_Text_Exception('Could not create image canvas.');
@@ -553,7 +559,7 @@ class Image_Text
         }
 
         if ($this->_img) {
-            $this->_options['canvas'] = array();
+            $this->_options['canvas'] = [];
             $this->_options['canvas']['width'] = imagesx($this->_img);
             $this->_options['canvas']['height'] = imagesy($this->_img);
         }
@@ -574,13 +580,18 @@ class Image_Text
                 throw new Image_Text_Exception('Background color is invalid.');
             }
             $colBg = imagecolorallocatealpha(
-                $this->_img, $arBg['r'], $arBg['g'], $arBg['b'], $arBg['a']
+                $this->_img,
+                $arBg['r'],
+                $arBg['g'],
+                $arBg['b'],
+                $arBg['a']
             );
         }
         if ($image_canvas === false) {
             imagefilledrectangle(
                 $this->_img,
-                0, 0,
+                0,
+                0,
                 $this->_options['canvas']['width'] - 1,
                 $this->_options['canvas']['height'] - 1,
                 $colBg
@@ -698,7 +709,7 @@ class Image_Text
 
         $lines_cnt = 0;
 
-        $lines = array();
+        $lines = [];
 
         $text_height = 0;
         $text_width = 0;
@@ -723,14 +734,14 @@ class Image_Text
                 } else {
                     $c = $this->_colors[$i++ % $colors_cnt];
                 }
-                $lines[] = array(
+                $lines[] = [
                     'string' => $text_line,
                     'width' => $bounds[2] - $bounds[0],
                     'height' => $bounds[1] - $bounds[7],
                     'bottom_margin' => $bounds[1],
                     'left_margin' => $bounds[0],
                     'color' => $c
-                );
+                ];
                 $text_width = max($text_width, ($bounds[2] - $bounds[0]));
                 $text_height += (int)$space;
                 if (($text_height > $block_height) && !$force) {
@@ -767,14 +778,14 @@ class Image_Text
                     $i++;
                 }
 
-                $lines[] = array(
+                $lines[] = [
                     'string' => $text_line,
                     'width' => $prev_width,
                     'height' => $bounds[1] - $bounds[7],
                     'bottom_margin' => $bounds[1],
                     'left_margin' => $bounds[0],
                     'color' => $c
-                );
+                ];
                 $text_width = max($text_width, ($bounds[2] - $bounds[0]));
                 $text_height += (int)$space;
                 if (($text_height > $block_height) && !$force) {
@@ -797,14 +808,14 @@ class Image_Text
         } else {
             $c = $this->_colors[$para_cnt % $colors_cnt];
         }
-        $lines[] = array(
+        $lines[] = [
             'string' => $text_line,
             'width' => $bounds[2] - $bounds[0],
             'height' => $bounds[1] - $bounds[7],
             'bottom_margin' => $bounds[1],
             'left_margin' => $bounds[0],
             'color' => $c
-        );
+        ];
 
         // add last line height, but without the line-spacing
         $text_height += $this->_options['font_size'];
@@ -815,9 +826,9 @@ class Image_Text
             return false;
         }
 
-        $this->_realTextSize = array(
+        $this->_realTextSize = [
             'width' => $text_width, 'height' => $text_height
-        );
+        ];
         $this->_measurizedSize = $this->_options['font_size'];
 
         return $lines;
@@ -913,7 +924,7 @@ class Image_Text
 
         $lines_cnt = min($max_lines, sizeof($lines));
 
-        $bboxes = array();
+        $bboxes = [];
         // Go thorugh lines for rendering
         for ($i = 0; $i < $lines_cnt; $i++) {
 
@@ -953,8 +964,14 @@ class Image_Text
 
             // Render textline
             $bboxes[] = imagettftext(
-                $this->_img, $size, $angle, $posx, $posy,
-                $c, $font, $lines[$i]['string']
+                $this->_img,
+                $size,
+                $angle,
+                $posx,
+                $posy,
+                $c,
+                $font,
+                $lines[$i]['string']
             );
         }
         $this->_bbox = $bboxes;
@@ -1095,33 +1112,33 @@ class Image_Text
             if ($angle) {
                 $ang = deg2rad($angle);
                 // Vector from the top left cornern ponting to the middle point
-                $vA = array(($cx - $x), ($cy - $y));
+                $vA = [($cx - $x), ($cy - $y)];
                 // Matrix to rotate vector
                 // sinus and cosinus
                 $sin = round(sin($ang), 14);
                 $cos = round(cos($ang), 14);
                 // matrix
-                $mRot = array(
+                $mRot = [
                     $cos, (-$sin),
                     $sin, $cos
-                );
+                ];
                 // Multiply vector with matrix to get the rotated vector
                 // This results in the location of the center point after rotation
-                $vB = array(
+                $vB = [
                     ($mRot[0] * $vA[0] + $mRot[2] * $vA[0]),
                     ($mRot[1] * $vA[1] + $mRot[3] * $vA[1])
-                );
+                ];
                 // To get the movement vector, we subtract the original middle
-                $vC = array(
+                $vC = [
                     ($vA[0] - $vB[0]),
                     ($vA[1] - $vB[1])
-                );
+                ];
                 // Finally we move the top left corner coords there
                 $x += $vC[0];
                 $y += $vC[1];
             }
         }
-        return array('x' => (int)round($x, 0), 'y' => (int)round($y, 0));
+        return ['x' => (int)round($x, 0), 'y' => (int)round($y, 0)];
     }
 
     /**
@@ -1138,12 +1155,12 @@ class Image_Text
     public static function convertString2RGB($scolor)
     {
         if (preg_match(self::IMAGE_TEXT_REGEX_HTMLCOLOR, $scolor, $matches)) {
-            return array(
+            return [
                 'r' => hexdec($matches[2]),
                 'g' => hexdec($matches[3]),
                 'b' => hexdec($matches[4]),
                 'a' => hexdec(!empty($matches[1]) ? $matches[1] : 0),
-            );
+            ];
         }
         return false;
     }
@@ -1158,7 +1175,7 @@ class Image_Text
         if (!isset($this->_text)) {
             return;
         }
-        $this->_tokens = array();
+        $this->_tokens = [];
 
         // Normalize linebreak to "\n"
         $this->_text = preg_replace("[\r\n]", "\n", $this->_text);

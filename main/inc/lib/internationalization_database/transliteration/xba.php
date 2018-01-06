@@ -1,8 +1,8 @@
 <?php
 // $Id: xba.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('mya', 'myag', 'myagg', 'myags', 'myan', 'myanj', 'myanh', 'myad', 'myal', 'myalg', 'myalm', 'myalb', 'myals', 'myalt', 'myalp', 'myalh',
+return [
+  'en' => ['mya', 'myag', 'myagg', 'myags', 'myan', 'myanj', 'myanh', 'myad', 'myal', 'myalg', 'myalm', 'myalb', 'myals', 'myalt', 'myalp', 'myalh',
     'myam', 'myab', 'myabs', 'myas', 'myass', 'myang', 'myaj', 'myac', 'myak', 'myat', 'myap', 'myah', 'myae', 'myaeg', 'myaegg', 'myaegs',
     'myaen', 'myaenj', 'myaenh', 'myaed', 'myael', 'myaelg', 'myaelm', 'myaelb', 'myaels', 'myaelt', 'myaelp', 'myaelh', 'myaem', 'myaeb', 'myaebs', 'myaes',
     'myaess', 'myaeng', 'myaej', 'myaec', 'myaek', 'myaet', 'myaep', 'myaeh', 'meo', 'meog', 'meogg', 'meogs', 'meon', 'meonj', 'meonh', 'meod',
@@ -17,5 +17,5 @@ return array(
     'mok', 'mot', 'mop', 'moh', 'mwa', 'mwag', 'mwagg', 'mwags', 'mwan', 'mwanj', 'mwanh', 'mwad', 'mwal', 'mwalg', 'mwalm', 'mwalb',
     'mwals', 'mwalt', 'mwalp', 'mwalh', 'mwam', 'mwab', 'mwabs', 'mwas', 'mwass', 'mwang', 'mwaj', 'mwac', 'mwak', 'mwat', 'mwap', 'mwah',
     'mwae', 'mwaeg', 'mwaegg', 'mwaegs', 'mwaen', 'mwaenj', 'mwaenh', 'mwaed', 'mwael', 'mwaelg', 'mwaelm', 'mwaelb', 'mwaels', 'mwaelt', 'mwaelp', 'mwaelh',
-    'mwaem', 'mwaeb', 'mwaebs', 'mwaes', 'mwaess', 'mwaeng', 'mwaej', 'mwaec', 'mwaek', 'mwaet', 'mwaep', 'mwaeh', 'moe', 'moeg', 'moegg', 'moegs'),
-);
+    'mwaem', 'mwaeb', 'mwaebs', 'mwaes', 'mwaess', 'mwaeng', 'mwaej', 'mwaec', 'mwaek', 'mwaet', 'mwaep', 'mwaeh', 'moe', 'moeg', 'moegg', 'moegs'],
+];

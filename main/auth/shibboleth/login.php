@@ -3,13 +3,13 @@
 namespace Shibboleth;
 
 /**
- * Shibboleth login page. 
- * 
- * Actual authentication is provided by the Shibboleth Apache security module. 
+ * Shibboleth login page.
+ *
+ * Actual authentication is provided by the Shibboleth Apache security module.
  * Shibboleth must be properly installed and configured. Then this page must
  * be secured through an Apache security directive.
- * 
- * When Shibboleth is properly set up this page will only be available for 
+ *
+ * When Shibboleth is properly set up this page will only be available for
  * authenticated users. The plugin ensure those people are created and logged in.
  *
  * @license see /license.txt
@@ -21,9 +21,9 @@ include_once __DIR__.'/init.php';
   ==============================================================================
   TEST SECTION
   ==============================================================================
- * 
+ *
  * @todo: Only for testing. Comment that out for production
- * 
+ *
  */
 //Shibboleth::session()->logout();
 //ShibbolethTest::helper()->setup_new_student_no_email();

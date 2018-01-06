@@ -1,8 +1,8 @@
 <?php
 // $Id: xb4.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('dwaen', 'dwaenj', 'dwaenh', 'dwaed', 'dwael', 'dwaelg', 'dwaelm', 'dwaelb', 'dwaels', 'dwaelt', 'dwaelp', 'dwaelh', 'dwaem', 'dwaeb', 'dwaebs', 'dwaes',
+return [
+  'en' => ['dwaen', 'dwaenj', 'dwaenh', 'dwaed', 'dwael', 'dwaelg', 'dwaelm', 'dwaelb', 'dwaels', 'dwaelt', 'dwaelp', 'dwaelh', 'dwaem', 'dwaeb', 'dwaebs', 'dwaes',
     'dwaess', 'dwaeng', 'dwaej', 'dwaec', 'dwaek', 'dwaet', 'dwaep', 'dwaeh', 'doe', 'doeg', 'doegg', 'doegs', 'doen', 'doenj', 'doenh', 'doed',
     'doel', 'doelg', 'doelm', 'doelb', 'doels', 'doelt', 'doelp', 'doelh', 'doem', 'doeb', 'doebs', 'does', 'doess', 'doeng', 'doej', 'doec',
     'doek', 'doet', 'doep', 'doeh', 'dyo', 'dyog', 'dyogg', 'dyogs', 'dyon', 'dyonj', 'dyonh', 'dyod', 'dyol', 'dyolg', 'dyolm', 'dyolb',
@@ -17,5 +17,5 @@ return array(
     'dyu', 'dyug', 'dyugg', 'dyugs', 'dyun', 'dyunj', 'dyunh', 'dyud', 'dyul', 'dyulg', 'dyulm', 'dyulb', 'dyuls', 'dyult', 'dyulp', 'dyulh',
     'dyum', 'dyub', 'dyubs', 'dyus', 'dyuss', 'dyung', 'dyuj', 'dyuc', 'dyuk', 'dyut', 'dyup', 'dyuh', 'deu', 'deug', 'deugg', 'deugs',
     'deun', 'deunj', 'deunh', 'deud', 'deul', 'deulg', 'deulm', 'deulb', 'deuls', 'deult', 'deulp', 'deulh', 'deum', 'deub', 'deubs', 'deus',
-    'deuss', 'deung', 'deuj', 'deuc', 'deuk', 'deut', 'deup', 'deuh', 'dyi', 'dyig', 'dyigg', 'dyigs', 'dyin', 'dyinj', 'dyinh', 'dyid'),
-);
+    'deuss', 'deung', 'deuj', 'deuc', 'deuk', 'deut', 'deup', 'deuh', 'dyi', 'dyig', 'dyigg', 'dyigs', 'dyin', 'dyinj', 'dyinh', 'dyid'],
+];

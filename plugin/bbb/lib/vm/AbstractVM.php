@@ -14,7 +14,7 @@ abstract class AbstractVM
     public $vmMaxSize;
     public $apiKey;
     public $vmClientId;
-    public $messages = array();
+    public $messages = [];
     protected $connector;
 
     /**

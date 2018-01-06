@@ -72,9 +72,9 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setName($name)
+    public function setName($name)
     {
-        $this->updateAttributes(array('name'=>$name));
+        $this->updateAttributes(['name'=>$name]);
     } //end func setName
 
     // }}}
@@ -87,7 +87,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    string
      */
-    function getName()
+    public function getName()
     {
         return $this->getAttribute('name');
     } //end func getName
@@ -103,7 +103,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setValue($value)
+    public function setValue($value)
     {
         $this->_value = $value;
     } //end func setValue
@@ -118,7 +118,7 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    string
      */
-    function getValue()
+    public function getValue()
     {
         return $this->_value;
     } // end func getValue
@@ -134,9 +134,9 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setWrap($wrap)
+    public function setWrap($wrap)
     {
-        $this->updateAttributes(array('wrap' => $wrap));
+        $this->updateAttributes(['wrap' => $wrap]);
     } //end func setWrap
 
     // }}}
@@ -150,9 +150,9 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setRows($rows)
+    public function setRows($rows)
     {
-        $this->updateAttributes(array('rows' => $rows));
+        $this->updateAttributes(['rows' => $rows]);
     } //end func setRows
 
     // }}}
@@ -166,9 +166,9 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
      * @access    public
      * @return    void
      */
-    function setCols($cols)
+    public function setCols($cols)
     {
-        $this->updateAttributes(array('cols' => $cols));
+        $this->updateAttributes(['cols' => $cols]);
     } //end func setCols
 
     // }}}
@@ -281,6 +281,4 @@ class HTML_QuickForm_textarea extends HTML_QuickForm_element
                 break;
         }
     }
-
-
 }

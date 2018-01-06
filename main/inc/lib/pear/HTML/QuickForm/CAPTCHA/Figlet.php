@@ -62,13 +62,13 @@ class HTML_QuickForm_CAPTCHA_Figlet extends HTML_QuickForm_CAPTCHA
      * @var    array
      * @access protected
      */
-    var $_options = array(
+    public $_options = [
             'sessionVar'    => '_HTML_QuickForm_CAPTCHA',
             'output'        => 'html',
             'width'         => 200,
             'length'        => 6,
             'phrase'        => null,
-            );
+            ];
 
     /**
      * CAPTCHA driver
@@ -76,7 +76,7 @@ class HTML_QuickForm_CAPTCHA_Figlet extends HTML_QuickForm_CAPTCHA
      * @var    string
      * @access protected
      */
-    var $_CAPTCHA_driver = 'Figlet';
+    public $_CAPTCHA_driver = 'Figlet';
 
 
     /**
@@ -88,7 +88,7 @@ class HTML_QuickForm_CAPTCHA_Figlet extends HTML_QuickForm_CAPTCHA
      * @access public
      * @return string
      */
-    function toHtml()
+    public function toHtml()
     {
         $result = $this->_initCAPTCHA();
         if (PEAR::isError($result)) {

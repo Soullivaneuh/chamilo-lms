@@ -10,7 +10,8 @@
  * @package Text_Diff
  * @author  Geoffrey T. Dairiki <dairiki@dairiki.org>
  */
-class Text_Diff_Mapped extends Text_Diff {
+class Text_Diff_Mapped extends Text_Diff
+{
 
     /**
      * Computes a diff between sequences of strings.
@@ -28,9 +29,12 @@ class Text_Diff_Mapped extends Text_Diff {
      * @param array $mapped_to_lines    This array should have the same number
      *                                  of elements as $to_lines.
      */
-    function Text_Diff_Mapped($from_lines, $to_lines,
-                              $mapped_from_lines, $mapped_to_lines)
-    {
+    public function Text_Diff_Mapped(
+        $from_lines,
+        $to_lines,
+                              $mapped_from_lines,
+        $mapped_to_lines
+    ) {
         assert(count($from_lines) == count($mapped_from_lines));
         assert(count($to_lines) == count($mapped_to_lines));
 
@@ -51,5 +55,4 @@ class Text_Diff_Mapped extends Text_Diff {
             }
         }
     }
-
 }

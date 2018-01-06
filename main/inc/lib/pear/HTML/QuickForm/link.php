@@ -42,7 +42,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @since     1.0
      * @access    private
      */
-    var $_text = "";
+    public $_text = "";
 
     // }}}
     // {{{ constructor
@@ -81,9 +81,9 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    void
      * @throws
      */
-    function setName($name)
+    public function setName($name)
     {
-        $this->updateAttributes(array('name'=>$name));
+        $this->updateAttributes(['name'=>$name]);
     } //end func setName
 
     // }}}
@@ -97,7 +97,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    string
      * @throws
      */
-    function getName()
+    public function getName()
     {
         return $this->getAttribute('name');
     } //end func getName
@@ -114,7 +114,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    void
      * @throws
      */
-    function setValue($value)
+    public function setValue($value)
     {
         return;
     } //end func setValue
@@ -130,7 +130,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    void
      * @throws
      */
-    function getValue()
+    public function getValue()
     {
         return;
     } // end func getValue
@@ -148,9 +148,9 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    void
      * @throws
      */
-    function setHref($href)
+    public function setHref($href)
     {
-        $this->updateAttributes(array('href'=>$href));
+        $this->updateAttributes(['href'=>$href]);
     } // end func setHref
 
     // }}}
@@ -164,7 +164,7 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    string
      * @throws
      */
-    function toHtml()
+    public function toHtml()
     {
         $tabs = $this->_getTabs();
         $html = "$tabs<a".$this->_getAttrString($this->_attributes).">";
@@ -184,12 +184,10 @@ class HTML_QuickForm_link extends HTML_QuickForm_static
      * @return    string
      * @throws
      */
-    function getFrozenHtml()
+    public function getFrozenHtml()
     {
         return;
     } //end func getFrozenHtml
 
     // }}}
-
 } //end class HTML_QuickForm_textarea
-?>

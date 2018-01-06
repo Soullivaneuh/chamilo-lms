@@ -1,8 +1,8 @@
 <?php
 // $Id: xc9.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('jun', 'junj', 'junh', 'jud', 'jul', 'julg', 'julm', 'julb', 'juls', 'jult', 'julp', 'julh', 'jum', 'jub', 'jubs', 'jus',
+return [
+  'en' => ['jun', 'junj', 'junh', 'jud', 'jul', 'julg', 'julm', 'julb', 'juls', 'jult', 'julp', 'julh', 'jum', 'jub', 'jubs', 'jus',
     'juss', 'jung', 'juj', 'juc', 'juk', 'jut', 'jup', 'juh', 'jweo', 'jweog', 'jweogg', 'jweogs', 'jweon', 'jweonj', 'jweonh', 'jweod',
     'jweol', 'jweolg', 'jweolm', 'jweolb', 'jweols', 'jweolt', 'jweolp', 'jweolh', 'jweom', 'jweob', 'jweobs', 'jweos', 'jweoss', 'jweong', 'jweoj', 'jweoc',
     'jweok', 'jweot', 'jweop', 'jweoh', 'jwe', 'jweg', 'jwegg', 'jwegs', 'jwen', 'jwenj', 'jwenh', 'jwed', 'jwel', 'jwelg', 'jwelm', 'jwelb',
@@ -17,5 +17,5 @@ return array(
     'ji', 'jig', 'jigg', 'jigs', 'jin', 'jinj', 'jinh', 'jid', 'jil', 'jilg', 'jilm', 'jilb', 'jils', 'jilt', 'jilp', 'jilh',
     'jim', 'jib', 'jibs', 'jis', 'jiss', 'jing', 'jij', 'jic', 'jik', 'jit', 'jip', 'jih', 'jja', 'jjag', 'jjagg', 'jjags',
     'jjan', 'jjanj', 'jjanh', 'jjad', 'jjal', 'jjalg', 'jjalm', 'jjalb', 'jjals', 'jjalt', 'jjalp', 'jjalh', 'jjam', 'jjab', 'jjabs', 'jjas',
-    'jjass', 'jjang', 'jjaj', 'jjac', 'jjak', 'jjat', 'jjap', 'jjah', 'jjae', 'jjaeg', 'jjaegg', 'jjaegs', 'jjaen', 'jjaenj', 'jjaenh', 'jjaed'),
-);
+    'jjass', 'jjang', 'jjaj', 'jjac', 'jjak', 'jjat', 'jjap', 'jjah', 'jjae', 'jjaeg', 'jjaegg', 'jjaegs', 'jjaen', 'jjaenj', 'jjaenh', 'jjaed'],
+];

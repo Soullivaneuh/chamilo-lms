@@ -1,8 +1,8 @@
 <?php
 // $Id: xd2.php,v 1.1.8.1 2008/06/12 20:34:32 smk Exp $
 
-return array(
-  'en' => array('toels', 'toelt', 'toelp', 'toelh', 'toem', 'toeb', 'toebs', 'toes', 'toess', 'toeng', 'toej', 'toec', 'toek', 'toet', 'toep', 'toeh',
+return [
+  'en' => ['toels', 'toelt', 'toelp', 'toelh', 'toem', 'toeb', 'toebs', 'toes', 'toess', 'toeng', 'toej', 'toec', 'toek', 'toet', 'toep', 'toeh',
     'tyo', 'tyog', 'tyogg', 'tyogs', 'tyon', 'tyonj', 'tyonh', 'tyod', 'tyol', 'tyolg', 'tyolm', 'tyolb', 'tyols', 'tyolt', 'tyolp', 'tyolh',
     'tyom', 'tyob', 'tyobs', 'tyos', 'tyoss', 'tyong', 'tyoj', 'tyoc', 'tyok', 'tyot', 'tyop', 'tyoh', 'tu', 'tug', 'tugg', 'tugs',
     'tun', 'tunj', 'tunh', 'tud', 'tul', 'tulg', 'tulm', 'tulb', 'tuls', 'tult', 'tulp', 'tulh', 'tum', 'tub', 'tubs', 'tus',
@@ -17,5 +17,5 @@ return array(
     'teul', 'teulg', 'teulm', 'teulb', 'teuls', 'teult', 'teulp', 'teulh', 'teum', 'teub', 'teubs', 'teus', 'teuss', 'teung', 'teuj', 'teuc',
     'teuk', 'teut', 'teup', 'teuh', 'tyi', 'tyig', 'tyigg', 'tyigs', 'tyin', 'tyinj', 'tyinh', 'tyid', 'tyil', 'tyilg', 'tyilm', 'tyilb',
     'tyils', 'tyilt', 'tyilp', 'tyilh', 'tyim', 'tyib', 'tyibs', 'tyis', 'tyiss', 'tying', 'tyij', 'tyic', 'tyik', 'tyit', 'tyip', 'tyih',
-    'ti', 'tig', 'tigg', 'tigs', 'tin', 'tinj', 'tinh', 'tid', 'til', 'tilg', 'tilm', 'tilb', 'tils', 'tilt', 'tilp', 'tilh'),
-);
+    'ti', 'tig', 'tigg', 'tigs', 'tin', 'tinj', 'tinh', 'tid', 'til', 'tilg', 'tilm', 'tilb', 'tils', 'tilt', 'tilp', 'tilh'],
+];

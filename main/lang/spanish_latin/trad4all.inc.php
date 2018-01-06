@@ -2429,4 +2429,3 @@ $InvitationReceived = "Invitación recibida";
 $InvitationSent = "Invitación envida";
 $YouAlreadySentAnInvitation = "Ud. ya ha enviado una invitación";
 $LowerCaseUser = "usuario";
-?>
